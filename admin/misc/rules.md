@@ -1,5 +1,16 @@
 # CSE 110 Group 27 Team Working Agreement
 
+> ### Table of Contents
+> 
+- [**Group Identification**](#group-identification)
+- [**Team Members' Contact Information**](#team-members-contact-information)
+- [**Communication Rules**](#communication-rules)
+- [**Team Meeting Rules**](#team-meeting-rules)
+- [**General Responsibilities**](#general-responsibilities)
+- [**Specific Responsibilities**](#specific-responsibilities)
+- [**Conflict Resolution**](#conflict-resolution)
+- [**Expectations of T.A.s and Staff**](#expectations-of-tas-and-staff)
+
 > ### Group Identification
 
 - Team: Sleep Deprived 
@@ -21,11 +32,11 @@
 | Micheal Phung              | mphung@ucsd.edu   | (818) 966-9109 |
 | Shuo Wang                  | shw048@ucsd.edu   | (626) 714-9865 |
 
-> ### Communication
+> ### Communication Rules
 
 All members will be expected to read Slack messages daily and emails at least once a day by 11PM. If a message is urgent and a team member has not responded, a Team Lead should reach out to that individual via phone or direct message. Team members are expected to respond in not more than 12 hours. 
 
-> ### Team Meetings
+> ### Team Meeting Rules
 
 Team agrees to meet weekly on Wednesdays from 6PM-7PM after class at Geisel Library. Team agrees to schedule at most two additional meetings at an at needs basis. If a team member cannot attend, they are expected to notify the team via slack at least 24 hours in advance. The team member is also responsible for catching up on information missed (e.g. looking at meeting minutes). 
 
@@ -48,5 +59,5 @@ The team will have designated roles they are expected to fulfill. Each role will
 > ### Conflict Resolution
 If a conflict arises, team members agree to communicate with the Problem Mediator to resolve any situations or concerns. If a team member is uncomfortable with communicating with the Problem Mediator they may contact any Team Leads. If a team member fails to meet deadlines the team agrees to give each member 2 warnings before informing the TA. In the case where a team member is not present, the team agrees to split their work. 
 
-> ### Expectations of TA’s and Staff
+> ### Expectations of T.A.s and Staff
 If a team member fails to live up to this agreement, the situation may be reported to the CSE 110 teaching staff, but the team will still be responsible for submitting a completed assignment.
