@@ -41,9 +41,9 @@ The following are rules that all team members agree to live by:
 
 The team will have designated roles they are expected to fulfill. Each role will have certain responsibilities to uphold. Roles can change based on team preferences and needs during meetings. The following roles will be vital to the success of our team:
 1. Team Lead - In charge of leading the team and discussing the general plan of the project. Is responsible for making sure everything is moving smoothly. Also responsible for planning the content of meetings and notifying Note Takers of the agenda. Team leads are expected to report the team’s projects and plans in a timely and respectful manner. 
-2. Note Taker - In charge of recording meeting minutes and potential audio/video recording meetings if necessary 
-Problem Mediator - In charge of taking care of any personal problems in the group to promote psychological safety. 
-3. Planner - If possible, Planner can book a study room at the library for the meeting. Planner is also responsible for coordinating meeting times with team leads and sharing the plans with the rest of the team. 
+2. Note Taker - In charge of recording meeting minutes and potential audio/video recording meetings if necessary.
+3. Problem Mediator - In charge of taking care of any personal problems in the group to promote psychological safety. 
+4. Planner - If possible, Planner can book a study room at the library for the meeting. Planner is also responsible for coordinating meeting times with team leads and sharing the plans with the rest of the team. 
 
 > ### Conflict Resolution
 If a conflict arises, team members agree to communicate with the Problem Mediator to resolve any situations or concerns. If a team member is uncomfortable with communicating with the Problem Mediator they may contact any Team Leads. If a team member fails to meet deadlines the team agrees to give each member 2 warnings before informing the TA. In the case where a team member is not present, the team agrees to split their work. 
