@@ -21,27 +21,24 @@ Here at **Team Sleep Deprived**, we strive to
 <p align="center">
   <img alt="Anthony Chen" style="float: left;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
 </p> 
-
+Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
 <br>
 
-### <span style="font-family:Arial; font-size:1.25em;">**Michael Phung** - [Github](https://github.com/klm4life)</span>
-<br>
-<picture>
+### **Michael Phung** - [Github](https://github.com/klm4life)
+<p align="center">
   <img alt="Michael Phung" style="float: right;" src="branding/profile-pictures/pfp-michaelphung.jpg" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Hello. My name is Michael Phung and I am a 4th year student studying Mathematics - Computer Science. My main hobbies include games, volleyball, and chess. An interesting fact about me is that I am left-handed but I write with my right hand.</span>
-
+</p> 
+Hello. My name is Michael Phung and I am a 4th year student studying Mathematics - Computer Science. My main hobbies include games, volleyball, and chess. An interesting fact about me is that I am left-handed but I write with my right hand.
 <br>
 
-### <span style="font-family:Arial; font-size:1.25em;">**Andrew Lu** - [Github](https://github.com/landrewu)</span>
+### **Andrew Lu** - [Github](https://github.com/landrewu)
 <br>
 
-<picture>
+<p align="center">
   <img alt="Andrew Lu" style="float: right;" src="branding/profile-pictures/pfp-andrewlu.jpg" height=175 width=175> 
-</picture> 
+</p> 
 
-<span style="font-family:Arial; font-size:1.5em;">I'm Andrew Lu, a third year Computer Engineering Major in ERC born and raised in SoCal. My favorite hobbies, by far, are eating and sleeping. Looking forward to becoming a better software engineer this quarter.</span>
+I'm Andrew Lu, a third year Computer Engineering Major in ERC born and raised in SoCal. My favorite hobbies, by far, are eating and sleeping. Looking forward to becoming a better software engineer this quarter.
 
 <br><br><br><br><br><br>
 
