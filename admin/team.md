@@ -18,11 +18,9 @@ Here at **Team Sleep Deprived**, we strive to
 ## <ins>**Meet the Team**</ins>
 
 ### **Anthony Chen** - [Github](https://github.com/achen200)
-<p>
-  Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
-  <img alt="Anthony Chen" style="float: right;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
+<p align="center">
+  <img alt="Anthony Chen" style="float: left;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
 </p> 
-
 
 <br>
 
@@ -34,7 +32,7 @@ Here at **Team Sleep Deprived**, we strive to
 
 <span style="font-family:Arial; font-size:1.5em;">Hello. My name is Michael Phung and I am a 4th year student studying Mathematics - Computer Science. My main hobbies include games, volleyball, and chess. An interesting fact about me is that I am left-handed but I write with my right hand.</span>
 
-<br><br><br><br>
+<br>
 
 ### <span style="font-family:Arial; font-size:1.25em;">**Andrew Lu** - [Github](https://github.com/landrewu)</span>
 <br>
