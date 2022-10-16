@@ -1,10 +1,10 @@
 # **<span style="font-family:Arial">Team Sleep Deprived Group Page</span>**
 
 <picture>
-  <img alt="Team Logo" style="float: right;" src="branding/team-logo.png" height=150 width=150>
-  <p>Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below, you will find each a brief description of our team values and a short bit of information about each teammate.</p> 
+  <img alt="Team Logo" style="float: right;" src="branding/team-logo.png" width=500 height=500>
 </picture> 
 
+<span style="font-family:Arial; font-size:1.5em; right">Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below, you will find each a brief description of our team values and a short bit of information about each teammate.</span>
 
 
 <br><br><br><br><br>
