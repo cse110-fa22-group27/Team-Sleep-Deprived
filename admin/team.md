@@ -8,17 +8,14 @@
 
 <br>
 
-## <span style="font-size:1.75em"><ins>**Team Values and Mission**</ins></span>
+## <ins>**Team Values and Mission**</ins>
 
-<br>
-TODO!
+Here at **Team Sleep Deprived**, we strive to  
 
 <br>
 
 
 ## <span style="font-size:1.75em"><ins>**Meet the Team**</ins></span>
-
-<br>
 
 ### <span style="font-family:Arial; font-size:1.25em;">**Anthony Chen** - [Github](https://github.com/achen200)</span>
 <br>
