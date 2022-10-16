@@ -3,16 +3,17 @@
 <p align="center">
   <img alt="Team Logo" src="branding/team-logo.png" width=500 height=500>
 </p>
-
 Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below you will find a brief description of our team brand and values and a short bit of information about each teammate.
-
 <br>
 
-## <ins>**Team Values, Brand, and Mission**</ins>
+## <ins>**Team Values and Mission**</ins>
 
 Here at **Team Sleep Deprived**, we strive to  
-
 <br>
+
+
+## <ins>**Team Brand**</ins>
+**Team Sleep Deprived** is 
 
 
 ## <ins>**Meet the Team**</ins>
@@ -23,7 +24,7 @@ Here at **Team Sleep Deprived**, we strive to
 <p align="center">
   <img alt="Anthony Chen" style="float: left;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
 </p> 
-Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
+Hi my name is Anthony and I'm a third year computer science student who enjoys playing soccer, volleyball, and violin. I dislike middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past myself.
 <br>
 
 
@@ -86,7 +87,7 @@ Hi my name is Shuo Wang, a computer science major student at UCSD. I love waterc
 <p align="center">
   <img alt="Abigail Koornwinder" style="float: right;" src="branding/profile-pictures/pfp-abigailkoornwinder.jpg" height=175 width=175> 
 </p> 
-Abigail Koornwinder is a fourth year studying Cognitive Science Machine Learning and Neural Computation, and minoring in Computer Science. She is from Santa Clara, CA and enjoys swimming and reading by the beach.
+Hi I'm Abigail Koornwinder and I'm a fourth year studying Cognitive Science Machine Learning and Neural Computation, and minoring in Computer Science. I am from Santa Clara, CA and I enjoy swimming and reading by the beach.
 <br>
 
 
@@ -95,7 +96,7 @@ Abigail Koornwinder is a fourth year studying Cognitive Science Machine Learning
 <p align="center">
   <img alt="Ashwin Alagiri-Rajan" style="float: right;" src="branding/profile-pictures/pfp-ashwinalagiri.jpg" height=175 width=175> 
 </p>
-I’m a Junior year Computer Engineering student. I’m an international student from Qatar! I’ll be the team lead for Team Sleep Deprived (Team 27).
+I’m a Junior Computer Engineering student. I’m an international student from Qatar! I’ll be the team lead for Team Sleep Deprived (Team 27).
 <br>
 
 
@@ -104,7 +105,7 @@ I’m a Junior year Computer Engineering student. I’m an international student
 <p align="center">
   <img alt="Jacob Graven" style="float: right;" src="branding/profile-pictures/pfp-jacobgraven.jpg" height=175 width=175> 
 </p> 
-Hello my name is Jacob (Jake) Graven. I was born and raised in San Diego and I am currently a third year computer science major at UCSD. I enjoy rock climbing, biking, and I absolutely love cats.
+Hello my name is Jacob (Jake) Graven. I was born and raised in San Diego and I am currently a third year computer science major at UCSD. I enjoy rock climbing and biking and I absolutely love cats.
 <br>
 
 
