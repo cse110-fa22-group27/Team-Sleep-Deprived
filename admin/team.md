@@ -17,12 +17,16 @@ Here at **Team Sleep Deprived**, we strive to
 
 ## <ins>**Meet the Team**</ins>
 
+
+
 ### **Anthony Chen** - [Github](https://github.com/achen200)
 <p align="center">
   <img alt="Anthony Chen" style="float: left;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
 </p> 
 Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
 <br>
+
+
 
 ### **Michael Phung** - [Github](https://github.com/klm4life)
 <p align="center">
@@ -31,92 +35,78 @@ Anthony is a third year computer science student who enjoys playing soccer, voll
 Hello. My name is Michael Phung and I am a 4th year student studying Mathematics - Computer Science. My main hobbies include games, volleyball, and chess. An interesting fact about me is that I am left-handed but I write with my right hand.
 <br>
 
-### **Andrew Lu** - [Github](https://github.com/landrewu)
-<br>
 
+
+### **Andrew Lu** - [Github](https://github.com/landrewu)
 <p align="center">
   <img alt="Andrew Lu" style="float: right;" src="branding/profile-pictures/pfp-andrewlu.jpg" height=175 width=175> 
 </p> 
-
 I'm Andrew Lu, a third year Computer Engineering Major in ERC born and raised in SoCal. My favorite hobbies, by far, are eating and sleeping. Looking forward to becoming a better software engineer this quarter.
-
-<br><br><br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Andrew Nguyen** - [Github](https://github.com/3ndrew123)</span>
 <br>
 
-<picture>
+
+
+### **Andrew Nguyen** - [Github](https://github.com/3ndrew123)
+<p align="center">
   <img alt="Andrew Nguyen" style="float: right;" src="branding/profile-pictures/pfp-andrewnguyen.jpg" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Hello, my name is Andrew Nguyen and I am a 3rd year Computer Science Major from Sixth College! I am in group 27 Team Sleep Deprived and I hope to create a successful and memorable project with my team. Some things I like to do in my free time is swim, build keyboards, and read manga!</span>
-
-<br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Javier Zuniga** - [Github](https://github.com/j3delacr)</span>
+</p> 
+Hello, my name is Andrew Nguyen and I am a 3rd year Computer Science Major from Sixth College! I am in group 27 Team Sleep Deprived and I hope to create a successful and memorable project with my team. Some things I like to do in my free time is swim, build keyboards, and read manga!
 <br>
 
-<picture>
+
+
+### **Javier Zuniga** - [Github](https://github.com/j3delacr)
+<p align="center">
   <img alt="Javier Zunga" style="float: right;" src="branding/profile-pictures/pfp-javierzuniga.png" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Hello, my name is Andrew Nguyen and I am a 3rd year Computer Science Major from Sixth College! I am in group 27 Team Sleep Deprived and I hope to create a successful and memorable project with my team. Some things I like to do in my free time is swim, build keyboards, and read manga!</span>
-
-<br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Kevin Chang** - [Github](https://github.com/kc092444)</span>
+</p> 
+Hello, my name is Javier and I am a Computer Science Major from San Diego/Tijuana! I am interested in the fields of immigration, research, artificial intelligence, game design, and education. My favorite coding language is C++ and I love going to concerts, festivals, raves, and anything music related.
 <br>
 
-<picture>
+
+
+### **Kevin Chang** - [Github](https://github.com/kc092444)
+<p align="center">
   <img alt="Kevin Chang" style="float: right;" src="branding/profile-pictures/pfp-kevinchang.jpg" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Hi! I am Kevin Chang. I am a senior majoring in Computer Engineering. One of my favorite things is road trip! I enjoy the feeling when driving the car which makes me feel that I am connected to the land. (ik It sounds pretty weird haha)</span>
-
-<br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Shuo Wang** - [Github](https://github.com/Oooleaf)</span>
+</p> 
+Hi! I am Kevin Chang. I am a senior majoring in Computer Engineering. One of my favorite things is road trips! I enjoy the feeling when driving the car which makes me feel that I am connected to the land (I know It sounds pretty weird haha).
 <br>
 
-<picture>
+
+
+### **Shuo Wang** - [Github](https://github.com/Oooleaf)
+<p align="center">
   <img alt="Shuo Wang" style="float: right;" src="branding/profile-pictures/pfp-shuowang.png" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Hi my name is Shuo Wang, a computer science major student at UCSD. I love watercolor and I paint a lot. </span>
-
-<br><br><br><br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Abigail Koornwinder** - [Github](https://github.com/akoornwinder4)</span>
+</p> 
+Hi my name is Shuo Wang, a computer science major student at UCSD. I love watercolor and I paint a lot.
 <br>
 
-<picture>
+
+
+### **Abigail Koornwinder** - [Github](https://github.com/akoornwinder4)
+<p align="center">
   <img alt="Abigail Koornwinder" style="float: right;" src="branding/profile-pictures/pfp-abigailkoornwinder.jpg" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Abigail Koornwinder is a fourth year studying Cognitive Science Machine Learning and Neural Computation, and minoring in Computer Science. She is from Santa Clara, CA and enjoys swimming and reading by the beach. </span>
-
-<br><br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Ashwin Alagiri-rajan** - [Github](https://github.com/aashwinr)</span>
+</p> 
+Abigail Koornwinder is a fourth year studying Cognitive Science Machine Learning and Neural Computation, and minoring in Computer Science. She is from Santa Clara, CA and enjoys swimming and reading by the beach.
 <br>
 
-<picture>
-  <img alt="Ashwin Alagiri-rajan" style="float: right;" src="branding/profile-pictures/pfp-ashwinalagiri.jpg" height=175 width=175> 
-</picture> 
 
-<span style="font-family:Arial; font-size:1.5em;">I’m a Junior year Computer Engineering student. I’m an international student
-from Qatar! I’ll be the team lead for Team Sleep Deprived (Team 27).</span>
 
-<br><br><br><br><br><br>
-
-### <span style="font-family:Arial; font-size:1.25em;">**Jacob Graven** - [Github](https://github.com/jacobgraven)</span>
+### **Ashwin Alagiri-Rajan** - [Github](https://github.com/aashwinr)
+<p align="center">
+  <img alt="Ashwin Alagiri-Rajan" style="float: right;" src="branding/profile-pictures/pfp-ashwinalagiri.jpg" height=175 width=175> 
+</p>
+I’m a Junior year Computer Engineering student. I’m an international student from Qatar! I’ll be the team lead for Team Sleep Deprived (Team 27).
 <br>
 
-<picture>
-  <img alt="Ashwin Alagiri-rajan" style="float: right;" src="branding/profile-pictures/pfp-jacobgraven.jpg" height=175 width=175> 
-</picture> 
 
-<span style="font-family:Arial; font-size:1.5em;">Hello my name is Jacob (Jake) Graven. I'm a third year computer science major at UCSD and I absolutely love cats.</span>
+
+### **Jacob Graven** - [Github](https://github.com/jacobgraven)
+<p align="center">
+  <img alt="Jacob Graven" style="float: right;" src="branding/profile-pictures/pfp-jacobgraven.jpg" height=175 width=175> 
+</p> 
+Hello my name is Jacob (Jake) Graven. I was born and raised in San Diego and I am currently a third year computer science major at UCSD. I enjoy rock climbing, biking, and I absolutely love cats.
+<br>
+
 
 
 
