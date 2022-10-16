@@ -15,15 +15,14 @@ Here at **Team Sleep Deprived**, we strive to
 <br>
 
 
-## <span style="font-size:1.75em"><ins>**Meet the Team**</ins></span>
+## <ins>**Meet the Team**</ins>
 
-### <span style="font-family:Arial; font-size:1.25em;">**Anthony Chen** - [Github](https://github.com/achen200)</span>
+### <**Anthony Chen** - [Github](https://github.com/achen200)
 <br>
-<picture>
+<p>
   <img alt="Anthony Chen" style="float: right;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
-</picture> 
-
-<span style="font-family:Arial; font-size:1.5em;">Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all <br>three in the past, himself.</span>
+</p> 
+Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
 
 <br><br><br><br>
 
