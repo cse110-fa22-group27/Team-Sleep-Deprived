@@ -17,12 +17,12 @@ Here at **Team Sleep Deprived**, we strive to
 
 ## <ins>**Meet the Team**</ins>
 
-### <**Anthony Chen** - [Github](https://github.com/achen200)
-<br>
+### **Anthony Chen** - [Github](https://github.com/achen200)
 <p>
   <img alt="Anthony Chen" style="float: right;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
+  Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
 </p> 
-Anthony is a third year computer science student who enjoys playing soccer, volleyball, and violin. He dislikes middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past, himself.
+
 
 <br><br><br><br>
 
