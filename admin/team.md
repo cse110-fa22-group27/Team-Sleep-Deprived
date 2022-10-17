@@ -7,13 +7,18 @@
 Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below you will find a brief description of our team brand and values and a short bit of information about each teammate.
 <br>
 
+
+
+## <ins>**Team Brand**</ins>
+Our team is currently still in the process of figuring out certain parts of our brand, but we do have some characteristic designs. We clearly have our team logo done and we decorate our software with typical evening/sleepy colors.
+<br>
+
+
+
 ## <ins>**Team Values and Mission**</ins>
 
 Here at **Team Sleep Deprived**, we strive to make clean and effective software that helps make life easier.  In software, we value simplicity, effectiveness, and ingenuity. Within our team, we value strong communication, psychological safety, and fun. Our mission this quarter is to create an information management CRUD app. Hopefully our app can prove to be an effective and good piece of software.
 
-
-## <ins>**Team Brand**</ins>
-**Team Sleep Deprived** is 
 
 
 ## <ins>**Meet the Team**</ins>
