@@ -10,7 +10,7 @@ Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived
 
 
 ## <ins>**Team Brand**</ins>
-Our team is currently still in the process of figuring the complete picture of our brand, but we do have some characteristic designs. Our team logo is done and we plan to decorate our software with colors that remind people of the sleep and the night. I (Jake) also like the idea of using cats as a sort of brand mascot :smiley_cat:
+Our team is currently still in the process of figuring the complete picture of our brand, but we do have some characteristic designs. Our team logo is done and we plan to decorate our software with colors that remind people of the sleep and the night (dark blue/purple colors, for example). I (Jake) also like the idea of using cats as a sort of brand mascot :smiley_cat:
 <br>
 
 
