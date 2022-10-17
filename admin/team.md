@@ -4,13 +4,13 @@
   <img alt="Team Logo" src="branding/team-logo.png" width=500 height=500>
 </p>
 
-Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below you will find a brief description of our team brand and values and a short bit of information about each teammate.
+Welcome to the **Team Sleep Deprived** Group Page! Here at **Team Sleep Deprived**, we believe in creating quality software that won't keep you up all night. Our developers work endlessly to ruin their sleep schedules so you don't have to ruin your own! Below you will find a brief description of our team brand and values as well as a short bit of information about each teammate.
 <br>
 
 
 
 ## <ins>**Team Brand**</ins>
-Our team is currently still in the process of figuring out certain parts of our brand, but we do have some characteristic designs. We clearly have our team logo done and we decorate our software with typical evening/sleepy colors.
+Our team is currently still in the process of figuring the complete picture of our brand, but we do have some characteristic designs. Our team logo is done and we plan to decorate our software with colors that remind people of the sleep and the night. I (Jake) also like the idea of cat branding :smiley_cat:
 <br>
 
 
