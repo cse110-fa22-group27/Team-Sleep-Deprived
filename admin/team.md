@@ -30,7 +30,7 @@ Here at **Team Sleep Deprived**, we strive to make clean and effective software 
   <img alt="Anthony Chen" style="float: left;" src="branding/profile-pictures/pfp-anthonychen.jpg" height=175 width=175> 
 </p>
 
-Hi my name is Anthony and I'm a third year computer science student who enjoys playing soccer, volleyball, and violin. I dislike middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past myself.
+My name is Anthony and I'm a third year computer science student who enjoys playing soccer, volleyball, and violin. I dislike middles in volleyball, left-backs in soccer, and violists in orchestra despite having been all three in the past myself.
 <br><br>
 
 
@@ -80,7 +80,7 @@ Hello, my name is Javier and I am a Computer Science Major from San Diego/Tijuan
   <img alt="Kevin Chang" style="float: right;" src="branding/profile-pictures/pfp-kevinchang.jpg" height=175 width=175> 
 </p> 
 
-Hi! I am Kevin Chang. I am a senior majoring in Computer Engineering. One of my favorite things is road trips! I enjoy the feeling when driving the car which makes me feel that I am connected to the land (I know It sounds pretty weird haha).
+Hi! I am Kevin Chang. I am a senior majoring in Computer Engineering. One of my favorite things is road trips! I enjoy the feeling when driving the car which makes me feel that I am connected to the land (I know it sounds pretty weird haha).
 <br><br>
 
 
