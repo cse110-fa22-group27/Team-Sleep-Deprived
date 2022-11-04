@@ -1,4 +1,3 @@
-# This is a workflow for frontend submissions
 name: CI
 on:
   push:
@@ -11,7 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout to main repo
+        uses: actions/checkout@v3
       - name: Run ESLint
         run: |
           npm install eslint
-          npx eslint --ext .js /source/
+          npx eslint --ext .js source/
