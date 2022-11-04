@@ -16,4 +16,4 @@ jobs:
       - name: Run ESLint
         run: |
           npm install eslint
-          npx eslint --ext .js source/
+          npx eslint --ext .js ./source/
