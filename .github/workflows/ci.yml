@@ -1,3 +1,4 @@
+# CI Workflow for checking validity of code
 name: CI
 on:
   push:
