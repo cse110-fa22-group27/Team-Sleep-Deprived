@@ -1,0 +1,17 @@
+# This is a workflow for frontend submissions
+name: CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    types: [ opened ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ESLint
+        run: |
+          npm install eslint
+          npx eslint --ext .js source/
