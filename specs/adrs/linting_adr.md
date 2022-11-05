@@ -1,6 +1,5 @@
 # Tool to Use for code linting
 
-​
 
 - Status: 
 
@@ -8,30 +7,24 @@
 
 - Date: 2021-11-05
 
-​
 
 ## Context and Problem Statement
 
 ​
-
-How should we store user created content and preferences? Specifically, how should user and community recipes be stored and served?
-
+How should we lint, or check the syntax of our code?
 ​
 
 ## Decision Drivers
 
-​
 
 - Tool installation should be simple
 
 - Tool that we can use with our current tools/programming languages
 
-​
 
 ## Considered Options
 
 ​
-
 - CSSLint
 
 - StyleLint
@@ -47,37 +40,29 @@ How should we store user created content and preferences? Specifically, how shou
   - pro:
     - works with JavaScript
 
-​
 
 ## Decision Outcome
 
 ​
-
 Chosen option:
 
 ​
-
 ### Positive Consequences <!-- optional -->
 
-​
 
 - 
 
-​
 
 ### Negative Consequences <!-- optional -->
 
 ​
-
 - 
 
-​
 
 ## Pros and Cons of the Options <!-- optional -->
 
 
 ### CSSLint
-
 
 
 - pros:
@@ -88,12 +73,9 @@ Chosen option:
   - VS Code extensions is not fully supported
 ​
 
-​
-
 ### StyleLint
 
 ​
-
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
 
@@ -107,11 +89,8 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
   - doesnt work with JavaScript
 
 ​
-
-
 ### ESLint
 
-​
 
 A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
 
@@ -123,5 +102,4 @@ A pluggable and configurable linter tool for identifying and reporting on patter
   - doesnt work with CSS
 
 ​
-
 ## Links
