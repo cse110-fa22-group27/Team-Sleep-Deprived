@@ -65,6 +65,9 @@ Chosen option:
 ### CSSLint
 
 
+CSSLint is a tool to help point out problems with your CSS code. It does basic syntax checking as well as applying a set of rules to the code that look for problematic patterns or signs of inefficiency.
+
+
 - pros:
   - dont need installation, can use web application where you paste code
   - works with CSS
