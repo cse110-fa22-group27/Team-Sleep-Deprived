@@ -72,7 +72,7 @@ IndexedDB is a tool in the Databases category of a tech stack
 ### Local Drive
 
 - pros:
-  -Easy to access
+  - Easy to access
 - cons:
   - Takes more local storage
 
