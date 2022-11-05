@@ -28,18 +28,8 @@ How should we lint, or check the syntax of our code?
 - CSSLint
 
 - StyleLint
-  - pros:
-    - can be installed as a VS Code Extension
-    - default rules file can be downloaded
-    - works with CSS
-
-  - cons:
-    - only checks code, does not format
 
 - ESLint
-  - pro:
-    - works with JavaScript
-
 
 ## Decision Outcome
 
