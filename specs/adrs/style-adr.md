@@ -27,13 +27,12 @@ How should we style and structure our code so that our codebase is consistent an
 
 
 ## Decision Outcome
-​<center>
+
 **Chosen option: Human-Enforced Style Guidelines**
-</center>
 
 
 ### <ins>StyleLint</ins>
-​
+
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
 - pros:
