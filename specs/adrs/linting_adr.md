@@ -87,7 +87,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
   - default rules file can be downloaded
   - works with CSS
 
-  cons:
+- cons:
   - only checks code, does not format
   - doesnt work with JavaScript
 
