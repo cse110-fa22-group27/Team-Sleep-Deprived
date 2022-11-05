@@ -39,7 +39,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
   - can be installed as a VS Code Extension
   - default rules file can be downloaded
   - works with CSS
-<br>
+
 - cons:
   - only checks code, does not format
   - doesnt work with JavaScript
@@ -52,7 +52,7 @@ Human-Enforced Style Guidelines would be a team of people in the group responsib
 - pros:
   - easy to setup, can be used with no tech hassle
   - all languages can be handled by following list of guidelines
-<br>
+
 - cons:
   - not automated, may require a significant amount of work in some cases (note that this can be minimized by simplifying our style guidelines)
   - may lead to eventual human errors
