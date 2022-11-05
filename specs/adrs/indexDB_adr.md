@@ -69,5 +69,12 @@ IndexedDB is a tool in the Databases category of a tech stack
   - It is not a relational database
   - It is not a structured query language
 
+### Local Drive
+
+- pros:
+  -Easy to access
+- cons:
+  - Takes more local storage
+
 
 ## Links
