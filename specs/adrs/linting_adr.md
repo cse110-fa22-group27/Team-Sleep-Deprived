@@ -97,12 +97,11 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.
 
-​
+
 - pros:
   - works with JavaScript
   - VS Code Extension
 - cons:
   - doesnt work with CSS
 
-​
 ## Links
