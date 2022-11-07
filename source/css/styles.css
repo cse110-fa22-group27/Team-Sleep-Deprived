@@ -39,6 +39,7 @@ body {
     font-family: var(--default-body-font);
     background-color: var(--default-background-color);
     background-image: var(--default-background-image);
+    background-position: -3px -3px;
 }
 
 .page-header {
@@ -86,9 +87,18 @@ body {
     font-weight: var(--font-scaling-regular);
     color: black;
     text-decoration: none;
+    backdrop-filter: blur(10px);
+}
+
+.navbar > a:last-child {
+    border: none;
 }
 
 .navbar > a[--data-selected='true'] {
     font-weight: var(--font-scaling-semibold);
     background-color: gainsboro;
+}
+
+.navbar > a[--data-selected="false"]:hover {
+    background-color: #EEEEEE;
 }
