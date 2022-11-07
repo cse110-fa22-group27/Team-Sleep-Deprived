@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+:root {
+    --default-title-font: 'IBM Plex Sans', sans-serif;
+    --default-body-font: 'IBM Plex Sans', sans-serif;
+    --default-cash-font: 'IBM Plex Mono', monospace;
+    --default-background-color: #F6F9F2;
+    --default-background-image: url("../resources/images/background-image.svg");
+    --default-border-color: #D3D3D3;
+
+    /* Font scaling reference */
+    --font-scaling-thin: 100;
+    --font-scaling-light: 200;
+    --font-scaling-semilight: 300;
+    --font-scaling-regular: 400;
+    --font-scaling-medium: 500;
+    --font-scaling-semibold: 600;
+    --font-scaling-bold: 700;
+    --font-scaling-darker: 800;
+    --font-scaling-black: 900;
+
+    /* TODO: Change this border to none in the final release */
+    --temp-border-style: 1px solid black;
+    --temp-border-style: none;
+
+    --header-width: 75%;
+    --header-width-max: 1000px;
+
+    --logout-button-scaling: 0.6;
+}
+
+body {
+    font-family: var(--default-body-font);
+    background-color: var(--default-background-color);
+    background-image: var(--default-background-image);
+}
+
+.page-header {
+    width: var(--header-width);
+    max-width: var(--header-width-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: var(--temp-border-style);
+}
+
+.page-title {
+    font-weight: var(--font-scaling-semibold);
+    padding-top: 10px;
+    margin: 0;
+}
+
+.logout-button {
+    scale: var(--logout-button-scaling);
+    display: flex;
+    border: var(--temp-border-style);
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.navbar {
+    width: var(--header-width);
+    max-width: var(--header-width-max);
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+    border: 2px solid var(--default-border-color);
+    border-radius: 100px;
+}
+
+.navbar > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.1rem;
+    width: 100%;
+    font-weight: var(--font-scaling-regular);
+    color: black;
+    text-decoration: none;
+}
+
+.navbar > a[--data-selected='true'] {
+    font-weight: var(--font-scaling-semibold);
+    background-color: gainsboro;
+}
