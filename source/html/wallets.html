@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="../javascript/WalletInfo.js" defer type="module"></script>
+    <script src="../javascript/Wallet.js" defer></script>
     <link rel='stylesheet' href='../css/styles.css'>
-    <link rel="stylesheet" href="../css/wallet-styles.css">
+    <link rel='stylesheet' href='../css/wallet-styles.css'>
     <title>Wallets</title>
 </head>
 
@@ -16,49 +18,13 @@
         </button>
     </header>
     <nav class="navbar">
-        <a href="./dashboard.html" --data-selected="false">Dashboard</a>
-        <a href="#" --data-selected="true">Wallets</a>
-        <a href="./report.html" --data-selected="false">Report</a>
-        <a href="./settings.html" --data-selected="false">Settings</a>
+        <a href="./dashboard.html" data-selected="false">Dashboard</a>
+        <a href="#" data-selected="true">Wallets</a>
+        <a href="./report.html" data-selected="false">Report</a>
+        <a href="./settings.html" data-selected="false">Settings</a>
     </nav>
     <div id="wallets-grid-wrapper">
         <div id="wallets-grid">
-            <div class="glass-box wallet-item">
-                <h3 class="wallet-name">BoA Checking</h3>
-                <p class="wallet-amount">$00,000.00</p>
-                <p class="wallet-last-transaction" --data-transaction-type="negative">
-                    <strong class="wallet-last-transaction-name">Sample</strong>
-                    $0,000.00
-                </p>
-            </div>
-            <div class="glass-box wallet-item">
-                <h3 class="wallet-name">BoA Savings</h3>
-                <p class="wallet-amount">$00,000.00</p>
-                <p class="wallet-last-transaction"  --data-transaction-type="positive">
-                    <strong class="wallet-last-transaction-name">Sample</strong>
-                    $0,000.00
-                </p>
-            </div>
-            <div class="glass-box wallet-item">
-                <h3 class="wallet-name">Dining Dollars</h3>
-                <p class="wallet-amount">$00,000.00</p>
-                <p class="wallet-last-transaction" --data-transaction-type="negative">
-                    <strong class="wallet-last-transaction-name">Sample</strong>
-                    $0,000.00
-                </p>
-            </div>
-            <div class="glass-box wallet-item">
-                <h3 class="wallet-name">Triton Cash</h3>
-                <p class="wallet-amount">$00,000.00</p>
-                <p class="wallet-last-transaction" --data-transaction-type="negative">
-                    <strong class="wallet-last-transaction-name">Sample</strong>
-                    $0,000.00
-                </p>
-            </div>
-            <div class="glass-box wallet-item" id="add-new-wallet">
-                <h3 class="wallet-name">New Wallet</h3>
-                <img src="../resources/images/plus-icon.svg" alt="Add new wallet icon">
-            </div>
         </div>
     </div>
 </body>

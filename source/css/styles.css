@@ -83,9 +83,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2.1rem;
+    height: 2.4rem;
     width: 100%;
     font-weight: var(--font-scaling-regular);
+    font-size: large;
     color: black;
     text-decoration: none;
     backdrop-filter: blur(10px);
@@ -95,11 +96,11 @@ body {
     border: none;
 }
 
-.navbar > a[--data-selected='true'] {
+.navbar > a[data-selected='true'] {
     font-weight: var(--font-scaling-semibold);
     background-color: gainsboro;
 }
 
-.navbar > a[--data-selected="false"]:hover {
+.navbar > a[data-selected="false"]:hover {
     background-color: #EEEEEE;
 }

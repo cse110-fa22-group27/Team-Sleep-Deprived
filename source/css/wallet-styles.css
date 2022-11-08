@@ -24,7 +24,7 @@
     justify-content: center;
 }
 
-.wallet-item {
+.wallet-info {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -65,11 +65,11 @@
     margin: 0;
 }
 
-.wallet-last-transaction[--data-transaction-type="positive"] {
+.wallet-last-transaction[data-transaction-type="positive"] {
     color: var(--transaction-positive-color);
 }
 
-.wallet-last-transaction[--data-transaction-type="negative"] {
+.wallet-last-transaction[data-transaction-type="negative"] {
     color: var(--transaction-negative-color);
 }
 
