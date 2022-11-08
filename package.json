@@ -1,0 +1,22 @@
+{
+  "name": "expense-tracker-local",
+  "version": "1.0.0",
+  "description": "Project Repository for Team Sleep Deprived 😴",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achen200/Expense-Tracker-Local.git"
+  },
+  "author": "Anthony",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achen200/Expense-Tracker-Local/issues"
+  },
+  "homepage": "https://github.com/achen200/Expense-Tracker-Local#readme",
+  "devDependencies": {
+    "jest": "^29.3.0"
+  }
+}
