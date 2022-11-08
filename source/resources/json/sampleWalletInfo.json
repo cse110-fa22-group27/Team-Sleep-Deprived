@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Boa Checking",
+        "amount": 89767.90,
+        "lastTransaction": {
+            "name": "Buy Fruits",
+            "amount": 78.98,
+            "type": "positive"
+        }
+    },
+    {
+        "name": "Boa Saving",
+        "amount": 89767.90,
+        "lastTransaction": {
+            "name": "Buy Fruits",
+            "amount": 78.98,
+            "type": "negative"
+        }
+    },
+    {
+        "name": "Dining Dollars",
+        "amount": 89767.90,
+        "lastTransaction": {
+            "name": "Buy Fruits",
+            "amount": 78.98,
+            "type": "positive"
+        }
+    },
+    {
+        "name": "Triton Cash",
+        "amount": 89767.90,
+        "lastTransaction": {
+            "name": "Buy Fruits",
+            "amount": 78.98,
+            "type": "positive"
+        }
+    }
+]

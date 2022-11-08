@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../javascript/WalletInfo.js" defer type="module"></script>
+    <script src="../javascript/Wallet.js" defer></script>
+    <link rel='stylesheet' href='../css/styles.css'>
+    <link rel='stylesheet' href='../css/wallet-styles.css'>
+    <title>Wallets</title>
+</head>
+
+<body>
+    <header class="page-header" id="template-page-header">
+        <h1 class="page-title" id="template-page-title">Wallets</h1>
+        <button class="logout-button">
+            <img src="../resources/images/logout-button.svg" alt="Logout Button">
+        </button>
+    </header>
+    <nav class="navbar">
+        <a href="./dashboard.html" data-selected="false">Dashboard</a>
+        <a href="#" data-selected="true">Wallets</a>
+        <a href="./report.html" data-selected="false">Report</a>
+        <a href="./settings.html" data-selected="false">Settings</a>
+    </nav>
+    <div id="wallets-grid-wrapper">
+        <div id="wallets-grid">
+        </div>
+    </div>
+</body>
+
+</html>
