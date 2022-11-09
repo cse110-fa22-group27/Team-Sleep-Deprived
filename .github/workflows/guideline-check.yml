@@ -6,6 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Verify Template files
-#         uses: tj-actions/verify-changed-files@v12
+        uses: tj-actions/verify-changed-files@v12
         id: verify-changed-files
-        run: ls
+        with:
+          files: source/html/template.html source/css/styles.css
+      - if: steps.verify-changed-files.outputs.files_changed == 'true'
+        run: echo "Template files have been modified, validate this PR/Push iff it is for error correction" exit 1
+          
