@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel='stylesheet' href='../css/styles.css'>
+    <link rel='stylesheet' href='../css/dashboard.css'>
     <title>Dashboard</title>
 </head>
 
@@ -21,33 +22,46 @@
         <a href="./settings.html" data-selected="false">Settings</a>
     </nav>
 
-    <div id="add-transaction">
-        <h2>Add Transaction</h2>
-        <form>
-            <div id="amount">
-                <label for="input-amount">Amount</label><br>
-                <input type="text" id="input-amount" name="input-amount"  placeholder="Enter amount">
-            </div>
-            <div id="date">
-                <label for="input-date">Date</label><br>
-                <input type="date" id="input-date" name="input-date" required>
-            </div>
-            <div id="wallet">
-                <label for="wallet-select">Wallet</label><br>
-                <select id="wallet-select" name="wallet-select" required></select>
-            </div>
-            <div id="category">
-                <label for="category-select">Category</label><br>
-                <select id="category-select" name="category-select" required></select>
-            </div>
-            <div id="description">
-                <label for="desc-input">Description</label><br>
-                <input type="text" id="desc-input" name="desc-input">
-            </div>
-        </form>
-    </div>
+    <div class="flex-container">
+        <div id="add-transaction"  >
+            <h2>Add Transaction</h2>
+            <form>
+                <div id="amount">
+                    <label for="input-amount">Amount</label><br>
+                    <input type="text" id="input-amount" name="input-amount"  placeholder="Enter amount">
+                </div>
+                <div id="date">
+                    <label for="input-date">Date</label><br>
+                    <input type="date" id="input-date" name="input-date" required>
+                </div>
+                <div id="wallet">
+                    <label for="wallet-select">Wallet</label><br>
+                    <select id="wallet-select" name="wallet-select" required></select>
+                </div>
+                <div id="category">
+                    <label for="category-select">Category</label><br>
+                    <select id="category-select" name="category-select" required></select>
+                </div>
+                <div id="description">
+                    <label for="desc-input">Description</label><br>
+                    <input type="text" id="desc-input" name="desc-input">
+                </div>
+            </form>
+        </div>
 
-    
+        <div class = "recent-activity">
+            <h2>Recent Activity</h2>
+            <form>
+                <div id ="name" >
+                    <label for="transaction-name">Name</label><br>
+                </div>
+                <div id ="amount" >
+                    <label for="transaction-name">Amount $</label><br>
+                </div>
+            </form>
+
+        </div>
+    </div>
 
 </body>
 
