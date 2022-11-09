@@ -9,7 +9,10 @@ jobs:
         uses: tj-actions/verify-changed-files@v12
         id: verify-changed-files
         with:
-          files: source/html/template.html source/css/styles.css
-      - if: steps.verify-changed-files.outputs.files_changed == 'true'
+          files: |
+            ./source/html/template.html
+            ./source/css/styles.css
+      - name: Error if files changed
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: echo "Template files have been modified, validate this PR/Push iff it is for error correction" exit 1
           
