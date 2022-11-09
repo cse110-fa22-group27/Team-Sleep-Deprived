@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+:root {
+    --default-title-font: 'IBM Plex Sans', sans-serif;
+    --default-body-font: 'IBM Plex Sans', sans-serif;
+    --default-cash-font: 'Azeret Mono', monospace;
+    --default-background-color: #F6F9F2;
+    --default-background-image: url("../resources/images/background-image.svg");
+    --default-border-color: #D3D3D3;
+
+    /* Font scaling reference */
+    --font-scaling-thin: 100;
+    --font-scaling-light: 200;
+    --font-scaling-semilight: 300;
+    --font-scaling-regular: 400;
+    --font-scaling-medium: 500;
+    --font-scaling-semibold: 600;
+    --font-scaling-bold: 700;
+    --font-scaling-darker: 800;
+    --font-scaling-black: 900;
+
+    /* TODO: Change this border to none in the final release */
+    --temp-border-style: 1px solid black;
+    --temp-border-style: none;
+
+    --header-width: 75%;
+    --header-width-max: 1000px;
+
+    --logout-button-scaling: 0.6;
+}
+
+body {
+    font-family: var(--default-body-font);
+    background-color: var(--default-background-color);
+    background-image: var(--default-background-image);
+    background-position: -3px -3px;
+}
+
+a:link {
+     text-decoration: none; 
+}
+
+.txt {
+    font-weight: var(--font-scaling-regular);
+    font-size: x-large;
+}
+#login, #signup {
+    font-size: xxx-large;
+    font-weight: bold;
+}
+
+#title {
+    margin-top:7%;
+    margin-left: 7%;
+    margin-bottom: 3%;
+}
+
+.inputsec {
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+
+#box {
+    box-sizing: border-box;
+
+    position: relative;
+
+    background: rgba(217, 217, 217, 0.01);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    /* Note: backdrop-filter has minimal browser support */
+    width: 36.71875%;
+    height: 55.291005%;
+
+    border-radius: 15px;
+
+    margin-top: 1%;
+    margin-left: 7%;
+    margin-bottom: 10%;
+
+    max-width: 500px;
+}
+input.txtinput {
+    box-sizing: border-box;
+
+    border: 6px solid rgba(65, 117, 164, 0.1);
+    border-radius: 100px;
+}
+
+#submit {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+
+    /* identical to box height */
+    letter-spacing: 0.055em;
+    color: #FFFFFF;
+
+    padding:1rem 5rem;
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: 6%;
+    margin-bottom: 3rem;
+    box-sizing: relative;
+
+    position: relative;
+
+    background: #6EAF71;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 10px;
+    font-size:large;
+    
+}
+
+#username, #password {
+    height: 3rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #box {
+        min-width: 80%;
+    }
+}
+
+#signup {
+    color: #00000026
+}
+
+#check {
+    margin-left: 2.9rem;
+    margin-top: 0.5rem;
+    
+}
+
+#passwordgroup {
+    margin-top: 1.3rem;
+}
+
+input[type="text"] {
+    font-size:x-large;
+}
+
+input[type="password"] {
+    font-size:xxx-large;
+}
