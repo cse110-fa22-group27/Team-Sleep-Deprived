@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel='stylesheet' href='../css/styles.css'>
-    <title>Template Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
     <header class="page-header" id="template-page-header">
-        <h1 class="page-title" id="template-page-title">Template Title</h1>
+        <h1 class="page-title" id="template-page-title">Dashboard</h1>
         <button class="logout-button">
             <img src="../resources/images/logout-button.svg" alt="Logout Button">
         </button>
@@ -20,6 +20,32 @@
         <a href="./report.html" data-selected="false">Report</a>
         <a href="./settings.html" data-selected="false">Settings</a>
     </nav>
+
+    <div id="add-transaction">
+        <h2>Add Transaction</h2>
+        <form>
+            <div id="amount">
+                <label for="input-amount">Amount</label><br>
+                <input type="text" id="input-amount" name="input-amount"  placeholder="Enter amount">
+            </div>
+            <div id="date">
+                <label for="input-date">Date</label><br>
+                <input type="date" id="input-date" name="input-date" required>
+            </div>
+            <div id="wallet">
+                <label for="wallet-select">Wallet</label><br>
+                <select id="wallet-select" name="wallet-select" required></select>
+            </div>
+            <div id="category">
+                <label for="category-select">Category</label><br>
+                <select id="category-select" name="category-select" required></select>
+            </div>
+            <div id="description">
+                <label for="desc-input">Description</label><br>
+                <input type="text" id="desc-input" name="desc-input">
+            </div>
+        </form>
+    </div>
 
     
 
