@@ -1,3 +1,40 @@
 input {
     width: 250px;
   }
+
+.flex-container {
+    display: flex;
+    /* background-color: #f1f1f1; */
+  }
+  
+.flex-container > div {
+    /* background-color: DodgerBlue; */
+    /* color: white; */
+    width: 400px;
+    margin: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+  }
+
+  .example {
+    width: 50%;
+    border: 1px solid #000;
+    margin: 1em 0;
+    
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-left: 0;
+    }
+  
+    li {
+      list-style: none;
+      display: inline-block;
+      width: calc(100% / 3);
+      height: 120px;
+      text-align: center;
+    }
+  }
