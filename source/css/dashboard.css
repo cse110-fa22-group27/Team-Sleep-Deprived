@@ -21,21 +21,21 @@ input {
     width: 50%;
     border: 1px solid #000;
     margin: 1em 0;
-}
     
-ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-left: 0; 
-    text-align: left; 
-}
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-left: 0; 
+        text-align: left; 
+    }
   
-ul.li {
-    list-style: none;
-    display: inline-block;
-    width: calc(100% / 3);
-    height: 120px;
-    text-align: left;
+    ul.li {
+        list-style: none;
+        display: inline-block;
+        width: calc(100% / 3);
+        height: 120px;
+        text-align: left;
+    }
 }
