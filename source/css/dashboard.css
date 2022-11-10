@@ -1,6 +1,30 @@
 input {
-    width: 250px;
+    width: 245px;
 }
+
+select {
+    width: 245px;
+}
+
+#desc-input {
+    width: 500px;
+}
+
+.amount { grid-area: amount; }
+.date { grid-area: date; }
+.wallet { grid-area: wallet; }
+.category { grid-area: category; }
+.description { grid-area: description; }
+
+.trans-container {
+    display: grid;
+    grid:
+    'amount date'
+    'wallet category'
+    'description description';
+
+}
+
 
 .flex-container {
     display: flex;
@@ -10,7 +34,7 @@ input {
 .flex-container > div {
     /* background-color: DodgerBlue; */
     /* color: white; */
-    width: 400px;
+    /* width: 400px; */
     margin: 20px;
     text-align: center;
     line-height: 20px;
@@ -21,21 +45,21 @@ input {
     width: 50%;
     border: 1px solid #000;
     margin: 1em 0;
-}
     
-ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-left: 0; 
-    text-align: left; 
-}
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-left: 0; 
+        text-align: left; 
+    }
   
-ul.li {
-    list-style: none;
-    display: inline-block;
-    width: calc(100% / 3);
-    height: 120px;
-    text-align: left;
+    ul.li {
+        list-style: none;
+        display: inline-block;
+        width: calc(100% / 3);
+        height: 120px;
+        text-align: left;
+    }
 }
