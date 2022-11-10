@@ -1,6 +1,30 @@
 input {
-    width: 250px;
+    width: 245px;
 }
+
+select {
+    width: 245px;
+}
+
+#desc-input {
+    width: 500px;
+}
+
+.amount { grid-area: amount; }
+.date { grid-area: date; }
+.wallet { grid-area: wallet; }
+.category { grid-area: category; }
+.description { grid-area: description; }
+
+.trans-container {
+    display: grid;
+    grid:
+    'amount date'
+    'wallet category'
+    'description description';
+
+}
+
 
 .flex-container {
     display: flex;
@@ -10,7 +34,7 @@ input {
 .flex-container > div {
     /* background-color: DodgerBlue; */
     /* color: white; */
-    width: 400px;
+    /* width: 400px; */
     margin: 20px;
     text-align: center;
     line-height: 20px;
