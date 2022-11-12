@@ -21,7 +21,7 @@ function testAdd(a, b){
 }
 
 //Testing the sum of all integers between -3 and 3
-for(let i = -4; i < 5; i++){
+for(let i = -4; i < 4; i++){
     for(let j = -4; j < 4; j++){
         testAdd(i, j);
     }
