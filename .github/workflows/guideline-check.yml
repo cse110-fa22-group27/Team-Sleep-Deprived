@@ -28,7 +28,8 @@ jobs:
       - name: Check if non-source file changed
         run: |
           for directory in ${{ steps.changed-file-dir-names.outputs.all_changed_files }}; do
-            if[ $directory != "./source"] then
+            if [ $directory -ne "./source" ] 
+            then
               echo "non-source file has been modified, manually validate PR/Push" exit 1
             fi 
           done
