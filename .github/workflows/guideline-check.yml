@@ -27,10 +27,9 @@ jobs:
 
       - name: Check if non-source file changed
         run: |
-          for directory in ${{ steps.changed-file-dir-names.outputs }}; do
-            echo "modification in $directory directory" 
+          for file in ${{ steps.changed-file-dir-names.outputs.all_changed_files }}; do
+            echo "$file was changed"
           done
-          exit 0
 
 
     
