@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Verify Template files
-        uses: tj-actions/verify-changed-files@v12
+        uses: tj-actions/verify-changed-files@v34.4.0
         id: verify-changed-files
         with:
           files: |
@@ -23,14 +23,14 @@ jobs:
       
       - name: Get dir names of all changed files
         id: changed-file-dir-names
-        uses: tj-actions/verify-changed-files@v12
+        uses: tj-actions/changed-files@v34.4.0
         with: 
           dir_names: "true"
 
       - name: Check if non-source file changed
         run: |
           for directory in ${{ steps.changed-file-dir-names.outputs }}; do
-            echo "$modification in $directory directory" exit 0
+            echo "modification in $directory directory" exit 0
           done
 
 
