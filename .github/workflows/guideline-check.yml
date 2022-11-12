@@ -15,22 +15,25 @@ jobs:
             ./source/html/template.html
             ./source/css/styles.css
 
-      - name: Error if files changed
+      - name: Check Template Changes
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: echo "Template files have been modified, validate this PR/Push iff it is for error correction" exit 1
       
-      - name: Get dir names of all changed files
+      - name: Get Modified Directories
         id: changed-file-dir-names
         uses: tj-actions/changed-files@v34.4.0
         with: 
           dir_names: "true"
 
-      - name: Check if non-source file changed
+      - name: Check that only source files changed
         run: |
-          for directory in ${{ steps.changed-file-dir-names.outputs }}; do
-            echo "modification in $directory directory" 
+          for directory in ${{ steps.changed-file-dir-names.outputs.all_changed_files }}; do
+            if [[ $directory != "./source"* ]] 
+            then
+              echo "Non-source file has been modified, manually validate PR/Push" 
+              exit 1
+            fi 
           done
-          exit 0
 
 
     
