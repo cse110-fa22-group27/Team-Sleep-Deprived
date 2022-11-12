@@ -23,7 +23,7 @@ jobs:
       
       - name: Get dir names of all changed files
         id: changed-file-dir-names
-        uses: tj-actions/verify-changed-files@v34
+        uses: tj-actions/verify-changed-files@v12
         with: 
           dir_names: "true"
 
