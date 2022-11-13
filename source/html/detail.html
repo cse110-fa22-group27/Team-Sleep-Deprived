@@ -3,29 +3,132 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel='stylesheet' href='../css/styles.css'>
-    <title>cc Document</title>
+    <link rel='stylesheet' href='../css/detail-style.css'>
+    <title>Details Page</title>
 </head>
 
 <body>
     <header class="page-header" id="template-page-header">
-        <h1 class="page-title" id="template-page-title">cc Title</h1>
-        <button class="logout-button">
+        <h1 class="page-title" id="template-page-title">BoA checking</h1>
+        <button class="delete-button">
             <script>
                 function logout() {
                     // Backend: Logout
                     window.location.href='./signin.html';
                 }
             </script>
-            <img src="../resources/images/logout-button.svg" alt="Logout Button">
+            <img src="../resources/images/delete-button.svg" alt="Delete Button">
         </button>
     </header>
-    <nav class="navbar">
-        <a href="" data-selected="true">Dashboard</a>
-        <a href="./wallets.html" data-selected="false">Wallets</a>
-        <a href="./report.html" data-selected="false">Report</a>
-        <a href="./settings.html" data-selected="false">Settings</a>
-    </nav>
+    
+
+    <!--outline divide-->
+    <div class="row">
+        <!--inline divide-->
+        <div class="column" >
+            <h2>Recent Transactions</h2>
+            <table>
+                
+                <tr>
+                    <th class="name">
+                        <h4>
+                            <strong>Name</strong>
+                        </h4>
+                    </th>
+                    <th class="amount">
+                        <h4>
+                            <strong>Amount $</strong>
+                        </h4>
+                    </th>
+                    
+                </tr>
+                <tr>
+                    <td class="lname">Amazon Prime Subscription</td>
+                    <td class="lamount">120.00</td>
+                </tr>
+                <tr>
+                    <td class="lname">Weekly Grocery</td>
+                    <td class="lamount">47.50</td>
+                </tr>
+                <tr>
+                    <td class="lname">Paycheck</td>
+                    <td class="lamount">4,890.00</td>
+                </tr>
+                <tr>
+                    <td class="lname">Shoes</td>
+                    <td class="lamount">299.90</td>
+                </tr>
+                <tr>
+                    <td class="lname">Netflix Subscription</td>
+                    <td class="lamount">15.49</td>
+                </tr>
+                <tr>
+                    <td class="lname">Cash Transfer</td>
+                    <td class="lamount">223.90</td>
+                </tr>
+                <tr>
+                    <td class="lname">Zelle Pay</td>
+                    <td class="lamount">221.80</td>
+                </tr>
+                <tr>
+                    <td class="lname">Papa Johns</td>
+                    <td class="lamount">20.90</td>
+                </tr>
+                <tr>
+                    <td class="lname">Food</td>
+                    <td class="lamount">32.78</td>
+                </tr>
+                <tr>
+                    <td class="lname">Weekly Groceries</td>
+                    <td class="lamount">40.00</td>
+                </tr>
+                <tr>
+                    <td class="lname">Gift</td>
+                    <td class="lamount">40.00</td>
+                </tr>
+                <tr>
+                    <td class="lname">Stationery</td>
+                    <td class="lamount">40.00</td>
+                </tr>
+                
+                
+            </table>
+                 
+        </div>
+        <div class="column">
+            
+            <h2>Current balance</h2>
+            <h3>$1,244.90</h3>
+            
+            <h2>This month's spending</h2>
+            <h3>$344.56/530</h3>
+            
+            <h2>Monthly Inflow</h2>
+            <h3>$566.00</h3>
+            
+            <h2>Montly Outflow</h2>
+            <h3>$335.78</h3>
+            
+            <h2>Settings</h2>
+            <div class="settings">
+                <table>
+                
+                    
+                    <tr>
+                        <td class="name">Include in total</td>
+                        <td><span class="dot"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="name">Monthly Target</td>
+                        <td class="samount">$530</td>
+                    </tr>
+                
+            </div>
+            
+        </div>
+    </div>
+
+   
 </body>
 
 </html>
