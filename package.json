@@ -4,7 +4,8 @@
   "description": "Project Repository for Team Sleep Deprived 😴",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "gen-docs": "jsdoc -c ./docs/jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/achen200/Expense-Tracker-Local#readme",
   "devDependencies": {
-    "jest": "^29.3.0"
+    "jest": "^29.3.0",
+    "jsdoc": "^3.6.3"
   }
 }
