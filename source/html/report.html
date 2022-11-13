@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="../javascript/Report.js" defer type="module"></script>
+    <link rel='stylesheet' href='../css/styles.css'>
+    <link rel='stylesheet' href='../css/report-styles.css'>
+    <title>Reports</title>
+</head>
+
+<body>
+    <header class="page-header" id="template-page-header">
+        <h1 class="page-title" id="template-page-title">Report</h1>
+        <button class="logout-button" onclick="logout()">
+            <script>
+                function logout() {
+                    // Backend: Logout
+                    window.location.href = './signin.html';
+                }
+            </script>
+            <img src="../resources/images/logout-button.svg" alt="Logout Button">
+        </button>
+    </header>
+
+    <nav class="navbar">
+        <a href="./dashboard.html" data-selected="false">Dashboard</a>
+        <a href="./wallets.html" data-selected="false">Wallets</a>
+        <a href="#" data-selected="true">Report</a>
+        <a href="./settings.html" data-selected="false">Settings</a>
+    </nav>
+    <!-- TODO: make DOM components -->
+    <div class="parent-grid-wrapper">
+        <h2 id="yearly-spending"></h2>
+
+        <div class="graph-container">
+            <canvas id="report-chart" style="width:100%;max-width:700px"></canvas>
+        </div>
+
+        <div class="generator-container">
+            <form action="">
+                <label for="report-range">Time Range for Report:</label><br>
+                <select id="report-range" name="report-range" value="weekly">
+                    <option value="weekly">This Week</option>
+                    <option value="monthly">This Month</option>
+                    <option value="yearly">This Year</option>
+                </select>
+                <br>
+                <label for="report-wallets">Wallets for Report:</label><br>
+                <select id="report-wallets" name="report-wallets" value="all">
+                    <option value="all">All Wallets</option>
+                    <!--JS-->
+                </select>
+                <br>
+                <label for="report-file">Report Format:</label><br>
+                <select id="report-file" name="report-file" value="pdf">
+                    <option value="pdf">PDF File</option>
+                    <option value="png">PNG File</option>
+                </select>
+                <br><br>
+                <input id="report-form-button" type="submit" value="Download">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

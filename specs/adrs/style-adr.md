@@ -1,6 +1,6 @@
 #  Code Style ADR
 
-- Status:
+- Status: :heavy_check_mark:
 
 - Deciders: Jake Graven
 
