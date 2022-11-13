@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: testing/sample-file.test.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,44 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: testing/sample-file.test.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//Import the sum function from sample file
+var sum = require('../sample-file.js');
 
+//Syntax for testing:
+//test("sample test name", test-function())
+test("100 + 200 = 300", function(){
+    //Syntax for expected output: expect(actualVal).toBe(expectedVal);
+    expect(sum(100,200)).toBe(300);
+});
 
-    <h3> </h3>
+/**
+ * Sample abstracted function to test sum between any two integers
+ * @param {int} a 
+ * @param {int} b 
+ */
+function testAdd(a, b){
+    test(`${a} + ${b} = ${a+b}`, function(){
+        expect(sum(a,b)).toBe(a+b);
+    });
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+//Testing the sum of all integers between -3 and 3
+for(let i = -4; i &lt; 4; i++){
+    for(let j = -4; j &lt; 4; j++){
+        testAdd(i, j);
+    }
+}</code></pre>
+        </article>
+    </section>
 
 
 
