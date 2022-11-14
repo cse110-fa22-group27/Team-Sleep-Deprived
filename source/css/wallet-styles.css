@@ -76,10 +76,10 @@
     color: black;
 }
 
-#add-new-wallet {
-    color: grey;
+#new-wallet > img {
+    scale: 0.75;
 }
 
-#add-new-wallet > img {
-    scale: 0.7;
+#new-wallet > .wallet-name {
+    color: grey;
 }
