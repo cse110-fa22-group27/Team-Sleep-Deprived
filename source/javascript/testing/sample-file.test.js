@@ -1,4 +1,5 @@
 //Import the sum function from sample file
+//Testing sample change
 var sum = require('../sample-file.js');
 
 //Syntax for testing:
