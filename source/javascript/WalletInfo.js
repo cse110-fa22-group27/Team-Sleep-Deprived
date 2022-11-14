@@ -19,6 +19,10 @@ class WalletInfo extends HTMLElement {
         this.styleElem['rel'] = 'stylesheet';
         this.styleElem['href'] = '../css/wallet-styles.css';
 
+        this.elementRoot.addEventListener('click', event => {
+            window.open('../../source/html/wallet_info.html', '_self');
+        });
+
         this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem);
         this.shadowElem.append(this.elementRoot);
     }
@@ -31,11 +35,9 @@ class WalletInfo extends HTMLElement {
      * }
     **/
     set data(data) {
-        console.log(this.walletAmount);
         this.walletName.innerHTML = data.name;
         this.walletAmount.innerHTML = `$${data.amount}`;
         this.walletLastTransaction.innerHTML = `<strong>${data.lastTransaction.name}</strong> $${data.lastTransaction.amount}`;
-        console.log(data.lastTransaction.type);
         this.walletLastTransaction.dataset.transactionType = data.lastTransaction.type;
     }
 
