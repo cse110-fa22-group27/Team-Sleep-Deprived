@@ -1,27 +1,36 @@
 input {
-    width: 245px;
+    width: 15vw;
 }
 
 select {
-    width: 245px;
+    width: 15vw;
 }
 
 #desc-input {
-    width: 500px;
+    width: 30vw;
 }
 
-.amount { grid-area: amount; }
+.amount { grid-area: amount;}
 .date { grid-area: date; }
 .wallet { grid-area: wallet; }
 .category { grid-area: category; }
 .description { grid-area: description; }
 
+.label{
+    box-sizing: border-box;
+    border: 3px solid #D6D6D6;
+    border-radius: 10px;
+}
+
 .trans-container {
-    display: grid;
+    display:   grid ;
     grid:
     'amount date'
     'wallet category'
     'description description';
+
+    resize: both;
+  overflow: auto;
 
 }
 
@@ -46,6 +55,8 @@ select {
     border: 1px solid #000;
     margin: 1em 0;
     
+    resize: both;
+  overflow: auto;
     ul {
         display: flex;
         flex-direction: row;
@@ -63,3 +74,24 @@ select {
         text-align: left;
     }
 }
+
+.add-transaction{
+    width: 50%;
+    border :1px solid #000;
+    margin : 1em 0;
+
+    
+}
+
+/* .trans-container{ 
+    box-sizing: border-box;
+
+position: absolute;
+width: 246px;
+height: 76px;
+left: 36px;
+top: 245px;
+
+border: 3px solid #D6D6D6;
+border-radius: 10px;
+}*/
