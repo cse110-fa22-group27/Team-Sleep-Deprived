@@ -104,3 +104,9 @@ body {
 .navbar > a[data-selected="false"]:hover {
     background-color: #EEEEEE;
 }
+
+.glass-box {
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
