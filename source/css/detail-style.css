@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&display=swap');
@@ -33,7 +34,12 @@
     --header-width: 75%;
     --header-width-max: 1000px;
 
-    --logout-button-scaling: 0.6;
+    --delete-button-scaling: 0.6;
+
+    /*colors*/
+    --wallet-amount-color: #4495DF;
+    --transaction-positive-color: #02AD28;
+    --transaction-negative-color: #FF0000;
 }
 
 body {
@@ -59,54 +65,81 @@ body {
     margin: 0;
 }
 
-.logout-button {
-    scale: var(--logout-button-scaling);
+
+/* i start from here*/ 
+.delete-button {
+    scale: var(--delete-button-scaling);
     display: flex;
     border: var(--temp-border-style);
 }
 
-.logout-button:hover {
+.delete-button:hover {
     cursor: pointer;
 }
-
-.navbar {
-    width: var(--header-width);
-    max-width: var(--header-width-max);
-    margin: 0 auto;
-    display: flex;
-    overflow: hidden;
-    border: 2px solid var(--default-border-color);
-    border-radius: 100px;
+ 
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; 
 }
 
-.navbar > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.4rem;
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table {
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
     width: 100%;
-    font-weight: var(--font-scaling-regular);
-    font-size: large;
-    color: black;
-    text-decoration: none;
-    backdrop-filter: blur(10px);
-}
-
-.navbar > a:last-child {
-    border: none;
-}
-
-.navbar > a[data-selected='true'] {
-    font-weight: var(--font-scaling-semibold);
-    background-color: gainsboro;
-}
-
-.navbar > a[data-selected="false"]:hover {
-    background-color: #EEEEEE;
-}
-
-.glass-box {
+    justify-content: space-between;
     border: 2px solid var(--default-border-color);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    
 }
+
+.name {
+    width: 70%;
+    text-align: left;
+    padding-left: 3%;
+}
+
+.amount {
+    width: 30%;
+    text-align: left;
+}
+
+.samount {
+    border: 2px solid var(--default-border-color);
+    border-radius: 50px;
+    text-align: center;
+    
+}
+.lname {
+    padding-left: 3%;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: var(--font-scaling-medium);
+}
+
+h3 {
+    font-size: 15px;
+}
+
+.dot {
+  
+  display: flex;
+  align-items: right;
+  height: 25px;
+  width: 25px;
+  border: 2px solid var(--default-border-color);
+  border-radius: 50%;
+}
+
+
