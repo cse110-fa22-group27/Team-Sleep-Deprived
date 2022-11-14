@@ -8,6 +8,7 @@ select {
 
 #desc-input {
     width: 30vw;
+    height: 5vw;
 }
 
 .amount { grid-area: amount;}
@@ -52,8 +53,8 @@ select {
 
 .recent-activity {
     width: 50%;
-    border: 1px solid #000;
-    margin: 1em 0;
+    border: 3px solid #D6D6D6;
+border-radius: 10px;
     
     resize: both;
   overflow: auto;
@@ -77,8 +78,8 @@ select {
 
 .add-transaction{
     width: 50%;
-    border :1px solid #000;
-    margin : 1em 0;
+    border: 3px solid #D6D6D6;
+border-radius: 10px;
 
     
 }
