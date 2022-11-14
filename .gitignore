@@ -110,3 +110,6 @@ dist
 # Node config files
 package-lock.json
 package.json
+
+# exclude documentation files
+/docs/*
