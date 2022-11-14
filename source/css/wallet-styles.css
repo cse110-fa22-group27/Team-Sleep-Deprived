@@ -42,7 +42,14 @@
 .glass-box:hover {
     cursor: pointer;
     border-color: var(--wallet-amount-color);
+    box-shadow: 0.3em 0.3em 0 0 var(--wallet-amount-color);
     transition: border-color .2s linear;
+    transition: box-shadow .2s linear;
+}
+
+.glass-box:active {
+    box-shadow: 0.1em 0.1em 0 0 var(--wallet-amount-color);
+    transform: translateX(0.2em) translateY(0.2em);
 }
 
 .wallet-name {

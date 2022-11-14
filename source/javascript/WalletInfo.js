@@ -66,20 +66,20 @@ class WalletInfo extends HTMLElement {
      */
 
     /**
-     * @typedef {Object} data
+     * @typedef {Object} wallet_data
      * @property {string} name Name of the wallet
      * @property {number} amount The amount remaining in the wallet
      * @property {transaction} lastTransaction Last transaction details
      */
 
     /**
-    * @param {data} data The data object that contains the wallet information
+    * @param {wallet_data} wallet_data The data object that contains the wallet information
     */
-    set data(data) {
-        this.walletName.innerHTML = data.name;
-        this.walletAmount.innerHTML = `$${data.amount}`;
-        this.walletLastTransaction.innerHTML = `<strong>${data.lastTransaction.name}</strong> $${data.lastTransaction.amount}`;
-        this.walletLastTransaction.dataset.transactionType = data.lastTransaction.type;
+    set data(wallet_data) {
+        this.walletName.innerHTML = wallet_data.name;
+        this.walletAmount.innerHTML = `$${wallet_data.amount}`;
+        this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
+        this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
     }
 
 }
