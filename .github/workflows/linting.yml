@@ -1,4 +1,4 @@
-name: Unit Tests & Linting
+name: Linting
 
 on: [pull_request, push]
 
@@ -16,11 +16,8 @@ jobs:
         uses: actions/setup-node@v1
         with: 
           node-version: ${{ matrix.node-version }}
-      - name: npm install
+      - name: Installation
         run: npm install
-      - name: linting
-        run: npm run lint
-      - name: tests
-        run: npm test
-      
+      - name: Linting
+        run: npm lint
 
