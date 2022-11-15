@@ -42,7 +42,13 @@
 .glass-box:hover {
     cursor: pointer;
     border-color: var(--wallet-amount-color);
-    transition: border-color .2s linear;
+    scale: 1.05;
+    transition: border-color .2s linear, scale .08s linear;
+    filter: blur(0);
+}
+
+.glass-box:active {
+    scale: 1;
 }
 
 .wallet-name {
@@ -76,10 +82,10 @@
     color: black;
 }
 
-#add-new-wallet {
-    color: grey;
+#new-wallet > img {
+    scale: 0.75;
 }
 
-#add-new-wallet > img {
-    scale: 0.7;
+#new-wallet > .wallet-name {
+    color: grey;
 }
