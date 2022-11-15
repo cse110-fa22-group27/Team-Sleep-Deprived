@@ -34,8 +34,10 @@
         <a href="#" data-selected="true">Report</a>
         <a href="./settings.html" data-selected="false">Settings</a>
     </nav>
+
     <div class="parent-grid-wrapper">
         <h2 id="yearly-spending"></h2>
+
         <!--Might need custom DOM component-->
         <div class="graph-container">
             <canvas id="report-chart" style="width:100%;max-width:700px"></canvas>
@@ -43,33 +45,6 @@
 
         <report-generator></report-generator>
     </div>
-    <!--Old <report-generator> code-->
-    <!--
-        <div class="generator-container">
-            <form action="">
-                <label for="report-range">Time Range for Report:</label><br>
-                <select id="report-range" name="report-range" value="weekly">
-                    <option value="weekly">This Week</option>
-                    <option value="monthly">This Month</option>
-                    <option value="yearly">This Year</option>
-                </select>
-                <br>
-                <label for="report-wallets">Wallets for Report:</label><br>
-                <select id="report-wallets" name="report-wallets" value="all">
-                    <option value="all">All Wallets</option>
-                    
-                </select>
-                <br>
-                <label for="report-file">Report Format:</label><br>
-                <select id="report-file" name="report-file" value="pdf">
-                    <option value="pdf">PDF File</option>
-                    <option value="png">PNG File</option>
-                </select>
-                <br><br>
-                <input id="report-form-button" type="submit" value="Download">
-            </form>
-        </div>
-    -->
 </body>
 
 </html>
