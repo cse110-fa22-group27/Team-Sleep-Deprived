@@ -1,3 +1,10 @@
+:root {
+    --wallet-amount-color: #4495DF;
+    --transaction-positive-color: #02AD28;
+    --transaction-negative-color: #FF0000;
+    --component-width: 45%;
+}
+
 input {
     width: 15vw;
 }
@@ -11,14 +18,26 @@ select {
     height: 5vw;
 }
 
-.add-transaction{
-    width: 50%;
+/* .add-transaction{
+    width: 100%;
+    padding: 5px 10px;
     border: 3px solid #D6D6D6;
     border-radius: 10px;
     resize: both;
     overflow: auto; 
     backdrop-filter: blur(5px);
+
     
+} */
+
+.add-transaction-box {
+    width: 100%;
+    padding: 5px 10px;
+    border: 3px solid #D6D6D6;
+    border-radius: 10px;
+    resize: both;
+    overflow: auto; 
+    backdrop-filter: blur(5px);
 }
 
 .amount { grid-area: amount;}
@@ -46,9 +65,10 @@ select {
     ; 
 
      resize: both;
-  overflow: auto;
+    overflow: auto;
 
 }
+
 
 
 .flex-container{
@@ -70,12 +90,12 @@ select {
 
 .recent-activity {
     width: 50%;
-    border: 3px solid #D3D3D3;
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
+    /* border: 3px solid #D3D3D3;
+    backdrop-filter: blur(5px); */
+    /* border-radius: 15px; */
 
-    resize: both;
-    overflow: auto;   
+    /* resize: both;
+    overflow: auto;    */
     /* min-width: 871px;
     min-height: 663px; */
 }
@@ -83,17 +103,54 @@ select {
 
 
 .section-title{
-    padding: 0;
+    padding: 10px 0px 10px;
+    /* padding: 0; */
     margin: 0;
     text-align: left;
     position: relative;
+
+    /* padding: 10px 0 5px 0; */
+    font-weight: var(--font-scaling-medium);
 }
 
 table {
-    text-align: center;
+    /* text-align: left;
     width: 100%;
-    font: 'IBM Plex Sans';
+    font: 'IBM Plex Sans'; */
+    text-align: left;
+    border: 2px solid var(--default-border-color);
+    border-radius: 7px;
+    padding: 5px 10px;
+    table-layout: fixed;
+    backdrop-filter: blur(5px);
+    width: 80%;
+    /* width: 100%; */
 }
+
+.trasaction-name {
+    width: 60%;
+}
+
+.transaction-amount {
+    width: 25%; 
+}
+
+[data-kind="amount"] {
+    color: var(--wallet-amount-color);
+    /* font-family: var(--default-cash-font); */
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    overflow: hidden !important;
+}
+
+[data-transaction-kind="positive"] {
+    color: var(--transaction-positive-color) !important;
+}
+
+[data-transaction-kind="negative"] {
+    color: var(--transaction-negative-color) !important;
+}
+
 /* .trans-container{ 
     box-sizing: border-box;
 position: absolute;
