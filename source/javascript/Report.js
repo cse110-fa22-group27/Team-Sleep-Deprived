@@ -1,8 +1,7 @@
 window.addEventListener('load', () => {
-  // TODO: Get yearly spending value
-  let yearlySpending = 0;
-  document.getElementById('yearly-spending').innerHTML = "Yearly Spending: $" + yearlySpending;
-
+	// TODO: Get yearly spending value
+	let yearlySpending = 0;
+	document.getElementById('yearly-spending').innerHTML = 'Yearly Spending: $' + yearlySpending;
 });
 
 window.addEventListener('load', () => {
