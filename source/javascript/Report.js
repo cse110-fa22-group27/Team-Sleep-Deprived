@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 	// let yMax = Math.max.apply(null, yValues);
 
 	new Chart("report-chart", {
-		type: "bar",
+    type: 'bar',
 		data: {
 			labels: xLabels,
 			datasets: [{
