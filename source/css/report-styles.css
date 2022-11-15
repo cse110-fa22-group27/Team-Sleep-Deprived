@@ -2,24 +2,28 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
 }
 
 #yearly-spending {
+    /* grid-area: row-start / column-start / row-end / column-end */
+    grid-area: 1 / 2 / 2 / 5; 
     /* Note: may use grid-column-gap / grid-row-gap to implement margins */
-    grid-area: 1 / 2 / 2 / 5; /* grid-area: row-start / column-start / row-end / column-end */
     margin-left: 150px;
+    margin-top: 25px;
+
 }
 
 .graph-container {
     grid-area: 2 / 3 / 5 / 5;
     margin-top: 50px;
+    
 }
 
 report-generator {
     /* .generator-container converted to custom DOM component */
-    margin-top: 50px;
+    margin-top: 25px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -30,9 +34,9 @@ report-generator {
     backdrop-filter: blur(10px);
 }
 
-#formItem label {
+label {
     display: block;
-    text-align: center;
+    text-align: left;
     align-content: center;
     line-height: 150%;
     font-size: .85em;
@@ -42,10 +46,21 @@ report-generator {
     width: 250px;
     height: 25px;
     margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid black;
+    color: black;
+}
+
+#report-form-button {
+    transition-duration: 0.6s;
+}
+
+#report-form-button:hover {
+    background-color: black;
+    color: white;
 }
 
 #report-chart {
     padding-right: 150px;
     scale: 1.5;
 }
-  

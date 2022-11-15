@@ -35,7 +35,8 @@ class ReportGenerator extends HTMLElement {
         // Parent Form Component
         this.reportForm = document.createElement('form');
         this.reportForm.className = "report-form";
-        // this.reportForm.action = ""; // TODO - Backend to send input data
+        this.reportForm.id = "report-form";
+        this.reportForm.action = ""; // TODO - Backend to send input data
 
         // Select report time range (dropdown 1)
         this.reportRangeSelector = document.createElement('select');
@@ -71,10 +72,13 @@ class ReportGenerator extends HTMLElement {
         this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
 
         // Submit button
-        this.submitButton = document.createElement('input');
+        this.submitButton = document.createElement('button');
+        // this.submitButton['type'] = "button";
+        this.submitButton['value'] = "submit";
         this.submitButton.id = "report-form-button";
-        this.submitButton.type = "submit";
-        this.submitButton.value = "Download";
+        this.submitButton.innerHTML = "Download Report";
+        // this.submitButton['form'] = this.reportForm;
+        // this.submitButton['form'] = "report-form";
         
         // Append all to form
         this.reportForm.append(this.reportRangeLabel, this.reportRangeSelector, this.walletSelectorLabel, this.walletSelector, this.fileSelectorLabel, this.fileSelector, this.submitButton);
