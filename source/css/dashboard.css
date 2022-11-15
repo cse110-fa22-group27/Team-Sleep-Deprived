@@ -30,7 +30,8 @@ select {
     'amount date'
     'wallet category'
     'description description'
-    'add-tran';
+    /* 'add-tran' */
+    ;
 
     resize: both;
   overflow: auto;
@@ -59,23 +60,7 @@ select {
 border-radius: 10px;
     
     resize: both;
-  overflow: auto;
-    .ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        padding-left: 0; 
-        text-align: left; 
-    }
-  
-    .ul.li {
-        list-style: none;
-        display: inline-block;
-        width: calc(100% / 3);
-        height: 120px;
-        text-align: left;
-    }
+  overflow: auto;   
 }
 
 .add-transaction{
