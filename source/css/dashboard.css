@@ -16,6 +16,7 @@ select {
 .wallet { grid-area: wallet; }
 .category { grid-area: category; }
 .description { grid-area: description; }
+.add{grid-area: add-tran;}
 
 .label{
     box-sizing: border-box;
@@ -28,7 +29,8 @@ select {
     grid:
     'amount date'
     'wallet category'
-    'description description';
+    'description description'
+    'add-tran';
 
     resize: both;
   overflow: auto;
@@ -58,7 +60,7 @@ border-radius: 10px;
     
     resize: both;
   overflow: auto;
-    ul {
+    .ul {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -67,7 +69,7 @@ border-radius: 10px;
         text-align: left; 
     }
   
-    ul.li {
+    .ul.li {
         list-style: none;
         display: inline-block;
         width: calc(100% / 3);
