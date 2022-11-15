@@ -1,23 +1,23 @@
 class WalletInfo extends HTMLElement {
-    constructor() {
-        super();
-        this.shadowElem = this.attachShadow({mode: "open"});
-        this.elementRoot = document.createElement('div');
-        this.elementRoot.className = 'wallet-info glass-box';
+	constructor() {
+		super();
+		this.shadowElem = this.attachShadow({mode: 'open'});
+		this.elementRoot = document.createElement('div');
+		this.elementRoot.className = 'wallet-info glass-box';
 
-        this.walletName = document.createElement('h3');
-        this.walletName.className = 'wallet-name';
+		this.walletName = document.createElement('h3');
+		this.walletName.className = 'wallet-name';
 
-        this.walletAmount = document.createElement('p');
-        this.walletAmount.className = 'wallet-amount';
+		this.walletAmount = document.createElement('p');
+		this.walletAmount.className = 'wallet-amount';
 
-        this.walletLastTransaction = document.createElement('p');
-        this.walletLastTransaction.className = 'wallet-last-transaction';
-        this.walletLastTransaction.dataset.transactionType = "negative";
+		this.walletLastTransaction = document.createElement('p');
+		this.walletLastTransaction.className = 'wallet-last-transaction';
+		this.walletLastTransaction.dataset.transactionType = 'negative';
 
-        this.styleElem = document.createElement('link');
-        this.styleElem['rel'] = 'stylesheet';
-        this.styleElem['href'] = '../css/wallet-styles.css';
+		this.styleElem = document.createElement('link');
+		this.styleElem['rel'] = 'stylesheet';
+		this.styleElem['href'] = '../css/wallet-styles.css';
 
         this.elementRoot.addEventListener('click', event => {
             window.open('../../source/html/wallet_info.html', '_self');
@@ -27,7 +27,7 @@ class WalletInfo extends HTMLElement {
         this.shadowElem.append(this.elementRoot);
     }
 
-    /**
+	/**
      * data: {
      *   name: String,
      *   amount: Number,
