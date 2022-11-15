@@ -19,7 +19,7 @@
 
 report-generator {
     /* .generator-container converted to custom DOM component */
-    margin-top: 50px;
+    margin-top: 25px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -42,6 +42,9 @@ report-generator {
     width: 250px;
     height: 25px;
     margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px;
+    color: black;
 }
 
 #report-chart {
