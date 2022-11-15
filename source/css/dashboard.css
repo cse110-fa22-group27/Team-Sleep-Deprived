@@ -11,40 +11,54 @@ select {
     height: 5vw;
 }
 
+.add-transaction{
+    width: 50%;
+    border: 3px solid #D6D6D6;
+    border-radius: 10px;
+    resize: both;
+    overflow: auto; 
+    backdrop-filter: blur(5px);
+    
+}
+
 .amount { grid-area: amount;}
 .date { grid-area: date; }
 .wallet { grid-area: wallet; }
 .category { grid-area: category; }
 .description { grid-area: description; }
-.add{grid-area: add-tran;}
+.add {grid-area: add-tran;} 
 
-.label{
+/* .label{
     box-sizing: border-box;
     border: 3px solid #D6D6D6;
     border-radius: 10px;
-}
+} */
 
 .trans-container {
     display:   grid ;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: 15px;
     grid:
     'amount date'
     'wallet category'
     'description description'
-    /* 'add-tran' */
-    ;
+     
+    ; 
 
-    resize: both;
+     resize: both;
   overflow: auto;
 
 }
 
 
-.flex-container {
-    display: flex;
+.flex-container{
+    display: flex ;
+    grid-template-columns: repeat(2,1fr);
+    flex-direction: row;
     /* background-color: #f1f1f1; */
 }
   
-.flex-container > div {
+.flex-container > div{
     /* background-color: DodgerBlue; */
     /* color: white; */
     /* width: 400px; */
@@ -56,30 +70,37 @@ select {
 
 .recent-activity {
     width: 50%;
-    border: 3px solid #D6D6D6;
-border-radius: 10px;
-    
+    border: 3px solid #D3D3D3;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+
     resize: both;
-  overflow: auto;   
+    overflow: auto;   
+    /* min-width: 871px;
+    min-height: 663px; */
 }
 
-.add-transaction{
-    width: 50%;
-    border: 3px solid #D6D6D6;
-border-radius: 10px;
 
-    
+
+.section-title{
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    position: relative;
 }
 
+table {
+    text-align: center;
+    width: 100%;
+    font: 'IBM Plex Sans';
+}
 /* .trans-container{ 
     box-sizing: border-box;
-
 position: absolute;
 width: 246px;
 height: 76px;
 left: 36px;
 top: 245px;
-
 border: 3px solid #D6D6D6;
 border-radius: 10px;
 }*/
