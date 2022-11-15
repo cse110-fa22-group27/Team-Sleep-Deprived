@@ -36,11 +36,21 @@
     --logout-button-scaling: 0.6;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     font-family: var(--default-body-font);
     background-color: var(--default-background-color);
     background-image: var(--default-background-image);
     background-position: -3px -3px;
+    height: 100%;
 }
 
 .page-header {

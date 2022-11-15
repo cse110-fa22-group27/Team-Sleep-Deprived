@@ -1,0 +1,181 @@
+:root {
+    --wallet-amount-color: #4495DF;
+    --transaction-positive-color: #02AD28;
+    --transaction-negative-color: #FF0000;
+    --component-width: 45%;
+}
+
+* {
+    /* overflow: hidden !important; */
+}
+
+.back-button {
+    scale: var(--logout-button-scaling);
+    border: none;
+    padding-top: 7px;
+}
+
+.page-title {
+    padding: 0;
+    margin-right: auto;
+}
+
+.wallet-details-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+    width: 75%;
+    max-width: 1000px;
+    padding: 5% 0;
+}
+
+.component {
+    display: flex;
+    flex-direction: column;
+    width: var(--component-width);
+    margin: 0 2.5%;
+}
+
+.component-title {
+    padding: 10px 0 5px 0;
+    font-weight: var(--font-scaling-medium);
+}
+
+.recent-transactions-table {
+    text-align: left;
+    border: 2px solid var(--default-border-color);
+    border-radius: 7px;
+    padding: 5px 10px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.recent-transactions-table tr > *:not([data-kind="amount"]) {
+    font-weight: var(--font-scaling-semibold);
+    font-size: 1.15rem;
+    height: 1.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #777;
+}
+
+#recent-transactions-name-title,
+#recent-transactions-amount-title {
+    color: black;
+}
+
+.transaction-name {
+    width: 72.5%;
+}
+
+[data-kind="amount"] {
+    color: var(--wallet-amount-color);
+    font-family: var(--default-cash-font);
+    overflow: hidden !important;
+}
+
+[data-transaction-kind="positive"] {
+    color: var(--transaction-positive-color) !important;
+}
+
+[data-transaction-kind="negative"] {
+    color: var(--transaction-negative-color) !important;
+}
+
+#spending-statistics #monthly-target-statistic {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.statistic-item {
+    padding: 10px;
+}
+
+.statistic-item > h2:not(.component-title) {
+    display: inline;
+    font-size: 1.3rem;
+    font-weight: var(--font-scaling-medium);
+}
+
+.statistic-item > .component-title {
+    padding: 0;
+}
+
+.statistic-item > .settings-box {
+    display: flex;
+    padding: 5px 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.statistic-item .setting-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.statistic-item .setting-item .setting-title {
+    font-weight: var(--font-scaling-medium);
+}
+
+.statistic-item .setting-item .setting-input {
+    border: none;
+    color: #777;
+    font-size: 0.95rem;
+    font-weight: var(--font-scaling-semibold);
+    text-align: right;
+}
+
+.statistic-item .setting-item .setting-input:focus,
+.statistic-item .setting-item .setting-input:active {
+    outline: none;
+}
+
+#include-total-input {
+    appearance: none;
+    width: 1.5rem;
+    outline: 2px solid var(--default-border-color);
+    outline-offset: 2px;
+    height: 1rem;
+    border-radius: 100px;
+}
+
+#include-total-input:checked {
+    background-color: var(--wallet-amount-color);
+    transition: background-color .1s linear;
+}
+
+#monthly-target-input-wrapper {
+    border: 2px solid var(--default-border-color);
+    border-radius: 100px;
+    padding: 5px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+    .wallet-details-root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 80%;
+    }
+    .component {
+        width: 95%;
+        margin-bottom: 20px;
+    }
+    body {
+        height: auto;
+        padding-bottom: 20px;
+    }
+}

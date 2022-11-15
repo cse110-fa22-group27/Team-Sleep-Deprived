@@ -49,7 +49,6 @@
 
 .glass-box:active {
     scale: 1;
-    transition: 0ms;
 }
 
 .wallet-name {
