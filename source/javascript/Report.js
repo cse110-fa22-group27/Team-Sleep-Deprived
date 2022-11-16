@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
 	// TODO: Get yearly spending value -> sum all expenses from all wallets
 	let yearlySpending = 0;
-	document.getElementById('yearly-spending').innerHTML = 'Yearly Spending: $' + yearlySpending;
+	document.getElementById('yearly-spending-header').innerHTML = 'Yearly Spending: $' + yearlySpending;
 });
 
 window.addEventListener('load', () => {

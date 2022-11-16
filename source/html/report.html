@@ -35,15 +35,25 @@
         <a href="./settings.html" data-selected="false">Settings</a>
     </nav>
 
-    <div class="parent-grid-wrapper">
-        <h2 id="yearly-spending"></h2>
-        <h2 id="report-generator-header">Generate Report</h2>
+    <div class="report-grid-wrapper">
         <!--Might need custom DOM component-->
+        <!-- <div class="graph-container-header">
+            <h2 id="yearly-spending-header"></h2>
+        </div> -->
         <div class="graph-container">
-            <canvas id="report-chart" style="width:100%;max-width:700px"></canvas>
+            <h2 id="yearly-spending-header"></h2>
+            <canvas id="report-chart"></canvas>
         </div>
 
-        <report-generator></report-generator>
+        <!-- <div class="generator-container-header">
+            <h2 id="report-generator-header">Generate Report</h2>
+        </div> -->
+        <div class="generator-container">
+            <h2 id="report-generator-header">Generate Report</h2>
+            <div class="generator-glassbox">
+                <report-generator></report-generator>
+            </div>
+        </div>
     </div>
 </body>
 
