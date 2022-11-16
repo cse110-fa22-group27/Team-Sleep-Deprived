@@ -80,7 +80,7 @@ class ReportGenerator extends HTMLElement {
 		// Submit button
 		this.submitButton = document.createElement('button');
 		// this.submitButton['type'] = "button";
-		this.submitButton['value'] = "submit";
+        this.submitButton['value'] = 'submit';
 		this.submitButton.id = "report-form-button";
 		this.submitButton.innerHTML = "Generate >";
 		// this.submitButton['form'] = this.reportForm;
