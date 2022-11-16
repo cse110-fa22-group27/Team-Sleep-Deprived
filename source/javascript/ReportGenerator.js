@@ -52,7 +52,7 @@ class ReportGenerator extends HTMLElement {
 
 		this.reportRangeLabel = document.createElement('label');
 		this.reportRangeLabel['for'] = "report-range";
-		this.reportRangeLabel.innerHTML = "Time Range for Report";
+		this.reportRangeLabel.innerHTML = 'Time Range for Report';
 		this.reportRangeSelector.append(this.timeWeeklyOption, this.timeMonthlyOption, this.timeYearlyOption);
 
 		// Select wallets to be included (2)
