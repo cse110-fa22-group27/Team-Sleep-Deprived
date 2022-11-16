@@ -42,7 +42,7 @@ class ReportGenerator extends HTMLElement {
 		this.reportForm = document.createElement('form');
 		this.reportForm.className = "report-form";
 		this.reportForm.id = "report-form";
-		this.reportForm.action = ""; // TODO - Backend to send input data
+        this.reportForm.action = ''; // TODO - Backend to send input data
 
 		// Select report time range (dropdown 1)
 		this.reportRangeSelector = document.createElement('select');
