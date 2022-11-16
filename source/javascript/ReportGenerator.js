@@ -74,7 +74,7 @@ class ReportGenerator extends HTMLElement {
 
 		this.fileSelectorLabel = document.createElement('label');
 		this.fileSelectorLabel['for'] = "report-file";
-		this.fileSelectorLabel.innerHTML = "Report Format";
+		this.fileSelectorLabel.innerHTML = 'Report Format';
 		this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
 
 		// Submit button
