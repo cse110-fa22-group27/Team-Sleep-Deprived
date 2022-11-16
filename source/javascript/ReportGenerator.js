@@ -63,7 +63,7 @@ class ReportGenerator extends HTMLElement {
 
 		this.walletSelectorLabel = document.createElement('label');
 		this.walletSelectorLabel['for'] = "report-wallets";
-		this.walletSelectorLabel.innerHTML = "Wallets for Report";
+		this.walletSelectorLabel.innerHTML = 'Wallets for Report';
 		this.walletSelector.append(this.allWalletOption);
 
 		// Select file format (3)
