@@ -1,66 +1,93 @@
-.parent-grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0;
-    grid-row-gap: 0;
+.report-grid-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: baseline;
+
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-#yearly-spending {
-    /* grid-area: row-start / column-start / row-end / column-end */
-    grid-area: 1 / 2 / 2 / 5; 
-    /* Note: may use grid-column-gap / grid-row-gap to implement margins */
-    margin-left: 150px;
-    margin-top: 25px;
-
+.report-grid-wrapper > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    /* margin-right: -100px;
+    flex-basis: auto; */
 }
 
-.graph-container {
-    grid-area: 2 / 3 / 5 / 5;
-    margin-top: 50px;
-    
-}
-
-report-generator {
-    /* .generator-container converted to custom DOM component */
-    margin-top: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    scale: 1.25;
-    grid-area: 2 / 5 / 5 / 6; 
+.generator-glassbox {
+    scale: 1;
     border: 2px solid var(--default-border-color);
     border-radius: 10px;
     backdrop-filter: blur(10px);
+} 
+
+canvas {
+    width: 35%;
+    max-width: 750px;
+}
+
+#report-chart {
+    scale: 1;
+}
+
+#yearly-spending-header, #report-generator-header {
+    text-align: left;
+    margin: 0 auto;
+    margin-left: 20%;
+    padding-top: 15px;
 }
 
 label {
     display: block;
     text-align: left;
     align-content: center;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-weight: bold;
     line-height: 150%;
     font-size: .85em;
 }
 
-#report-range, #report-wallets, #report-file, #report-form-button {
+#report-range, #report-wallets, #report-file {
     width: 250px;
-    height: 25px;
+    height: 35px;
     margin-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
     border-radius: 4px;
-    border: 1px solid black;
+    text-align: center;
+    border: 1px solid grey;
     color: black;
+}
+
+#report-range:hover, #report-wallets:hover, #report-file:hover {
+    cursor: pointer;
 }
 
 #report-form-button {
     transition-duration: 0.6s;
+    width: 100px;
+    height: 35px;
+    border-radius: 4px;
+    opacity: 0.5;
+    border: 1px solid #8ACFED;
+    color: white;
+    background-color: #8ACFED;
+    /* align-self: center; */
+    /* text-align: center; */
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 #report-form-button:hover {
-    background-color: black;
-    color: white;
-}
-
-#report-chart {
-    padding-right: 150px;
-    scale: 1.5;
+    background-color: #31a7da;
+    color: black;
+    cursor: pointer;
 }
