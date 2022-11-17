@@ -1,3 +1,6 @@
+/**
+ * Contributors: Anthony
+ */
 import {openDialog} from './WalletDialog.js';
 
 //The maximum number of wallets a page can hold
