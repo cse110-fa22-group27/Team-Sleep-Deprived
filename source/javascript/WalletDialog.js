@@ -1,4 +1,6 @@
 /**
+ * File to handle the creation of new wallets, namely the dialog
+ * and the storage/retreival of wallet information
  * @author Anthony Chen
  */
 
@@ -30,6 +32,7 @@ function initForm(){
     balanceInput.setAttribute("type", "number");
     balanceInput.setAttribute("step", ".01"); //Allow up to 2 decimal places
     balanceInput.setAttribute("placeholder", "Enter Balance");
+    balanceInput.setAttribute("min", "0"); //set minimum balance of each wallet to 0
     balanceInput.setAttribute("name", "amount");
     balanceInput.setAttribute("required","");
 
@@ -40,6 +43,7 @@ function initForm(){
     let targetInput = document.createElement("input");
     targetInput.setAttribute("type", "number");
     targetInput.setAttribute("step", ".01"); //Allow up to 2 decimal places
+    targetInput.setAttribute("min", "0");
     targetInput.setAttribute("placeholder", "Optional");
     targetInput.setAttribute("name", "target");
     
@@ -74,7 +78,7 @@ function initForm(){
 }
 
 /**
- * 
+ * Open the wallet-storage dialog
  */
 export function openDialog(){
     document.getElementsByClassName("form-container")[0].reset();
@@ -82,14 +86,14 @@ export function openDialog(){
 }
 
 /**
- * 
+ * Closes the wallet-storage dialog
  */
 function closeDialog(){
     document.getElementsByClassName("form-popup")[0].style.display = "none";
 }
 
 /**
- * 
+ * Function that executes on form submssion
  */
 function formSubmission(){
     let formElement = document.getElementsByClassName("form-container")[0];
@@ -105,17 +109,13 @@ function formSubmission(){
       newWallet[`${pair[0]}`] = `${pair[1]}`;
     }
 
-
-    console.log("New wallet info: ");
-    console.log(newWallet);
     let wallets = getWalletsFromStorage();
-    console.log("Wallets: ")
-    console.log(wallets);
     wallets.push(newWallet);
     storeWallets(wallets);
 }
 
 /**
+ * Gets all wallets stored in local storage
  * @returns {Array<Object>} - Array of wallets in local storage
  */
 function getWalletsFromStorage(){
@@ -127,6 +127,7 @@ function getWalletsFromStorage(){
 }
 
 /**
+ * Stores the inputted wallets
  * @param {Array<Obejct>} wallets - the array of wallets
  */
 function storeWallets(wallets){

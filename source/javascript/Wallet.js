@@ -1,5 +1,8 @@
 import {openDialog} from './WalletDialog.js';
 
+//The maximum number of wallets a page can hold
+const MAX_WALLETS = 6;
+
 function initWalletPage(){
     const walletGridWrapper = document.querySelector('#wallets-grid-wrapper')
     const walletGrid = document.createElement('div');
@@ -13,12 +16,12 @@ function initWalletPage(){
         newWalletInfoItem.data = wallet;
         walletGrid.appendChild(newWalletInfoItem);
     }
-    // Add the 'Add new Wallet' div
-    let addwalletItem = document.createElement('add-wallet');
-    console.log(addwalletItem);
-  
-    addwalletItem.addEventListener('click', openDialog);
-    walletGrid.appendChild(addwalletItem);
+
+    if(localStorageWallets.length < 6){
+        let addwalletItem = document.createElement('add-wallet');
+        addwalletItem.addEventListener('click', openDialog);
+        walletGrid.appendChild(addwalletItem);
+    }
 }
 
 initWalletPage();
