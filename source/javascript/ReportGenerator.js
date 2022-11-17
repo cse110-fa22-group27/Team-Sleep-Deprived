@@ -1,17 +1,19 @@
-class ReportGenerator extends HTMLElement {
+import { generateReport } from "./Report.js";
+
+class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use ReportGenerator for actual JS
 	constructor() {
 		super();
 		this.shadowElem = this.attachShadow({ mode: "open" });
 		this.elementRoot = document.createElement('div');
 		this.elementRoot.className = 'report-generator-container glass-box';
 
-		// Header //
+		// Header (deprecated) //
 		/*
 		this.generatorHeader = document.createElement('h2');
 		this.generatorHeader.className = 'generator-header';
 		this.generatorHeader.innerHTML = "Generate Report";
 		*/
-		
+
 		// All Form Options //
 		this.timeWeeklyOption = document.createElement('option');
 		this.timeWeeklyOption.value = "weekly";
@@ -25,7 +27,7 @@ class ReportGenerator extends HTMLElement {
 		this.timeYearlyOption.value = "yearly";
 		this.timeYearlyOption.innerHTML = "This Year";
 
-		// TODO - JS to implement all stored wallets as options
+		// TODO - JS to implement all stored wallets as options //
 		this.allWalletOption = document.createElement('option');
 		this.allWalletOption.value = "all";
 		this.allWalletOption.innerHTML = "All Wallets";
@@ -38,13 +40,13 @@ class ReportGenerator extends HTMLElement {
 		this.pngDocumentOption.value = "png";
 		this.pngDocumentOption.innerHTML = "PNG File";
 
-		// Parent Form Component
+		// Parent Form Component //
 		this.reportForm = document.createElement('form');
 		this.reportForm.className = "report-form";
 		this.reportForm.id = "report-form";
-        this.reportForm.action = ''; // TODO - Backend to send input data
+		this.reportForm.action = ''; // TODO (?)
 
-		// Select report time range (dropdown 1)
+		// Select report time range (dropdown 1) //
 		this.reportRangeSelector = document.createElement('select');
 		this.reportRangeSelector.id = "report-range";
 		this.reportRangeSelector.name = "report-range";
@@ -55,7 +57,7 @@ class ReportGenerator extends HTMLElement {
 		this.reportRangeLabel.innerHTML = 'Time Range for Report';
 		this.reportRangeSelector.append(this.timeWeeklyOption, this.timeMonthlyOption, this.timeYearlyOption);
 
-		// Select wallets to be included (2)
+		// Select wallets to be included (dropdown 2) //
 		this.walletSelector = document.createElement('select');
 		this.walletSelector.id = "report-wallets";
 		this.walletSelector.name = "report-wallets";
@@ -66,7 +68,7 @@ class ReportGenerator extends HTMLElement {
 		this.walletSelectorLabel.innerHTML = 'Wallets for Report';
 		this.walletSelector.append(this.allWalletOption);
 
-		// Select file format (3)
+		// Select file format (dropdown 3) //
 		this.fileSelector = document.createElement('select');
 		this.fileSelector.id = "report-file";
 		this.fileSelector.name = "report-file";
@@ -77,14 +79,17 @@ class ReportGenerator extends HTMLElement {
 		this.fileSelectorLabel.innerHTML = 'Report Format';
 		this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
 
-		// Submit button
+		// Submit Button //
 		this.submitButton = document.createElement('button');
 		// this.submitButton['type'] = "button";
-        this.submitButton['value'] = 'submit';
-		this.submitButton.id = "report-form-button";
+		this.submitButton['value'] = 'submit';
+		this.submitButton['id'] = "report-form-button";
 		this.submitButton.innerHTML = 'Generate >';
-		// this.submitButton['form'] = this.reportForm;
-		// this.submitButton['form'] = "report-form";
+		// this.submitButton['onclick'] = "generateReport";
+		// this.submitButton['form'] = "report-form"; // this.reportForm
+		this.submitButton.addEventListener('click', event => {
+			generateReport(); // possibly a placeholder
+		});
 
 		// Append all to form
 		this.reportForm.append(this.reportRangeLabel, this.reportRangeSelector, this.walletSelectorLabel, this.walletSelector, this.fileSelectorLabel, this.fileSelector, this.submitButton);
@@ -93,8 +98,9 @@ class ReportGenerator extends HTMLElement {
 		this.styleElem['rel'] = "stylesheet";
 		this.styleElem['href'] = "../css/report-styles.css";
 
+
 		this.elementRoot.append(this.reportForm, this.styleElem);
 		this.shadowElem.append(this.elementRoot);
 	}
 }
-customElements.define('report-generator', ReportGenerator)
+customElements.define('report-generator', ReportGenerator) // ReportGeneratorComponent
