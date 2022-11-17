@@ -1,4 +1,4 @@
-class TransactionElement extends HTMLElement {
+class RecentTransaction extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -38,13 +38,7 @@ class TransactionElement extends HTMLElement {
             return;
         }
         var transaction = this.shadowRoot.querySelector('div');
-        transaction.innerHTML = `
-        <div class="trans-container">
-            <p id="name">${data.name}</p>
-            <p id="amount">(${data.amount})</p>
-            <p id="wallet">${data.wallet}</p>
-        </div>
-        `;
+        transaction.innerHTML = ``;
     }
 }
 customElements.define("trans-elem", TransactionElement);
