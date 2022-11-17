@@ -1,19 +1,15 @@
 class TransactionElement extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-        const divider = document.createElement('div');
-        const style = document.createElement('style');
-        style.innerHTML = `
-        .trans-container {
-            display: flex;
-        }
-        .trans-container > div {
+        const shadow = this.attachShadow({ mode: "open" });
+        // const root = shadow.shadowRoot;
+        // var trans = document.createElement("div");
+        // var name = document.createElement("p");
+        // var amount = document.createElement("p");
+        // var date = document.createElement("p");
 
-        }
-        `;
-        this.shadowRoot.appendChild(divider);
-        this.shadowRoot.appendChild(style);
+        // var style = document.createElement("style");
+        // style.textContent = {};
 
     }
 
@@ -47,4 +43,5 @@ class TransactionElement extends HTMLElement {
         `;
     }
 }
+
 customElements.define("trans-elem", TransactionElement);
