@@ -20,6 +20,8 @@ select {
     width: 15vw;
     font-family: 'IBM Plex Sans';
     font-style: normal;
+    border: 2px solid var(--default-border-color);
+    border-radius: 100px;
 }
 
 #desc-input {
@@ -31,15 +33,22 @@ select {
 }
 
 
-.amount { grid-area: 1 / 1 / span 1 / span 1;
+.amount { 
     padding: 5px;
 }
-.date { grid-area: 1 / 2 / span 1 / span 1;padding: 5px; }
-.wallet { grid-area: 2/ 1 / span 1 / span 1; padding: 5px;}
-.category { grid-area: 2/ 2 / span 1 / span 1;padding: 5px; }
-.description { grid-area: 3 / 1 / span 2 / span 4; 
+.date { padding: 5px; }
+.wallet {  padding: 5px;
+}
+.category { padding: 5px; }
+.description {  
     padding: 15px;}
-.add {grid-area: 5 / 2 / span 1 / span 2;} 
+.add {
+    grid-column: span 2;
+    margin-left: auto;
+    padding: 5px;
+} 
+
+
 
 .add-transaction-box {
     width: 100%;
@@ -47,9 +56,17 @@ select {
     border: 3px solid #D6D6D6;
     border-radius: 10px;
     padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
+.description {
+    grid-column: span 2;
+}
 
+.add {
+    grid-column: span 2;
+    margin-left: auto;
+}
 
 .add-transaction{
     display: flex;
@@ -82,6 +99,7 @@ select {
     background-color: #ea918f;
     border: none;
     width: max-content;
+    
 }
 
 .button:hover{
