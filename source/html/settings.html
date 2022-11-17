@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Setting Scripts-->
+    <!--<script src="../javascript/settings.js" defer type="module"></script>
+    <!--Stylesheets-->
+    <link rel='stylesheet' href='../css/styles.css'>
+    <link rel='stylesheet' href='../css/settings.css'>
+    <title>Settings</title>
+</head>
+
+<body>
+    <header class="page-header" id="template-page-header">
+        <h1 class="page-title" id="template-page-title">Settings</h1>
+        <button class="logout-button" onclick="logout()">
+            <script>
+                function logout() {
+                    // Backend: Logout
+                    window.location.href = './signin.html';
+                }
+            </script>
+            <img src="../resources/images/logout-button.svg" alt="Logout Button">
+        </button>
+    </header>
+</body>
+
+<nav class="navbar">
+    <a href="./dashboard.html" data-selected="false">Dashboard</a>
+    <a href="./wallets.html" data-selected="false">Wallets</a>
+    <a href="./report.html" data-selected="false">Report</a>
+    <a href="#" data-selected="true">Settings</a>
+</nav>
+
+<h2 id="usersettings">User Settings</h2>
+
+<div class="settingform">
+    <form class="password">
+        <h2>Change Password</h2>
+        <div class="inputsec">
+            <label for="oldpassword" class="txt">Old Password </label><br>
+            <input type="password" id="oldpassword" class= "txtinput" name="oldpassword"><br>
+        </div>
+
+        <div class="inputsec" id="passwordgroup">
+            <label for="newpassword" class="txt">New Password</label><br>
+            <input type="password" id="newpassword" class= "txtinput" name="newpassword"><br>
+        </div>
+
+        <input type="submit" class='submit'  value="Change Password">
+    </form>
+</div>
+
+<div class="settingform">
+    <h2 id="usersettings">Default Landing Page </h2>   
+    <form class="default">
+        <h2><label for="defaultchoices">Choose the page that appears when you login</label></h2>
+
+        <br>
+
+        <select name="choices" id="choices" class="txt">
+            <option value="dashboard">Dashboard</option>
+            <option value="wallets">Wallets</option>
+            <option value="report">Report</option>
+        </select>
+
+        <input type="submit" class='submit'  value="Save">
+
+    </form>
+</div>

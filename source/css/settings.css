@@ -1,0 +1,108 @@
+#usersettings {
+    margin-top: 1rem;
+    margin-left: 35%;
+}
+.password {
+    margin-top: 25px;
+    margin-bottom: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    scale: 1.25;
+    grid-area: 2 / 5 / 5 / 6; 
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    max-width: 550px;
+    padding-bottom: 30px;
+}
+
+.txt {
+    font-weight: var(--font-scaling-regular);
+    font-size: x-large;
+}
+
+input.txtinput {
+    box-sizing: border-box;
+    border: 6px solid rgba(65, 117, 164, 0.1);
+    border-radius: 100px;
+}
+
+.inputsec {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+}
+
+input[type="password"] {
+    font-size:xxx-large;
+}
+
+.submit {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+
+    /* identical to box height */
+    letter-spacing: 0.055em;
+    color: #FFFFFF;
+
+    padding:1rem 2rem;
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+
+    box-sizing: relative;
+
+    position: relative;
+
+    background: #6EAF71;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 10px;
+    font-size:large;
+    
+}
+.default {
+    margin-top: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    scale: 1.25;
+    grid-area: 2 / 5 / 5 / 6; 
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    max-width: 550px;
+    padding-bottom: 30px;
+}
+#choices {
+    padding-right: 9rem;
+    padding-top: 10px;
+    scale: 1.25;
+    grid-area: 2 / 5 / 5 / 6;
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    max-width: 550px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.settingform {
+    margin-bottom: 50px;
+}
+
+
+@media (max-width: 768px) {
+    #box {
+        min-width: 80%;
+    }
+}
+
