@@ -17,7 +17,8 @@ function initWalletPage(){
         walletGrid.appendChild(newWalletInfoItem);
     }
 
-    if(localStorageWallets.length < 6){
+    //Prevents having more than 6 wallets
+    if(localStorageWallets.length < MAX_WALLETS){
         let addwalletItem = document.createElement('add-wallet');
         addwalletItem.addEventListener('click', openDialog);
         walletGrid.appendChild(addwalletItem);
@@ -25,20 +26,6 @@ function initWalletPage(){
 }
 
 initWalletPage();
-//Create init Dialog
-    //Have this inject html components
-    //Use CSS to style it so it overlays other elements
-    
-
-//Add event listener to addwalletItem
-    //Create a new WalletDialog item
-    //Create a new popup with WalletDialog
-    //Have x sign
-    //Make sure backside is dim
-        //Wallet Dialog has a form to fill out wallet information
-    //Handle event clicking submit 
-    //Handle event closing out
-
 
 
 
