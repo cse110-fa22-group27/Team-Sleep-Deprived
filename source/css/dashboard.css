@@ -11,7 +11,7 @@ input {
     font-style: normal;
     appearance: none;
     border: 2px solid var(--default-border-color);
-    border-radius: 100px;
+    border-radius: 10px;
     padding: 8px 10px;
     text-align: center;
 }
@@ -21,7 +21,8 @@ select {
     font-family: 'IBM Plex Sans';
     font-style: normal;
     border: 2px solid var(--default-border-color);
-    border-radius: 100px;
+    border-radius: 10px;
+    padding: 8px;
 }
 
 #desc-input {
@@ -32,20 +33,23 @@ select {
     border-radius: 10px;
 }
 
-
+/* 
 .amount { 
-    padding: 5px;
+    margin: 5px;
 }
-.date { padding: 5px; }
-.wallet {  padding: 5px;
+.date { margin: 5px; }
+.wallet {  margin: 5px;
 }
-.category { padding: 5px; }
+.category { margin: 5px; } */
+
 .description {  
-    padding: 15px;}
+    grid-column: span 2;
+    width: 100%;
+}
 .add {
     grid-column: span 2;
     margin-left: auto;
-    padding: 5px;
+    margin: 10px 0 0 10px;
 } 
 
 
@@ -56,6 +60,7 @@ select {
     border-radius: 10px;
     padding: 10px;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .description {
@@ -73,7 +78,7 @@ select {
 }
 
 
-.trans-container {
+/* .trans-container {
     display: grid ;
     grid-template-columns: repeat(2,1fr);
     flex-direction: row;
@@ -82,9 +87,9 @@ select {
      /* resize: both;
     overflow: auto;  */
     /* width: 80%; */
-    /* padding-left: 23.5%; */
+    /* padding-left: 23.5%;
 
-}
+} */
 
 .button {
     font-size: 1.2rem;
@@ -119,7 +124,9 @@ select {
     /* justify-content: center; */
     /* align-items: center; */
     width: var(--header-width);
+    max-width: var(--header-max-width);
     margin: 0 auto;
+    gap: 20px;
 }
   
 .flex-container > div{
@@ -169,14 +176,29 @@ table {
     backdrop-filter: blur(5px);
     width: 100%;
     /* width: 100%; */
+
 }
 
-.trasaction-name {
-    width: 60%;
+.transaction-name {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 0;
 }
 
 .transaction-amount {
-    width: 25%; 
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wallet-name {
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 [data-kind="amount"] {
