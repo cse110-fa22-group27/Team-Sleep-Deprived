@@ -1,20 +1,20 @@
 class TransactionElement extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-        const divider = document.createElement('div');
-        const style = document.createElement('style');
-        style.innerHTML = `
-        .trans-container {
-            display: flex;
-        }
-        .trans-container > div {
-
-        }
-        `;
-        this.shadowRoot.appendChild(divider);
-        this.shadowRoot.appendChild(style);
-
+        this.shadowDom = this.attachShadow({'mode':'open'})
+        this.rootDiv = document.createElement('div');
+        this.rootDiv.className = 'add-transaction';
+        this.titleDiv = document.createElement('div');
+        this.titleDiv.className = 'transcontai'
+        this.transactionDiv = document.createElement('div');
+        this.rootDiv.append(this.titleDiv, this.transactionDiv);
+        this.amountDiv = document.createElement('div');
+        this.dateDiv = document.createElement('div');
+        this.walletDiv = document.createElement('div');
+        this.categoryDiv = document.createElement('div');
+        this.descriptionDiv = document.createElement('div');
+        document.getElementById('title');
+        this.shadowDom.append(this.rootDiv);
     }
 
     /**
@@ -37,14 +37,8 @@ class TransactionElement extends HTMLElement {
         if(!data) {
             return;
         }
-        var transaction = this.shadowRoot.querySelector('div');
-        transaction.innerHTML = `
-        <div class="trans-container">
-            <p id="name">${data.name}</p>
-            <p id="amount">(${data.amount})</p>
-            <p id="wallet">${data.wallet}</p>
-        </div>
-        `;
+        this.titleDiv.innerHTML = data.title
     }
 }
+
 customElements.define("trans-elem", TransactionElement);
