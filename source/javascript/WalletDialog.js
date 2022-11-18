@@ -11,7 +11,7 @@ function initForm(){
 
     //Create form container
     let formContainer = document.createElement("form");
-    formContainer.className = "form-container";
+    formContainer.className = "form-container glass-box";
 
     //Create form fields
     let nameLabel = document.createElement("label");
