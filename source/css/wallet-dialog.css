@@ -10,7 +10,7 @@
 }
 
 .form-popup {
-    /* display: none; Have form be hidden */
+    display: none; /*Have form be hidden */
     position: absolute;
     top: 30%;
     left: calc(50% - 150px);
