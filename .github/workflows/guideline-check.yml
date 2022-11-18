@@ -28,7 +28,7 @@ jobs:
       - name: Check that only source files changed
         run: |
           for directory in ${{ steps.changed-file-dir-names.outputs.all_changed_files }}; do
-            if [[ $directory != "source"* ]] 
+            if [[ $directory != "source"* && $directory != "docs"* ]] 
             then
               echo "Non-source file has been modified, manually validate PR/Push" 
               exit 1
