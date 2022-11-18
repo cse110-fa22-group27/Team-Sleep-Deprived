@@ -42,14 +42,15 @@ window.addEventListener('load', () => {
 	// let yMax = Math.max.apply(null, yValues);
 
 	// can we use Chart.js?
-	new Chart('report-chart', {
+	//	eslint-disable-next-line no-undef
+	new Chart('report-chart', { 
 		type: 'bar',
 		data: {
 			labels: xLabels,
 			datasets: [{
 				data: yValues
 			}]
-		},
+		}, 
 		options: {
 			legend: {
 				display: false

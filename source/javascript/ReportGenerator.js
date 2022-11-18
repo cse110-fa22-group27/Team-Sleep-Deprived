@@ -87,7 +87,8 @@ class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use 
 		this.submitButton.innerHTML = 'Generate >';
 		// this.submitButton['onclick'] = "generateReport";
 		// this.submitButton['form'] = "report-form"; // this.reportForm
-		this.submitButton.addEventListener('click', event => {
+		// eslint-disable-next-line no-unused-vars
+		this.submitButton.addEventListener('click', event => { 	
 			generateReport(); // possibly a placeholder
 		});
 
