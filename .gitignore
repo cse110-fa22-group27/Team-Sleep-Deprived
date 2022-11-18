@@ -111,5 +111,8 @@ dist
 package-lock.json
 package.json
 
+# VScode workspace files
+/.vscode/*
+
 # exclude documentation files
 /docs/*
