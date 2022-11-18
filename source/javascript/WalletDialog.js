@@ -9,9 +9,9 @@ function initForm(){
 	let  formPopup= document.createElement('div');
 	formPopup.className = 'form-popup';
 
-	//Create form container
-	let formContainer = document.createElement('form');
-	formContainer.className = 'form-container';
+    //Create form container
+    let formContainer = document.createElement("form");
+    formContainer.className = "form-container glass-box";
 
 	//Create form fields
 	let nameLabel = document.createElement('label');
