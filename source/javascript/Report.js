@@ -1,6 +1,6 @@
 function getYearlySpending() {
 	// TODO //
-	 // console.log('getYearlySpending fired');
+	// console.log('getYearlySpending fired');
 	let yearlyTotal = 0;
 	const localWalletString = JSON.stringify(window.localStorage.getItem('wallet-infos'));
 	const localWallets = JSON.parse(localWalletString != null ? localWalletString : '[]');
@@ -10,7 +10,7 @@ function getYearlySpending() {
 	// yearlyTotal = localWallets.map(localWallets => localWallets.amount).reduce((amntA, amntB) => amntA + amntB);
 	
 	for(let wallet in localWallets) {
-		yearlyTotal += wallet["amount"];
+		yearlyTotal += wallet['amount'];
 	}
 	console.log(yearlyTotal);
 	return yearlyTotal;
@@ -18,8 +18,8 @@ function getYearlySpending() {
 
 export function generateReport() {
 	// TODO //
-		// create new page -> put graph + some statistics on page
-		// convert page to pdf / open page and allow user to download/print
+	// create new page -> put graph + some statistics on page
+	// convert page to pdf / open page and allow user to download/print
 	//      //
 	console.log('generateReport fired');
 	return 0;
@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
 	// TODO: fix chart / make chart functional //
 
 	// Yearly Spending //
-	console.log("load event fired");
+	console.log('load event fired');
 	let yearlySpending = getYearlySpending();
 	document.getElementById('yearly-spending-header').innerHTML = 'Yearly Spending: $' + yearlySpending;
 
