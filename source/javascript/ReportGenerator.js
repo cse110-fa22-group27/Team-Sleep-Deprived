@@ -1,94 +1,107 @@
-class ReportGenerator extends HTMLElement {
-    constructor() {
-        super();
-        this.shadowElem = this.attachShadow({mode: "open"});
-        this.elementRoot = document.createElement('div');
-        this.elementRoot.className = 'report-generator-container glass-box';
+import { generateReport } from './Report.js';
 
-        // All Form Options //
-        
-        this.timeWeeklyOption = document.createElement('option');
-        this.timeWeeklyOption.value = "weekly";
-        this.timeWeeklyOption.innerHTML = "This Week";
+class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use ReportGenerator for actual JS
+	constructor() {
+		super();
+		this.shadowElem = this.attachShadow({ mode: 'open' });
+		this.elementRoot = document.createElement('div');
+		this.elementRoot.className = 'report-generator-container glass-box';
 
-        this.timeMonthlyOption = document.createElement('option');
-        this.timeMonthlyOption.value = "monthly";
-        this.timeMonthlyOption.innerHTML = "This Month";
+		// Header (deprecated) //
+		/*
+		this.generatorHeader = document.createElement('h2');
+		this.generatorHeader.className = 'generator-header';
+		this.generatorHeader.innerHTML = "Generate Report";
+		*/
 
-        this.timeYearlyOption = document.createElement('option');
-        this.timeYearlyOption.value = "yearly";
-        this.timeYearlyOption.innerHTML = "This Year";
+		// All Form Options //
+		this.timeWeeklyOption = document.createElement('option');
+		this.timeWeeklyOption.value = 'weekly';
+		this.timeWeeklyOption.innerHTML = 'This Week';
 
-        // TODO - JS to implement all stored wallets as options
-        this.allWalletOption = document.createElement('option');
-        this.allWalletOption.value = "all";
-        this.allWalletOption.innerHTML = "All Wallets";
+		this.timeMonthlyOption = document.createElement('option');
+		this.timeMonthlyOption.value = 'monthly';
+		this.timeMonthlyOption.innerHTML = 'This Month';
 
-        this.pdfDocumentOption = document.createElement('option');
-        this.pdfDocumentOption.value = "pdf";
-        this.pdfDocumentOption.innerHTML = "PDF File";
+		this.timeYearlyOption = document.createElement('option');
+		this.timeYearlyOption.value = 'yearly';
+		this.timeYearlyOption.innerHTML = 'This Year';
 
-        this.pngDocumentOption = document.createElement('option');
-        this.pngDocumentOption.value = "png";
-        this.pngDocumentOption.innerHTML = "PNG File";
+		// TODO - JS to implement all stored wallets as options //
+		this.allWalletOption = document.createElement('option');
+		this.allWalletOption.value = 'all';
+		this.allWalletOption.innerHTML = 'All Wallets';
 
-        // Parent Form Component
-        this.reportForm = document.createElement('form');
-        this.reportForm.className = "report-form";
-        this.reportForm.id = "report-form";
-        this.reportForm.action = ""; // TODO - Backend to send input data
+		this.pdfDocumentOption = document.createElement('option');
+		this.pdfDocumentOption.value = 'pdf';
+		this.pdfDocumentOption.innerHTML = 'PDF File';
 
-        // Select report time range (dropdown 1)
-        this.reportRangeSelector = document.createElement('select');
-        this.reportRangeSelector.id = "report-range";
-        this.reportRangeSelector.name = "report-range";
-        this.reportRangeSelector.value = "weekly";
+		this.pngDocumentOption = document.createElement('option');
+		this.pngDocumentOption.value = 'png';
+		this.pngDocumentOption.innerHTML = 'PNG File';
 
-        this.reportRangeLabel = document.createElement('label');
-        this.reportRangeLabel['for'] = "report-range";
-        this.reportRangeLabel.innerHTML = "Time Range for Report:";
-        this.reportRangeSelector.append(this.timeWeeklyOption, this.timeMonthlyOption, this.timeYearlyOption);
+		// Parent Form Component //
+		this.reportForm = document.createElement('form');
+		this.reportForm.className = 'report-form';
+		this.reportForm.id = 'report-form';
+		this.reportForm.action = ''; // TODO (?)
 
-        // Select wallets to be included (2)
-        this.walletSelector = document.createElement('select');
-        this.walletSelector.id = "report-wallets";
-        this.walletSelector.name = "report-wallets";
-        this.walletSelector.value = "all";
+		// Select report time range (dropdown 1) //
+		this.reportRangeSelector = document.createElement('select');
+		this.reportRangeSelector.id = 'report-range';
+		this.reportRangeSelector.name = 'report-range';
+		this.reportRangeSelector.value = 'weekly';
 
-        this.walletSelectorLabel = document.createElement('label');
-        this.walletSelectorLabel['for'] = "report-wallets";
-        this.walletSelectorLabel.innerHTML = "Wallets for Report:";
-        this.walletSelector.append(this.allWalletOption);
+		this.reportRangeLabel = document.createElement('label');
+		this.reportRangeLabel['for'] = 'report-range';
+		this.reportRangeLabel.innerHTML = 'Time Range for Report';
+		this.reportRangeSelector.append(this.timeWeeklyOption, this.timeMonthlyOption, this.timeYearlyOption);
 
-        // Select file format (3)
-        this.fileSelector = document.createElement('select');
-        this.fileSelector.id = "report-file";
-        this.fileSelector.name = "report-file";
-        this.fileSelector.value = "pdf";
+		// Select wallets to be included (dropdown 2) //
+		this.walletSelector = document.createElement('select');
+		this.walletSelector.id = 'report-wallets';
+		this.walletSelector.name = 'report-wallets';
+		this.walletSelector.value = 'all';
 
-        this.fileSelectorLabel = document.createElement('label');
-        this.fileSelectorLabel['for'] = "report-file";
-        this.fileSelectorLabel.innerHTML = "Report Format:";
-        this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
+		this.walletSelectorLabel = document.createElement('label');
+		this.walletSelectorLabel['for'] = 'report-wallets';
+		this.walletSelectorLabel.innerHTML = 'Wallets for Report';
+		this.walletSelector.append(this.allWalletOption);
 
-        // Submit button
-        this.submitButton = document.createElement('button');
-        // this.submitButton['type'] = "button";
-        this.submitButton['value'] = "submit";
-        this.submitButton.id = "report-form-button";
-        this.submitButton.innerHTML = "Download Report";
-        // this.submitButton['form'] = this.reportForm;
-        // this.submitButton['form'] = "report-form";
-        
-        // Append all to form
-        this.reportForm.append(this.reportRangeLabel, this.reportRangeSelector, this.walletSelectorLabel, this.walletSelector, this.fileSelectorLabel, this.fileSelector, this.submitButton);
+		// Select file format (dropdown 3) //
+		this.fileSelector = document.createElement('select');
+		this.fileSelector.id = 'report-file';
+		this.fileSelector.name = 'report-file';
+		this.fileSelector.value = 'pdf';
 
-        this.styleElem = document.createElement('link');
-        this.styleElem['rel'] = "stylesheet";
-        this.styleElem['href'] = "../css/report-styles.css";
+		this.fileSelectorLabel = document.createElement('label');
+		this.fileSelectorLabel['for'] = 'report-file';
+		this.fileSelectorLabel.innerHTML = 'Report Format';
+		this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
 
-        this.elementRoot.append(this.reportForm, this.styleElem);
-        this.shadowElem.append(this.elementRoot);
-    }
+		// Submit Button //
+		this.submitButton = document.createElement('button');
+		// this.submitButton['type'] = "button";
+		this.submitButton['value'] = 'submit';
+		this.submitButton['id'] = 'report-form-button';
+		this.submitButton.innerHTML = 'Generate >';
+		// this.submitButton['onclick'] = "generateReport";
+		// this.submitButton['form'] = "report-form"; // this.reportForm
+		// eslint-disable-next-line no-unused-vars
+		this.submitButton.addEventListener('click', event => { 	
+			generateReport(); // possibly a placeholder
+		});
+
+		// Append all to form
+		this.reportForm.append(this.reportRangeLabel, this.reportRangeSelector, this.walletSelectorLabel, this.walletSelector, this.fileSelectorLabel, this.fileSelector, this.submitButton);
+
+		this.styleElem = document.createElement('link');
+		this.styleElem['rel'] = 'stylesheet';
+		this.styleElem['href'] = '../css/report-styles.css';
+
+
+		this.elementRoot.append(this.reportForm, this.styleElem);
+		this.shadowElem.append(this.elementRoot);
+	}
 }
-customElements.define('report-generator', ReportGenerator);
+customElements.define('report-generator', ReportGenerator); // ReportGeneratorComponent

@@ -91,7 +91,6 @@ a:link {
 }
 input.txtinput {
     box-sizing: border-box;
-
     border: 6px solid rgba(65, 117, 164, 0.1);
     border-radius: 100px;
 }

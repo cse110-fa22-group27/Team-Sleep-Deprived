@@ -8,6 +8,7 @@
     "gen-docs": "jsdoc -c ./docs/jsdoc.json",
     "lint": "eslint ./"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/achen200/Expense-Tracker-Local.git"
@@ -20,12 +21,14 @@
   "homepage": "https://github.com/achen200/Expense-Tracker-Local#readme",
   "devDependencies": {
     "eslint": "^8.27.0",
-    "jest": "^29.3.1",
-    "jsdoc": "^3.6.3"
-  },
-  "dependencies": {
+    "jest": "^29.3.0",
     "jest-environment-jsdom": "^29.3.1",
     "jest-image-snapshot": "^6.0.0",
-    "node": "^19.1.0"
+    "jest-puppeteer": "^6.1.1",
+    "jsdoc": "^3.6.3"
+  },
+  "testEnvironment": "jsdom",
+  "jest": {
+    "preset": "jest-puppeteer"
   }
 }
