@@ -1,0 +1,57 @@
+<!-- 
+    @author: Jacob Graven
+    This file contains the report page HTML
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!--Report Scripts-->
+    <script src="../javascript/Report.js" defer type="module"></script>
+    <script src="../javascript/ReportGenerator.js" defer type="module"></script>
+    <!--Stylesheets-->
+    <link rel='stylesheet' href='../css/styles.css'>
+    <link rel='stylesheet' href='../css/report-styles.css'>
+    <title>Reports</title>
+</head>
+
+<body>
+    <header class="page-header" id="template-page-header">
+        <h1 class="page-title" id="template-page-title">Report</h1>
+        <button class="logout-button" onclick="logout()">
+            <script>
+                function logout() {
+                    // Backend: Logout
+                    window.location.href = './signin.html';
+                }
+            </script>
+            <img src="../resources/images/logout-button.svg" alt="Logout Button">
+        </button>
+    </header>
+
+    <nav class="navbar">
+        <a href="./dashboard.html" data-selected="false">Dashboard</a>
+        <a href="./wallets.html" data-selected="false">Wallets</a>
+        <a href="#" data-selected="true">Report</a>
+        <a href="./settings.html" data-selected="false">Settings</a>
+    </nav>
+
+    <div class="report-grid-wrapper">
+        <div class="graph-container">
+            <h2 id="yearly-spending-header"></h2>
+            <canvas id="report-chart"></canvas>
+        </div>
+
+        <div class="generator-container">
+            <h2 id="report-generator-header">Generate Report</h2>
+            <div class="generator-glassbox">
+                <report-generator></report-generator>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

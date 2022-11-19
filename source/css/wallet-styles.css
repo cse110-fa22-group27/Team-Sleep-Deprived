@@ -1,0 +1,91 @@
+:root {
+    --wallet-amount-color: #4495DF;
+    --transaction-positive-color: #02AD28;
+    --transaction-negative-color: #FF0000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#wallets-grid-wrapper {
+    width: 75%;
+    height: 70%;
+    margin: 10% auto;
+    max-width: 700px;
+}
+
+#wallets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.wallet-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: hidden;
+    height: 200px;
+    min-width: 200px;
+}
+
+.glass-box {
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.glass-box:hover {
+    cursor: pointer;
+    border-color: var(--wallet-amount-color);
+    scale: 1.05;
+    transition: border-color .2s linear, scale .08s linear;
+    filter: blur(0);
+}
+
+.glass-box:active {
+    scale: 1;
+}
+
+.wallet-name {
+    font-weight: var(--font-scaling-regular);
+    margin: 0;
+    font-size: x-large;
+}
+
+.wallet-amount {
+    font-family: var(--default-cash-font);
+    font-weight: var(--font-scaling-medium);
+    font-size: x-large;
+    color: var(--wallet-amount-color);
+    margin: 0;
+}
+
+.wallet-last-transaction {
+    font-size: small;
+    margin: 0;
+}
+
+.wallet-last-transaction[data-transaction-type="positive"] {
+    color: var(--transaction-positive-color);
+}
+
+.wallet-last-transaction[data-transaction-type="negative"] {
+    color: var(--transaction-negative-color);
+}
+
+.wallet-last-transaction > strong {
+    color: black;
+}
+
+#new-wallet > img {
+    scale: 0.75;
+}
+
+#new-wallet > .wallet-name {
+    color: grey;
+}
