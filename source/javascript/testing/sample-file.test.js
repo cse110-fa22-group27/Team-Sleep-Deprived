@@ -5,7 +5,6 @@
 
 //Import the sum function from sample file
 //Testing sample change
-const { BrowserRouter } = require('react-router-dom');
 var sum = require('../sample-file.js');
 
 //Syntax for testing:
@@ -58,5 +57,5 @@ test('Test sample snapshot', () => {
         </form>
     </div>  
 	`
-	expect(html).toMatchSnapshot()
-})
+	expect(html).toMatchSnapshot();
+});
