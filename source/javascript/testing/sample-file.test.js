@@ -56,6 +56,6 @@ test('Test sample snapshot', () => {
             <input type="submit" id='submit'  value="Login >">
         </form>
     </div>  
-	`
+	`;
 	expect(html).toMatchSnapshot();
 });

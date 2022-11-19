@@ -3,6 +3,7 @@ const { toMatchImageSnapshot } = require('jest-image-snapshot');
 
 describe('Sign-in snapshot testing', () => {
 	beforeAll(async () => {
+		const page = await browser.newPage();
 		await page.goto('http://localhost:5500/source/html/signin.html');
 	});
 
