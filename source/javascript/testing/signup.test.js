@@ -8,7 +8,7 @@ describe('Sign-up snapshot testing', () => {
 	});
 
 	it('Testing for any changes to the sign-up page', async () => {
-		
+		const page = await browser.newPage();
 		expect.extend({ toMatchImageSnapshot });
 		await page.setViewport({ width: 1280, height: 1400 });
 		
