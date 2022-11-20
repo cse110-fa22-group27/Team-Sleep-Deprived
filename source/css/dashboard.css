@@ -11,7 +11,7 @@ input {
     font-style: normal;
     appearance: none;
     border: 2px solid var(--default-border-color);
-    border-radius: 100px;
+    border-radius: 10px;
     padding: 8px 10px;
     text-align: center;
 }
@@ -20,6 +20,9 @@ select {
     width: 15vw;
     font-family: 'IBM Plex Sans';
     font-style: normal;
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    padding: 8px;
 }
 
 #desc-input {
@@ -30,16 +33,25 @@ select {
     border-radius: 10px;
 }
 
-
-.amount { grid-area: 1 / 1 / span 1 / span 1;
-    padding: 5px;
+/* 
+.amount { 
+    margin: 5px;
 }
-.date { grid-area: 1 / 2 / span 1 / span 1;padding: 5px; }
-.wallet { grid-area: 2/ 1 / span 1 / span 1; padding: 5px;}
-.category { grid-area: 2/ 2 / span 1 / span 1;padding: 5px; }
-.description { grid-area: 3 / 1 / span 2 / span 4; 
-    padding: 15px;}
-.add {grid-area: 5 / 2 / span 1 / span 2;} 
+.date { margin: 5px; }
+.wallet {  margin: 5px;
+}
+.category { margin: 5px; } */
+
+.description {  
+    grid-column: span 2;
+    width: 100%;
+}
+.add {
+    grid-column: span 2;
+    margin-left: auto;
+    margin: 10px 0 0 10px;
+} 
+
 
 .add-transaction-box {
     width: 100%;
@@ -47,9 +59,18 @@ select {
     border: 3px solid #D6D6D6;
     border-radius: 10px;
     padding: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
+.description {
+    grid-column: span 2;
+}
 
+.add {
+    grid-column: span 2;
+    margin-left: auto;
+}
 
 .add-transaction{
     display: flex;
@@ -57,7 +78,7 @@ select {
 }
 
 
-.trans-container {
+/* .trans-container {
     display: grid ;
     grid-template-columns: repeat(2,1fr);
     flex-direction: row;
@@ -66,9 +87,9 @@ select {
      /* resize: both;
     overflow: auto;  */
     /* width: 80%; */
-    /* padding-left: 23.5%; */
+    /* padding-left: 23.5%;
 
-}
+} */
 
 .button {
     font-size: 1.2rem;
@@ -82,6 +103,7 @@ select {
     background-color: #ea918f;
     border: none;
     width: max-content;
+    
 }
 
 .button:hover{
@@ -102,7 +124,9 @@ select {
     /* justify-content: center; */
     /* align-items: center; */
     width: var(--header-width);
+    max-width: var(--header-max-width);
     margin: 0 auto;
+    gap: 20px;
 }
   
 .flex-container > div{
@@ -136,7 +160,7 @@ select {
     text-align: left;
     /* position: relative; */
 
-    /* padding: 10px 0 5px 0; */
+    padding: 40px 0px 8px;
     font-weight: var(--font-scaling-medium);
 }
 
@@ -146,20 +170,35 @@ table {
     font: 'IBM Plex Sans'; */
     text-align: left;
     border: 3px solid #D6D6D6;
-    border-radius: 10px;
-    padding: 5px 10px;
+    border-radius: 10px; 
+    padding: 5px 10px; 
     table-layout: fixed;
     backdrop-filter: blur(5px);
     width: 100%;
     /* width: 100%; */
+
 }
 
-.trasaction-name {
-    width: 60%;
+.transaction-name {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 0;
 }
 
 .transaction-amount {
-    width: 25%; 
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wallet-name {
+    width: 25%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 [data-kind="amount"] {
