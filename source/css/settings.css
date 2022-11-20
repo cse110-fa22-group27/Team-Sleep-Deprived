@@ -1,6 +1,6 @@
 #usersettings {
     margin-top: 1rem;
-    margin-left: 35%;
+    /* margin-left: 35%; */
 }
 .password {
     margin-top: 25px;
@@ -60,7 +60,6 @@ input[type="password"] {
 
     background: #6EAF71;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15px);
     /* Note: backdrop-filter has minimal browser support */
 
     border-radius: 10px;

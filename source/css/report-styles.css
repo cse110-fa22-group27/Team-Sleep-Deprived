@@ -5,7 +5,6 @@
 	justify-content: center;
 	align-content: center;
 	align-items: baseline;
-
 	gap: 0px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -13,11 +12,25 @@
 
 .report-grid-wrapper > div {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: row wrap;
 	/* margin-right: 0px;
 	flex-basis: auto; */
+}
+
+.graph-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.generator-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.graph-container, .generator-container {
+	margin: 1rem;
 }
 
 .generator-glassbox {
@@ -34,13 +47,6 @@ canvas {
 
 #report-chart {
 	scale: 1;
-}
-
-#yearly-spending-header, #report-generator-header {
-	text-align: left;
-	margin: 0 auto;
-	margin-left: 20%;
-	padding-top: 15px;
 }
 
 label {

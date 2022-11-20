@@ -89,3 +89,9 @@
 #new-wallet > .wallet-name {
     color: grey;
 }
+
+@media screen and (max-width: 768px) {
+    #wallets-grid {
+        grid-template-columns: repeat(1, 0.7fr);
+    }
+}
