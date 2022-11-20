@@ -1,27 +1,27 @@
 function getYearlySpending() {
+	// TODO //
+	// console.log('getYearlySpending fired');
 	let yearlyTotal = 0;
-	const localStorageString = window.localStorage.getItem('wallet-infos');
-	const localStorageWallets = JSON.parse(localStorageString != null ? localStorageString : '[]');
-
-	// yearlyTotal = localWallets.map(localWallets => localWallets.amount).reduce((amntA, amntB) => amntA + amntB);
-	for (let wallet of localStorageWallets) {
-		yearlyTotal += wallet.amount;
+	const localWalletString = JSON.stringify(window.localStorage.getItem('wallet-infos'));
+	const localWallets = JSON.parse(localWalletString != null ? localWalletString : '[]');
+	if (localWallets == '[]' || localWallets == null) {
+		return 0;
 	}
-
-	// console.log(yearlyTotal);
+	// yearlyTotal = localWallets.map(localWallets => localWallets.amount).reduce((amntA, amntB) => amntA + amntB);
+	
+	for(let wallet in localWallets) {
+		yearlyTotal += wallet['amount'];
+	}
+	console.log(yearlyTotal);
 	return yearlyTotal;
 }
 
 export function generateReport() {
 	// TODO //
-	// create new page -> put graph + some statistics on page -> convert page to pdf / open page and allow user to download/print
+	// create new page -> put graph + some statistics on page
+	// convert page to pdf / open page and allow user to download/print
 	//      //
 	console.log('generateReport fired');
-	return 0;
-}
-
-function generateChart() {
-	// TODO //
 	return 0;
 }
 
@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
 	// TODO: fix chart / make chart functional //
 
 	// Yearly Spending //
-	console.log("load event fired");
+	console.log('load event fired');
 	let yearlySpending = getYearlySpending();
 	document.getElementById('yearly-spending-header').innerHTML = 'Yearly Spending: $' + yearlySpending;
 
@@ -42,14 +42,15 @@ window.addEventListener('load', () => {
 	// let yMax = Math.max.apply(null, yValues);
 
 	// can we use Chart.js?
-	new Chart('report-chart', {
+	//	eslint-disable-next-line no-undef
+	new Chart('report-chart', { 
 		type: 'bar',
 		data: {
 			labels: xLabels,
 			datasets: [{
 				data: yValues
 			}]
-		},
+		}, 
 		options: {
 			legend: {
 				display: false

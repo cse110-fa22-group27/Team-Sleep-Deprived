@@ -1,3 +1,8 @@
+:root {
+	--graph-item-foreground-color: #5cc579;
+	--graph-item-background-color: rgba(255, 0, 0, 0.4);
+}
+
 .report-grid-wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -97,4 +102,70 @@ label {
 	background-color: #31a7da;
 	color: black;
 	cursor: pointer;
+}
+
+#graph-container {
+	display: grid;
+	grid-template-columns: 1.75fr 0.25fr;
+	width: 50%;
+	padding: 10px;
+	padding-bottom: 0;
+	font-weight: var(--font-scaling-light);
+	overflow: hidden;
+	font-size: 0.9rem;
+}
+
+#month-axis {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	text-transform: uppercase;
+}
+
+#bar-graph {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: 1fr;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-around;
+}
+
+.bar-graph-item {
+	display: grid;
+	height: 100%;
+	width: 95%;
+}
+
+.bar-graph-item .foreground {
+	/* TODO: Make the background color of this object as green matching the figma green */
+	margin-top: auto;
+	margin-bottom: 0;
+	background-color: var(--graph-item-foreground-color);
+	grid-column: 1/2;
+	grid-row: 1/2;
+	border-radius: 5px 5px 0 0;
+}
+
+.bar-graph-item .background {
+	margin-top: auto;
+	margin-bottom: 0;
+	background-color: var(--graph-item-background-color);
+	grid-column: 1/2;
+	grid-row: 1/2;
+	border-radius: 5px 5px 0 0;
+}
+
+#amount-axis {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#amount-axis > div {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

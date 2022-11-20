@@ -1,4 +1,8 @@
 /**
+ * @jest-environment jsdom
+ */
+
+/**
  * @author Ashwin Rohit Alagiri Rajan
  * @class
  * @implements {HTMLElement}
@@ -6,7 +10,7 @@
  */
 class WalletInfo extends HTMLElement {
 	/** 
-     * @constructs WalletInfo
+	* @constructs WalletInfo
      */
 	constructor() {
 		super();
@@ -84,3 +88,63 @@ class WalletInfo extends HTMLElement {
 
 }
 customElements.define('wallet-info', WalletInfo);
+
+// These 4 lines (93 - 96) allow for us to use 'document' while not in the browser
+const fs = require('fs');
+const { JSDOM } = require('jsdom');
+const html = fs.readFileSync('../Team-Sleep-Deprived/source/html/wallet_info.html');
+const page = new JSDOM(html);
+
+let walletData = {
+	name: 'hello',
+	amount: 23,
+	lastTransaction: {
+		name: 'yo',
+		amount: 222,
+		type: 'positive'
+	}
+};
+
+let newWalletInfo = document.createElement('wallet-info');
+var element = document.getElementsByClassName('wallet-info');
+
+newWalletInfo.data = {
+	name: walletData.name,
+	amount: walletData.amount,
+	lastTransaction: {
+		name: walletData.lastTransaction.name,
+		amount: walletData.lastTransaction.amount,
+		type: walletData.lastTransaction.type
+	}
+};
+
+// still not sure as to why this fails 
+// test('Check data properties of newWalletInfo', () => {
+//     expect(newWalletInfo.data).toBe(walletData);
+// })
+
+test('Existence of wallet-info', () => {
+	expect(typeof element).not.toBe(undefined);
+});
+
+test('Check existence of newWalletInfo', () => {
+	expect(newWalletInfo).not.toBe(undefined);
+});
+
+test('Check class name of newWalletInfo elementRoot', () => {
+	expect(newWalletInfo.elementRoot.className).toBe('wallet-info glass-box');
+});
+
+test('Check class name of newWalletInfo walletName', () => {
+	expect(newWalletInfo.walletName.className).toBe('wallet-name');
+});
+
+test('Check class name of newWalletInfo walletAmount', () => {
+	expect(newWalletInfo.walletAmount.className).toBe('wallet-amount');
+});
+
+test('Check class name of newWalletInfo walletLastTransaction', () => {
+	expect(newWalletInfo.walletLastTransaction.className).toBe('wallet-last-transaction');
+});
+
+module.exports = page;

@@ -1,6 +1,6 @@
 #usersettings {
     margin-top: 1rem;
-    /* margin-left: 35%; */
+    margin-left: 31%;
 }
 .password {
     margin-top: 25px;
@@ -37,8 +37,11 @@ input.txtinput {
 }
 
 input[type="password"] {
-    font-size:xxx-large;
+    font-size:xx-large;
+    width: 80%;
+    height: 50%
 }
+
 
 .submit {
     font-family: 'IBM Plex Sans';
@@ -49,7 +52,7 @@ input[type="password"] {
     letter-spacing: 0.055em;
     color: #FFFFFF;
 
-    padding:1rem 2rem;
+    padding:1rem 1rem;
     margin-top: 1rem;
     display: block;
     margin-left: auto;
@@ -92,10 +95,12 @@ input[type="password"] {
     max-width: 550px;
     padding-bottom: 10px;
     padding-left: 10px;
+    margin-left: 3rem;
 }
 
 .settingform {
     margin-bottom: 50px;
+    margin-top: 50px
 }
 
 
