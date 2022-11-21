@@ -11,7 +11,11 @@ Zoom 1030 am PST
 - Update the TA on what the team is doing and what the team is planning on doing in the upcoming weeks.
 - Remind Team Leads about the deadlines
 - Receive clarification on the project
+- The problems we are facing
+
 
 > ### Important Discussion points
-- The deadlines of CI/CD & ADRs & retrospective should be done by 11/16 
-- The incoming Team Status video next week: We can come up with some ideas on Wednesday meeting and double check with TA
+- 11/22: team status video, ADR checkpoints 2 deadlines
+- after week 10, try to finish the project by 12/4
+- 12/8 final video reprsentation (Everyone needs to be there while video is playing)
+
