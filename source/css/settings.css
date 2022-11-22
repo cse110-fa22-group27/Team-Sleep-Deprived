@@ -54,7 +54,7 @@ input[type="password"] {
     letter-spacing: 0.055em;
     color: #FFFFFF;
 
-    padding:1rem 2rem;
+    padding:1rem 1rem;
     margin-top: 1rem;
     display: block;
     margin-left: auto;
@@ -103,7 +103,7 @@ input[type="password"] {
     max-width: 550px;
     padding-bottom: 10px;
     padding-left: 10px;
-    margin-left: 1rem;
+    margin-left: 3rem;
 }
 
 .settingform {
