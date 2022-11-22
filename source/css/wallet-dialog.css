@@ -1,0 +1,55 @@
+.form-container {
+    width: 300px;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.form-container:hover {
+    scale: 1;
+    border-color: var(--default-border-color);
+}
+
+.form-popup {
+    display: none; /*Have form be hidden */
+    position: absolute;
+    top: 30%;
+    left: calc(50% - 150px);
+    z-index: 9;
+}
+.form-container .btn {
+    background-color: rgba(10, 255, 10, .5);
+    color: black;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: rgba(255, 0, 0, 0.40);
+    /* color: white; */
+}
+
+.form-container input[type=text], .form-container input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: 2px solid var(--default-border-color);
+    border-radius: 10px;
+    color: black;
+    font-weight: var(--font-scaling-semibold);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+  
+/* When the inputs get focus, do something */  
+.form-container input[type=text]:focus, .form-container input[type=number]:focus {
+    border-color: var(--wallet-amount-color);
+    outline: none;
+}
+
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
