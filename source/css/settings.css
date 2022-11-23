@@ -1,4 +1,4 @@
-#usersettings {
+.usersettings {
     margin-top: 1rem;
     margin-left: 31%;
 }
@@ -28,6 +28,8 @@ input.txtinput {
     border: 6px solid rgba(65, 117, 164, 0.1);
     border-radius: 100px;
 }
+
+
 
 .inputsec {
     margin-top: 0.5rem;
@@ -84,6 +86,11 @@ input[type="password"] {
     max-width: 550px;
     padding-bottom: 30px;
 }
+
+#landingpage {
+    margin-left: 0%;
+}
+
 #choices {
     padding-right: 9rem;
     padding-top: 10px;
@@ -96,14 +103,12 @@ input[type="password"] {
     max-width: 550px;
     padding-bottom: 10px;
     padding-left: 10px;
-    margin-left: 3rem;
 }
 
 .settingform {
-    margin-bottom: 50px;
-    margin-top: 50px
+    margin-bottom: 100px;
+    margin-top: 100px;
 }
-
 
 @media (max-width: 768px) {
     #box {
