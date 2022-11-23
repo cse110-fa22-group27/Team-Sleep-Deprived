@@ -8,7 +8,7 @@
     "gen-docs": "jsdoc -c ./docs/jsdoc.json",
     "lint": "eslint ./"
   },
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/achen200/Expense-Tracker-Local.git"
