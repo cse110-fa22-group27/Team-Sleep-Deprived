@@ -10,9 +10,12 @@
 	justify-content: center;
 	align-content: center;
 	align-items: baseline;
-	gap: 0px;
+	gap: 0 75px;
 	margin: 0 auto;
 	overflow: hidden;
+	/* zoom: 1.5; */
+	transform: scale(1.5);
+	transform-origin: 50% 0;
 }
 
 .report-grid-wrapper > div {
@@ -107,7 +110,7 @@ label {
 #graph-container {
 	display: grid;
 	grid-template-columns: 1.75fr 0.25fr;
-	width: 50%;
+	width: 500px;
 	padding: 10px;
 	padding-bottom: 0;
 	font-weight: var(--font-scaling-light);
