@@ -16,7 +16,7 @@ class AddWallet extends HTMLElement {
 
 		this.stylesheetLink = document.createElement('link');
 		this.stylesheetLink['rel'] = 'stylesheet';
-		this.stylesheetLink['href'] = '../css/wallet-styles.css';
+		this.stylesheetLink['href'] = '../css/wallet.css';
 
 		this.stylesheetLink1 = document.createElement('link');
 		this.stylesheetLink1['rel'] = 'stylesheet';

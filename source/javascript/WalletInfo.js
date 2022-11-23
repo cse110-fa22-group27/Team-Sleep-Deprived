@@ -47,7 +47,7 @@ class WalletInfo extends HTMLElement {
          */
 		this.styleElem = document.createElement('link');
 		this.styleElem['rel'] = 'stylesheet';
-		this.styleElem['href'] = '../css/wallet-styles.css';
+		this.styleElem['href'] = '../css/wallet.css';
 
 		this.defaultStyleLink = document.createElement('link');
 		this.defaultStyleLink.href = '../css/styles.css';

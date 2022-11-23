@@ -97,7 +97,7 @@ class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use 
 
 		this.styleElem = document.createElement('link');
 		this.styleElem['rel'] = 'stylesheet';
-		this.styleElem['href'] = '../css/report-styles.css';
+		this.styleElem['href'] = '../css/report.css';
 
 
 		this.elementRoot.append(this.reportForm, this.styleElem);

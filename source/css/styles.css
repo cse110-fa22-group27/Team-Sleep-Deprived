@@ -27,11 +27,11 @@
     --font-scaling-black: 900;
 
     /* TODO: Change this border to none in the final release */
-    --temp-border-style: 1px solid black;
+    --temp-border-style: none;
     --temp-border-style: none;
 
     --header-width: 75%;
-    --header-width-max: 1000px;
+    /* --header-width-max: 1000px; */
 
     --logout-button-scaling: 0.6;
 }
