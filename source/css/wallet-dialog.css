@@ -2,6 +2,7 @@
     width: 300px;
     padding: 10px;
     padding-bottom: 0;
+    background-color: rgba(246,249,243, 1);
 }
 
 .form-container:hover {
@@ -17,8 +18,9 @@
     z-index: 9;
 }
 .form-container .btn {
-    background-color: rgba(10, 255, 10, .5);
+    background-color: rgba(0, 200, 0, .5);
     color: black;
+    font-size: 1.1rem;
     padding: 16px 20px;
     border: none;
     border-radius: 10px;
@@ -29,27 +31,33 @@
 }
 
 .form-container .cancel {
-    background-color: rgba(255, 0, 0, 0.40);
+    background-color: rgba(255, 0, 0, 0.5);
     /* color: white; */
 }
 
-.form-container input[type=text], .form-container input[type=number] {
+.form-container input {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: 2px solid var(--default-border-color);
     border-radius: 10px;
     color: black;
-    font-weight: var(--font-scaling-semibold);
+    font-weight: var(--font-scaling-regular);
     background-color: rgba(255, 255, 255, 0.3);
+    font: inherit;
+    font-size: 1.2rem;
 }
   
 /* When the inputs get focus, do something */  
-.form-container input[type=text]:focus, .form-container input[type=number]:focus {
+.form-container input:focus {
     border-color: var(--wallet-amount-color);
     outline: none;
 }
 
 .form-container .btn:hover, .open-button:hover {
     opacity: 1;
+}
+
+.form-container > label {
+    font-size: 1.2rem;
 }
