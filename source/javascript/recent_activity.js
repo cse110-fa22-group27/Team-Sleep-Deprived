@@ -20,10 +20,10 @@ class RecentActivity extends HTMLElement {
      * Called when the .data property is set on this element.
      * 
      * For Example:
-     * let recent_transaction = document.createElement('rec-trans'); // Calls constructor()
-     * recent_transaction.data = { [foo: 'bar'] } // Calls set data({ [foo: 'bar'] })
+     * let recent_activity = document.createElement('rec-act'); // Calls constructor()
+     * recent_activity.data = { [foo: 'bar'] } // Calls set data({ [foo: 'bar'] })
      *
-     * @param {Object} data - The data to pass into the <rec-trans>, must be of the
+     * @param {Object} data - The data to pass into the <rec-act>, must be of the
      *                        following format:
      *                        {
      *                          ["name": "string",
