@@ -1,3 +1,4 @@
+
 /**
  * Sample sum function to test the validity
  * @param {int} a 
@@ -6,5 +7,6 @@
 function sum(a,b){
 	return a + b;
 }
+
 
 module.exports = sum;
