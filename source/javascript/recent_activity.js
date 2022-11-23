@@ -1,23 +1,22 @@
 class RecentActivity extends HTMLElement {
-	constructor() {
-		super();
+    constructor() {
+        super();
 
-		this.attachShadow({ mode: 'open' });
-		const styles = document.createElement('style');
+        this.attachShadow({ mode: 'open' });
+        const styles = document.createElement('style');
 
-		const divider = document.createElement('div');
-		divider.setAttribute('class', 'recent-activity');
-		divider.innerHTML = `
-		<h2 class='section-title'>Recent Activity</h2>
-		<div class='recent-activity-box'>
-		<table>
-		</table>
-		</div>
-		`;
+        const divider = document.createElement('div');
+        divider.setAttribute('class', 'recent-activity');
+        divider.innerHTML = `
+        <h2 class='section-title'>Recent Activity</h2>
+        <div class='recent-activity-box'>
+        <table>
+        </table>
+        </div>
+        `;
+    }
 
-	}
-
-	/**
+    /**
      * Called when the .data property is set on this element.
      * 
      * For Example:
@@ -30,34 +29,41 @@ class RecentActivity extends HTMLElement {
      *                          ["name": "string",
      *                          "amount": "double",
      *                          "wallet": "string"],
-	 * 							...
-	 * 							["name": "string",
-     *                          "amount": "double",
+     *                          ...
+     *                          ["name": "string",
+     *                          "amount": "number",
      *                          "wallet": "string"]
      *                        }
      */
-	set data(data) {
-		// if data null return
-		if(!data) {
-			return;
-		}
-		// parse data
-		const transactions = JSON.parse(data);
-		const table = this.shadowRoot.querySelector('table');
+    set data(data) {
+        // if data null return
+        if(!data) {
+            return;
+        }
+        // parse data
+        const transactions = JSON.parse(data);
+        const table = this.shadowRoot.querySelector('table');
 
-		// for every JSON object passed in create a transaction and add to table.
-		for(var t of transactions){
-			var new_trans = document.createElement('tr');
-			new_trans.innerHTML = `
-			<td class="transaction-name">${t.name}</td>
-            <td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">${t.amount}</td>
-            <td class="wallet-name">${t.wallet}</td>			
-			`;
-			// TODO: decide how we will indicate a transaction is negative
-			table.appendChild(new_trans);
-		}
-
-	}
+        // for every JSON object passed in create a transaction and add to table.
+        for(var t of transactions){
+            var new_trans = document.createElement('tr');
+            if(t.amount < 0){
+                new_trans.innerHTML = `
+                <td class="transaction-name">${t.name}</td>
+                <td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(${t.amount})</td>
+                <td class="wallet-name">${t.wallet}</td>			
+                `;
+            }
+            else {
+                new_trans.innerHTML = `
+                <td class="transaction-name">${t.name}</td>
+                <td class="transaction-amount" data-kind="amount" data-transaction-kind="positive">${t.amount}</td>
+                <td class="wallet-name">${t.wallet}</td>			
+                `;
+            }
+            table.appendChild(new_trans);
+        }
+    }
 }
 
 customElements.define('rec-act', RecentActivity);
