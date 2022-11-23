@@ -18,7 +18,11 @@ class AddWallet extends HTMLElement {
 		this.stylesheetLink['rel'] = 'stylesheet';
 		this.stylesheetLink['href'] = '../css/wallet-styles.css';
 
-		this.root.append(this.titleElem, this.addIcon, this.stylesheetLink);
+		this.stylesheetLink1 = document.createElement('link');
+		this.stylesheetLink1['rel'] = 'stylesheet';
+		this.stylesheetLink1['href'] = '../css/styles.css';
+
+		this.root.append(this.titleElem, this.addIcon, this.stylesheetLink, this.stylesheetLink1);
 		this.shadowElement.append(this.root);
 	}
 }

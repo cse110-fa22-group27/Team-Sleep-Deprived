@@ -1,117 +1,78 @@
-.usersettings {
-    margin-top: 1rem;
-    margin-left: 31%;
-}
-.password {
-    margin-top: 25px;
-    margin-bottom: 1000px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    scale: 1.25;
-    grid-area: 2 / 5 / 5 / 6; 
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+.user-settings {
+    width: 70%;
     margin: 0 auto;
-    max-width: 550px;
-    padding-bottom: 30px;
+    margin: 3rem auto;
 }
 
-.txt {
-    font-weight: var(--font-scaling-regular);
-    font-size: x-large;
+.settings-title {
+    margin: 1rem;
+    margin-left: 0;
+    font-size: 1.9rem;
 }
 
-input.txtinput {
-    box-sizing: border-box;
-    border: 6px solid rgba(65, 117, 164, 0.1);
-    border-radius: 100px;
-}
-
-
-
-.inputsec {
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
+.setting-inner-title {
+    font-size: 1.5rem;
+    color: grey;
+    font-weight: var(--font-scaling-semibold);
     margin-bottom: 1rem;
-    margin-right: 0.5rem;
 }
 
-input[type="password"] {
-    font-size:xx-large;
-    width: 80%;
-    height: 50%
+.setting-component {
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+    padding-bottom: 1.5rem;
 }
 
-
-.submit {
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    font-weight: 600;
-
-    /* identical to box height */
-    letter-spacing: 0.055em;
-    color: #FFFFFF;
-
-    padding:1rem 1rem;
-    margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-
-    box-sizing: relative;
-
-    position: relative;
-
-    background: #6EAF71;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    /* Note: backdrop-filter has minimal browser support */
-
-    border-radius: 10px;
-    font-size:large;
-    
-}
-.default {
-    margin-top: 1000px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    scale: 1.25;
-    grid-area: 2 / 5 / 5 / 6; 
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    margin: 0 auto;
-    max-width: 550px;
-    padding-bottom: 30px;
+.setting-component p {
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-scaling-regular);
+    font-size: 1.3rem;
 }
 
-#landingpage {
-    margin-left: 0%;
+.password-input-field {
+    appearance: none;
+    border: 3px solid var(--default-border-color);
+    border-radius: 100px;
+    padding: 5px 10px;
+    height: 2.5rem;
+    width: 70%;
+    font-size: 2rem;
 }
 
-#choices {
-    padding-right: 9rem;
-    padding-top: 10px;
-    scale: 1.25;
-    grid-area: 2 / 5 / 5 / 6;
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    margin: 0 auto;
-    max-width: 550px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+.default-page-chooser {
+    background-color: none;
+    padding: 1rem;
+    border: 3px solid var(--default-border-color);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    width: 30%;
 }
 
-.settingform {
-    margin-bottom: 100px;
-    margin-top: 100px;
+.button-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
-@media (max-width: 768px) {
-    #box {
-        min-width: 80%;
-    }
+.button-holder>button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    background-color: rgba(0, 150, 0, 0.5);
+    color: white;
+    border: none;
+    width: 10rem;
 }
 
+.button-holder > button:hover {
+    cursor: pointer;
+    scale: 1.05;
+    transition: scale .2s ease;
+}
+
+#reset-button {
+    background-color: rgba(150, 0, 0, 0.5);
+}

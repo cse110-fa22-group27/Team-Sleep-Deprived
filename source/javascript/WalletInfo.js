@@ -49,12 +49,16 @@ class WalletInfo extends HTMLElement {
 		this.styleElem['rel'] = 'stylesheet';
 		this.styleElem['href'] = '../css/wallet-styles.css';
 
+		this.defaultStyleLink = document.createElement('link');
+		this.defaultStyleLink.href = '../css/styles.css';
+		this.defaultStyleLink.rel = 'stylesheet';
+
 		this.elementRoot.addEventListener('click', event => {
 			event.preventDefault();
 			window.open('../../source/html/wallet_info.html', '_self');
 		});
 
-		this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem);
+		this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem, this.defaultStyleLink);
 		this.shadowElem.append(this.elementRoot);
 	}
 
