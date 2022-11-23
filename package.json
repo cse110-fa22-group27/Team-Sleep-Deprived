@@ -30,8 +30,5 @@
   "testEnvironment": "jsdom",
   "jest": {
     "preset": "jest-puppeteer"
-  },
-  "dependencies": {
-    "babel-eslint": "^10.1.0"
   }
 }
