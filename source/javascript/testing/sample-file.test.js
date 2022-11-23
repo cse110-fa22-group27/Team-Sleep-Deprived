@@ -1,3 +1,8 @@
+/**
+* @jest-environment jsdom
+*/
+
+
 //Import the sum function from sample file
 //Testing sample change
 var sum = require('../sample-file.js');
@@ -26,3 +31,31 @@ for(let i = -4; i < 4; i++){
 		testAdd(i, j);
 	}
 }
+
+//testing to see if any of the html inside a specific block has changed
+test('Test sample snapshot', () => {
+	const html = `
+	<div>
+        <form id='box'>
+
+            <div class="inputsec">
+                <label for="username" class="txt">Username: </label><br>
+                <input type="text" id="username" class= "txtinput" name="username"><br>
+            </div>
+
+            <div class="inputsec" id="passwordgroup">
+                <label for="password" class="txt">Password: </label><br>
+                <input type="password" id="password" class= "txtinput" name="password"><br>
+            </div>
+
+            <div id="check">
+                <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+                <label for="rememberme" class="txt">Remember Me</label><br>
+            </div>
+        
+            <input type="submit" id='submit'  value="Login >">
+        </form>
+    </div>  
+	`;
+	expect(html).toMatchSnapshot();
+});

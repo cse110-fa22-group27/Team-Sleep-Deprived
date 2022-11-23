@@ -1,25 +1,8 @@
-<!-- 
-    @author: Andrew Nguyen
-    The sign in page. This is the default page that is shown to the signed out user.
--->
-<!DOCTYPE html>
-<html lang="en">
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-<head>
-    <meta charset="UTF-8">
-    <link rel='stylesheet' href='../css/signin.css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-</head>
-
-<body>
-    <div>
-
-        <div id="title">
-            <span class="txt" id="login">Login/</span>
-            <a href="signup.html" class="txt" id="signup">Sign up</a>
-        </div>
-
+exports[`Test sample snapshot 1`] = `
+"
+	<div>
         <form id='box'>
 
             <div class="inputsec">
@@ -39,8 +22,6 @@
         
             <input type="submit" id='submit'  value="Login >">
         </form>
-    </div>      
-
-</body>
-
-</html>
+    </div>  
+	"
+`;
