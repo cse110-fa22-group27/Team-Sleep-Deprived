@@ -1,218 +1,169 @@
 :root {
-    --wallet-amount-color: #4495DF;
-    --transaction-positive-color: #02AD28;
-    --transaction-negative-color: #FF0000;
-    --component-width: 45%;
+	--wallet-amount-color: #4495DF;
+	--transaction-positive-color: #02AD28;
+	--transaction-negative-color: #FF0000;
+	--component-width: 45%;
 }
 
-input {
-    width: 15vw;
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    appearance: none;
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    padding: 8px 10px;
-    text-align: center;
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	width: var(--header-width);
+	margin: 0 auto;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
 }
 
-select {
-    width: 15vw;
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    padding: 8px;
+.component {
+	width: 100%;
+	font-size: 1.3rem;
+	height: 100%;
 }
 
-#desc-input {
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    width: 30vw;
-    height: 5vw;
-    border-radius: 10px;
+.component-title {
+	text-align: left;
+	padding: 40px 0px 8px;
+	font-weight: var(--font-scaling-medium);
 }
 
-/* 
-.amount { 
-    margin: 5px;
-}
-.date { margin: 5px; }
-.wallet {  margin: 5px;
-}
-.category { margin: 5px; } */
-
-.description {  
-    grid-column: span 2;
-    width: 100%;
-}
-.add {
-    grid-column: span 2;
-    margin-left: auto;
-    margin: 10px 0 0 10px;
-} 
-
-
-.add-transaction-box {
-    width: 100%;
-    display: grid ;
-    border: 3px solid #D6D6D6;
-    border-radius: 10px;
-    padding: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.add-transaction {
+	width: 60%;
 }
 
-.description {
-    grid-column: span 2;
-}
-
-.add {
-    grid-column: span 2;
-    margin-left: auto;
-}
-
-.add-transaction{
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* .trans-container {
-    display: grid ;
-    grid-template-columns: repeat(2,1fr);
-    flex-direction: row;
-    /* padding-bottom: 15px; */
-    
-     /* resize: both;
-    overflow: auto;  */
-    /* width: 80%; */
-    /* padding-left: 23.5%;
-
+/* .add-transaction-box {
+	display: grid;
+	border: 3px solid #D6D6D6;
+	border-radius: 10px;
+	padding: 10px;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	height: 65%;
 } */
 
-.button {
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    background-color: #ea918f;
-    border: none;
-    width: max-content;
-    
+.add-transaction-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 3px solid #D6D6D6;
+	border-radius: 10px;
+	padding: 10px;
+	height: 65%;
+	gap: 10px;
 }
 
-.button:hover{
-    cursor: pointer;
+.add-transaction-box > * {
+	width: 100%;
+	max-width: 400px;
+}
+
+.add-transaction-box label {
+	font-weight: var(--font-scaling-medium);
+}
+
+.add-transaction-box input {
+	width: 100%;
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	appearance: none;
+	border: 2px solid var(--default-border-color);
+	border-radius: 10px;
+	padding: 8px 10px;
+	text-align: center;
+}
+
+.add-transaction-box select {
+	width: 100%;
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	border: 2px solid var(--default-border-color);
+	border-radius: 10px;
+	padding: 8px;
+}
+
+.add-transaction-box #desc-input {
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	width: 100%;
+	height: 200%;
+	border-radius: 10px;
+}
+
+.add-transaction-button {
+	/* grid-column: span 2; */
+	margin: auto 0 0 auto;
+	font-size: 1.2rem;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	background-color: #ea918f;
+	border: none;
+	width: max-content;
+	max-height: 50px;
+}
+
+.add-transaction-button:hover {
+	cursor: pointer;
 }
 
 #add-transaction-icon {
-    color: white;
-    font-size: 1.3rem;
-    padding: 0;
-    margin: 1px;
+	color: white;
+	font-size: 1.3rem;
+	padding: 0;
+	margin: 1px;
 }
 
-.flex-container{
-    display: flex ;
-    /* grid-template-columns: repeat(2,1fr); */
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
-    width: var(--header-width);
-    max-width: var(--header-max-width);
-    margin: 0 auto;
-    gap: 20px;
-}
-  
-.flex-container > div{
-    /* background-color: DodgerBlue; */
-    /* color: white; */
-    /* width: ; */
-    /* margin: 20px; */
-    text-align: center;
-    line-height: 20px;
-    font-size: 15px;
+.recent-activity-box {
+	padding: 10px;
+	height: 65%;
 }
 
-.recent-activity {
-    width: 100%;
-    /* border: 3px solid #D3D3D3;
-    backdrop-filter: blur(5px); */
-    /* border-radius: 15px; */
-
-    /* resize: both;
-    overflow: auto;    */
-    /* min-width: 871px;
-    min-height: 663px; */
-}
-
-
-
-.section-title{
-    /* padding: 10px 0px 10px;
-    /* padding: 0; */
-    /*margin: 0; */
-    text-align: left;
-    /* position: relative; */
-
-    padding: 40px 0px 8px;
-    font-weight: var(--font-scaling-medium);
-}
-
-table {
-    /* text-align: left;
-    width: 100%;
-    font: 'IBM Plex Sans'; */
-    text-align: left;
-    border: 3px solid #D6D6D6;
-    border-radius: 10px; 
-    padding: 5px 10px; 
-    table-layout: fixed;
-    backdrop-filter: blur(5px);
-    width: 100%;
-    /* width: 100%; */
-
+.recent-activity-box table th {
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .transaction-name {
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px 0;
+	width: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 5px 0;
 }
 
 .transaction-amount {
-    width: 25%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	width: 25%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .wallet-name {
-    width: 25%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	width: 25%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 [data-kind="amount"] {
-    color: var(--wallet-amount-color);
-    /* font-family: var(--default-cash-font); */
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    overflow: hidden !important;
+	color: var(--wallet-amount-color);
+	font-family: var(--default-cash-font);
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	overflow: hidden !important;
 }
 
 [data-transaction-kind="positive"] {
-    color: var(--transaction-positive-color) !important;
+	color: var(--transaction-positive-color) !important;
 }
 
 [data-transaction-kind="negative"] {
-    color: var(--transaction-negative-color) !important;
+	color: var(--transaction-negative-color) !important;
 }

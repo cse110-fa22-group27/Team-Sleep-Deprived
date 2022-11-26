@@ -1,5 +1,7 @@
-function main() {
-   const request = window.indexedDB.open('UserSignedIn')
-}
+import userObject from "./globals.js";
 
-document.addEventListener('DOMContentLoaded', _ => main());
+const button = document.querySelector('button').addEventListener('click', () => {
+	console.log(userObject);
+});
+
+console.log(userObject);
