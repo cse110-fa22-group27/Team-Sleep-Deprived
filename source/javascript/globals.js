@@ -1,3 +1,3 @@
-let userObject = {};
+let currentUserName = 'user';
 
-export default userObject;
+export default currentUserName;
