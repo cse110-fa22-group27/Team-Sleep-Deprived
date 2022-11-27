@@ -64,31 +64,24 @@ request.onsuccess = function () {
 
     // //const idQuery = store.get("ashwin");
 
-    // // Get the first record found in the ID index:
-    // const idQuery = store.get(1);
-    // idQuery.onsuccess = function () {
-    //     const ashwin = idQuery.result["ashwin"];
-    //     console.log(ashwin);
-    //     const data = ashwin.wallets;
-    //     const wallets = [];
-    //     data.forEach((wallet) => {
-    //         wallets.push(new Wallet(wallet.name, wallet.balance));
-    //     })
-    //     wallets.forEach((wallet) => {
-    //         console.log(wallet);
-    //     })
-    // };
-
     // ==above testing code
 
     async function getAllUsersObject() {
-        let idQuery = await store.get(1);
-        //let ash = idQuery["ashwin"]
-        return idQuery; //it will return the promise
+        let users = await store.getAll();
+        users.onsuccess = function () {
+            const userObjects = users.result;
+            console.log("All user objects retrieved");
+            return userObjects;
+    }
     }
 
     function setAllUsersObject(objectStore) {
         store.put(objectStore);
+        console.log("All user objects stored in database");
     }
 
 };
+
+
+
+    
