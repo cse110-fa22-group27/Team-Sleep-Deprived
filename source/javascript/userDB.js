@@ -68,11 +68,14 @@ request.onsuccess = function () {
 
     async function getAllUsersObject() {
         let users = await store.getAll();
+        users.onerror = function () {
+            console.error("Cannot retrieve user objects");
+        }
         users.onsuccess = function () {
             const userObjects = users.result;
             console.log("All user objects retrieved");
             return userObjects;
-    }
+        }
     }
 
     function setAllUsersObject(objectStore) {
