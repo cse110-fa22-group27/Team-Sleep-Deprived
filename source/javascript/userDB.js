@@ -52,8 +52,8 @@ request.onsuccess = function () {
     // const pwdIndex = store.index("password");
     // const walletIndex = store.index("wallet");
 
-    //below testing code and leave here for reference 
-    // // lets try put some data into Database:
+    // below testing code and leave here for reference 
+    // lets try put some data into Database:
 
     // store.put({
     //     "id": 1,
@@ -79,7 +79,7 @@ request.onsuccess = function () {
     //     })
     // };
 
-    //==above testing code
+    // ==above testing code
 
     async function getAllUsersObject(store) {
         let idQuery = await  store.get(1);
