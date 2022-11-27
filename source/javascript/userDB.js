@@ -81,8 +81,8 @@ request.onsuccess = function () {
 
     // ==above testing code
 
-    async function getAllUsersObject(store) {
-        let idQuery = await  store.get(1);
+    async function getAllUsersObject() {
+        let idQuery = await store.get(1);
         //let ash = idQuery["ashwin"]
         return idQuery; //it will return the promise
     }
