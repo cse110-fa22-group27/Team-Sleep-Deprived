@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel='stylesheet' href='../css/signin.css'>
+	<script src='../javascript/login.js' type='module'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 </head>
@@ -20,7 +21,7 @@
             <a href="signup.html" class="txt" id="signup">Sign up</a>
         </div>
 
-        <form id='box'>
+        <form id='box' onsubmit="event.preventDefault();">
 
             <div class="inputsec">
                 <label for="username" class="txt">Username: </label><br>
