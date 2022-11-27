@@ -100,7 +100,7 @@ async function signUpSubmission(){
  * @param {String} password 
  * @param {String} confirmpassword 
  */
- function checkPassword(password, confirmpassword){
+function checkPassword(password, confirmpassword){
 	//TODO: Make sure passwords satisfy other constraints
 	if(password != confirmpassword){
 		throw new Error('passwords must match');
