@@ -55,29 +55,29 @@ request.onsuccess = function () {
     // below testing code and leave here for reference 
     // lets try put some data into Database:
 
-    store.put({
-        "id": 1,
-        "ashwin": user1,
-        "kevin": user2,
-        "john": user3
-    });
+    // store.put({
+    //     "id": 1,
+    //     "ashwin": user1,
+    //     "kevin": user2,
+    //     "john": user3
+    // });
 
-    //const idQuery = store.get("ashwin");
+    // //const idQuery = store.get("ashwin");
 
-    // Get the first record found in the ID index:
-    const idQuery = store.get(1);
-    idQuery.onsuccess = function () {
-        const ashwin = idQuery.result["ashwin"];
-        console.log(ashwin);
-        const data = ashwin.wallets;
-        const wallets = [];
-        data.forEach((wallet) => {
-            wallets.push(new Wallet(wallet.name, wallet.balance));
-        })
-        wallets.forEach((wallet) => {
-            console.log(wallet);
-        })
-    };
+    // // Get the first record found in the ID index:
+    // const idQuery = store.get(1);
+    // idQuery.onsuccess = function () {
+    //     const ashwin = idQuery.result["ashwin"];
+    //     console.log(ashwin);
+    //     const data = ashwin.wallets;
+    //     const wallets = [];
+    //     data.forEach((wallet) => {
+    //         wallets.push(new Wallet(wallet.name, wallet.balance));
+    //     })
+    //     wallets.forEach((wallet) => {
+    //         console.log(wallet);
+    //     })
+    // };
 
     // ==above testing code
 
