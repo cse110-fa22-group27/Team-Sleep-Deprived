@@ -2,8 +2,8 @@
  * @author Anthony Chen
  * @contributor Ashwin Rohit Alagiri Rajan
  */
-// import {getAllUsersObject, setAllUsersObject} from './userDB.js';
-import { setCurrentUsername, getCurrentUsername, getCurrentUser } from "./globals.js";
+
+import { setCurrentUsername, getCurrentUsername, getCurrentUser, getAllUsersObject, setAllUsersObject } from "./globals.js";
 
 const signup = new RegExp('/html/signup.html');
 const pages = ['../html/dashboard.html', '../html/wallets.html', '../html/report.html'];
@@ -14,10 +14,18 @@ const maxUsernameLen = 15;
 const passwordRegex = new RegExp(`\\w{${minPasswordLen},${maxPasswordLen}}`);
 const usernameRegex = new RegExp(`\\w{${minUsernameLen},${maxUsernameLen}}`);
 
+/**
+ * Loads the default page set by user upon login/signup 
+ * @param {int} defaultPageNumber 0 - dashboard, 1 - wallets, 2 - report
+ */
 function loadDefaultPage(defaultPageNumber) {
 	window.location.replace(pages[defaultPageNumber]);
 }
 
+/**
+ * Automatically login if user has signed in (but not logged out)
+ * @returns 
+ */
 async function loginAutomatically() {
 	let username = getCurrentUsername();
 	if(username) {
@@ -28,19 +36,6 @@ async function loginAutomatically() {
 }
 
 loginAutomatically();
-
-async function getAllUsersObject(){
-	let userObjects = JSON.parse(window.localStorage.getItem('users'));
-	if(!userObjects){
-		return {};
-	}
-	return userObjects;
-}
-
-async function setAllUsersObject(users){
-	window.localStorage.setItem('users', JSON.stringify(users));
-}
-
 
 //Logic for signup window
 if(signup.test(window.location.href)){
@@ -115,7 +110,7 @@ async function signUpSubmission(){
 
 		setCurrentUsername(formObject['username']);
 		const currentUser = await getCurrentUser();
-		
+
 		let pageNumber = currentUser['preferred-default-page'];
 		loadDefaultPage(pageNumber);
 	}
