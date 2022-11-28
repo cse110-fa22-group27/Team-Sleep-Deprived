@@ -11,12 +11,12 @@ function getAllUsersObject(){
 			const dbRequest = indexedDB.open('UserDatabase', 1);
 
 			dbRequest.onerror = function() {
-				reject(Error("Error text"));
+				reject(Error('Error text'));
 			};
 
 			dbRequest.onupgradeneeded = function() {
-			dbRequest.transaction.abort();
-			reject(Error('Not found'));
+				dbRequest.transaction.abort();
+				reject(Error('Not found'));
 			};
 
 			dbRequest.onsuccess = function() {
@@ -36,7 +36,7 @@ function getAllUsersObject(){
 			};
 		}
 	);
-};
+}
 
 function setAllUsersObject(object){
 	return new Promise(
@@ -44,12 +44,12 @@ function setAllUsersObject(object){
 			const dbRequest = indexedDB.open('UserDatabase', 1);
 	
 			dbRequest.onerror = function() {
-				reject(Error("IndexedDB database error"));
+				reject(Error('IndexedDB database error'));
 			};
 	
 			dbRequest.onupgradeneeded = function(event) {
 				const database    = event.target.result;
-				const objectStore = database.createObjectStore('user', {keyPath: "id"});
+				database.createObjectStore('user', {keyPath: "id"});
 			};
 	
 			dbRequest.onsuccess = function(event) {
@@ -68,9 +68,9 @@ function setAllUsersObject(object){
 			};
 		}
 	);
-};
+}
 
-export { getAllUsersObject, setAllUsersObject }
+export { getAllUsersObject, setAllUsersObject };
 
 //======below test cases
 //	class User {
