@@ -1,4 +1,4 @@
-import userObject from "./globals.js";
+import userObject from './globals.js';
 
 const button = document.querySelector('button').addEventListener('click', () => {
 	console.log(userObject);
