@@ -1,4 +1,4 @@
-import { getAllUsersObject, setAllUsersObject } from './userDB.js';
+import { getAllUsersObject, setAllUsersObject } from './database.js';
 
 const getAllWalletsForUser = async (username) => {
 	const allUsersObject = await getAllUsersObject();
