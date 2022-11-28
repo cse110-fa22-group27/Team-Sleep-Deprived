@@ -30,11 +30,11 @@
 
 const getAllUsersObject = () => {
 	return JSON.parse(localStorage.getItem('users'));
-}
+};
 
 const setAllUsersObject = (allUsersObject) => {
 	localStorage.setItem('users', JSON.stringify(allUsersObject));
-}
+};
 
 /** ---------- End of temporary function definition ---------- **/
 
@@ -81,7 +81,7 @@ async function updateCurrentUser(optionalCurrentUser) {
 		curUser = optionalCurrentUser;
 	}
 	const allUsers = await getAllUsersObject();
-	const currentUsername = getCurrentUserName();
+	const currentUsername = getCurrentUsername();
 	allUsers[currentUsername] = currentUser;
 	setAllUsersObject(allUsers);
 }

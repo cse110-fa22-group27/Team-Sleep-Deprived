@@ -1,4 +1,4 @@
-import { setCurrentUsername, resetGlobalInfo } from './globals.js';
+import { resetGlobalInfo } from './globals.js';
 
 function logout() {
 	resetGlobalInfo();

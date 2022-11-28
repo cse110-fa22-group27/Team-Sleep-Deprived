@@ -3,7 +3,7 @@
  * @contributor Ashwin Rohit Alagiri Rajan
  */
 
-import { setCurrentUsername, getCurrentUsername, getCurrentUser, getAllUsersObject, setAllUsersObject } from "./globals.js";
+import { setCurrentUsername, getCurrentUsername, getCurrentUser, getAllUsersObject, setAllUsersObject } from './globals.js';
 
 const signup = new RegExp('/html/signup.html');
 const pages = ['../html/dashboard.html', '../html/wallets.html', '../html/report.html'];
@@ -80,7 +80,7 @@ async function signinSubmission(){
 		loadDefaultPage(pageNumber);
 	}
 	catch(e){
-		alert(e.message)
+		alert(e.message);
 	}
 }
 
@@ -102,7 +102,7 @@ async function signUpSubmission(){
 			'password':formObject['password'],
 			'preferred-default-page':0,
 			'wallets':[]
-		}
+		};
 
 		let users = await checkUsername(formObject['username']);
 		users[formObject['username']] = newUser;
@@ -132,7 +132,7 @@ function checkPassword(password, confirmpassword){
 		throw new Error(`Password must be between ${minPasswordLen} and ${maxPasswordLen} characters`);
 	}
 	if(!passwordRegex.test(password)){
-		throw new Error(`Password contains character(s) that are not alphanumeric or underscore`)
+		throw new Error('Password contains character(s) that are not alphanumeric or underscore');
 	}
 
 }
@@ -148,7 +148,7 @@ async function checkUsername(username){
 		throw new Error('Username has already been taken');
 	}
 	if(username.length < minUsernameLen || username.length > maxUsernameLen){
-		throw new Error(`Username must be between ${minUsernameLen} and ${maxUsernameLen} characters`)
+		throw new Error(`Username must be between ${minUsernameLen} and ${maxUsernameLen} characters`);
 	}
 	if(!usernameRegex.test(username)){ //Check if username contains invalid characters
 		throw new Error('Username contains characters that are not alphanumeric or underscore');
