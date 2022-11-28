@@ -1,12 +1,11 @@
 :root {
     --wallet-amount-color: #4495DF;
-    --transaction-positive-color: #02AD28;
-    --transaction-negative-color: #FF0000;
-    --component-width: 45%;
+    --transaction-positive-color: #02ad27a4;
+    --transaction-negative-color: rgba(255, 0, 0, 0.7);
 }
 
-* {
-    /* overflow: hidden !important; */
+body {
+	overflow: hidden;
 }
 
 .back-button {
@@ -22,20 +21,19 @@
 
 .wallet-details-root {
     display: flex;
-    align-items: center;
     justify-content: center;
-    /* border: 1px solid black; */
     margin: 0 auto;
-    width: 75%;
-    max-width: 1000px;
-    padding: 5% 0;
+    width: var(--header-width);
+	margin-top: 2rem;
+	height: 70%;
 }
 
 .component {
     display: flex;
     flex-direction: column;
-    width: var(--component-width);
     margin: 0 2.5%;
+	font-size: 1.2rem;
+	height: 100%;
 }
 
 .component-title {
@@ -43,19 +41,39 @@
     font-weight: var(--font-scaling-medium);
 }
 
+.recent-transactions .component-title {
+	height: 10%;
+}
+
 .recent-transactions-table {
-    text-align: left;
-    border: 2px solid var(--default-border-color);
-    border-radius: 7px;
-    padding: 5px 10px;
-    table-layout: fixed;
-    width: 100%;
+	display: flex;
+	padding: 5px 10px;
+	height: 90%;
+}
+
+.recent-transactions-table > tbody {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: left;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+.recent-transactions-table tr {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 2rem;
+}
+
+.recent-transactions-table > tbody::-webkit-scrollbar {
+	width: 0 !important;
 }
 
 .recent-transactions-table tr > *:not([data-kind="amount"]) {
     font-weight: var(--font-scaling-semibold);
-    font-size: 1.15rem;
-    height: 1.7rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -65,10 +83,6 @@
 #recent-transactions-name-title,
 #recent-transactions-amount-title {
     color: black;
-}
-
-.transaction-name {
-    width: 72.5%;
 }
 
 [data-kind="amount"] {
@@ -89,13 +103,18 @@
     color: rgba(0, 0, 0, 0.3);
 }
 
+#spending-statistics {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
 .statistic-item {
-    padding: 10px;
+	font-size: 1.2rem;
 }
 
 .statistic-item > h2:not(.component-title) {
     display: inline;
-    font-size: 1.3rem;
     font-weight: var(--font-scaling-medium);
 }
 
@@ -116,7 +135,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0;
+}
+
+.statistic-item .setting-item:nth-child(1) {
+	margin-bottom: 5px;
 }
 
 .statistic-item .setting-item .setting-title {
@@ -126,7 +148,7 @@
 .statistic-item .setting-item .setting-input {
     border: none;
     color: #777;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: var(--font-scaling-semibold);
     text-align: right;
 }
@@ -159,6 +181,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+	width: 60%;
 }
 
 @media screen and (max-width: 768px) {

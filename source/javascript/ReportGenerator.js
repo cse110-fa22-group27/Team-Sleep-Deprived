@@ -7,13 +7,6 @@ class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use 
 		this.elementRoot = document.createElement('div');
 		this.elementRoot.className = 'report-generator-container glass-box';
 
-		// Header (deprecated) //
-		/*
-		this.generatorHeader = document.createElement('h2');
-		this.generatorHeader.className = 'generator-header';
-		this.generatorHeader.innerHTML = "Generate Report";
-		*/
-
 		// All Form Options //
 		this.timeWeeklyOption = document.createElement('option');
 		this.timeWeeklyOption.value = 'weekly';
