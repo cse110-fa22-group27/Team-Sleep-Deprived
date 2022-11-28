@@ -32,8 +32,8 @@
     justify-content: space-around;
     flex-direction: column;
     overflow: hidden;
-    height: 256px;
-    min-width: 256px;
+    height: 220px;
+    min-width: 220px;
 }
 
 .glass-box:hover {
