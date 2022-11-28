@@ -1,17 +1,28 @@
-import { getAllUsersObject, setAllUsersObject } from './database.js';
-
+import { currentUserObject } from './globals.js'
+/**
+ * Gets all the wallets from the current user 
+ * @param {String} username 
+ * @returns All the wallets for the currently logged in user 
+ */
 const getAllWalletsForUser = async (username) => {
-	const allUsersObject = await getAllUsersObject();
-	const userObject = allUsersObject[username];
-	const walletsObject = userObject.wallets;
-	return walletsObject;
+	const wallets = currentUserObject['wallets'];
+	return wallets;
 }
 
-const setWalletsForUser = async (username, walletsObject) => {
-	const allUsersObject = await getAllUsersObject();
-	const userObject = allUsersObject[username];
-	userObject.wallets = walletsObject;
-	setAllUsersObject(allUsersObject);
+/**
+ * @typedef {Object} wallet-object 
+ * @property {String} name The name of the wallet
+ * @property {Array<transactions>} transactions List of all the transactions for this wallet
+ * @property {Number} "total-amount" The total amount that the wallet starts with 
+ */
+
+/**
+ * Sets the wallets list for the current user 
+ * @param {String} username 
+ * @param {Array<wallet-object>} wallets 
+ */
+const setWalletsForUser = async (wallets) => {
+	currentUserObject['wallets'] = walletsObject;
 }
 
 export default { getAllWalletsForUser, setWalletsForUser };

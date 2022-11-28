@@ -1,12 +1,28 @@
 /**
  * @author Anthony Chen
+ * @contributor Ashwin Rohit Alagiri Rajan
  */
-//import {getAllUsersObject, setAllUsersObject} from './userDB.js';
+// import {getAllUsersObject, setAllUsersObject} from './userDB.js';
+import { setCurrentUsername, getCurrentUsername, getCurrentUser } from "./globals.js";
 
 const signup = new RegExp('/html/signup.html');
 const signin = new RegExp('/html/signin.html');
 const pages = ['../html/dashboard.html', '../html/wallets.html', '../html/report.html'];
 
+function loadDefaultPage(defaultPageNumber) {
+	window.location.replace(pages[defaultPageNumber]);
+}
+
+async function loginAutomatically() {
+	let username = getCurrentUsername();
+	if(username) {
+		const currentUser = await getCurrentUser();
+		loadDefaultPage(currentUser['preferred-default-page']);
+	}
+	return;
+}
+
+loginAutomatically();
 
 async function getAllUsersObject(){
 	let userObjects = JSON.parse(window.localStorage.getItem('users'));
@@ -20,6 +36,7 @@ async function setAllUsersObject(users){
 	window.localStorage.setItem('users', JSON.stringify(users));
 }
 
+
 //Logic for signup window
 if(signup.test(window.location.href)){
 	let form= document.getElementById('box');
@@ -32,8 +49,9 @@ if(signup.test(window.location.href)){
 	terms.addEventListener('click', checkTerms);
 
 }
+
 //Logic for sign-in window
-else{
+else {
 	let form = document.getElementById('box');
 	form.addEventListener('submit', signinSubmission, false);
 }
@@ -45,19 +63,19 @@ async function signinSubmission(){
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
 	
-	let users = await getAllUsersObject();
+	
 	try{
+		setCurrentUsername(formObject['username']);
+		const currentUser = await getCurrentUser();
 		console.log(users[formObject['username']]);
-		if(!users[formObject['username']]){
+		if(!currentUser){
 			throw new Error('Invalid Username');
 		}
-		else if(users[formObject['username']]['password'] != formObject['password']){			
+		else if(currentUser['password'] != formObject['password']){			
 			throw new Error('Invalid password');
 		}
-		let pageNumber =  await users[formObject['username']]['preferred-default-page'];
-		console.log(pageNumber);
-		console.log(pages[pageNumber]);
-		window.location.replace(pages[pageNumber]);
+		let pageNumber =  currentUser['preferred-default-page'];
+		loadDefaultPage(pageNumber);
 	}
 	catch(e){
 		alert(e.message)
@@ -80,7 +98,7 @@ async function signUpSubmission(){
 		let newUser = {
 			'username':formObject['username'],
 			'password':formObject['password'],
-			'preferred-default-page':'0',
+			'preferred-default-page':0,
 			'wallets':[]
 		}
 
