@@ -23,11 +23,11 @@ changePassword.onclick = function(){
             
         }
         else{
-            alert("Old password and Newpassword cannot be the same!");
+            alert('Old password and Newpassword cannot be the same!');
         }
     }
     else{
-        alert("Old password or Newpassword cannot be empty!");
+        alert('Old password or Newpassword cannot be empty!');
     }
 }
 
