@@ -81,9 +81,11 @@ class WalletInfo extends HTMLElement {
     */
 	set data(wallet_data) {
 		this.walletName.innerHTML = wallet_data.name;
-		this.walletAmount.innerHTML = `$${wallet_data.amount}`;
-		this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
-		this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
+		this.walletAmount.innerHTML = `$${wallet_data['total-amount']}`;
+		if(wallet_data.lastTransaction) {
+			this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
+			this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
+		}
 	}
 
 }

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<script>
-		localStorage.setItem('allUsersObject', JSON.stringify({
+		console.log('Here');
+		localStorage.setItem('users', JSON.stringify({
 			"Ashwin": {
 				"username": "Ashwin",
 				"password": "ashwin123",
@@ -12,7 +13,7 @@
 			"Anthony": {
 				"username": "Anthony",
 				"password": "tony123",
-				"wallets": [{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10}],
+				"wallets": [{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Checking", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10}],
 				"preferred-default-page": 0
 			},	
 			"Andrew": {
@@ -22,12 +23,12 @@
 				"preferred-default-page": 2 
 			}
 		}));
+		console.log(localStorage.getItem('users'));
 	</script>
 	<script src="./globals.js" type="module" defer></script>
-	<script src="./WalletsGlobal.js" type="module" defer></script>
 	<title>Sample</title>
 </head>
 <body>
-	
+	<a href="../html/signin.html">signin</a>
 </body>
 </html>
