@@ -49,7 +49,7 @@ function setAllUsersObject(object){
 	
 			dbRequest.onupgradeneeded = function(event) {
 				const database    = event.target.result;
-				database.createObjectStore('user', {keyPath: "id"});
+				database.createObjectStore('user', {keyPath: 'id'});
 			};
 	
 			dbRequest.onsuccess = function(event) {
