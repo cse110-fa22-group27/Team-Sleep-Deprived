@@ -17,9 +17,13 @@ async function initWalletPage() {
 	walletGrid.id = 'wallets-grid';
 	walletGridWrapper.append(walletGrid);
 	const wallets = await getCurrentUserWallets();
+	console.log(wallets);
 	for(const wallet of wallets) {
 		let newWalletInfoItem = document.createElement('wallet-info');
 		newWalletInfoItem.data = wallet;
+		if(wallet.transactions.length > 0) {
+			wallet.lastTransaction = wallet.transactions[wallet.transactions.length - 1];
+		}
 		walletGrid.appendChild(newWalletInfoItem);
 	}
 	if(wallets.length < MAX_WALLET_COUNT) {

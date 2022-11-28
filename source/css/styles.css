@@ -51,6 +51,7 @@ body {
     background-image: var(--default-background-image);
     background-position: -3px -3px;
     height: 100%;
+	overflow: hidden;
 }
 
 .page-header {

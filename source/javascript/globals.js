@@ -29,11 +29,11 @@
 /** Temporary funtions until the IndexedDB functions have been implemented **/
 
 const getAllUsersObject = () => {
-	return JSON.parse(localStorage.getItem('allUsersObject'));
+	return JSON.parse(localStorage.getItem('users'));
 }
 
 const setAllUsersObject = (allUsersObject) => {
-	localStorage.setItem('allUsersObject', JSON.stringify(allUsersObject));
+	localStorage.setItem('users', JSON.stringify(allUsersObject));
 }
 
 /** ---------- End of temporary function definition ---------- **/

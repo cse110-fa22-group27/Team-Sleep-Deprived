@@ -62,12 +62,10 @@ async function signinSubmission(){
 	for(const pair of fdata.entries()){
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
-	
-	
+
 	try{
 		setCurrentUsername(formObject['username']);
 		const currentUser = await getCurrentUser();
-		console.log(users[formObject['username']]);
 		if(!currentUser){
 			throw new Error('Invalid Username');
 		}
