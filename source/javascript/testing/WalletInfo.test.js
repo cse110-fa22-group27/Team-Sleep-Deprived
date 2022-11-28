@@ -89,6 +89,12 @@ class WalletInfo extends HTMLElement {
 }
 customElements.define('wallet-info', WalletInfo);
 
+/**
+ * @author Michael Phung
+ * @test
+ * WalletInfo basic unit tests. This contains basic unit tests for WalletInfo.
+ */
+
 // These 4 lines (93 - 96) allow for us to use 'document' while not in the browser
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
@@ -117,11 +123,6 @@ newWalletInfo.data = {
 		type: walletData.lastTransaction.type
 	}
 };
-
-// still not sure as to why this fails 
-// test('Check data properties of newWalletInfo', () => {
-//     expect(newWalletInfo.data).toBe(walletData);
-// })
 
 test('Existence of wallet-info', () => {
 	expect(typeof element).not.toBe(undefined);
