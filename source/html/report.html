@@ -6,133 +6,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!--Chart.js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <!--Report Scripts-->
-    <script src="../javascript/Report.js" defer type="module"></script>
-    <script src="../javascript/ReportGenerator.js" defer type="module"></script>
-    <!-- <script src="../javascript/Graph.js" defer type="module"></script> -->
-    <!--Stylesheets-->
-    <link rel='stylesheet' href='../css/styles.css'>
-    <link rel='stylesheet' href='../css/report.css'>
-    <title>Reports</title>
+	<meta charset="UTF-8">
+	<script src='../javascript/logout.js' type='module' defer></script>
+	<script src='../javascript/globals.js' type='module' defer></script>
+	<script src="../javascript/Report.js" defer type="module"></script>
+	<script src="../javascript/ReportGenerator.js" defer type="module"></script>
+	<link rel='stylesheet' href='../css/styles.css'>
+	<link rel='stylesheet' href='../css/report.css'>
+	<link rel="shortcut icon" href="../resources/images/favicon.ico" type="image/x-icon">
+	<title>Reports</title>
 </head>
 
 <body>
-    <header class="page-header" id="template-page-header">
-        <h1 class="page-title" id="template-page-title">Report</h1>
-        <button class="logout-button" onclick="logout()">
-            <script>
-                function logout() {
-                    // Backend: Logout
-                    window.location.href = './signin.html';
-                }
-            </script>
-            <img src="../resources/images/logout-button.svg" alt="Logout Button">
-        </button>
-    </header>
+	<header class="page-header" id="template-page-header">
+		<h1 class="page-title" id="template-page-title">Report</h1>
+		<button class="logout-button" onclick="logout()">
+			<script>
+				function logout() {
+					// Backend: Logout
+					window.location.href = './signin.html';
+				}
+			</script>
+			<img src="../resources/images/logout-button.svg" alt="Logout Button">
+		</button>
+	</header>
 
-    <nav class="navbar">
-        <a href="./dashboard.html" data-selected="false">Dashboard</a>
-        <a href="./wallets.html" data-selected="false">Wallets</a>
-        <a href="#" data-selected="true">Report</a>
-        <a href="./settings.html" data-selected="false">Settings</a>
-    </nav>
+	<nav class="navbar">
+		<a href="./dashboard.html" data-selected="false">Dashboard</a>
+		<a href="./wallets.html" data-selected="false">Wallets</a>
+		<a href="#" data-selected="true">Report</a>
+		<a href="./settings.html" data-selected="false">Settings</a>
+	</nav>
 
-    <div class="report-grid-wrapper">
-        <div class="graph-container">
-            <h2 id="yearly-spending-header"></h2>
-            <!--<canvas id="report-chart"></canvas>-->
-            <!-- <graph-component></graph-component> -->
-            <div class="glass-box component" id="graph-container">
-                <div id="bar-graph">
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 56%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 56%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 89%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 89%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 82%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 82%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 47%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 47%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 63%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 63%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 36%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 36%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 94%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 94%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 61%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 61%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 51%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 51%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 76%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 76%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 60%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 60%, 60%);" class="foreground"></div>
-                    </div>
-                    <div class="bar-graph-item">
-                        <div style="height: clamp(0%, 36%, 100%);" class="background"></div>
-                        <div style="height: clamp(0%, 36%, 60%);" class="foreground"></div>
-                    </div>
-                </div>
-                <div id="amount-axis">
-                    <div>$ 10.0k</div>
-                    <div>$ 9.0k</div>
-                    <div>$ 8.0k</div>
-                    <div>$ 7.0k</div>
-                    <div>$ 6.0k</div>
-                    <div>$ 5.0k</div>
-                    <div>$ 4.0k</div>
-                    <div>$ 3.0k</div>
-                    <div>$ 2.0k</div>
-                    <div>$ 1.0k</div>
-                    <div>$ 500</div>
-                </div>
-                <div id="month-axis">
-                    <p>Nov</p>
-                    <p>Dec</p>
-                    <p>Jan</p>
-                    <p>Feb</p>
-                    <p>Mar</p>
-                    <p>Apr</p>
-                    <p>May</p>
-                    <p>Jun</p>
-                    <p>Jul</p>
-                    <p>Aug</p>
-                    <p>Sep</p>
-                    <p>Oct</p>
-                </div>
-            </div>
-        </div>
+	<div class="report-grid-wrapper">
+		<div class="graph-container">
+			<h2 id="yearly-spending-header"></h2>
+			<!--<canvas id="report-chart"></canvas>-->
+			<!-- <graph-component></graph-component> -->
+			<div class="glass-box component" id="graph-container">
+				<div id="bar-graph">
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 56%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 56%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 89%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 89%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 82%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 82%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 47%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 47%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 63%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 63%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 36%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 36%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 94%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 94%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 61%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 61%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 51%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 51%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 76%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 76%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 60%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 60%, 60%);" class="foreground"></div>
+					</div>
+					<div class="bar-graph-item">
+						<div style="height: clamp(0%, 36%, 100%);" class="background"></div>
+						<div style="height: clamp(0%, 36%, 60%);" class="foreground"></div>
+					</div>
+				</div>
+				<div id="amount-axis">
+					<div>$ 10.0k</div>
+					<div>$ 9.0k</div>
+					<div>$ 8.0k</div>
+					<div>$ 7.0k</div>
+					<div>$ 6.0k</div>
+					<div>$ 5.0k</div>
+					<div>$ 4.0k</div>
+					<div>$ 3.0k</div>
+					<div>$ 2.0k</div>
+					<div>$ 1.0k</div>
+					<div>$ 500</div>
+				</div>
+				<div id="month-axis">
+					<p>Nov</p>
+					<p>Dec</p>
+					<p>Jan</p>
+					<p>Feb</p>
+					<p>Mar</p>
+					<p>Apr</p>
+					<p>May</p>
+					<p>Jun</p>
+					<p>Jul</p>
+					<p>Aug</p>
+					<p>Sep</p>
+					<p>Oct</p>
+				</div>
+			</div>
+		</div>
 
-        <div class="generator-container">
-            <h2 id="report-generator-header">Generate Report</h2>
-            <div class="generator-glassbox">
-                <report-generator></report-generator>
-            </div>
-        </div>
-    </div>
+		<div class="generator-container">
+			<h2 id="report-generator-header">Generate Report</h2>
+			<div class="generator-glassbox">
+				<report-generator></report-generator>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
