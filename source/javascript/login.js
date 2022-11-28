@@ -81,6 +81,7 @@ async function signinSubmission(){
 	}
 	catch(e){
 		alert(e.message);
+		alert(e.stack);
 	}
 }
 
@@ -116,6 +117,7 @@ async function signUpSubmission(){
 	}
 	catch(e){
 		loginError(e.message);
+		loginError(e.stack)
 	}	
 }
 
