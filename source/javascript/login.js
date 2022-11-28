@@ -89,6 +89,7 @@ async function signUpSubmission(){
 	
 		console.log(users[formObject['username']])
 		await setAllUsersObject(users);
+		window.location.replace(pages[users[formObject['username']]['preferred-default-page']]);
 	}
 	catch(e){
 		loginError(e.message);
