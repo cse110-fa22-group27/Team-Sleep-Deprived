@@ -8,8 +8,9 @@ import { getCurrentUserWallets } from './globals.js';
 // The maximum number of wallets a user can have/see
 const MAX_WALLET_COUNT = 6;
 
-const showWalletsInfoPage = () => {
-	// TODO: Show the wallets info page when the user clicks on a wallet
+const showWalletsDetailsPage = () => {
+	// TODO: Show the wallets details page when the user clicks on a wallet
+	// console.log("HELLO");
 }
 
 /**
@@ -29,7 +30,7 @@ async function initWalletPage() {
 			wallet.lastTransaction = wallet.transactions[wallet.transactions.length - 1];
 		}
 		walletGrid.appendChild(newWalletInfoItem);
-		newWalletInfoItem.addEventListener('click', showWalletsInfoPage);
+		newWalletInfoItem.addEventListener('click', showWalletsDetailsPage);
 	}
 	if(wallets.length < MAX_WALLET_COUNT) {
 		let addwalletItem = document.createElement('add-wallet');

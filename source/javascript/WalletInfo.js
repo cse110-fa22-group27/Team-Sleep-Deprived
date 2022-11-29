@@ -55,7 +55,8 @@ class WalletInfo extends HTMLElement {
 
 		this.elementRoot.addEventListener('click', event => {
 			event.preventDefault();
-			window.open('../../source/html/wallet_info.html', '_self');
+			// console.log("CLICKED");
+			window.open('../../source/html/wallet_details.html', '_self');
 		});
 
 		this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem, this.defaultStyleLink);
