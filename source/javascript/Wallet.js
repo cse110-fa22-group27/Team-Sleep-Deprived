@@ -11,6 +11,12 @@ const MAX_WALLET_COUNT = 6;
 const showWalletsDetailsPage = () => {
 	// TODO: Show the wallets details page when the user clicks on a wallet
 	// console.log("HELLO");
+	window.open('../../source/html/wallet_details.html', '_self');
+	const walletDetailsRoot = document.querySelector("wallet-details-root");
+	const walletDetails = document.createElement("div");
+	walletDetails.id = "recent-transactions";
+	walletDetailsRoot.append(walletDetails);
+	
 }
 
 /**

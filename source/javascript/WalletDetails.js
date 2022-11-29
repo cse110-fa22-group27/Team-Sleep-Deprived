@@ -4,7 +4,6 @@
  * @implements {HTMLElement}
  * WalletDetails custom component. This contains the custom component definition for wallet-details.
  */
-
 class WalletDetails extends HTMLElement {
 	/** 
      * @constructs WalletDetails
@@ -147,16 +146,16 @@ class WalletDetails extends HTMLElement {
         
 
 		/**
-         * Styles the wallet details component. The stylesheet is defaulted to <code>../css/wallet-styles.css</code>
-         * @member {HTMLElement} styleElem
-         */
-         this.styleElem = document.createElement('link');
-         this.styleElem['rel'] = 'stylesheet';
-         this.styleElem['href'] = '../css/wallet-details.css';
+        * Styles the wallet details component. The stylesheet is defaulted to <code>../css/wallet-styles.css</code>
+        * @member {HTMLElement} styleElem
+        */
+        this.styleElem = document.createElement('link');
+        this.styleElem['rel'] = 'stylesheet';
+        this.styleElem['href'] = '../css/wallet-details.css';
  
-         this.defaultStyleLink = document.createElement('link');
-         this.defaultStyleLink.href = '../css/styles.css';
-         this.defaultStyleLink.rel = 'stylesheet';
+        this.defaultStyleLink = document.createElement('link');
+        this.defaultStyleLink.href = '../css/styles.css';
+        this.defaultStyleLink.rel = 'stylesheet';
 
         this.recentTransactionsTableRow.append(this.recentTransactionsNameTitle, this.recentTransactionsAmountTitle);
         this.tbody.append(this.recentTransactionsTableRow);
@@ -179,23 +178,26 @@ class WalletDetails extends HTMLElement {
         this.spendingStatistics.append(this.currentBalanceItem, this.thisMonthsSpendingItem, this.monthlyInflowItem, this.monthlyOutflowItem, this.settingsBox);
 
         this.elementRoot.append(this.recentTransactions, this.spendingStatistics);
-		this.shadowElem.append(this.elementRoot);
+		    this.shadowElem.append(this.elementRoot);
     }
 
     ;/**
     * @param {wallet_data} wallet_data The data object that contains the wallet information
     */
 
-    // use map to iterate through transactions array
-    // transaction array
+    // wallet_data  
     
     set data(wallet_data) {
-		this.walletName.innerHTML = wallet_data.name;
-		this.walletAmount.innerHTML = `$${wallet_data['total-amount']}`;
-		if(wallet_data.lastTransaction) {
-			this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
-			this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
-		}
+		// this.walletName.innerHTML = wallet_data.name;
+		// this.walletAmount.innerHTML = `$${wallet_data['total-amount']}`;
+		// if(wallet_data.lastTransaction) {
+		// 	this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
+		// 	this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
+		// }
+      for (let transaction of wallet_data.transactions) {
+        console.log(transaction);
+        // do something?
+      }
 	}
 }
 customElements.define('wallet-details', WalletDetails);
