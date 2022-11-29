@@ -1,11 +1,10 @@
 class RecentActivity extends HTMLElement {
 	constructor() {
 		super();
-
 		this.attachShadow({ mode: 'open' });
 		const styles = document.createElement('style');
-
 		const divider = document.createElement('div');
+
 		divider.setAttribute('class', 'recent-activity');
 		divider.innerHTML = `
 		<h2 class='section-title'>Recent Activity</h2>
@@ -29,11 +28,12 @@ class RecentActivity extends HTMLElement {
 	 *                        {
 	 *                          ["name": "string",
 	 *                          "amount": "double",
-	 *                          "wallet": "string"],
+	 * 							"date": "",
+	 * 							"description": "string"],
 	 *                          ...
 	 *                          ["name": "string",
-	 *                          "amount": "number",
-	 *                          "wallet": "string"]
+	 *                          "amount": "double",
+	 * 							"description": "string"]
 	 *                        }
 	 */
 	set data(data) {
