@@ -6,7 +6,7 @@ class TransactionForm extends HTMLElement {
 		var form = document.createElement('form');
 		form.setAttribute('class', 'add-transaction');
         form.setAttribute('onsubmit','addTransaction();');
-
+        // html for the TransactionForm
 		form.innerHTML = `
 		<h2 class="section-title">Add Transaction</h2>
                  
@@ -42,7 +42,13 @@ class TransactionForm extends HTMLElement {
                     </div> 
                 </div>
 		`;
-		this.shadowRoot.append(divider);
+        // css stylying for TransactionForm
+        var styles = document.createElement('style');
+        styles.innerHTML = `
+        
+        `;
+
+		this.shadowRoot.append(form, styles);
 	}
 
     
