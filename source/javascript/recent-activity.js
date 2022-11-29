@@ -28,11 +28,12 @@ class RecentActivity extends HTMLElement {
 	 *                        {
 	 *                          ["name": "string",
 	 *                          "amount": "double",
-	 * 							"date": "",
+	 * 							"date": "mm-dd-yyyy",
 	 * 							"description": "string"],
 	 *                          ...
 	 *                          ["name": "string",
 	 *                          "amount": "double",
+	 * 							"date": "mm-dd-yyyy",
 	 * 							"description": "string"]
 	 *                        }
 	 */
