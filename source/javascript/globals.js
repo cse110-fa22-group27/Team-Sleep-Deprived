@@ -26,17 +26,7 @@
  * @property {Number} 'preferred-default-page' The page that appears when the user logs in
  */
 
-/** Temporary funtions until the IndexedDB functions have been implemented **/
-
-const getAllUsersObject = () => {
-	return JSON.parse(localStorage.getItem('users'));
-};
-
-const setAllUsersObject = (allUsersObject) => {
-	localStorage.setItem('users', JSON.stringify(allUsersObject));
-};
-
-/** ---------- End of temporary function definition ---------- **/
+import { getAllUsersObject, setAllUsersObject } from './database.js'
 
 /**
  * Sets the global username object for the currently logged in user
@@ -109,5 +99,7 @@ async function resetGlobalInfo() {
 	currentUser = {};
 	setCurrentUsername('');
 }
+
+console.log(await getCurrentUser())
 
 export { getAllUsersObject, setAllUsersObject, setCurrentUsername, getCurrentUsername, getCurrentUser, updateCurrentUser, getCurrentUserWallets, setCurrentUserWallets, resetGlobalInfo };

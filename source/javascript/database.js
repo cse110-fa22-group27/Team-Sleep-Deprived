@@ -26,12 +26,12 @@ function getAllUsersObject(){
 				const objectRequest = objectStore.get(1);
 
 				objectRequest.onerror = function() {
-					reject(null);
+					resolve(null);
 				};
 
 				objectRequest.onsuccess = function() {
 					if (objectRequest.result) resolve(objectRequest.result);
-					else reject(null);
+					else resolve(null);
 				};
 			};
 		}
@@ -116,6 +116,8 @@ export { getAllUsersObject, setAllUsersObject };
 //		const store = user.objectStore('user');
 //		const IDIndex = store.index('user-name');
 //	
+//		
+//		/*
 //		store.put({
 //			"id": 1,
 //			"ashwin": user1,
@@ -131,5 +133,6 @@ export { getAllUsersObject, setAllUsersObject };
 //			"josh": user3
 //		}));
 //		console.log(await getAllUsersObject());	
+//		*/
 //	};
 //==above test cases
