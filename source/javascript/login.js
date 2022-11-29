@@ -35,7 +35,7 @@ async function loginAutomatically() {
 	return;
 }
 
-loginAutomatically();
+// loginAutomatically();
 
 //Logic for signup window
 if(signup.test(window.location.href)){
@@ -43,7 +43,7 @@ if(signup.test(window.location.href)){
 	let terms = document.getElementById('terms');
 	
 	//Disable submit button by default, until terms and conditions are checked
-	document.getElementById('submit').disabled = true;
+	// document.getElementById('submit').disabled = true;
 
 	form.addEventListener('submit', signUpSubmission);
 	terms.addEventListener('click', checkTerms);
@@ -69,6 +69,7 @@ async function signinSubmission(){
 
 	try{
 		setCurrentUsername(formObject['username']);
+		console.log(formObject['username']);
 		const currentUser = await getCurrentUser();
 		if(!currentUser){
 			throw new Error('Invalid Username');
@@ -146,9 +147,7 @@ function checkPassword(password, confirmpassword){
 //async function checkUsername(username){
 async function checkUsername(username){
 	let users = await getAllUsersObject();
-	if(!users){
-		return {};
-	}
+	console.log(users);
 	if (users[username]){
 		throw new Error('Username has already been taken');
 	}
