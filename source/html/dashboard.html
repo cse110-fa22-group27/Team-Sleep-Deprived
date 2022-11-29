@@ -31,7 +31,12 @@
         <div class="add-transaction">
             <h2 class="section-title">Add Transaction</h2>               
                 <div class="add-transaction-box glass-box ">
-                    <div class="amount">
+					<div class="name">
+						<label for="input-name">Name</label><br>
+						<input type="text" id="input-name" name="input-name" placeholder="Name">
+					</div>
+					
+					<div class="amount">
                         <label for="input-amount">Amount</label><br>
                         <input type="text" id="input-amount" name="input-amount"  placeholder="Enter amount">
                     </div>
@@ -46,27 +51,19 @@
                         <select id="wallet-select" name="wallet-select" required></select>
                     </div>
 
-                    <div class="category">
-                        <label for="category-select">Category</label><br>
-                        <select id="category-select" name="category-select" required></select>
-                    </div>
-
                     <div class="description">
                         <label for="desc-input">Description</label><br>
-                        <input type="text" id="desc-input" name="desc-input">
+                        <textarea type="text" id="desc-input" name="desc-input"></textarea>
                     </div> 
-                    <div class="add">
-                        
                         <button class = "button">
                             + Add Transaction
                         </button>
-                    </div> 
                 </div>                
         </div>
         
         <div class="recent-activity">
             <h2 class="section-title">Recent Activity </h2>
-            <div class="recent-activity-box">
+            <div class="recent-activity-box glass-box">
                 <table>
                     <tr>
                         <th class="transaction-name" id="recent-transactions-name-title">Name</th>
