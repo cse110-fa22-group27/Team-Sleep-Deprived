@@ -45,12 +45,12 @@ function getAllUsersObject(){
 				const objectRequest = objectStore.get(1);
 
 				objectRequest.onerror = function() {
-					resolve(null);
+					resolve({});
 				};
 
 				objectRequest.onsuccess = function() {
 					if (objectRequest.result) resolve(objectRequest.result);
-					else resolve(null);
+					else resolve({});
 				};
 			};
 		}
