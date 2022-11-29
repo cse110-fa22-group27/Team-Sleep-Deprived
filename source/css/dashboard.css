@@ -1,175 +1,190 @@
 :root {
-    --wallet-amount-color: #4495DF;
-    --transaction-positive-color: #02AD28;
-    --transaction-negative-color: #FF0000;
-    --component-width: 45%;
+	--wallet-amount-color: #4495DF;
+	--transaction-positive-color: #02AD28;
+	--transaction-negative-color: #FF0000;
+	--component-width: 45%;
 }
 
 input {
-    width: 15vw;
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    appearance: none;
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    padding: 8px 10px;
-    text-align: center;
+	width: 15vw;
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	appearance: none;
+	border: 2px solid var(--default-border-color);
+	border-radius: 10px;
+	padding: 8px 10px;
 }
 
 select {
-    width: 15vw;
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    border: 2px solid var(--default-border-color);
-    border-radius: 10px;
-    padding: 8px;
+	width: 15vw;
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	border: 2px solid var(--default-border-color);
+	border-radius: 10px;
+	padding: 8px;
 }
 
 #desc-input {
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    width: 30vw;
-    height: 5vw;
-    border-radius: 10px;
-}
-
-
-
-.description {  
-    grid-column: span 2;
-    width: 100%;
-}
-.add {
-    grid-column: span 2;
-    margin-left: auto;
-    margin: 10px 0 0 10px;
-} 
-
-
-.add-transaction-box {
-    width: 100%;
-    display: grid ;
-    border: 3px solid #D6D6D6;
-    border-radius: 10px;
-    padding: 10px;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	height: 100%;
+	border-radius: 10px;
+	width: 100%;
+	text-align: left;
+	resize: none;
+	padding: 10px;
+	border: 2px solid var(--default-border-color);
 }
 
 .description {
-    grid-column: span 2;
+	grid-column: span 2;
+	width: 100%;
+}
+
+.add-transaction-box {
+	width: 100%;
+	display: grid;
+	border: 3px solid #D6D6D6;
+	border-radius: 10px;
+	padding: 10px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr 1fr 3fr 1fr;
+	gap: 10px;
+	height: 100%;
+}
+
+.add-transaction-box > div {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.add-transaction-box > div > input {
+	font-size: 1.2rem;
+	height: 100%;
+}
+
+.add-transaction-box > div > select {
+	font-size: 1.2rem;
+	height: 100%;
+}
+
+.add-transaction-box label {
+	font-weight: var(--font-scaling-medium);
+}
+
+.description {
+	grid-column: span 2;
 }
 
 .add {
-    grid-column: span 2;
-    margin-left: auto;
+	grid-column: span 2;
+	margin-left: auto;
 }
 
-.add-transaction{
-    display: flex;
-    flex-direction: column;
+.add-transaction {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
-
-
-
 
 .button {
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    background-color: #ea918f;
-    border: none;
-    width: max-content;
-    
+	grid-column: span 2;
+	font-size: 1.2rem;
+	padding: 10px;
+	border-radius: 10px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	background-color: #ea918f;
+	border: none;
+	width: max-content;
+	height: 50px;
+	margin: 0;
+	margin-left: auto;
+	margin-top: auto;
 }
 
-.button:hover{
-    cursor: pointer;
+.button:hover {
+	cursor: pointer;
 }
 
 #add-transaction-icon {
-    color: white;
-    font-size: 1.3rem;
-    padding: 0;
-    margin: 1px;
+	color: white;
+	font-size: 1.3rem;
+	padding: 0;
+	margin: 1px;
 }
 
-.flex-container{
-    display: flex ;
-    flex-direction: row;
-    width: var(--header-width);
-    max-width: var(--header-max-width);
-    margin: 0 auto;
-    gap: 20px;
-}
-  
-.flex-container > div{
-    text-align: center;
-    line-height: 20px;
-    font-size: 15px;
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	width: var(--header-width);
+	max-width: var(--header-max-width);
+	margin: 0 auto;
+	gap: 20px;
+	font-size: 1.2rem;
+	height: 70%;
 }
 
 .recent-activity {
-    width: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
+.recent-activity-box {
+	padding: 5px 10px;
+	height: 100%;
+}
 
-
-.section-title{   
-    text-align: left;
-    padding: 40px 0px 8px;
-    font-weight: var(--font-scaling-medium);
+.section-title {
+	text-align: left;
+	padding: 40px 0px 8px;
+	font-weight: var(--font-scaling-medium);
 }
 
 table {
-    text-align: left;
-    border: 3px solid #D6D6D6;
-    border-radius: 10px; 
-    padding: 5px 10px; 
-    table-layout: fixed;
-    backdrop-filter: blur(5px);
-    width: 100%;
-
+	text-align: left;
+	table-layout: fixed;
+	width: 100%;
 }
 
 .transaction-name {
-    width: 50%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px 0;
+	width: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 5px 0;
 }
 
 .transaction-amount {
-    width: 25%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	width: 25%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .wallet-name {
-    width: 25%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	width: 25%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 [data-kind="amount"] {
-    color: var(--wallet-amount-color);
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    overflow: hidden !important;
+	color: var(--wallet-amount-color);
+	font-family: 'IBM Plex Sans';
+	font-style: normal;
+	overflow: hidden !important;
 }
 
 [data-transaction-kind="positive"] {
-    color: var(--transaction-positive-color) !important;
+	color: var(--transaction-positive-color) !important;
 }
 
 [data-transaction-kind="negative"] {
-    color: var(--transaction-negative-color) !important;
+	color: var(--transaction-negative-color) !important;
 }

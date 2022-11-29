@@ -4,6 +4,8 @@
  * @author Anthony Chen
  */
 
+import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
+
 function initForm(){
 	//Create popup form
 	let  formPopup= document.createElement('div');
@@ -95,45 +97,20 @@ function closeDialog(){
 /**
  * Function that executes on form submssion
  */
-function formSubmission(){
+async function formSubmission() {
 	let formElement = document.getElementsByClassName('form-container')[0];
 	let fdata  = new FormData(formElement);
-	let newWallet = {
-		'lastTransaction':{
-			'name':'N/A',
-			'amount':'0'
-		}
-	};
+	let newWallet = {};
   
 	for(const pair of fdata.entries()){
 		newWallet[`${pair[0]}`] = `${pair[1]}`;
 	}
 
-	let wallets = getWalletsFromStorage();
+	newWallet['transactions'] = [];
+
+	let wallets = await getCurrentUserWallets();
 	wallets.push(newWallet);
-	storeWallets(wallets);
-}
-
-/**
- * Gets all wallets stored in local storage
- * @returns {Array<Object>} - Array of wallets in local storage
- */
-function getWalletsFromStorage(){
-	let item = JSON.parse(window.localStorage.getItem('wallet-infos'));
-	if(!item){
-		return [];
-	}
-	return item;
-}
-
-/**
- * Stores the inputted wallets
- * @param {Array<Obejct>} wallets - the array of wallets
- */
-function storeWallets(wallets){
-	console.log('storing wallets');
-	console.log(wallets);
-	window.localStorage.setItem('wallet-infos', JSON.stringify(wallets));
+	setCurrentUserWallets(wallets);
 }
 
 initForm();
