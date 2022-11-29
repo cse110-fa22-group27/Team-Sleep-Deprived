@@ -2,8 +2,8 @@ class RecentActivity extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
-		const styles = document.createElement('style');
-		const divider = document.createElement('div');
+		var styles = document.createElement('style');
+		var divider = document.createElement('div');
 
 		divider.setAttribute('class', 'recent-activity');
 		divider.innerHTML = `
@@ -42,8 +42,8 @@ class RecentActivity extends HTMLElement {
 			return;
 		}
 		// parse data
-		const transactions = JSON.parse(data);
-		const table = this.shadowRoot.querySelector('table');
+		var transactions = JSON.parse(data);
+		var table = this.shadowRoot.querySelector('table');
 
 		// for every JSON object passed in create a transaction and add to table.
 		for(var t of transactions){

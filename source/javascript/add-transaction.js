@@ -3,7 +3,7 @@ class TransactionForm extends HTMLElement {
 		super();
 
 		this.attachShadow({ mode: 'open' });
-		const form = document.createElement('form');
+		var form = document.createElement('form');
 		form.setAttribute('class', 'add-transaction');
         form.setAttribute('onsubmit','addTransaction();');
 
