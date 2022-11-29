@@ -56,10 +56,6 @@ async function getCurrentUser() {
 		currentUserSet = true;
 		const allUsers = await getAllUsersObject();
 		const currentUsername = getCurrentUsername();
-
-		if(!currentUsername){
-			return;
-		}
 		currentUser = allUsers[currentUsername];
 	}
 	return currentUser;
