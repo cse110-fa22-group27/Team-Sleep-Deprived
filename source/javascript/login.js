@@ -146,6 +146,9 @@ function checkPassword(password, confirmpassword){
 //async function checkUsername(username){
 async function checkUsername(username){
 	let users = await getAllUsersObject();
+	if(!users){
+		return {};
+	}
 	if (users[username]){
 		throw new Error('Username has already been taken');
 	}

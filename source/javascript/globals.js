@@ -1,6 +1,5 @@
 /**
  * @author Ashwin Rohit Alagiri Rajan
- * @contributor Anthony Chen
  */
 
 /**
