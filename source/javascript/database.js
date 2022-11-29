@@ -11,7 +11,7 @@ function getAllUsersObject(){
 			const dbRequest = indexedDB.open('UserDatabase', 1);
 
 			dbRequest.onerror = function() {
-				reject(Error('Error text'));
+				reject(Error('Cannot open database'));
 			};
 
 			dbRequest.onupgradeneeded = function() {
@@ -26,12 +26,12 @@ function getAllUsersObject(){
 				const objectRequest = objectStore.get(1);
 
 				objectRequest.onerror = function() {
-					reject(Error('Error text'));
+					resolve(null);
 				};
 
 				objectRequest.onsuccess = function() {
 					if (objectRequest.result) resolve(objectRequest.result);
-					else reject(Error('object not found'));
+					else resolve(null);
 				};
 			};
 		}
@@ -44,7 +44,7 @@ function setAllUsersObject(object){
 			const dbRequest = indexedDB.open('UserDatabase', 1);
 	
 			dbRequest.onerror = function() {
-				reject(Error('IndexedDB database error'));
+				reject(Error('Cannot open database'));
 			};
 	
 			dbRequest.onupgradeneeded = function(event) {
@@ -59,11 +59,11 @@ function setAllUsersObject(object){
 				const objectRequest = objectStore.put(object); // Overwrite if exists
 		
 				objectRequest.onerror = function() {
-					reject(Error('Error text'));
+					reject(Error('Error while saving data'));
 				};
 		
 				objectRequest.onsuccess = function() {
-					resolve('Data saved OK');
+					resolve('Data saved successfully');
 				};
 			};
 		}
@@ -71,65 +71,3 @@ function setAllUsersObject(object){
 }
 
 export { getAllUsersObject, setAllUsersObject };
-
-//======below test cases
-//	class User {
-//		constructor(username, password, wallets, preferredDefaultPage) {
-//			this.username = username;
-//			this.password = password;
-//			this.wallets = wallets;
-//			this.preferredDefaultPage = preferredDefaultPage;
-//		}
-//	}
-//	
-//	class Wallet {
-//		constructor(name, balance) {
-//			this.name = name;
-//			this.balance = balance;
-//		}
-//	}
-//	
-//	
-//	let BOA = new Wallet('BOA', 100);
-//	let Chase = new Wallet('Chase', 200);
-//	
-//	const user1 = new User('kevin', '01234567', [], 'dashboard');
-//	const user2 = new User('ashwin', '00000', [BOA, Chase], 'reports');
-//	const user3 = new User('john', '123456', [new Wallet(), new Wallet()], 'wallets');
-//	
-//	const request = indexedDB.open('UserDatabase', 1);
-//	
-//	request.onerror = function (event) {
-//		console.error('An error occured with IndexedDB');
-//		console.error(event);
-//	};
-//	
-//	request.onupgradeneeded = function () {
-//		const db = request.result;
-//		const store = db.createObjectStore('user', { keyPath: 'id', autoIncrement:true });
-//	};
-//	
-//	request.onsuccess = async function () {
-//		const db = request.result;
-//		const user = db.transaction('user', 'readwrite');
-//	
-//		const store = user.objectStore('user');
-//		const IDIndex = store.index('user-name');
-//	
-//		store.put({
-//			"id": 1,
-//			"ashwin": user1,
-//			"kevin": user2,
-//			"john": user3
-//		});
-//	
-//		console.log(await getAllUsersObject());
-//		console.log(await setAllUsersObject({
-//			"id": 1,
-//			"john": user1,
-//			"jimmy": user2,
-//			"josh": user3
-//		}));
-//		console.log(await getAllUsersObject());	
-//	};
-//==above test cases
