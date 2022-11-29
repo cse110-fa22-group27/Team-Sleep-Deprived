@@ -26,12 +26,12 @@ function getAllUsersObject(){
 				const objectRequest = objectStore.get(1);
 
 				objectRequest.onerror = function() {
-					reject(Error('Error text'));
+					reject(null);
 				};
 
 				objectRequest.onsuccess = function() {
 					if (objectRequest.result) resolve(objectRequest.result);
-					else reject(Error('object not found'));
+					else reject(null);
 				};
 			};
 		}
@@ -59,11 +59,11 @@ function setAllUsersObject(object){
 				const objectRequest = objectStore.put(object); // Overwrite if exists
 		
 				objectRequest.onerror = function() {
-					reject(Error('Error text'));
+					reject(Error('Error while saving data'));
 				};
 		
 				objectRequest.onsuccess = function() {
-					resolve('Data saved OK');
+					resolve('Data saved successfully');
 				};
 			};
 		}
