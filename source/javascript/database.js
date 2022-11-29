@@ -5,6 +5,25 @@ if (!indexedDB) {
 	window.alert('Your browser doesn\'t support a stable version of IndexedDB.');
 }
 
+const dbRequest = indexedDB.open('UserDatabase', 1);
+
+dbRequest.onerror = function (event) {
+	console.error('An error occured with IndexedDB');
+	console.error(event);
+};
+
+dbRequest.onupgradeneeded = function () {
+	const db = dbRequest.result;
+	const store = db.createObjectStore('user', { keyPath: 'id', autoIncrement:true });
+};
+
+dbRequest.onsuccess = function () {
+	const db = dbRequest.result;
+	const user = db.transaction('user', 'readwrite');
+
+	const store = user.objectStore('user');
+};
+
 function getAllUsersObject(){
 	return new Promise(
 		function(resolve, reject) {
@@ -16,7 +35,7 @@ function getAllUsersObject(){
 
 			dbRequest.onupgradeneeded = function() {
 				dbRequest.transaction.abort();
-				reject(Error('Not found'));
+				reject(Error('Database version incorrect, use version 1'));
 			};
 
 			dbRequest.onsuccess = function() {
@@ -48,14 +67,14 @@ function setAllUsersObject(object){
 			};
 	
 			dbRequest.onupgradeneeded = function(event) {
-				const database    = event.target.result;
+				const database  = event.target.result;
 				database.createObjectStore('user', {keyPath: 'id'});
 			};
 	
 			dbRequest.onsuccess = function(event) {
-				const database      = event.target.result;
-				const transaction   = database.transaction('user', 'readwrite');
-				const objectStore   = transaction.objectStore('user');
+				const database = event.target.result;
+				const transaction = database.transaction('user', 'readwrite');
+				const objectStore = transaction.objectStore('user');
 				const objectRequest = objectStore.put(object); // Overwrite if exists
 		
 				objectRequest.onerror = function() {
