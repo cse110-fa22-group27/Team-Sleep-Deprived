@@ -100,6 +100,4 @@ async function resetGlobalInfo() {
 	setCurrentUsername('');
 }
 
-console.log(await getCurrentUser())
-
 export { getAllUsersObject, setAllUsersObject, setCurrentUsername, getCurrentUsername, getCurrentUser, updateCurrentUser, getCurrentUserWallets, setCurrentUserWallets, resetGlobalInfo };
