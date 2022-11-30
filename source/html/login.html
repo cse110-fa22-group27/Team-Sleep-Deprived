@@ -1,0 +1,44 @@
+<!-- 
+    @author Andrew Nguyen
+	@contributor Ashwin Rohit Alagiri Rajan
+    The sign in page. This is the default page that is shown to the signed out user.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/styles.css">
+    <link rel='stylesheet' href='../css/login-signup.css'>
+	<link rel="shortcut icon" href="../resources/images/favicon.ico" type="image/x-icon">
+	<script src="../javascript/globals.js" type='module' defer></script>
+	<script src='../javascript/login.js' type='module' defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <div class="root-div">
+        <div class="page-title">
+            Login/<a href="./signup.html" class="alternative-link">Sign Up</a>
+        </div>
+        <form class='user-details-form glass-box' id='login-form' autocomplete="off">
+            <div class="inputsec" id="username-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="inputsec" id="password-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div id="check">
+				<input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+				<label for="rememberme">Remember Me</label>
+            </div>
+            <input type="submit" id='submit' value="Login">
+        </form>
+    </div>      
+
+</body>
+
+</html>

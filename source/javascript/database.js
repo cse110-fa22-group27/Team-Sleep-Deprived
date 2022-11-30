@@ -8,7 +8,7 @@ if (!indexedDB) {
 const dbRequest = indexedDB.open('UserDatabase', 1);
 
 dbRequest.onerror = function (event) {
-	console.error('An error occured with IndexedDB');
+	console.error('Database could not be opened');
 	console.error(event);
 };
 

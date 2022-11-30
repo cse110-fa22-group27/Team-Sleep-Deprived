@@ -21,13 +21,12 @@ async function initWalletPage() {
 	walletGrid.id = 'wallets-grid';
 	walletGridWrapper.append(walletGrid);
 	const wallets = await getCurrentUserWallets();
-	console.log(wallets);
 	for(const wallet of wallets) {
 		let newWalletInfoItem = document.createElement('wallet-info');
-		newWalletInfoItem.data = wallet;
 		if(wallet.transactions.length > 0) {
-			wallet.lastTransaction = wallet.transactions[wallet.transactions.length - 1];
+			wallet['lastTransaction'] = wallet.transactions[wallet.transactions.length - 1];
 		}
+		newWalletInfoItem.data = wallet;
 		walletGrid.appendChild(newWalletInfoItem);
 		newWalletInfoItem.addEventListener('click', showWalletsInfoPage);
 	}
