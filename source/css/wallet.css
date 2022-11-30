@@ -51,33 +51,36 @@
 .wallet-name {
     font-weight: var(--font-scaling-regular);
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .wallet-amount {
     font-family: var(--default-cash-font);
     font-weight: var(--font-scaling-medium);
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--wallet-amount-color);
     margin: 0;
 }
 
 .wallet-last-transaction {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     margin: 0;
 }
 
 .wallet-last-transaction[data-transaction-type="positive"] {
     color: var(--transaction-positive-color);
+	opacity: 0.5;
 }
 
 .wallet-last-transaction[data-transaction-type="negative"] {
     color: var(--transaction-negative-color);
+	opacity: 0.5;
 }
 
-.wallet-last-transaction > strong {
-    color: black;
+.wallet-last-transaction[data-transaction-type="unknown"] {
+	color: grey;
 }
+
 
 #new-wallet > img {
     scale: 0.75;
