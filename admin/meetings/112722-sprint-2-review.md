@@ -29,6 +29,7 @@ _For this sprint review, each partner team or individual gave an overview of the
 - Need to work on generating .png files 
 - However, TA recommended that we remove the reports page
 - Consensus is to remove the generate report feature and just display the graph instead (make sure it is centered)
+- Also helped with the wallet details and is working on changing ADRs to reflect current choices/designs
 
 **Javier**
 - Turning Recent transactions, recent activities, and add transactions into custom components
