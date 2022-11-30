@@ -10,12 +10,12 @@
      <script src="../javascript/WalletDetails.js" defer type="module"></script>
      <link rel='stylesheet' href='../css/styles.css'>
      <link rel="stylesheet" href="../css/wallet-details.css">
-     <title>BoA Checking</title>
+     <title>Wallet Details</title>
  </head>
  
  <body>
      <header class="page-header" id="wallet-details-page-header">
-        <button class = "back-button">
+        <button onclick="goBackToWalletsPage()" class = "back-button">
             <img src="../resources/images/back-button.svg" alt="Back Button">
         </button> 
         <h1 class="page-title" id="wallet-details-page-title">BoA Checking</h1>
@@ -23,15 +23,16 @@
              <img src="../resources/images/delete-button.svg" alt="Delete Button">
          </button>
      </header>
-     <div class="wallet-details-root">
-        <div class="component" id="recent-transactions">
+     <!-- <div class="root"> -->
+    <div class="wallet-details-root">
+        <!-- <div class="component" id="recent-transactions">
             <h2 class="component-title" id="component-title">Recent Transactions</h2>
             <table class="recent-transactions-table glass-box">
                 <tr class="t-row" id="recent-transactions-row">
                     <th class="transaction-name" id="recent-transactions-name-title">Name</th>
                     <th id="recent-transactions-amount-title">Amount $</th>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td class="transaction-name">Amazon Prime Subscription</td>
                     <td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(120.00)</td>
                 </tr>
@@ -78,7 +79,7 @@
                 <tr>
                     <td class="transaction-name">Stationery</td>
                     <td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(300.09)</td>
-                </tr> -->
+                </tr>
             </table>
         </div>
         <div class="component" id="spending-statistics">
@@ -113,7 +114,7 @@
                     </section>
                 </div>
             </div>
-        </div>
+        </div> -->
      </div>
  </body>
  

@@ -19,6 +19,8 @@ body {
     margin-right: auto;
 }
 
+
+/* .details-root { ... } */
 .wallet-details-root {
     display: flex;
     justify-content: center;
@@ -49,6 +51,7 @@ body {
 	display: flex;
 	padding: 5px 10px;
 	height: 90%;
+    width: 40%;
 }
 
 .recent-transactions-table > tbody {
@@ -106,7 +109,20 @@ body {
 #spending-statistics {
 	display: flex;
 	align-items: flex-start;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+    justify-content: space-evenly;
+
+    position: fixed;
+    /* margin-top: 275px; */
+    margin-top: 14.5%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: -5px;
+    z-index: 100;
 }
 
 .statistic-item {

@@ -1,0 +1,32 @@
+<!-- 
+    @author: Michael Phung, Abigail Koornwinder
+    This is the details page that appears when one of the wallets is clicked on the wallets page.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <script src="../javascript/WalletDetails.js" defer type="module"></script>
+     <script src="../javascript/test-details.js" defer type="module"></script>
+     <link rel='stylesheet' href='../css/styles.css'>
+     <link rel="stylesheet" href="../css/wallet-details.css">
+     <title>Wallet Details</title>
+ </head>
+ 
+ <body>
+     <header class="page-header" id="wallet-details-page-header">
+        <button onclick="goBack()" class = "back-button"></button>
+            <img src="../resources/images/back-button.svg" alt="Back Button">
+        </button> 
+        <h1 class="page-title" id="wallet-details-page-title">BoA Checking</h1>
+         <button class="delete-button logout-button">
+             <img src="../resources/images/delete-button.svg" alt="Delete Button">
+         </button>
+     </header>
+    <div id="wallet-details-root"></div>
+
+ </body>
+ 
+ </html>
+ 
