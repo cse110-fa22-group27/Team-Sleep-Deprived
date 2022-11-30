@@ -33,7 +33,7 @@ class TransactionForm extends HTMLElement {
 
                     <div class="description">
                         <label for="desc-input">Description</label><br>
-                        <input type="text" id="desc-input" name="desc-input">
+                        <textarea type="text" id="desc-input" name="desc-input"></textarea>
                     </div> 
 
                     <div class="add">
@@ -45,7 +45,118 @@ class TransactionForm extends HTMLElement {
         // css stylying for TransactionForm
         var styles = document.createElement('style');
         styles.innerHTML = `
-        
+            input {
+                width: auto;
+                font-family: 'IBM Plex Sans';
+                font-style: normal;
+                appearance: none;
+                border: 2px solid var(--default-border-color);
+                border-radius: 10px;
+                padding: 8px 10px;
+            }
+            
+            select {
+                width: auto;
+                font-family: 'IBM Plex Sans';
+                font-style: normal;
+                border: 2px solid var(--default-border-color);
+                border-radius: 10px;
+                padding: 8px;
+            }
+            
+            #desc-input {
+                font-family: 'IBM Plex Sans';
+                font-style: normal;
+                height: 100%;
+                border-radius: 10px;
+                width: 100%;
+                text-align: left;
+                resize: none;
+                padding: 10px;
+                border: 2px solid var(--default-border-color);
+            }
+            
+            .description {
+                grid-column: span 2;
+                width: 96%;
+            }
+            
+            .add-transaction-box {
+                width: 100%;
+                display: grid;
+                border: 3px solid #D6D6D6;
+                border-radius: 10px;
+                padding: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 1fr 1fr 3fr 1fr;
+                gap: 10px;
+                height: 100%;
+            }
+            
+            .add-transaction-box > div {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            
+            .add-transaction-box > div > input {
+                font-size: 1.2rem;
+                height: 100%;
+            }
+            
+            .add-transaction-box > div > select {
+                font-size: 1.2rem;
+                height: 100%;
+            }
+            
+            .add-transaction-box label {
+                font-weight: var(--font-scaling-medium);
+            }
+            
+            .description {
+                grid-column: span 2;
+            }
+            
+            .add {
+                grid-column: span 2;
+                margin-left: auto;
+            }
+            
+            .add-transaction {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            
+            #add-button {
+                grid-column: span 2;
+                font-size: 1.2rem;
+                padding: 10px;
+                border-radius: 10px;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+                background-color: #ea918f;
+                border: none;
+                width: max-content;
+                height: 50px;
+                margin: 0;
+                margin-left: auto;
+                margin-top: auto;
+            }
+            
+            #add-button:hover {
+                cursor: pointer;
+            }
+            
+            #add-transaction-icon {
+                color: white;
+                font-size: 1.3rem;
+                padding: 0;
+                margin: 1px;
+            }
         `;
 
 		this.shadowRoot.append(form, styles);

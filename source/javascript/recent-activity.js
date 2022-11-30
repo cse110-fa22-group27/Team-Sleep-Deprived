@@ -1,6 +1,7 @@
 class RecentActivity extends HTMLElement {
 	constructor() {
 		super();
+
 		this.attachShadow({ mode: 'open' });
 		var styles = document.createElement('style');
 		var divider = document.createElement('div');
@@ -13,7 +14,7 @@ class RecentActivity extends HTMLElement {
 		</table>
 		</div>
 		`;
-		this.shadowRoot.append(styles, divider);
+		this.shadowRoot.append(divider);
 	}
 
 	/**
