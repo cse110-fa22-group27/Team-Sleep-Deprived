@@ -1,12 +1,14 @@
 <!-- 
     @author: Andrew Nguyen
+	@contributor: Ashwin Rohit Alagiri Rajan
  -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel='stylesheet' href='../css/signup.css'>
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/login-signup.css">
 	<link rel="shortcut icon" href="../resources/images/favicon.ico" type="image/x-icon">
 	<script src='../javascript/login.js' type='module'></script>
 	<script src='../javascript/globals.js' type='module' defer></script>
@@ -14,30 +16,25 @@
 </head>
 
 <body>
-    <div>
-        <div id="title">
-            <a href="signin.html" class="txt" id="login">Login/</a>
-            <span class="txt" id="signup">Sign up</span>
+    <div class="root-div">
+        <div class="page-title">
+			<a href="../html/login.html" class="alternative-link">Login</a>/Sign Up
         </div>
-        <form id='box' onsubmit="event.preventDefault();">
-
+        <form class="glass-box user-details-form" autocomplete="off">
             <div class="inputsec">
-                <label for="username" class="txt">Username: </label><br>
+                <label for="username" class="txt">Username</label><br>
                 <input type="text" id="username" class= "txtinput" name="username"><br>
             </div>
-
             <div class="inputsec" id="passwordgroup">
-                <label for="password" class="txt">Password: </label><br>
+                <label for="password" class="txt">Password</label><br>
                 <input type="password" id="password" class= "txtinput" name="password"><br>
             </div>
-
             <div class="inputsec" id="confirmpasswordgroup">
                 <label for="confirmpassword" class="txt">Confirm Password </label><br>
                 <input type="password" class= "txtinput" id="confirmpassword" name="confirmpassword"><br>
             </div>
             <input type="submit"  id='submit' value="Signup">
         </form>
-
     </div>
 </body>
 
