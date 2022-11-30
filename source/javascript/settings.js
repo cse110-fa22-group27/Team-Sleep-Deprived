@@ -1,9 +1,8 @@
 // Imports useful functions from other files
-import { getCurrentUser, updateCurrentUser, getCurrentUsername } from './globals.js';
+import { getCurrentUser, updateCurrentUser } from './globals.js';
 
 const currentUser = await getCurrentUser();
-// Creates Variables for default page options
-const pages = ['../html/dashboard.html', '../html/wallets.html', '../html/report.html'];
+
 // Grabs Necessary buttons
 const saveSettings = document.querySelector('#save-button');
 const resetSettings = document.querySelector('#reset-button');
