@@ -1,0 +1,103 @@
+/* @author Ashwin Rohit Alagiri Rajan */
+
+.root-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 100px;
+	padding-top: 150px;
+}
+
+.page-title {
+	white-space: none;
+	font-weight: var(--font-scaling-semibold);
+	font-size: 3rem;
+}
+
+.alternative-link {
+	text-decoration: none;
+	color: rgba(153, 153, 153, 0.600);
+}
+
+.alternative-link:hover {
+	color: rgba(153, 153, 153, 0.800);
+	transition: 0.2s ease-in-out; 
+}
+
+.user-details-form  {
+	width: 500px;
+	margin: 20px 0;
+	font-family: var(--default-body-font);
+	border-width: 2px;
+	display: flex;
+	flex-direction: column;
+}
+
+.user-details-form > div {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem;
+	margin-bottom: 0;
+}
+
+label {
+	font-weight: var(--font-scaling-medium);
+	font-size: 1.5rem;
+}
+
+.user-details-form input {
+	font-size: 1.3rem;
+	font-family: var(--default-body-font);
+	padding: 0.5rem 1rem;
+	border-radius: 100px;
+	border: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-details-form input:focus {
+	outline: none;
+	border: 3px solid rgba(0, 0, 0, 0.5);
+	transition: border 0.1s ease-in-out !important;
+}
+
+#submit {
+	border: none;
+	background-color: #6eaf71;
+	border-radius: 10px;
+	color: white;
+	font-size: 1.2rem;
+	padding: 1rem 4rem;
+	margin: 10px;
+	margin-top: 3rem;
+	margin-left: auto;
+}
+
+#submit:hover {
+	background-color: #5e9f61;
+	cursor: pointer;
+	transition: background-color 0.1s ease-in-out; 
+}
+
+#check {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 2rem;
+	margin-bottom: 0;
+}
+
+#check > input {
+	appearance: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 10px;
+}
+
+#rememberme:focus {
+	outline: none;
+	border: 3px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+#rememberme:checked {
+	background-color: #6eaf71;
+	transition: background-color 0.1s ease-in-out !important;
+}

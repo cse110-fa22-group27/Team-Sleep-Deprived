@@ -16,6 +16,7 @@
  * @property {Array<transaction-object>} transactions
  * @property {Number} 'total-amount'
  * @property {Number} target Monthly spending target
+ * @property {boolean} includedInTotal
  */
 
 /**
