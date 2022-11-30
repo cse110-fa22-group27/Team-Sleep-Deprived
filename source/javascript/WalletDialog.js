@@ -32,10 +32,10 @@ function initForm(){
     
 	let balanceInput = document.createElement('input');
 	balanceInput.setAttribute('type', 'number');
-	balanceInput.setAttribute('step', '.01'); //Allow up to 2 decimal places
+	balanceInput.setAttribute('step', '.01'); // Allow up to 2 decimal places
 	balanceInput.setAttribute('placeholder', 'Enter Balance');
-	balanceInput.setAttribute('min', '0'); //set minimum balance of each wallet to 0
-	balanceInput.setAttribute('name', 'amount');
+	balanceInput.setAttribute('min', '0'); // set minimum balance of each wallet to 0
+	balanceInput.setAttribute('name', 'total-amount');
 	balanceInput.setAttribute('required','');
 
 	let targetLabel = document.createElement('label');
@@ -44,7 +44,7 @@ function initForm(){
 
 	let targetInput = document.createElement('input');
 	targetInput.setAttribute('type', 'number');
-	targetInput.setAttribute('step', '.01'); //Allow up to 2 decimal places
+	targetInput.setAttribute('step', '.01'); // Allow up to 2 decimal places
 	targetInput.setAttribute('min', '0');
 	targetInput.setAttribute('placeholder', 'Optional');
 	targetInput.setAttribute('name', 'target');
@@ -105,6 +105,8 @@ async function formSubmission() {
 	for(const pair of fdata.entries()){
 		newWallet[`${pair[0]}`] = `${pair[1]}`;
 	}
+	
+	newWallet['target'] = Number(newWallet['target']);
 
 	newWallet['transactions'] = [];
 

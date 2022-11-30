@@ -1,100 +1,140 @@
-import { generateReport } from './Report.js';
-
-class ReportGenerator extends HTMLElement { // ReportGeneratorComponent --> use ReportGenerator for actual JS
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ */
+class ReportGenerator extends HTMLElement {
 	constructor() {
 		super();
-		this.shadowElem = this.attachShadow({ mode: 'open' });
-		this.elementRoot = document.createElement('div');
-		this.elementRoot.className = 'report-generator-container glass-box';
+		// Create the shadow root
+		this.shadow = this.attachShadow({ mode: 'open' });
+		const rootDiv = document.createElement('div');
+		rootDiv.className = 'generator component';
 
-		// All Form Options //
-		this.timeWeeklyOption = document.createElement('option');
-		this.timeWeeklyOption.value = 'weekly';
-		this.timeWeeklyOption.innerHTML = 'This Week';
+		// Title for the component 
+		const title = document.createElement('h3');
+		title.className = 'component-title';
+		title.textContent = 'Generate Report';
 
-		this.timeMonthlyOption = document.createElement('option');
-		this.timeMonthlyOption.value = 'monthly';
-		this.timeMonthlyOption.innerHTML = 'This Month';
+		// Create the form
+		const form = document.createElement('form');
+		form.classList.add('generate-report-form', 'glass-box');
 
-		this.timeYearlyOption = document.createElement('option');
-		this.timeYearlyOption.value = 'yearly';
-		this.timeYearlyOption.innerHTML = 'This Year';
+		// Create 3 divs to hold the form elements
+		const formDiv1 = document.createElement('div');
+		const formDiv2 = document.createElement('div');
+		const formDiv3 = document.createElement('div');
 
-		// TODO - JS to implement all stored wallets as options //
-		this.allWalletOption = document.createElement('option');
-		this.allWalletOption.value = 'all';
-		this.allWalletOption.innerHTML = 'All Wallets';
+		// label for timespan select
+		const timespanLabel = document.createElement('label');
+		timespanLabel.textContent = 'Choose the time range for the report';
+		timespanLabel.setAttribute('for', 'timespan');
 
-		this.pdfDocumentOption = document.createElement('option');
-		this.pdfDocumentOption.value = 'pdf';
-		this.pdfDocumentOption.innerHTML = 'PDF File';
+		// Create the timespan select
+		const timespanSelect = document.createElement('select');
+		timespanSelect.name = 'timespan';
+		timespanSelect.id = 'timespan-select';
 
-		this.pngDocumentOption = document.createElement('option');
-		this.pngDocumentOption.value = 'png';
-		this.pngDocumentOption.innerHTML = 'PNG File';
+		// Create the timespan options
+		const timespanOptions = [
+			{ value: 'yearly', text: 'Yearly Report' },
+			{ value: 'monthly', text: 'Monthly Report' },
+			{ value: 'weekly', text: 'Weekly Report' },
+		];
 
-		// Parent Form Component //
-		this.reportForm = document.createElement('form');
-		this.reportForm.className = 'report-form';
-		this.reportForm.id = 'report-form';
-		this.reportForm.action = ''; // TODO (?)
-
-		// Select report time range (dropdown 1) //
-		this.reportRangeSelector = document.createElement('select');
-		this.reportRangeSelector.id = 'report-range';
-		this.reportRangeSelector.name = 'report-range';
-		this.reportRangeSelector.value = 'weekly';
-
-		this.reportRangeLabel = document.createElement('label');
-		this.reportRangeLabel['for'] = 'report-range';
-		this.reportRangeLabel.innerHTML = 'Time Range for Report';
-		this.reportRangeSelector.append(this.timeWeeklyOption, this.timeMonthlyOption, this.timeYearlyOption);
-
-		// Select wallets to be included (dropdown 2) //
-		this.walletSelector = document.createElement('select');
-		this.walletSelector.id = 'report-wallets';
-		this.walletSelector.name = 'report-wallets';
-		this.walletSelector.value = 'all';
-
-		this.walletSelectorLabel = document.createElement('label');
-		this.walletSelectorLabel['for'] = 'report-wallets';
-		this.walletSelectorLabel.innerHTML = 'Wallets for Report';
-		this.walletSelector.append(this.allWalletOption);
-
-		// Select file format (dropdown 3) //
-		this.fileSelector = document.createElement('select');
-		this.fileSelector.id = 'report-file';
-		this.fileSelector.name = 'report-file';
-		this.fileSelector.value = 'pdf';
-
-		this.fileSelectorLabel = document.createElement('label');
-		this.fileSelectorLabel['for'] = 'report-file';
-		this.fileSelectorLabel.innerHTML = 'Report Format';
-		this.fileSelector.append(this.pdfDocumentOption, this.pngDocumentOption);
-
-		// Submit Button //
-		this.submitButton = document.createElement('button');
-		// this.submitButton['type'] = "button";
-		this.submitButton['value'] = 'submit';
-		this.submitButton['id'] = 'report-form-button';
-		this.submitButton.innerHTML = 'Generate >';
-		// this.submitButton['onclick'] = "generateReport";
-		// this.submitButton['form'] = "report-form"; // this.reportForm
-		// eslint-disable-next-line no-unused-vars
-		this.submitButton.addEventListener('click', event => { 	
-			generateReport(); // possibly a placeholder
+		// Create the timespan options
+		timespanOptions.forEach((option) => {
+			const optionElement = document.createElement('option');
+			optionElement.value = option.value;
+			optionElement.textContent = option.text;
+			timespanSelect.appendChild(optionElement);
 		});
 
-		// Append all to form
-		this.reportForm.append(this.reportRangeLabel, this.reportRangeSelector, this.walletSelectorLabel, this.walletSelector, this.fileSelectorLabel, this.fileSelector, this.submitButton);
+		// append the elements to the form div
+		formDiv1.append(timespanLabel, timespanSelect);
 
-		this.styleElem = document.createElement('link');
-		this.styleElem['rel'] = 'stylesheet';
-		this.styleElem['href'] = '../css/report.css';
+		// label for include all select
+		const includeAllLabel = document.createElement('label');
+		includeAllLabel.textContent = 'Which wallets to include in the report';
+		includeAllLabel.setAttribute('for', 'include-all');
 
+		// Create the include all select
+		const includeAllSelect = document.createElement('select');
+		includeAllSelect.name = 'include-all';
+		includeAllSelect.id = 'include-all';
 
-		this.elementRoot.append(this.reportForm, this.styleElem);
-		this.shadowElem.append(this.elementRoot);
+		// Create the include all options
+		const includeAllOptions = [
+			{ value: 'all-wallets', text: 'All Wallets' },
+			{ value: 'only-total', text: 'Only Wallets included in total' },
+		];
+
+		// Create the include all options
+		includeAllOptions.forEach((option) => {
+			const optionElement = document.createElement('option');
+			optionElement.value = option.value;
+			optionElement.textContent = option.text;
+			includeAllSelect.appendChild(optionElement);
+		});
+
+		// append the elements to the form div
+		formDiv2.append(includeAllLabel, includeAllSelect);
+
+		// label for report format select
+		const reportFormatLabel = document.createElement('label');
+		reportFormatLabel.textContent = 'Choose the format of the report';
+		reportFormatLabel.setAttribute('for', 'report-format');
+
+		// Create the report format select
+		const reportFormatSelect = document.createElement('select');
+		reportFormatSelect.name = 'report-format';
+		reportFormatSelect.id = 'report-format';
+
+		// Create the report format options
+		const reportFormatOptions = [
+			{ value: 'JSON', text: 'JSON' },
+			{ value: 'CSV', text: 'CSV' },
+		];
+
+		// Create the report format options
+		reportFormatOptions.forEach((option) => {
+			const optionElement = document.createElement('option');
+			optionElement.value = option.value;
+			optionElement.textContent = option.text;
+			reportFormatSelect.appendChild(optionElement);
+		});
+
+		// append the elements to the form div
+		formDiv3.append(reportFormatLabel, reportFormatSelect);
+
+		// Create the submit button
+		const submitButton = document.createElement('button');
+		submitButton.type = 'submit';
+		submitButton.textContent = 'Generate Report';
+
+		const styleLinkDefault = document.createElement('link');
+		styleLinkDefault.rel = 'stylesheet';
+		styleLinkDefault.href = '../css/styles.css';
+
+		const styleLink = document.createElement('link');
+		styleLink.rel = 'stylesheet';
+		styleLink.href = '../css/report.css';
+
+		// Append the form elements to the form
+		form.appendChild(formDiv1);
+		form.appendChild(formDiv2);
+		form.appendChild(formDiv3);
+		form.appendChild(submitButton);
+
+		// Append the elements to the root div
+		rootDiv.appendChild(title);
+		rootDiv.appendChild(form);
+
+		// Append the style links to the shadow root
+		this.shadow.appendChild(styleLinkDefault);
+		this.shadow.appendChild(styleLink);
+
+		// Append the root div to the shadow root
+		this.shadow.appendChild(rootDiv);
 	}
 }
-customElements.define('report-generator', ReportGenerator); // ReportGeneratorComponent
+
+customElements.define('report-generator', ReportGenerator);
