@@ -1,4 +1,4 @@
-import { getCurrentUserWallets, setCurrentUserWallets } from './globals';
+import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
 
 class TransactionForm extends HTMLElement {
 	constructor() {
@@ -19,7 +19,7 @@ class TransactionForm extends HTMLElement {
 
 					<div class="amount">
 						<label for="input-amount">Amount</label><br>
-						<input type="text" id="input-amount" name="input-amount" placeholder="Enter amount" required>
+						<input type="number" step="0.01" id="input-amount" name="input-amount" placeholder="Enter amount" required>
 					</div>
 
 					<div class="date">
