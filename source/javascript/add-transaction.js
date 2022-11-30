@@ -7,11 +7,10 @@ class TransactionForm extends HTMLElement {
 		this.attachShadow({ mode: 'open' });
 		var form = document.createElement('form');
 		form.setAttribute('class', 'add-transaction');
-		form.setAttribute('onsubmit','addTransaction();');
+		form.onsubmit = addTransaction;
 		// html for the TransactionForm
 		form.innerHTML = `
 		<h2 class="section-title">Add Transaction</h2>
-				
 				<div class="add-transaction-box glass-box ">
 					<div class="name">
 						<label for="input-name">Name</label><br>
@@ -38,10 +37,9 @@ class TransactionForm extends HTMLElement {
 						<textarea type="text" id="desc-input" name="desc-input"></textarea>
 					</div> 
 
-					<div class="add">
-						<label for="add-button"></label>
-						<input type="submit" id="add-button" name="add-button" value="+ Add Transaction">
-					</div> 
+						<button class = "button">
+							+ Add Transaction
+						</button>
 				</div>
 		`;
 		// css stylying for TransactionForm
@@ -75,11 +73,11 @@ class TransactionForm extends HTMLElement {
 		if(!wallets) {
 			return;
 		}
-		let select = document.getElementById('wallet-select');
+		let select = this.shadowRoot.getElementById('wallet-select');
 		for(var t of wallets){
 			let option = document.createElement('option');
 			option.setAttribute('value', t.name);
-			option.innerText = 't.name';
+			option.innerText = t.name;
 			select.appendChild(option);
 		}
 	}
@@ -95,22 +93,28 @@ customElements.define('trans-form', TransactionForm);
  * 
  */
 
-function addTransaction() {
-	let name = document.getElementById('input-name').value;
-	let amount = document.getElementById('input-amount').value;
-	let date = document.getElementById('input-date').value;
-	let wallet = document.getElementById('wallet-select').value;
-	let description = document.getElementById('desc-input').value;
+function addTransaction(e) {
+	// get form that fired this event
+	const form = e.target;
 
-	// create transaction object
-	var transaction = {'name': name, 'amount': amount, 'date': date, 'description': description};
+	// create variables 
+	let name = form.elements['input-name'].value;
+	let amount = form.elements['input-amount'].value;
+	let date = new Date(form.elements['input-date'].value);
+	let wallet = form.elements['wallet-select'].value;
+	let description = form.elements['desc-input'].value;
 
-	let wallets = getCurrentUserWallets();
+	// create transaction object from variables
+	var transaction = {"name": name, "amount": amount, "date": date, "description": description};
+
 	// access wallet from user object
-	for(var t of wallets){
-		if(t.name == wallet){
-			t.append(transaction);
+	let wallets = getCurrentUserWallets();
+	// if names match push to transaction array
+	for(var w of wallets){
+		if(w.name == wallet){
+			w.transactions.push(transaction);
 		}
 	}
+	// update wallets
 	setCurrentUserWallets(wallets);
 }
