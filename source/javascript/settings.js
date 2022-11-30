@@ -1,58 +1,79 @@
+// Imports useful functions from other files
 import { getCurrentUser, updateCurrentUser } from './globals.js';
-const pages = ['../html/dashboard.html', '../html/wallets.html', '../html/report.html'];
 
 const currentUser = await getCurrentUser();
 
-function loadDefaultPage(defaultPageNumber) {
-	window.location.replace(pages[defaultPageNumber]);
-}
-const pageNumber =  currentUser['preferred-default-page'];
-loadDefaultPage(pageNumber);
+// Grabs Necessary buttons
+const saveSettings = document.querySelector('#save-button');
+const resetSettings = document.querySelector('#reset-button');
+// Grabs the dropdown to get user's preferred page
+const dropDown = document.querySelector('.default-page-chooser');
 
-//change password
-const changePassword = document.querySelector('.password-change-setting glass-box setting-component');
-changePassword.onclick = function(){
-	let formOld = new FormData(this);
-	let oldpassword = formOld.get('old-password');
-	let formNew = new FormData(this);
-	let newpassword = formNew.get('new-password');
+const minPasswordLen = 5;
+const maxPasswordLen = 20;
+const passwordRegex = new RegExp(`\\w{${minPasswordLen},${maxPasswordLen}}`);
 
-	if(oldpassword != '' && newpassword != ''){
-		if(oldpassword != newpassword){
-			currentUser.password = newpassword;
-            
+document.getElementsByClassName('default-page-chooser')[0].selectedIndex = currentUser['preferred-default-page'];
+
+/**
+ * Changes Password and/or Changes Preferred Default Page of User
+ * Can do change of one category or both categories
+ */
+saveSettings.addEventListener('click', function() {
+	// Grab's users old/new password if inputted
+	let oldPassword = document.querySelector('[name="old-password"]').value;
+	let newPassword = document.querySelector('[name="new-password"]').value;
+	// Grabs user's preferred page
+	let input = dropDown.options[dropDown.selectedIndex].value;
+	try {
+		// Changes password if both inputs are not empty
+		if (oldPassword != '' && newPassword != '') {
+			// Checks if the Old Password is inputted correctly
+			if (oldPassword !== currentUser.password){
+				throw new Error('Incorrect Password');
+			}
+			// Checks that the old password is not used for new password
+			else if (oldPassword == newPassword) {
+				throw new Error('Please Do Not Use The Same Password');
+			}
+			// Checks new password's length requirements
+			else if(newPassword.length <  minPasswordLen || newPassword.length > maxPasswordLen) {
+				throw new Error(`Password must be between ${minPasswordLen} and ${maxPasswordLen} characters`);
+			}
+			// Checks new password's regex requirements
+			else if(!passwordRegex.test(newPassword)){
+				throw new Error('Password contains character(s) that are not alphanumeric or underscore');
+			}
+			// sets password if there is no problems with the new password
+			else {
+				currentUser['password'] = newPassword;
+			}
 		}
-		else{
-			alert('Old password and Newpassword cannot be the same!');
+
+		// Based on preferred page, changes user's preferred page and loads it
+		if (input == 'dashboard'){
+			currentUser['preferred-default-page'] = 0;
 		}
-	}
-	else{
-		alert('Old password or Newpassword cannot be empty!');
-	}
-};
+		else if (input == 'wallets'){
+			currentUser['preferred-default-page'] = 1;
+		}
+		else if(input == 'reports'){
+			currentUser['preferred-default-page'] = 2;
+		}
 
-//change default page
-const choseDefault = document.querySelector('.landing-page-setting glass-box setting-component');
-choseDefault.onclick = function(){
-	let input = document.getElementById('page');
-	let dashboard = document.getElementById('page').value = 'dashboard';
-	let wallet = document.getElementById('page').value ='wallets';
-	let report = document.getElementById('page').value ='reports';
+		updateCurrentUser(currentUser);
+	}
+	// catches any errors
+	catch (err) {
+		alert(err);
+	}
+	
+});
 
-	if(input == dashboard){
-		loadDefaultPage(0);
-	}
-	else if(input == wallet){
-		loadDefaultPage(1);
-	}
-	else if(input == report){
-		loadDefaultPage(2);
-	}
-    
-};
-
-/*update current user to all user-object
-store new user password in database*/
-function updateDB(){
+/**
+ * Resets the default page to the Dashboard page
+ */
+resetSettings.addEventListener('click', function() {
+	currentUser['preferred-default-page'] = 0;
 	updateCurrentUser(currentUser);
-}
+});
