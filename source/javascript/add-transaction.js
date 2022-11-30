@@ -1,4 +1,4 @@
-import { getCurrentUserWallets, setCurrentUserWallets } from './globals'
+import { getCurrentUserWallets, setCurrentUserWallets } from './globals';
 
 class TransactionForm extends HTMLElement {
 	constructor() {
@@ -72,7 +72,7 @@ class TransactionForm extends HTMLElement {
 	 */
 	set data(wallets) {
 		// if data null return
-		if(!wallet) {
+		if(!wallets) {
 			return;
 		}
 		let select = document.getElementById('wallet-select');
