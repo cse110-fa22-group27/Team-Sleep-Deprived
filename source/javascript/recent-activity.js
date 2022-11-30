@@ -3,9 +3,8 @@ class RecentActivity extends HTMLElement {
 		super();
 
 		this.attachShadow({ mode: 'open' });
-		var styles = document.createElement('style');
-		var divider = document.createElement('div');
 
+		var divider = document.createElement('div');
 		divider.setAttribute('class', 'recent-activity');
 		divider.innerHTML = `
 		<h2 class='section-title'>Recent Activity</h2>
@@ -14,9 +13,10 @@ class RecentActivity extends HTMLElement {
 		</table>
 		</div>
 		`;
+		
 		const dashboardStyleLink = document.createElement('link');
-        dashboardStyleLink['href'] = '../css/dashboard.css';
-        dashboardStyleLink['rel'] = 'stylesheet';
+		dashboardStyleLink['href'] = '../css/dashboard.css';
+		dashboardStyleLink['rel'] = 'stylesheet';
 		this.shadowRoot.append(dashboardStyleLink ,divider);
 	}
 
