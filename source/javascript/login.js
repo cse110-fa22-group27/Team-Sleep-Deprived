@@ -77,6 +77,7 @@ async function signinSubmission(event) {
 	}
 	catch(e){
 		alert(e.message);
+		alert(e.stack);
 	}
 }
 
@@ -113,6 +114,7 @@ async function signUpSubmission(event) {
 	}
 	catch(e){
 		loginError(e.message);
+		loginError(e.stack)
 	}	
 }
 
@@ -161,3 +163,6 @@ async function checkUsername(username){
 function loginError(message){
 	alert(message);
 }
+
+// To allow Settings page to use some methods
+export { minPasswordLen, maxPasswordLen, passwordRegex, loadDefaultPage }
