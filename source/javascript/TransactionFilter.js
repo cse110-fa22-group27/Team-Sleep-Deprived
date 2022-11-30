@@ -12,6 +12,17 @@ async function init() {
 	return transactions;
 }
 
+async function getTransactionsSortedByDate() {
+	// return transactions sorted by date from newest to oldest
+	const transactions = await init();
+	transactions.sort((a, b) => {
+		const aDate = new Date(a['date']);
+		const bDate = new Date(b['date']);
+		return bDate - aDate;
+	});
+	return transactions;
+}
+
 async function getThisMonthTransactions() {
 	const transactions = await init();
 	const thisMonthTransactions = [];
@@ -50,3 +61,5 @@ async function getThisWeekTransactions() {
 	}
 	return thisWeekTransactions;
 }
+
+export { getTransactionsSortedByDate, getThisMonthTransactions, getThisYearTransactions, getThisWeekTransactions };
