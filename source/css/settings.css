@@ -32,9 +32,8 @@
 .password-input-field {
     appearance: none;
     border: 3px solid var(--default-border-color);
-    border-radius: 100px;
-    padding: 5px 10px;
-    height: 2.5rem;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem;
     width: 70%;
     font-size: 2rem;
 }
