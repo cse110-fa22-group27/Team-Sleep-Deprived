@@ -88,7 +88,7 @@ select {
 	height: 100%;
 }
 
-.button {
+#add-button {
 	grid-column: span 2;
 	font-size: 1.2rem;
 	padding: 10px;
@@ -107,7 +107,7 @@ select {
 	margin-top: auto;
 }
 
-.button:hover {
+#add-button:hover {
 	cursor: pointer;
 }
 

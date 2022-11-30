@@ -14,7 +14,10 @@ class RecentActivity extends HTMLElement {
 		</table>
 		</div>
 		`;
-		this.shadowRoot.append(divider);
+		const dashboardStyleLink = document.createElement('link');
+        dashboardStyleLink['href'] = '../css/dashboard.css';
+        dashboardStyleLink['rel'] = 'stylesheet';
+		this.shadowRoot.append(dashboardStyleLink ,divider);
 	}
 
 	/**
