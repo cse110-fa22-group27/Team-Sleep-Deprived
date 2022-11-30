@@ -39,15 +39,11 @@ async function loginAutomatically() {
 
 //Logic for signup window
 if(signup.test(window.location.href)){
-	let form= document.getElementById('box');
-	let terms = document.getElementById('terms');
-	
+	let form= document.getElementById('box');	
 	//Disable submit button by default, until terms and conditions are checked
 	// document.getElementById('submit').disabled = true;
 
 	form.addEventListener('submit', signUpSubmission);
-	terms.addEventListener('click', checkTerms);
-
 }
 
 //Logic for sign-in window
@@ -82,6 +78,7 @@ async function signinSubmission(){
 	}
 	catch(e){
 		alert(e.message);
+		alert(e.stack);
 	}
 }
 
@@ -117,6 +114,7 @@ async function signUpSubmission(){
 	}
 	catch(e){
 		loginError(e.message);
+		loginError(e.stack)
 	}	
 }
 
@@ -156,19 +154,6 @@ async function checkUsername(username){
 		throw new Error('Username contains characters that are not alphanumeric or underscore');
 	}
 	return users;
-}
-
-/**
- * Prevents submission if terms and conditions are not checked
- */
-function checkTerms(){
-	let submit = document.getElementById('submit');
-	if(document.getElementById('terms').checked){
-		submit.disabled =  false;
-	}
-	else{
-		submit.disabled = true;
-	}
 }
 
 /**
