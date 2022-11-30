@@ -39,20 +39,13 @@ async function loginAutomatically() {
 
 //Logic for signup window
 if(signup.test(window.location.href)){
-	let form= document.getElementById('box');
-	let terms = document.getElementById('terms');
-	
-	//Disable submit button by default, until terms and conditions are checked
-	// document.getElementById('submit').disabled = true;
-
+	let form = document.getElementsByClassName('user-details-form')[0];
 	form.addEventListener('submit', signUpSubmission);
-	terms.addEventListener('click', checkTerms);
-
 }
 
 //Logic for sign-in window
 else {
-	let form = document.getElementById('box');
+	let form = document.getElementsByClassName('user-details-form')[0];
 	form.addEventListener('submit', signinSubmission, false);
 }
 
@@ -60,16 +53,18 @@ else {
  * Converts the data in the form into a new userObject,
  * then loads the preferred default page
  */
-async function signinSubmission(){
-	let fdata = new FormData(document.getElementById('box'));
+async function signinSubmission(event) {
+	event.preventDefault();
+	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);
 	let formObject = {};
 	for(const pair of fdata.entries()){
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
-
+	const rememberMe = document.getElementById('rememberme').checked;
 	try{
-		setCurrentUsername(formObject['username']);
-		console.log(formObject['username']);
+		if(rememberMe){
+			setCurrentUsername(formObject['username']);
+		}
 		const currentUser = await getCurrentUser();
 		if(!currentUser){
 			throw new Error('Invalid Username');
@@ -78,7 +73,7 @@ async function signinSubmission(){
 			throw new Error('Invalid password');
 		}
 		let pageNumber =  currentUser['preferred-default-page'];
-		loadDefaultPage(pageNumber);
+		// loadDefaultPage(pageNumber);
 	}
 	catch(e){
 		alert(e.message);
@@ -88,8 +83,9 @@ async function signinSubmission(){
 /**
  * Function performed after signup button is clicked
  */
-async function signUpSubmission(){
-	let fdata = new FormData(document.getElementById('box'));
+async function signUpSubmission(event) {
+	event.preventDefault();
+	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);
 	let formObject = {};
 
 	for(const pair of fdata.entries()){
@@ -159,23 +155,9 @@ async function checkUsername(username){
 }
 
 /**
- * Prevents submission if terms and conditions are not checked
- */
-function checkTerms(){
-	let submit = document.getElementById('submit');
-	if(document.getElementById('terms').checked){
-		submit.disabled =  false;
-	}
-	else{
-		submit.disabled = true;
-	}
-}
-
-/**
  * Function to do if invalid password
  * @param {String} message 
  */
 function loginError(message){
 	alert(message);
 }
-
