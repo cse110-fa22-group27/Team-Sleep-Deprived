@@ -1,0 +1,31 @@
+<html>
+	<body style="background-color: #333;">
+		<a target="_blank"></a>
+	</body>
+	<script>
+//create a user-defined function to download CSV file   
+function downloadfile() {  
+	// get the csv from local storage
+	const csv = localStorage.getItem("csv");
+	const json = localStorage.getItem("json");
+	if(csv) {
+		const hiddenElement = document.querySelector('a');  
+		hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+		hiddenElement.target = '_blank'; 
+		hiddenElement.download = 'report.csv';  
+		hiddenElement.click(); 
+		// clear the csv from local storage
+		localStorage.removeItem("csv");
+	} else if(json) {
+		const hiddenElement = document.querySelector('a');  
+		hiddenElement.href = 'data:text/json;charset=utf-8,' + encodeURI(json);
+		hiddenElement.target = '_blank'; 
+		hiddenElement.download = 'report.json';  
+		hiddenElement.click(); 
+		// clear the json from local storage
+		localStorage.removeItem("json");
+	}
+}	
+downloadfile();
+	</script>
+</html>

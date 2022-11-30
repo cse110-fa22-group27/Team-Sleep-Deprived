@@ -67,7 +67,6 @@ class WalletInfo extends HTMLElement {
      * @typedef {Object} transaction
      * @property {string} name Name of the last transaction
      * @property {number} amount Last transaction amount
-     * @property {string} type Last transaction type - either "positive" or "negative" 
      */
 
 	/**
@@ -78,14 +77,18 @@ class WalletInfo extends HTMLElement {
      */
 
 	/**
-    * @param {wallet_data} wallet_data The data object that contains the wallet information
+    * @param {wallet_data} walletData The data object that contains the wallet information
     */
-	set data(wallet_data) {
-		this.walletName.innerHTML = wallet_data.name;
-		this.walletAmount.innerHTML = `$${wallet_data['total-amount']}`;
-		if(wallet_data.lastTransaction) {
-			this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
-			this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
+	set data(walletData) {
+		this.walletName.innerHTML = walletData.name;
+		this.walletAmount.innerHTML = `$${walletData['total-amount']}`;
+		if(walletData.lastTransaction) {
+			this.walletLastTransaction.innerHTML = `<strong>${walletData.lastTransaction.name}</strong> $${Math.abs(walletData.lastTransaction.amount)}`;
+			const lastTransactionType = walletData.lastTransaction.amount > 0 ? 'positive' : 'negative';
+			this.walletLastTransaction.dataset.transactionType = lastTransactionType;
+		} else {
+			this.walletLastTransaction.innerHTML = 'No transactions yet';
+			this.walletLastTransaction.dataset.transactionType = 'unknown';
 		}
 	}
 
