@@ -179,3 +179,5 @@ function loginError(message){
 	alert(message);
 }
 
+// To allow Settings page to use some methods
+export { minPasswordLen, maxPasswordLen, passwordRegex, loadDefaultPage }
