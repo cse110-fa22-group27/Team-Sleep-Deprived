@@ -99,7 +99,6 @@ async function resetGlobalInfo() {
 	currentUserSet = false;
 	currentUser = {};
 	setCurrentUsername('');
-	localStorage.removeItem('currentWalletName');
 }
 
 export { getAllUsersObject, setAllUsersObject, setCurrentUsername, getCurrentUsername, getCurrentUser, updateCurrentUser, getCurrentUserWallets, setCurrentUserWallets, resetGlobalInfo };

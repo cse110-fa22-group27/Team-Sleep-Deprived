@@ -296,7 +296,6 @@ class WalletDetails extends HTMLElement {
    */
 
   set data(wallet_data) {
-    console.log(wallet_data);
     if (wallet_data == null) {
       return;
     }
@@ -305,19 +304,18 @@ class WalletDetails extends HTMLElement {
 	// NOTE - getter functions from transactionfiler considers all transactions,
 	//        not just ones from our wallet of interest - made new ones
     let monthlySpending = 0;
-    for (transaction in getWalletMonthlyTransactions(wallet_data)) {
+    for (transaction in getWalletMontlySpending(wallet_data)) {
       monthlySpending += transaction["amount"];
     }
-	  this.thisMonthsSpendingAmount.innerHTML = monthlySpending;
+	this.thisMonthsSpendingAmount.innerHTML = '$0';
 
-    this.thisMonthsSpendingTarget.innerHTML = `/${wallet_data.target}`;
+    this.thisMonthsSpendingTarget.innerHTML = "/0";
 
     this.monthlyOutflowAmount.innerHTML = "$0";
     this.monthlyInflowAmount.innerHTML = "$0";
 
     // TODO
-    // let sortedWalletTransactions = this.wallet_data['transactions'];
-    let sortedWalletTransactions = wallet_data.transactions;
+    let sortedWalletTransactions = this.wallet_data['transactions'];
 	
     // TODO: sort transactions by date to show most recent -> put recents into table
     // table stuff:
@@ -329,7 +327,4 @@ class WalletDetails extends HTMLElement {
 customElements.define("wallet-details", WalletDetails);
 
 // fix/finish component (set data), switch between weekly, monthly, yearly
-// (NOT DONE)
-
 // dialogue box thingy popping up in wallet details - problem with exporting global var from Wallet.js
-// (^DONE)
