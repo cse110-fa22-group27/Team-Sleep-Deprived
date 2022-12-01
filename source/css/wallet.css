@@ -9,10 +9,10 @@
 }
 
 #wallets-grid-wrapper {
-    margin-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+	height: 80%;
 }
 
 #wallets-grid {

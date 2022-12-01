@@ -64,8 +64,7 @@ async function getWeek(date) {
 	return weekNo;
 }
 
-async function getThisWeekTransactions() {
-	const transactions = await getAllTransactions();
+async function getThisWeekTransactions(transactions) {
 	const thisWeekTransactions = [];
 	const thisWeek = await getWeek(new Date());
 	for(const transaction of transactions) {
@@ -77,4 +76,25 @@ async function getThisWeekTransactions() {
 	return thisWeekTransactions;
 }
 
-export { getTransactionsSortedByDate, getThisMonthTransactions, getThisYearTransactions, getThisWeekTransactions, getAllTransactions };
+async function getPositiveTransactions(transactions) {
+	const positiveTransactions = [];
+	for(const transaction of transactions) {
+		if(transaction['amount'] > 0) {
+			positiveTransactions.push(transaction);
+		}
+	}
+	return positiveTransactions;
+}
+
+async function getNegativeTransactions() {
+	const transactions = await getAllTransactions();
+	const negativeTransactions = [];
+	for(const transaction of transactions) {
+		if(transaction['amount'] < 0) {
+			negativeTransactions.push(transaction);
+		}
+	}
+	return negativeTransactions;
+}
+
+export { getTransactionsSortedByDate, getThisMonthTransactions, getThisYearTransactions, getThisWeekTransactions, getAllTransactions, getPositiveTransactions, getNegativeTransactions };

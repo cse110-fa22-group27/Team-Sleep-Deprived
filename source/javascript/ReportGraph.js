@@ -114,6 +114,7 @@ class GraphComponent extends HTMLElement {
 
 		// add some padding to the max amount
 		maxAmount += 500;
+		maxAmount = Math.ceil(maxAmount / 1000) * 1000;
 
 		// create a bar graph item for each monthly amount
 		monthlyAmounts.forEach((monthlyAmount, index) => {
