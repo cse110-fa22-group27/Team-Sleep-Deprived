@@ -5,6 +5,6 @@ window.addEventListener("load", (event) => {
 	var form = document.createElement('trans-form');
 
 	// update select (tested using local storage)
-	form.data =  JSON.parse(localStorage.getItem("wallets") || "[]");
+	// form.data =  JSON.parse(localStorage.getItem("wallets") || "[]");
 	// flex.append(form);
 });

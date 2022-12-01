@@ -1,4 +1,5 @@
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
+// import { refreshTransactions} from './recent-activity.js';
 
 class TransactionForm extends HTMLElement {
 	constructor() {
@@ -117,4 +118,7 @@ function addTransaction(e) {
 	}
 	// update wallets
 	setCurrentUserWallets(wallets);
+
+	// refresh recent transactions
+	refreshTransactions();
 }
