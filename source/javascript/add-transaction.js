@@ -123,6 +123,6 @@ function addTransaction(e) {
 	// update wallets
 	setCurrentUserWallets(wallets);
 
-	// TODO: refresh recent transactions when antho
+	// TODO: refresh recent transactions
 	// refreshTransactions();
 }
