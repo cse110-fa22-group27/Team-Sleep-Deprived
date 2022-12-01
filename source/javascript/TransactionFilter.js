@@ -2,10 +2,13 @@ import { getCurrentUserWallets } from "./globals.js";
 
 async function getAllTransactions() {
 	const wallets = await getCurrentUserWallets();
+	console.log(wallets);
 	const transactions = [];
 	for(const wallet of wallets) {
 		const walletTransactions = wallet['transactions'];
-		for(const transaction of walletTransactions) {
+		console.log(walletTransactions);
+		for(let transaction of walletTransactions) {
+			transaction['wallet'] = wallet['name'];
 			transactions.push(transaction);
 		}
 	}
