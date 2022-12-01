@@ -18,6 +18,8 @@ import {
   getWalletMonthlyTransactions,
   getWalletYearlyTransactions,
   sortSingleWallet,
+  getNegativeTransactions,
+  getPositiveTransactions
 } from "./TransactionFilter.js";
 
 class WalletDetails extends HTMLElement {
@@ -313,10 +315,13 @@ class WalletDetails extends HTMLElement {
     this.thisMonthsSpendingTarget.innerHTML = `/${wallet_data.target}`;
 
     // use getthismonth transactions and then get negative transactions
-    let allTranactions = 
+    let allMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
+
+    let monthlyOutflow = getNegativeTransactions(allMonthlyTransactions);
     this.monthlyOutflowAmount.innerHTML = "$0";
 
     // use getthismonth transactions and then get positive transactions
+    let monthlyInflow = getPositiveTransactions(allMonthlyTransactions);
     this.monthlyInflowAmount.innerHTML = "$0";
 
     // TODO
