@@ -2,6 +2,7 @@
     --wallet-amount-color: #4495DF;
     --transaction-positive-color: #02ad27a4;
     --transaction-negative-color: rgba(255, 0, 0, 0.7);
+    --logout-button-scaling: 0.5;
 }
 
 body {
@@ -109,11 +110,12 @@ body {
 #spending-statistics {
 	display: flex;
 	align-items: flex-start;
-	/* justify-content: space-between; */
-    justify-content: space-evenly;
+	justify-content: space-between;
+    /* justify-content: space-evenly; */
+    margin-left: 60%;
 
-    position: fixed;
-    /* margin-top: 275px; */
+    /* position: fixed;
+    margin-top: 275px;
     margin-top: 14.5%;
     left: 70%;
     transform: translate(-50%, -50%);
@@ -122,7 +124,7 @@ body {
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     padding: -5px;
-    z-index: 100;
+    z-index: 100; */
 }
 
 .statistic-item {

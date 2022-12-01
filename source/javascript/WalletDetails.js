@@ -6,7 +6,19 @@
  * WalletDetails custom component. This contains the custom component definition for wallet-details.
  */
 
-// import { getTransactionsSortedByDate } from "./TransactionFilter";
+import {
+  getAllTransactions,
+  getTransactionsSortedByDate,
+  getThisMonthTransactions,
+  getThisYearTransactions,
+  getWeek,
+  getThisWeekTransactions,
+// need to add for details
+  getWalletWeeklyTransactions,
+  getWalletMonthlyTransactions,
+  getWalletYearlyTransactions,
+  sortSingleWallet
+} from "./TransactionFilter.js";
 
 class WalletDetails extends HTMLElement {
   /**
@@ -23,7 +35,6 @@ class WalletDetails extends HTMLElement {
      */
 
     this.elementRoot = document.createElement("div");
-    // this.elementRoot.className = "wallet-details-root"; // OLD - renamed for clarity
     this.elementRoot.className = "details-root";
 
     // Recent Transactions container
@@ -37,10 +48,10 @@ class WalletDetails extends HTMLElement {
     this.componentTitle.id = "component-title";
     this.componentTitle.innerHTML = "Recent Transactions";
 
-
     // Transaction Table
     this.recentTransactionsTable = document.createElement("table");
-    this.recentTransactionsTable.className = "recent-transactions-table glass-box";
+    this.recentTransactionsTable.className =
+      "recent-transactions-table glass-box";
 
     this.tbody = document.createElement("tbody");
     this.tbody.className = "t-body";
@@ -52,12 +63,11 @@ class WalletDetails extends HTMLElement {
     this.recentTransactionsNameTitle = document.createElement("th");
     this.recentTransactionsNameTitle.className = "transaction-name";
     this.recentTransactionsNameTitle.id = "recent-transactions-name-title";
-    this.recentTransactionsNameTitle.innerHTML = 'Transaction';
+    this.recentTransactionsNameTitle.innerHTML = "Transaction";
 
     this.recentTransactionsAmountTitle = document.createElement("th");
     this.recentTransactionsAmountTitle.id = "recent-transactions-amount-title";
-    this.recentTransactionsAmountTitle = 'Amount'
-
+    this.recentTransactionsAmountTitle = "Amount";
 
     // Spending Statistics
     this.spendingStatistics = document.createElement("div");
@@ -71,12 +81,12 @@ class WalletDetails extends HTMLElement {
     this.currentBalance = document.createElement("h2");
     this.currentBalance.className = "component-title";
     this.currentBalance.id = "current-balance";
-    this.currentBalance.innerHTML = 'Current Balance';
+    this.currentBalance.innerHTML = "Current Balance";
 
     this.currentBalanceAmount = document.createElement("h2");
     this.currentBalanceAmount.className = "statistic-value";
     this.currentBalanceAmount.id = "current-balance-amount";
-    this.currentBalanceAmount.innerHTML = '$0' // set data()
+    this.currentBalanceAmount.innerHTML = "$0"; // set data()
 
     this.thisMonthsSpendingItem = document.createElement("div");
     this.thisMonthsSpendingItem.className = "statistic-item";
@@ -90,12 +100,12 @@ class WalletDetails extends HTMLElement {
     this.thisMonthsSpendingAmount = document.createElement("h2");
     this.thisMonthsSpendingAmount.className = "statistic-value";
     this.thisMonthsSpendingAmount.id = "this-months-spending-amount";
-    this.thisMonthsSpendingAmount.innerHTML = '$0' // set data()
+    this.thisMonthsSpendingAmount.innerHTML = "$0"; // set data()
 
     this.thisMonthsSpendingTarget = document.createElement("h2");
     this.thisMonthsSpendingTarget.className = "statistic-value";
     this.thisMonthsSpendingTarget.id = "monthly-target-statistic";
-    this.thisMonthsSpendingTarget.innerHTML = '/0' // set data()
+    this.thisMonthsSpendingTarget.innerHTML = "/0"; // set data()
 
     this.monthlyInflowItem = document.createElement("div");
     this.monthlyInflowItem.className = "statistic-item";
@@ -104,12 +114,12 @@ class WalletDetails extends HTMLElement {
     this.monthlyInflow = document.createElement("h2");
     this.monthlyInflow.className = "component-title";
     this.monthlyInflow.id = "monthly-inflow";
-    this.monthlyInflow.innerHTML = 'Monthly Inflow';
+    this.monthlyInflow.innerHTML = "Monthly Inflow";
 
     this.monthlyInflowAmount = document.createElement("h2");
     this.monthlyInflowAmount.className = "statistic-value";
     this.monthlyInflowAmount.id = "monthly-inflow-amount";
-    this.monthlyInflowAmount.innerHTML = '$0'; //set data()
+    this.monthlyInflowAmount.innerHTML = "$0"; //set data()
 
     this.monthlyOutflowItem = document.createElement("div");
     this.monthlyOutflowItem.className = "statistic-item";
@@ -118,12 +128,12 @@ class WalletDetails extends HTMLElement {
     this.monthlyOutflow = document.createElement("h2");
     this.monthlyOutflow.className = "component-title";
     this.monthlyOutflow.id = "monthly-outflow";
-    this.monthlyOutflow.innerHTML = 'Monthly Outflow'
+    this.monthlyOutflow.innerHTML = "Monthly Outflow";
 
     this.monthlyOutflowAmount = document.createElement("h2");
     this.monthlyOutflowAmount.className = "component-title";
     this.monthlyOutflowAmount.id = "monthly-outflow-amount";
-    this.monthlyOutflowAmount.innerHTML = '$0' // set data()
+    this.monthlyOutflowAmount.innerHTML = "$0"; // set data()
 
     // SETTINGS - currently unused / unimplemented
     this.settingsBox = document.createElement("div");
@@ -133,7 +143,7 @@ class WalletDetails extends HTMLElement {
     this.settingTitle = document.createElement("h2");
     this.settingTitle.className = "component-title";
     this.settingTitle.id = "settings-title";
-	this.settingTitle.innerHTML = "Settings";
+    this.settingTitle.innerHTML = "Settings";
 
     this.settingsGlassBox = document.createElement("div");
     this.settingsGlassBox.className = "glass-box settings-box";
@@ -145,12 +155,12 @@ class WalletDetails extends HTMLElement {
     this.includeTotalTitle = document.createElement("h3");
     this.includeTotalTitle.className = "setting-title";
     this.includeTotalTitle.id = "include-total-title";
-	this.includeTotalTitle.innerHTML = "Include in total"
+    this.includeTotalTitle.innerHTML = "Include in total";
 
-	//needs to be either true or false
+    //needs to be either true or false
     this.includeTotalInput = document.createElement("input");
     this.includeTotalInput.className = "setting-input";
-	this.includeTotalInput.setAttribute("type", "checkbox");
+    this.includeTotalInput.setAttribute("type", "checkbox");
     this.includeTotalInput.id = "include-total-input";
 
     this.targetSection = document.createElement("section");
@@ -160,7 +170,7 @@ class WalletDetails extends HTMLElement {
     this.targetSectionTitle = document.createElement("h3");
     this.targetSectionTitle.className = "setting-title";
     this.targetSectionTitle.id = "target-section-title";
-	this.targetSectionTitle.innerHTML = "Monthly Target";
+    this.targetSectionTitle.innerHTML = "Monthly Target";
 
     this.targetSectionWrapper = document.createElement("span");
     this.targetSectionWrapper.className = "setting-input";
@@ -170,33 +180,33 @@ class WalletDetails extends HTMLElement {
     this.targetSectionInput.className = "setting-input";
     this.targetSectionInput.id = "target-input";
 
-	this.timespanSection = document.createElement("section");
-	this.timespanSection.className = "setting-item";
-	this.timespanSection.id = "timespan-section";
+    this.timespanSection = document.createElement("section");
+    this.timespanSection.className = "setting-item";
+    this.timespanSection.id = "timespan-section";
 
-	this.timespanSectionTitle = document.createElement("h3");
-	this.timespanSectionTitle.className = "setting-title";
-	this.timespanSectionTitle.id = "timespan-section-title";
-	this.timespanSectionTitle.innerHTML = "Filter by";
+    this.timespanSectionTitle = document.createElement("h3");
+    this.timespanSectionTitle.className = "setting-title";
+    this.timespanSectionTitle.id = "timespan-section-title";
+    this.timespanSectionTitle.innerHTML = "Filter by";
 
-	this.timespanSectionWrapper = document.createElement("span");
-	this.timespanSectionWrapper.className = "setting-input";
-	this.timespanSectionWrapper.id = "timespan-input-wrapper";
+    this.timespanSectionWrapper = document.createElement("span");
+    this.timespanSectionWrapper.className = "setting-input";
+    this.timespanSectionWrapper.id = "timespan-input-wrapper";
 
-	this.timespanSectionSelect = document.createElement("select");
-	this.timespanSectionSelect.className = "setting-input";
-	this.timespanSectionSelect.id = "timespan-input";
-	this.timespanSectionSelect.appendChild(new Option("Week", "week"));
-	this.timespanSectionSelect.appendChild(new Option("Month", "month"));
-	this.timespanSectionSelect.appendChild(new Option("Year", "year"));
+    this.timespanSectionSelect = document.createElement("select");
+    this.timespanSectionSelect.className = "setting-input";
+    this.timespanSectionSelect.id = "timespan-input";
+    this.timespanSectionSelect.appendChild(new Option("Week", "week"));
+    this.timespanSectionSelect.appendChild(new Option("Month", "month"));
+    this.timespanSectionSelect.appendChild(new Option("Year", "year"));
 
-	// this.sortByTimespan = document.createElement("select");
-	// this.sortByTimespan.className = "timespan-select";
-	// this.sortByTimespan.id = "select-timespan";
-	// this.sortByTimespan.appendChild(new Option("Week", "week"));
-	// this.sortByTimespan.appendChild(new Option("Month", "month"));
-	// this.sortByTimespan.appendChild(new Option("Year", "year"));
-    // END 
+    // this.sortByTimespan = document.createElement("select");
+    // this.sortByTimespan.className = "timespan-select";
+    // this.sortByTimespan.id = "select-timespan";
+    // this.sortByTimespan.appendChild(new Option("Week", "week"));
+    // this.sortByTimespan.appendChild(new Option("Month", "month"));
+    // this.sortByTimespan.appendChild(new Option("Year", "year"));
+    // END
 
     /**
      * Styles the wallet details component. The stylesheet is defaulted to <code>../css/wallet-styles.css</code>
@@ -241,7 +251,11 @@ class WalletDetails extends HTMLElement {
     // SETTINGS
     this.settingsBox.append(this.settingTitle, this.settingsGlassBox);
 
-    this.settingsGlassBox.append(this.includeTotalSection, this.targetSection, this.timespanSection);
+    this.settingsGlassBox.append(
+      this.includeTotalSection,
+      this.targetSection,
+      this.timespanSection
+    );
 
     this.includeTotalSection.append(
       this.includeTotalTitle,
@@ -250,16 +264,16 @@ class WalletDetails extends HTMLElement {
     this.targetSection.append(
       this.targetSectionTitle,
       this.targetSectionWrapper
-    ); 
+    );
 
     this.targetSectionWrapper.append(this.targetSectionInput);
 
-	this.timespanSection.append(
-		this.timespanSectionTitle,
-		this.timespanSectionWrapper
-	)
+    this.timespanSection.append(
+      this.timespanSectionTitle,
+      this.timespanSectionWrapper
+    );
 
-	this.timespanSectionWrapper.append(this.timespanSectionSelect);
+    this.timespanSectionWrapper.append(this.timespanSectionSelect);
 
     this.spendingStatistics.append(
       this.currentBalanceItem,
@@ -269,7 +283,12 @@ class WalletDetails extends HTMLElement {
       this.settingsBox
     );
 
-    this.elementRoot.append(this.recentTransactions, this.spendingStatistics, this.styleElem, this.defaultStyleLink);
+    this.elementRoot.append(
+      this.recentTransactions,
+      this.spendingStatistics,
+      this.styleElem,
+      this.defaultStyleLink
+    );
     this.shadowElem.append(this.elementRoot);
   }
   /**
@@ -277,95 +296,32 @@ class WalletDetails extends HTMLElement {
    */
 
   set data(wallet_data) {
-    // use map to iterate through transactions array
-    // this.walletName.innerHTML = wallet_data.name;
-    // this.walletAmount.innerHTML = `$${wallet_data['total-amount']}`;
-    // if(wallet_data.lastTransaction) {
-    // 	this.walletLastTransaction.innerHTML = `<strong>${wallet_data.lastTransaction.name}</strong> $${wallet_data.lastTransaction.amount}`;
-    // 	this.walletLastTransaction.dataset.transactionType = wallet_data.lastTransaction.type;
-    // }
-    // console.log("SET DATA IS HERE");
+    if (wallet_data == null) {
+      return;
+    }
+    this.currentBalanceAmount.innerHTML = wallet_data["total-amount"];
 
-    this.currentBalanceAmount.innerHTML = wallet_data["total-amount"]; // current balance - done?
-    this.thisMonthsSpendingAmount.innerHTML = '$0';                    // spending amount (monthly) - filter by month
-    this.thisMonthsSpendingTarget.innerHTML = '/0';                    // spending target ()
-    this.monthlyOutflowAmount.innerHTML = '$0';
-    this.monthlyInflowAmount.innerHTML = '$0';
+	// NOTE - getter functions from transactionfiler considers all transactions,
+	//        not just ones from our wallet of interest - made new ones
+    let monthlySpending = 0;
+    for (transaction in getWalletMontlySpending(wallet_data)) {
+      monthlySpending += transaction["amount"];
+    }
+	this.thisMonthsSpendingAmount.innerHTML = '$0';
+
+    this.thisMonthsSpendingTarget.innerHTML = "/0";
+
+    this.monthlyOutflowAmount.innerHTML = "$0";
+    this.monthlyInflowAmount.innerHTML = "$0";
 
     // TODO
-    let walletTransactions = this.wallet_data.transactions;
+    let sortedWalletTransactions = this.wallet_data['transactions'];
+	
     // TODO: sort transactions by date to show most recent -> put recents into table
     // table stuff:
     // TableRow = document.createElement("tr");
     // TransactionsNameTitle = document.createElement("th");
     // TransactionsAmountTitle = document.createElement("th");
-
-    // NEXT: get transactions by have same year/month as new Date() / time.now()
-	// Date will be in UNIX time
-
-    // this.recentTransactionsTableRow = document.createElement("tr");
-    // this.recentTransactionsNameTitle = document.createElement("th");
-    // this.recentTransactionsAmountTitle = document.createElement("th");
-
-
   }
 }
 customElements.define("wallet-details", WalletDetails);
-
-// function goBackToWalletsPage() {
-//   console.log("GO BACK TO WALLETS");
-//   window.open('../../source/html/wallets.html', '_self');
-// }
-
-//     ;/**
-//     * @param {wallet_data} wallet_data The data object that contains the wallet information
-//     */
-
-//     // wallet_data
-
-// 	// wallet_data = {"Anthony": {
-//     //     "username": "Anthony",
-//     //     "password": "tony123",
-//     //     "wallets": [{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Checking", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10},{name: "BoA Savings", transactions: [], "total-amount": 10000, "target": 10}],
-//     //     "preferred-default-page": 0
-//     // }}
-
-//     set data(wallet_data) {
-// 		if (!wallet_data) {
-// 			return;
-// 		}
-
-//         this.currentBalanceItem.innerHTML = 'Current Balance';
-//         this.currentBalanceAmount.innerHTML = '$69';
-
-// 		// let currentWalletTransactions = wallet_data.transactions;
-
-//         // for (let transaction of wallet_data.transactions) {
-//         //     this.recentTransactionName.innerHTML = transaction.name;
-//         //     this.recentTransactionAmount.innerHTML = transaction.amount;
-
-//         //     // calculate spending statistics in the for loop?
-//         //     this.recentTransaction.appendChild(this.recentTransactionName, this.recentTransactionAmount);
-//         //     this.recentTransactionsTable.append(this.recentTransaction);
-
-//         // }
-// 		// need to get transaction name and amount
-// 		// this.recentTransactionsNameTitle.innerHTML = wallet_data.name;
-// 		// this.recentTransactionsAmountTitle.innerHTML = wallet_data.amount;
-// 		// still need to figure out text coloring
-
-//         // if we need to manually check which wallet we are looking at
-//         // let currentWallet = document.querySelector(".page-title"); // "BoA Checking"
-//         // const wallets = getCurrentUserWallets();
-//         // for(const wallet of wallets) {
-//         //     if(wallet.name == currentWallet) {
-//         //         currentWalletTransactions = wallet.transactions;
-//         //     }
-// 	    // }
-// 		// need to retrieve wallet's transactions
-//         // idk
-//         // let monthlyInflow;
-//         // let monthlyOutflow;
-// 	}
-// }
-// customElements.define('wallet-details', WalletDetails);
