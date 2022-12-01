@@ -1,4 +1,48 @@
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
+import { getTransactionsSortedByDate } from './TransactionFilter.js';
+const MAX_TRANSACTIONS = 10;
+var recentActivity;
+
+//console.log(await getCurrentUserWallets());
+/**
+ * Initializes the recent activity window
+ */
+function initRecent(){
+	recentActivity = document.createElement('rec-act');
+	//recentActivity.data =  JSON.stringify([{'name':'No recent ', 'amount':'-10', 'wallet':'walletname'}]);
+	
+	let container = document.getElementsByClassName('flex-container')[0];
+	container.appendChild(recentActivity);
+	refreshTransactions();
+}
+
+/**
+ * Refreshes the transactions displayed on the dashboard
+ */
+async function refreshTransactions(){
+	let transactions = displayRecentTransactions(await getTransactionsSortedByDate(), MAX_TRANSACTIONS);
+	console.log(transactions);
+	recentActivity.data = JSON.stringify(transactions);
+}
+
+
+/**
+ * 
+ * @param {Array<Object>} transactions 
+ * @param {Int} amount 
+ * @returns recent 'amount' of transactions
+ */
+function displayRecentTransactions(transactions, amount){
+	let recentTransactions = [];
+	for(let i = 0; i < amount; i++){
+		//If therte are no more transactions to display
+		if(i >= transactions.length){
+			return recentTransactions;
+		}
+		recentTransactions.push(transactions[i]);
+	}
+	return recentTransactions;
+}
 
 async function initDashboard() {
 	const wallets = await getCurrentUserWallets();
@@ -7,6 +51,7 @@ async function initDashboard() {
 	addTransaction.data = wallets;
 	addTransaction.shadowRoot.querySelector('form').addEventListener('submit', addTransactionEventHandler);
 	flexContainer.appendChild(addTransaction);
+	initRecent();
 }
 
 async function addTransactionEventHandler(event) {
@@ -27,7 +72,7 @@ async function addTransactionEventHandler(event) {
 	const wallets = await getCurrentUserWallets();
 	const walletIndex = wallets.findIndex(wallet => wallet.name === formWallet);
 	wallets[walletIndex].transactions.push(transaction);
-	setCurrentUserWallets(wallets);
+	setCurrentUserWallets(wallets).then(refreshTransactions()).then(refreshTransactions());
 	// find the button that was clicked and change the text to "Added!" for 2 seconds and change the color to green with a smooth transition
 	const button = event.target.querySelector('button');
 	button.textContent = 'Added!';
@@ -41,5 +86,5 @@ async function addTransactionEventHandler(event) {
 
 	form.reset();
 }
-
 initDashboard();
+

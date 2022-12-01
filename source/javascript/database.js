@@ -14,14 +14,14 @@ dbRequest.onerror = function (event) {
 
 dbRequest.onupgradeneeded = function () {
 	const db = dbRequest.result;
-	const store = db.createObjectStore('user', { keyPath: 'id', autoIncrement:true });
+	db.createObjectStore('user', { keyPath: 'id', autoIncrement:true });
 };
 
 dbRequest.onsuccess = function () {
 	const db = dbRequest.result;
 	const user = db.transaction('user', 'readwrite');
 
-	const store = user.objectStore('user');
+	user.objectStore('user');
 };
 
 function getAllUsersObject(){
