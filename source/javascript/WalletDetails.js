@@ -325,3 +325,6 @@ class WalletDetails extends HTMLElement {
   }
 }
 customElements.define("wallet-details", WalletDetails);
+
+// fix/finish component (set data), switch between weekly, monthly, yearly
+// dialogue box thingy popping up in wallet details - problem with exporting global var from Wallet.js

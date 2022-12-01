@@ -1,6 +1,7 @@
 // fix - import running wallet js file, causes init function to run
 import { DETAILS_WALLET } from "./Wallet.js";
 
+// loads component
 window.addEventListener('load', () => { 
     const walletDetails = document.createElement('wallet-details');
     // walletDetails.data = DETAILS_WALLET;
@@ -8,12 +9,12 @@ window.addEventListener('load', () => {
     detailsGrid.appendChild(walletDetails);
 });
 
-// not working?
+// 
 function goBackToWalletsPage() {
     window.open('../html/wallets.html', '_self');
 }
 
-// TODO - delete wallet function - CRUD
+// CRUD function
 function deleteWallet(){
     return;
 }
