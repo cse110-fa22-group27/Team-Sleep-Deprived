@@ -1,4 +1,4 @@
-import { getCurrentUserWallets } from "./globals.js";
+import { getCurrentUserWallets } from './globals.js';
 
 async function getAllTransactions() {
 	const wallets = await getCurrentUserWallets();

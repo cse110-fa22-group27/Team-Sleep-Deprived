@@ -27,7 +27,7 @@
  * @property {Number} 'preferred-default-page' The page that appears when the user logs in
  */
 
-import { getAllUsersObject, setAllUsersObject } from './database.js'
+import { getAllUsersObject, setAllUsersObject } from './database.js';
 
 /**
  * Sets the global username object for the currently logged in user
@@ -73,7 +73,7 @@ async function updateCurrentUser(optionalCurrentUser) {
 	}
 	const allUsers = await getAllUsersObject();
 	const currentUsername = getCurrentUsername();
-	allUsers[currentUsername] = currentUser;
+	allUsers[currentUsername] = curUser;
 	setAllUsersObject(allUsers);
 }
 

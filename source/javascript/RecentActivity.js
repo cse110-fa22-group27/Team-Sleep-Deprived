@@ -4,7 +4,7 @@ class RecentActivity extends HTMLElement {
 
 		this.attachShadow({ mode: 'open' });
 		const styles = document.createElement('style');
-		styles.innerHTML = `@import '../css/dashboard.css';@import '../css/styles.css';`;
+		styles.innerHTML = '@import \'../css/dashboard.css\';@import \'../css/styles.css\';';
 
 		const divider = document.createElement('div');
 		divider.setAttribute('class', 'recent-activity');

@@ -27,7 +27,7 @@ function disableButtons() {
 	saveSettings.disabled = true;
 
 	// disables Reset button if User Preferred Page is Dashboard
-	if (dropDown.options[dropDown.selectedIndex].value == "dashboard") {
+	if (dropDown.options[dropDown.selectedIndex].value == 'dashboard') {
 		resetSettings.style.opacity = 0.5;
 		resetSettings.disabled = true;
 
@@ -40,29 +40,29 @@ disableButtons();
  */
 dropDown.addEventListener('change', (event) => {
 	// only does not change if user default is dashboard and current option is dashboard
-	if ((event.target.value != "dashboard") && (currentUser['preferred-default-page'] == 0)) {
+	if ((event.target.value != 'dashboard') && (currentUser['preferred-default-page'] == 0)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
-	else if ((event.target.value != "wallets") && (currentUser['preferred-default-page'] == 1)) {
+	else if ((event.target.value != 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
-	else if ((event.target.value != "reports") && (currentUser['preferred-default-page'] == 2)) {
+	else if ((event.target.value != 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
 
 
-	if ((event.target.value == "dashboard") && (currentUser['preferred-default-page'] == 0)) {
+	if ((event.target.value == 'dashboard') && (currentUser['preferred-default-page'] == 0)) {
 		resetSettings.style.opacity = 0.5;
 		resetSettings.disabled = true;
 	} 
-	else if ((event.target.value == "wallets") && (currentUser['preferred-default-page'] == 1)) {
+	else if ((event.target.value == 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
-	else if ((event.target.value == "reports") && (currentUser['preferred-default-page'] == 2)) {
+	else if ((event.target.value == 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
@@ -84,11 +84,11 @@ dropDown.addEventListener('change', (event) => {
 // 	}
 //  });
 
- /**
+/**
  * Changes save button to enabled if there is text inside the inputs
  * For password 
  */
- document.querySelector('[name="new-password"]').addEventListener('input', (event) => {
+document.querySelector('[name="new-password"]').addEventListener('input', () => {
 	let currNew = document.querySelector('[name="new-password"]').value;
 	if (currNew == '') {
 		saveSettings.style.opacity = 0.5;
@@ -98,7 +98,7 @@ dropDown.addEventListener('change', (event) => {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
- });
+});
 
 /**
  * Changes Password and/or Changes Preferred Default Page of User
@@ -132,7 +132,7 @@ saveSettings.addEventListener('click', function() {
 			// sets password if there is no problems with the new password
 			else {
 				currentUser['password'] = newPassword;
-				alert("Password Changed");
+				alert('Password Changed');
 			}
 		}
 
