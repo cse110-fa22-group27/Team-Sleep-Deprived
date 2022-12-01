@@ -136,10 +136,10 @@ saveSettings.addEventListener('click', function() {
 			}
 		}
 
-		else if (oldPassword == '') {
+		else if (oldPassword == '' && newPassword != '') {
 			throw new Error('Please input current password!');
 		}
-		else if (newPassword == '') {
+		else if (oldPassword != '' && newPassword == '') {
 			throw new Error('Please input new password!');
 		}
 
