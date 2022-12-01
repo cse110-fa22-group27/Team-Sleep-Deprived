@@ -66,6 +66,7 @@ async function signinSubmission(event) {
 			setCurrentUsername(formObject['username']);
 		}
 		const currentUser = await getCurrentUser();
+		//console.log('currentUser' + currentUser);
 		if(!currentUser){
 			throw new Error('Invalid Username');
 		}
@@ -73,7 +74,7 @@ async function signinSubmission(event) {
 			throw new Error('Invalid password');
 		}
 		let pageNumber =  currentUser['preferred-default-page'];
-		// loadDefaultPage(pageNumber);
+		loadDefaultPage(pageNumber);
 	}
 	catch(e){
 		alert(e.message);
