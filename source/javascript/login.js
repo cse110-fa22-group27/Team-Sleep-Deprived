@@ -73,7 +73,7 @@ async function signinSubmission(event) {
 			throw new Error('Invalid password');
 		}
 		let pageNumber =  currentUser['preferred-default-page'];
-		// loadDefaultPage(pageNumber);
+		loadDefaultPage(pageNumber);
 	}
 	catch(e){
 		alert(e.message);
