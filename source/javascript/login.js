@@ -27,9 +27,10 @@ function loadDefaultPage(defaultPageNumber) {
  * @returns 
  */
 async function loginAutomatically() {
-	let username = getCurrentUsername();
-	if(username) {
+	let rememberme = localStorage.getItem('rememberme');
+	if (rememberme) {
 		const currentUser = await getCurrentUser();
+		if(!currentUser) return;
 		loadDefaultPage(currentUser['preferred-default-page']);
 	}
 	return;
@@ -38,7 +39,7 @@ async function loginAutomatically() {
 // loginAutomatically();
 
 //Logic for signup window
-if(signup.test(window.location.href)){
+if (signup.test(window.location.href)) {
 	let form = document.getElementsByClassName('user-details-form')[0];
 	form.addEventListener('submit', signUpSubmission);
 }
@@ -57,25 +58,25 @@ async function signinSubmission(event) {
 	event.preventDefault();
 	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);
 	let formObject = {};
-	for(const pair of fdata.entries()){
+	for (const pair of fdata.entries()) {
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
-	const rememberMe = document.getElementById('rememberme').checked;
-	try{
-		if(rememberMe){
-			setCurrentUsername(formObject['username']);
-		}
+	const rememberme = formObject['rememberme'];
+	if (rememberme) { localStorage.setItem('rememberme', true); }
+	try {
+		setCurrentUsername(formObject['username']);
 		const currentUser = await getCurrentUser();
-		if(!currentUser){
-			throw new Error('Invalid Username');
+		if (!currentUser) {
+			throw new Error(`Invalid Username ${formObject['username']}`);
 		}
-		else if(currentUser['password'] != formObject['password']){			
+		else if (currentUser['password'] != formObject['password']) {
+			console.log('here');
 			throw new Error('Invalid password');
 		}
-		let pageNumber =  currentUser['preferred-default-page'];
-		// loadDefaultPage(pageNumber);
+		let pageNumber = currentUser['preferred-default-page'];
+		loadDefaultPage(pageNumber);
 	}
-	catch(e){
+	catch (e) {
 		alert(e.message);
 		alert(e.stack);
 	}
@@ -89,33 +90,29 @@ async function signUpSubmission(event) {
 	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);
 	let formObject = {};
 
-	for(const pair of fdata.entries()){
+	for (const pair of fdata.entries()) {
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
-	try{
+	try {
 		checkPassword(formObject['password'], formObject['confirmpassword']);
-		
 		let newUser = {
-			'username':formObject['username'],
-			'password':formObject['password'],
-			'preferred-default-page':0,
-			'wallets':[]
+			'username': formObject['username'],
+			'password': formObject['password'],
+			'preferred-default-page': 0,
+			'wallets': []
 		};
-
 		let users = await checkUsername(formObject['username']);
 		users[formObject['username']] = newUser;
 		await setAllUsersObject(users);
-
 		setCurrentUsername(formObject['username']);
-		const currentUser = await getCurrentUser();
-
-		let pageNumber = currentUser['preferred-default-page'];
+		let pageNumber = 0;
 		loadDefaultPage(pageNumber);
 	}
-	catch(e){
+	catch (e) {
+
 		loginError(e.message);
 		loginError(e.stack)
-	}	
+	}
 }
 
 /**
