@@ -109,6 +109,8 @@ select {
 
 .button:hover {
 	cursor: pointer;
+	scale: 1.05;
+	transition: scale 0.2s ease;
 }
 
 #add-transaction-icon {
