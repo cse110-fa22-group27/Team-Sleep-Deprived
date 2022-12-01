@@ -27,15 +27,15 @@ function loadDefaultPage(defaultPageNumber) {
  * @returns 
  */
 async function loginAutomatically() {
-	let username = getCurrentUsername();
-	if(username) {
+	let rememberme = localStorage.getItem('rememberme');
+	if(rememberme) {
 		const currentUser = await getCurrentUser();
 		loadDefaultPage(currentUser['preferred-default-page']);
 	}
 	return;
 }
 
-// loginAutomatically();
+loginAutomatically();
 
 //Logic for signup window
 if(signup.test(window.location.href)){
@@ -60,10 +60,10 @@ async function signinSubmission(event) {
 	for(const pair of fdata.entries()){
 		formObject[`${pair[0]}`] = `${pair[1]}`;
 	}
-	const rememberMe = document.getElementById('rememberme').checked;
 	try{
 		if(rememberMe){
 			setCurrentUsername(formObject['username']);
+			localStorage.setItem('rememberMe', true);
 		}
 		const currentUser = await getCurrentUser();
 		if(!currentUser){
