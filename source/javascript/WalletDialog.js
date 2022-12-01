@@ -107,10 +107,15 @@ async function formSubmission() {
 	}
 	
 	newWallet['target'] = Number(newWallet['target']);
-
 	newWallet['transactions'] = [];
 
 	let wallets = await getCurrentUserWallets();
+	for(let i in wallets){
+		if(wallets[i]['name'] == newWallet['name']){
+			alert('Wallet with that name already exists');
+			return;
+		}
+	}
 	wallets.push(newWallet);
 	setCurrentUserWallets(wallets);
 }

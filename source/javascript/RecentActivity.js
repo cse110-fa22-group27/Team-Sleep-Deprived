@@ -4,13 +4,19 @@ class RecentActivity extends HTMLElement {
 
 		this.attachShadow({ mode: 'open' });
 		const styles = document.createElement('style');
+		styles.innerHTML = '@import \'../css/dashboard.css\';@import \'../css/styles.css\';';
 
 		const divider = document.createElement('div');
 		divider.setAttribute('class', 'recent-activity');
 		divider.innerHTML = `
 		<h2 class='section-title'>Recent Activity</h2>
-		<div class='recent-activity-box'>
+		<div class='recent-activity-box glass-box'>
 		<table>
+			<tr>
+				<th class="transaction-name" id="recent-transactions-name-title">Name</th>
+				<th id="recent-transactions-amount-title">Amount $</th>
+				<th>Wallet</th>
+			</tr>
 		</table>
 		</div>
 		`;
@@ -44,14 +50,20 @@ class RecentActivity extends HTMLElement {
 		// parse data
 		const transactions = JSON.parse(data);
 		const table = this.shadowRoot.querySelector('table');
+		table.innerHTML = `<tr>
+								<th class="transaction-name" id="recent-transactions-name-title">Name</th>
+								<th id="recent-transactions-amount-title">Amount $</th>
+								<th>Wallet</th>
+							</tr>`; //clear table
 
 		// for every JSON object passed in create a transaction and add to table.
 		for(var t of transactions){
 			var new_trans = document.createElement('tr');
+			console.log(t);
 			if(t.amount < 0){
 				new_trans.innerHTML = `
 				<td class="transaction-name">${t.name}</td>
-				<td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(${t.amount})</td>
+				<td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(${-t.amount})</td>
 				<td class="wallet-name">${t.wallet}</td>			
 				`;
 			}
