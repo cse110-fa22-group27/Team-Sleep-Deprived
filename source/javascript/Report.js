@@ -13,9 +13,26 @@ styleLink.href = '../css/report.css';
 root.appendChild(styleLink);
 document.body.appendChild(root);
 
+class EmptyTransactionPlaceholder extends HTMLElement {
+	constructor() {
+		super();
+		this.shadow = this.attachShadow({ mode: 'open' });
+		this.rootDiv = document.createElement('div');
+		this.rootDiv.classList.add('empty-transaction-placeholder', 'component', 'glass-box');
+		this.rootDiv.innerHTML = '<h3>The transaction graph will appear here when you have at least one transaction for the past year.</h3>';
+		this.shadow.appendChild(this.rootDiv);
+	}
+}
 
 async function initGraph() {
 	const root = document.querySelector('.report-root');
+	const transactions = await getAllTransactions();
+	if (transactions.length <= 0) {
+		const emptyTransactionPlaceholder = document.createElement('empty-transaction-placeholder');
+		root.appendChild(emptyTransactionPlaceholder);
+		return;
+	}
+	
 	const reportGraph = document.createElement('bar-graph');
 	reportGraph.classList.add('component');
 	const wallets = await getCurrentUserWallets();
@@ -23,6 +40,7 @@ async function initGraph() {
 	// Sum all the target spending for each wallet
 	const totalTargetSpending = wallets.reduce((acc, wallet) => acc + wallet['target'], 0);
 	// set the data for the graph
+	
 	reportGraph.data = {
 		target: totalTargetSpending,
 		transactions: await getAllTransactions(),
@@ -82,54 +100,53 @@ async function generateReport(timespan, includeAll, reportFormat) {
 			transactions.push(transaction);
 		}
 	}
-	const reportOutput = {};
+	let outputTransactions = [];
 	if (timespan == 'yearly') {
 		const thisYearTransactions = await getThisYearTransactions();
-		reportOutput['transactions'] = thisYearTransactions;
+		outputTransactions = thisYearTransactions;
 	}
 
 	if (timespan == 'monthly') {
 		const thisMonthTransactions = await getThisMonthTransactions();
-		reportOutput['transactions'] = thisMonthTransactions;
+		outputTransactions = thisMonthTransactions;
 	}
 
 	if (timespan == 'weekly') {
 		const thisWeekTransactions = await getThisWeekTransactions();
-		reportOutput['transactions'] = thisWeekTransactions;
+		outputTransactions = thisWeekTransactions;
+	}
+
+	if (includeAll === 'only-total') {
+		outputTransactions = outputTransactions.filter(transaction => transaction['includeInTotal']);
 	}
 
 	if (reportFormat == 'CSV') {
-		localStorage.setItem('csv', await JSONtoCSV(JSON.stringify(reportOutput['transactions'])));
+		localStorage.setItem('csv', await JSONtoCSV(JSON.stringify(outputTransactions)));
 	} else {
-		localStorage.setItem('json', JSON.stringify(reportOutput['transactions']));
+		localStorage.setItem('json', JSON.stringify(outputTransactions));
 	}
 }
 
-async function saveRandomTransactionsToWallets() {
+async function checkWallets() {
 	const wallets = await getCurrentUserWallets();
-	const transactions = [];
-	// 100 random words of length 5-10
-	const words = Array.from({ length: 100 }, () => Math.random().toString(36).substring(2, 12));
-	for (let i = 0; i < 100; i++) {
-		const transaction = {
-			name: `Transaction ${i}`,
-			// Random date between 1st Jan 2021 and today (inclusive)
-			date: new Date(new Date().getTime() - Math.random() * (new Date().getTime() - new Date(2021, 0, 1).getTime())),
-			amount: -Math.floor(Math.random() * 1000),
-			// Some random real world descriptions
-			description: words[i]
-		}
-		transactions.push(transaction);
+	console.log(wallets);
+	if (wallets.length <= 0) {
+		const reportRoot = document.querySelector('.report-root');
+		const noWallets = document.createElement('div');
+		noWallets.classList.add('no-wallets');
+		noWallets.innerHTML = '<h3>You have no wallets. You need atleast one wallet to generate a report.</h3>';
+		reportRoot.appendChild(noWallets);
+		return false;
 	}
-	const firstWallet = wallets[0];
-	firstWallet['transactions'] = transactions;
-	await setCurrentUserWallets(wallets);
+	return true;
 }
 
 async function init() {
-	await saveRandomTransactionsToWallets();
-	await initGraph();
-	await initGenerator();
+	if (await checkWallets()) {
+		await initGraph();
+		await initGenerator();
+	}
 }
 
+customElements.define('empty-transaction-placeholder', EmptyTransactionPlaceholder);
 init();

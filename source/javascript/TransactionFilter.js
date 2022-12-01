@@ -112,6 +112,27 @@ async function getWalletWeeklyTransactions(wallet) {
   return thisWeekTransactions;
 }
 
+async function getPositiveTransactions(transactions) {
+	const positiveTransactions = [];
+	for(const transaction of transactions) {
+		if(transaction['amount'] > 0) {
+			positiveTransactions.push(transaction);
+		}
+	}
+	return positiveTransactions;
+}
+
+async function getNegativeTransactions() {
+	const transactions = await getAllTransactions();
+	const negativeTransactions = [];
+	for(const transaction of transactions) {
+		if(transaction['amount'] < 0) {
+			negativeTransactions.push(transaction);
+		}
+	}
+	return negativeTransactions;
+}
+
 async function getWalletMonthlyTransactions(wallet) {
   const transactions = wallet["transactions"];
   const thisMonthTransactions = [];
@@ -153,7 +174,7 @@ export {
   getThisMonthTransactions,
   getThisYearTransactions,
   getThisWeekTransactions,
-  getAllTransactions,
+  getAllTransactions, getPositiveTransactions, getNegativeTransactions,
   getWeek,
   getWalletWeeklyTransactions,
   getWalletMonthlyTransactions,
