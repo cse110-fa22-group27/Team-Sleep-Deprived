@@ -8,12 +8,14 @@ import { getCurrentUserWallets } from './globals.js';
 // The maximum number of wallets a user can have/see
 const MAX_WALLET_COUNT = 6;
 // The current wallet selected for details page
-var DETAILS_WALLET;
+let currentWallet;
 
 async function showWalletsDetailsPage(wallet) {
-	DETAILS_WALLET = wallet;
-	// console.log(DETAILS_WALLET);
-	window.open('../../source/html/wallet-details.html', '_self');
+	currentWallet = wallet;
+	// Store the currentWallet in localStorage
+	localStorage.setItem('currentWalletName', JSON.stringify(currentWallet.name));
+	window.open('../html/wallet-details.html', '_self');
+	
 }
 
 // async function initWalletDetailsPage(wallet) {
@@ -46,4 +48,3 @@ async function initWalletPage() {
 }
 
 initWalletPage();
-export { DETAILS_WALLET } // note - causing dialogue box to appear on details?
