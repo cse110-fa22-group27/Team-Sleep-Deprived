@@ -1,5 +1,5 @@
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
-// import { refreshTransactions} from './recent-activity.js';
+// TODO: import { refreshTransactions} from '';
 
 class TransactionForm extends HTMLElement {
 	constructor() {
@@ -47,6 +47,9 @@ class TransactionForm extends HTMLElement {
 		const dashboardStyleLink = document.createElement('link');
 		dashboardStyleLink['href'] = '../css/dashboard.css';
 		dashboardStyleLink['rel'] = 'stylesheet';
+		const styleLink = document.createElement('link');
+		styleLink['href'] = '../css/style.css';
+		styleLink['rel'] = 'stylesheet';
 
 		// append form and style
 		this.shadowRoot.append(form, dashboardStyleLink);
@@ -116,9 +119,10 @@ function addTransaction(e) {
 			w.transactions.push(transaction);
 		}
 	}
+
 	// update wallets
 	setCurrentUserWallets(wallets);
 
-	// refresh recent transactions
-	refreshTransactions();
+	// TODO: refresh recent transactions when antho
+	// refreshTransactions();
 }
