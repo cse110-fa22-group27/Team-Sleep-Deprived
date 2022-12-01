@@ -21,11 +21,21 @@ window.addEventListener('load', async () => {
 
 // 
 function goBackToWalletsPage() {
+    // console.log('goBackToWalletsPage()');
     localStorage.removeItem('currentWalletName');
     window.open('../html/wallets.html', '_self');
 }
 
-// CRUD function
-function deleteWallet(){
-    localStorage.removeItem('currentWalletName');
+async function deleteWallet(){
+    // console.log('deleteWallet()');
+    const currentWallet = JSON.parse(localStorage.getItem('currentWalletName'));
+    let wallets = await getCurrentUserWallets();
+    let newWallets = [];
+    for(const wallet in wallets) {
+        if(wallet != currentWallet) {
+            newWallets.push(wallet);
+        }
+    }
+    // localStorage.removeItem('currentWalletName');
+    goBackToWalletsPage();
 }

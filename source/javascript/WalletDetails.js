@@ -298,30 +298,54 @@ class WalletDetails extends HTMLElement {
    */
 
   set data(wallet_data) {
-    console.log(wallet_data);
+    // console.log(wallet_data);
     if (wallet_data == null) {
       return;
     }
-    this.currentBalanceAmount.innerHTML = wallet_data["total-amount"];
+    this.currentBalanceAmount.innerHTML = '$' + wallet_data["total-amount"];
 
-    // NOTE - getter functions from transactionfiler considers all transactions,
-    //        not just ones from our wallet of interest - made new ones
-    let monthlySpending = 0;
-    for (transaction in getWalletMonthlyTransactions(wallet_data)) {
+    // Monthly Spending
+    let monthlySpending = 0; 
+	let walletMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
+    for (const transaction of walletMonthlyTransactions) {
+      console.log("FOR LOOP");
       monthlySpending += transaction["amount"];
     }
     this.thisMonthsSpendingAmount.innerHTML = monthlySpending;
 
-    this.thisMonthsSpendingTarget.innerHTML = `/${wallet_data.target}`;
+    this.thisMonthsSpendingTarget.innerHTML = `/$${wallet_data.target}`;
+
 
     // use getthismonth transactions and then get negative transactions
     let allMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
+    console.log(allMonthlyTransactions);
 
-    let monthlyOutflow = getNegativeTransactions(allMonthlyTransactions);
+    // let monthlyOutflowList = getNegativeTransactions(allMonthlyTransactions);
+    let monthlyOutflowList = getNegativeTransactions(allMonthlyTransactions);
+    //console.log(monthlyOutflowList);
+    let monthlyOutflowAmount = 0
+    for (transaction in monthlyOutflowList) {
+      console.log(transaction);
+      // let row = document.createElement("tr");
+      // let name = document.createElement("td");
+      // let amount = document.createElement("td");
+
+      // name.innerHTML = transaction["name"];
+      // amount.innerHTML = transaction["amount"];
+
+      // row.append(name, amount);
+      // this.tbody.append(row);
+
+    }
     this.monthlyOutflowAmount.innerHTML = "$0";
 
     // use getthismonth transactions and then get positive transactions
-    let monthlyInflow = getPositiveTransactions(allMonthlyTransactions);
+    // let monthlyInflowList = getPositiveTransactions(allMonthlyTransactions);
+    let monthlyInflowList = getPositiveTransactions();
+    let monthlyInflow = 0;
+    for (transaction in monthlyInflowList) {
+      monthlyInflow += transaction["amount"];
+    }
     this.monthlyInflowAmount.innerHTML = "$0";
 
     // TODO
