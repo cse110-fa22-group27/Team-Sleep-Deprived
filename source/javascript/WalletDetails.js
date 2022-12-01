@@ -13,11 +13,11 @@ import {
   getThisYearTransactions,
   getWeek,
   getThisWeekTransactions,
-// need to add for details
+  // need to add for details
   getWalletWeeklyTransactions,
   getWalletMonthlyTransactions,
   getWalletYearlyTransactions,
-  sortSingleWallet
+  sortSingleWallet,
 } from "./TransactionFilter.js";
 
 class WalletDetails extends HTMLElement {
@@ -296,27 +296,33 @@ class WalletDetails extends HTMLElement {
    */
 
   set data(wallet_data) {
+    console.log(wallet_data);
     if (wallet_data == null) {
       return;
     }
     this.currentBalanceAmount.innerHTML = wallet_data["total-amount"];
 
-	// NOTE - getter functions from transactionfiler considers all transactions,
-	//        not just ones from our wallet of interest - made new ones
+    // NOTE - getter functions from transactionfiler considers all transactions,
+    //        not just ones from our wallet of interest - made new ones
     let monthlySpending = 0;
-    for (transaction in getWalletMontlySpending(wallet_data)) {
+    for (transaction in getWalletMonthlyTransactions(wallet_data)) {
       monthlySpending += transaction["amount"];
     }
-	this.thisMonthsSpendingAmount.innerHTML = '$0';
+    this.thisMonthsSpendingAmount.innerHTML = monthlySpending;
 
-    this.thisMonthsSpendingTarget.innerHTML = "/0";
+    this.thisMonthsSpendingTarget.innerHTML = `/${wallet_data.target}`;
 
+    // use getthismonth transactions and then get negative transactions
+    let allTranactions = 
     this.monthlyOutflowAmount.innerHTML = "$0";
+
+    // use getthismonth transactions and then get positive transactions
     this.monthlyInflowAmount.innerHTML = "$0";
 
     // TODO
-    let sortedWalletTransactions = this.wallet_data['transactions'];
-	
+    // let sortedWalletTransactions = this.wallet_data['transactions'];
+    let sortedWalletTransactions = wallet_data.transactions;
+
     // TODO: sort transactions by date to show most recent -> put recents into table
     // table stuff:
     // TableRow = document.createElement("tr");
@@ -327,4 +333,7 @@ class WalletDetails extends HTMLElement {
 customElements.define("wallet-details", WalletDetails);
 
 // fix/finish component (set data), switch between weekly, monthly, yearly
+// (NOT DONE)
+
 // dialogue box thingy popping up in wallet details - problem with exporting global var from Wallet.js
+// (^DONE)
