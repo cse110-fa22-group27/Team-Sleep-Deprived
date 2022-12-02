@@ -68,6 +68,7 @@ async function getWeek(date) {
 }
 
 async function getThisWeekTransactions(transactions) {
+	const transactions = await getAllTransactions();
 	const thisWeekTransactions = [];
 	const thisWeek = await getWeek(new Date());
 	for(const transaction of transactions) {
