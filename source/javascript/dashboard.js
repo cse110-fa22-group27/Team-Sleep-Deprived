@@ -71,6 +71,7 @@ async function addTransactionEventHandler(event) {
 	};
 	const wallets = await getCurrentUserWallets();
 	const walletIndex = wallets.findIndex(wallet => wallet.name === formWallet);
+	wallets[walletIndex]['total-amount'] += transaction.amount;
 	wallets[walletIndex].transactions.push(transaction);
 	setCurrentUserWallets(wallets).then(refreshTransactions()).then(refreshTransactions());
 	// find the button that was clicked and change the text to "Added!" for 2 seconds and change the color to green with a smooth transition
