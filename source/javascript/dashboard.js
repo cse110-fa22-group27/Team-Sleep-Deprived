@@ -21,7 +21,7 @@ function initRecent(){
  */
 async function refreshTransactions(){
 	let transactions = displayRecentTransactions(await getTransactionsSortedByDate(), MAX_TRANSACTIONS);
-	console.log(transactions);
+	// console.log(transactions);
 	recentActivity.data = JSON.stringify(transactions);
 }
 

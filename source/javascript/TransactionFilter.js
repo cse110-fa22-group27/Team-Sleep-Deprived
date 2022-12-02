@@ -1,17 +1,17 @@
 import { getCurrentUserWallets } from './globals.js';
 
 async function getAllTransactions() {
-  const wallets = await getCurrentUserWallets();
-	console.log(wallets);
-  const transactions = [];
-  for (const wallet of wallets) {
-    const walletTransactions = wallet["transactions"];
-    console.log(walletTransactions);
-		for(let transaction of walletTransactions) {
-			transaction['wallet'] = wallet['name'];
-      transactions.push(transaction);
-    }
-  }
+	const wallets = await getCurrentUserWallets();
+	// console.log(wallets);
+	const transactions = [];
+  	for (const wallet of wallets) {
+    	const walletTransactions = wallet["transactions"];
+    	// console.log(walletTransactions);
+			for(let transaction of walletTransactions) {
+				transaction['wallet'] = wallet['name'];
+      			transactions.push(transaction);
+    		}
+  	}
   return transactions;
 }
 
@@ -25,6 +25,16 @@ async function getTransactionsSortedByDate() {
   });
   return transactions;
 }
+
+function getTransactionsSorted(transactions) {
+	// return transactions sorted by date from newest to oldest
+	transactions.sort((a, b) => {
+	  const aDate = new Date(a["date"]);
+	  const bDate = new Date(b["date"]);
+	  return bDate - aDate;
+	});
+	return transactions;
+  }
 
 async function getThisMonthTransactions() {
   const transactions = await getAllTransactions();
@@ -83,7 +93,7 @@ async function getThisWeekTransactions(transactions) {
 }
 
 function getPositiveTransactions(transactions) {
-	console.log(transactions);
+	// console.log(transactions);
 	const positiveTransactions = []
   	for(const transaction of transactions) {
 		if(transaction['amount'] > 0) {
@@ -92,8 +102,7 @@ function getPositiveTransactions(transactions) {
 	}
 	return positiveTransactions;
 }
-
-async function getNegativeTransactions(transactions) {
+function getNegativeTransactions(transactions) {
 	const negativeTransactions = [];
 	for(const transaction of transactions) {
 		if(transaction['amount'] < 0) {
@@ -140,11 +149,31 @@ async function getWalletWeeklyTransactions(wallet) {
 
 function getWalletMonthlyTransactions(wallet) {
   const transactions = wallet["transactions"];
+  // console.log(transactions);
   const thisMonthTransactions = [];
-  const thisMonth = new Date().getMonth();
+  const thisMonth = new Date().getMonth() + 1;   // Nov 30, 2022
+  
+  // var today = new Date();
+  // console.log(today.getMonth()+1);
+  //var thisMonth = today.getMonth()+1;
+//   var tomorrow = new Date();
+  // // add a day
+//   tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+//   const thisMonth = tomorrow.getMonth();
+
+  //console.log(thisMonth);
   for (const transaction of transactions) {
-    const transactionDate = new Date(transaction["date"]);
-    if (transactionDate.getMonth() == thisMonth) {
+	// console.log(transaction);
+    const transactionDate = new Date(transaction["date"] + " ");
+	// new date goes one day backwards ???
+	// want to move one day forward
+	// console.log(transactionDate);
+	// TRANSACTION DATE GIVES US NOVEMBER BUT TRANSACTIONDATE GET MONTH
+	// GIVES US OCTOBER WHY IS THAT?
+  	// console.log(transaction["date"]);
+	//   console.log(transactionDate.getMonth() + 1, thisMonth);
+	// console.log(transactionDate.getMonth() + 1, transaction);
+    if (transactionDate.getMonth() + 1 == thisMonth) {
       thisMonthTransactions.push(transaction);
     }
   }
@@ -186,5 +215,6 @@ export {
   getWalletYearlyTransactions,
   sortSingleWallet,
   getNegativeTransactions,
-  getPositiveTransactions
+  getPositiveTransactions,
+  getTransactionsSorted
 };

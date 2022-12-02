@@ -2,7 +2,6 @@
     --wallet-amount-color: #4495DF;
     --transaction-positive-color: #02ad27a4;
     --transaction-negative-color: rgba(255, 0, 0, 0.7);
-    --logout-button-scaling: 0.5;
 }
 
 body {
@@ -21,9 +20,10 @@ body {
 }
 
 
-/* .details-root { ... } */
 .wallet-details-root {
     display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     width: var(--header-width);
@@ -34,7 +34,7 @@ body {
 .component {
     display: flex;
     flex-direction: column;
-    margin: 0 2.5%;
+    /* margin: 0 2.5%; */
 	font-size: 1.2rem;
 	height: 100%;
 }
@@ -50,7 +50,7 @@ body {
 
 .recent-transactions-table {
 	display: flex;
-	padding: 5px 10px;
+	/* padding: 5px 10px; */
 	height: 90%;
     width: 40%;
 }
@@ -68,6 +68,7 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+    gap: 0 150px;
 	align-items: center;
 	min-height: 2rem;
 }
@@ -110,9 +111,11 @@ body {
 #spending-statistics {
 	display: flex;
 	align-items: flex-start;
-	justify-content: space-between;
+	/* justify-content: space-between; */
     /* justify-content: space-evenly; */
     margin-left: 60%;
+    margin-bottom: 30%;
+
 
     /* position: fixed;
     margin-top: 275px;
@@ -128,7 +131,8 @@ body {
 }
 
 .statistic-item {
-	font-size: 1.2rem;
+	font-size: 1.2rem; 
+    margin-bottom: 5%;
 }
 
 .statistic-item > h2:not(.component-title) {
@@ -190,6 +194,7 @@ body {
     transition: background-color .1s linear;
 }
 
+
 #monthly-target-input-wrapper {
     border: 2px solid var(--default-border-color);
     border-radius: 100px;
@@ -219,4 +224,8 @@ body {
         height: auto;
         padding-bottom: 20px;
     }
+}
+
+#recent-component-title {
+    max-width: 40%;
 }

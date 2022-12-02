@@ -13,6 +13,7 @@ import {
   getThisYearTransactions,
   getWeek,
   getThisWeekTransactions,
+  getTransactionsSorted,
   // need to add for details
   getWalletWeeklyTransactions,
   getWalletMonthlyTransactions,
@@ -41,13 +42,13 @@ class WalletDetails extends HTMLElement {
 
     // Recent Transactions container
     this.recentTransactions = document.createElement("div");
-    this.recentTransactions.className = "component";
+    this.recentTransactions.className = "component-t";
     this.recentTransactions.id = "recent-transactions";
 
     // Recent Transaction Title
     this.componentTitle = document.createElement("h2");
     this.componentTitle.className = "component-title";
-    this.componentTitle.id = "component-title";
+    this.componentTitle.id = "recent-component-title";
     this.componentTitle.innerHTML = "Recent Transactions";
 
     // Transaction Table
@@ -88,7 +89,6 @@ class WalletDetails extends HTMLElement {
     this.currentBalanceAmount = document.createElement("h2");
     this.currentBalanceAmount.className = "statistic-value";
     this.currentBalanceAmount.id = "current-balance-amount";
-    this.currentBalanceAmount.innerHTML = "$0"; // set data()
 
     this.thisMonthsSpendingItem = document.createElement("div");
     this.thisMonthsSpendingItem.className = "statistic-item";
@@ -102,12 +102,10 @@ class WalletDetails extends HTMLElement {
     this.thisMonthsSpendingAmount = document.createElement("h2");
     this.thisMonthsSpendingAmount.className = "statistic-value";
     this.thisMonthsSpendingAmount.id = "this-months-spending-amount";
-    this.thisMonthsSpendingAmount.innerHTML = "$0"; // set data()
 
     this.thisMonthsSpendingTarget = document.createElement("h2");
     this.thisMonthsSpendingTarget.className = "statistic-value";
     this.thisMonthsSpendingTarget.id = "monthly-target-statistic";
-    this.thisMonthsSpendingTarget.innerHTML = "/0"; // set data()
 
     this.monthlyInflowItem = document.createElement("div");
     this.monthlyInflowItem.className = "statistic-item";
@@ -121,7 +119,7 @@ class WalletDetails extends HTMLElement {
     this.monthlyInflowAmount = document.createElement("h2");
     this.monthlyInflowAmount.className = "statistic-value";
     this.monthlyInflowAmount.id = "monthly-inflow-amount";
-    this.monthlyInflowAmount.innerHTML = "$0"; //set data()
+    // this.monthlyInflowAmount.innerHTML = "$0"; //set data()
 
     this.monthlyOutflowItem = document.createElement("div");
     this.monthlyOutflowItem.className = "statistic-item";
@@ -181,6 +179,7 @@ class WalletDetails extends HTMLElement {
     this.targetSectionInput = document.createElement("input");
     this.targetSectionInput.className = "setting-input";
     this.targetSectionInput.id = "target-input";
+    // this.targetSectionInput.onblur = 'updateTarget()';
 
     this.timespanSection = document.createElement("section");
     this.timespanSection.className = "setting-item";
@@ -255,8 +254,8 @@ class WalletDetails extends HTMLElement {
 
     this.settingsGlassBox.append(
       this.includeTotalSection,
-      this.targetSection,
-      this.timespanSection
+      this.targetSection
+      //this.timespanSection
     );
 
     this.includeTotalSection.append(
@@ -270,12 +269,12 @@ class WalletDetails extends HTMLElement {
 
     this.targetSectionWrapper.append(this.targetSectionInput);
 
-    this.timespanSection.append(
-      this.timespanSectionTitle,
-      this.timespanSectionWrapper
-    );
+    // this.timespanSection.append(
+    //   this.timespanSectionTitle,
+    //   this.timespanSectionWrapper
+    // );
 
-    this.timespanSectionWrapper.append(this.timespanSectionSelect);
+    // this.timespanSectionWrapper.append(this.timespanSectionSelect);
 
     this.spendingStatistics.append(
       this.currentBalanceItem,
@@ -290,6 +289,7 @@ class WalletDetails extends HTMLElement {
       this.spendingStatistics,
       this.styleElem,
       this.defaultStyleLink
+	  //this.walletName
     );
     this.shadowElem.append(this.elementRoot);
   }
@@ -302,67 +302,127 @@ class WalletDetails extends HTMLElement {
     if (wallet_data == null) {
       return;
     }
-    this.currentBalanceAmount.innerHTML = '$' + wallet_data["total-amount"];
+
+	// this.walletName.innerHTML = wallet_data.name;
 
     // Monthly Spending
     let monthlySpending = 0; 
-	let walletMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
+	let netGain = 0
+    let walletMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
     for (const transaction of walletMonthlyTransactions) {
-      console.log("FOR LOOP");
-      monthlySpending += transaction["amount"];
+		if (transaction["amount"] < 0) {
+      		monthlySpending += transaction["amount"];
+		}
+		netGain += transaction["amount"];
     }
-    this.thisMonthsSpendingAmount.innerHTML = monthlySpending;
+
+	monthlySpending *= -1;
+
+	if (netGain >= 0) {
+		this.thisMonthsSpendingAmount.innerHTML = "$0";
+	}
+	else {
+		this.thisMonthsSpendingAmount.innerHTML = `$${monthlySpending}`;
+	}
+
+    // this.thisMonthsSpendingAmount.innerHTML = `$${monthlySpending}`;
+
 
     this.thisMonthsSpendingTarget.innerHTML = `/$${wallet_data.target}`;
 
+	let currentBalance = parseInt(wallet_data["total-amount"]) + netGain;
+    this.currentBalanceAmount.innerHTML = '$' + currentBalance;
+
 
     // use getthismonth transactions and then get negative transactions
-    let allMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
-    console.log(allMonthlyTransactions);
+    // let allMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
+    // console.log(allMonthlyTransactions);
 
     // let monthlyOutflowList = getNegativeTransactions(allMonthlyTransactions);
-    let monthlyOutflowList = getNegativeTransactions(allMonthlyTransactions);
-    //console.log(monthlyOutflowList);
+    let monthlyOutflowList = getNegativeTransactions(walletMonthlyTransactions);
+    // console.log(monthlyOutflowList);
     let monthlyOutflowAmount = 0
-    for (transaction in monthlyOutflowList) {
-      console.log(transaction);
-      // let row = document.createElement("tr");
-      // let name = document.createElement("td");
-      // let amount = document.createElement("td");
+    for (const transaction of monthlyOutflowList) {
+      // console.log(transaction);
+      	// let row = document.createElement("tr");
+      	// let name = document.createElement("td");
+      	// let amount = document.createElement("td");
 
-      // name.innerHTML = transaction["name"];
-      // amount.innerHTML = transaction["amount"];
+      	// name.innerHTML = transaction["name"];
+      	// amount.innerHTML = transaction["amount"];
 
-      // row.append(name, amount);
-      // this.tbody.append(row);
-
+      	// row.append(name, amount);
+      	// this.tbody.append(row);
+	  	monthlyOutflowAmount += transaction["amount"];
     }
-    this.monthlyOutflowAmount.innerHTML = "$0";
+	monthlyOutflowAmount *= -1;
+    this.monthlyOutflowAmount.innerHTML = `$${monthlyOutflowAmount}`;
 
     // use getthismonth transactions and then get positive transactions
     // let monthlyInflowList = getPositiveTransactions(allMonthlyTransactions);
-    let monthlyInflowList = getPositiveTransactions();
+    let monthlyInflowList = getPositiveTransactions(walletMonthlyTransactions);
+	// console.log(monthlyInflowList);
     let monthlyInflow = 0;
-    for (transaction in monthlyInflowList) {
-      monthlyInflow += transaction["amount"];
+    for (const transaction of monthlyInflowList) {
+      	monthlyInflow += transaction["amount"];
     }
-    this.monthlyInflowAmount.innerHTML = "$0";
+    this.monthlyInflowAmount.innerHTML = `$${monthlyInflow}`;
 
     // TODO
     // let sortedWalletTransactions = this.wallet_data['transactions'];
-    let sortedWalletTransactions = wallet_data.transactions;
+    let sortedWalletMonthlyTransactions = getTransactionsSorted(walletMonthlyTransactions);
+	// console.log(sortedWalletMonthlyTransactions);
+
+	for (const transaction of sortedWalletMonthlyTransactions) {
+		let row = document.createElement("tr");
+		let name = document.createElement("td");
+		let amount = document.createElement("td");
+
+
+    
+    if(transaction["amount"] > 0) {
+      amount['data-transaction-kind'] = 'positive';
+    } else {
+      amount['data-transaction-kind'] = 'negative';
+    }
+
+		name.textContent = transaction["name"];
+		amount.textContent = transaction["amount"];
+
+		row.append(name, amount);
+		this.tbody.append(row);
+	}
 
     // TODO: sort transactions by date to show most recent -> put recents into table
     // table stuff:
     // TableRow = document.createElement("tr");
     // TransactionsNameTitle = document.createElement("th");
     // TransactionsAmountTitle = document.createElement("th");
+
+
   }
 }
+
+// function updateTarget() {
+//   console.log('worked')
+//   let inputBox = document.getElementById('target-input');
+//   let newTarget = inputBox.value;
+//   this.thisMonthsSpendingTarget.innerHTML = `/$${newTarget}`;
+//   // update wallet.target?
+// }
+
 customElements.define("wallet-details", WalletDetails);
 
-// fix/finish component (set data), switch between weekly, monthly, yearly
-// (NOT DONE)
 
-// dialogue box thingy popping up in wallet details - problem with exporting global var from Wallet.js
-// (^DONE)
+// TODO: 
+// - fix display of transactions
+//     - space out transaction and amount columns 
+//     - something is too big  
+//     - make negative amounts be red color and get rid of negative sign
+// - fix display of spending statistics
+
+// - take in input for monthly target
+// - what is include in total checkbox for?
+// - delete wallet button
+
+// - filter transactions for week/month/year (take in input)
