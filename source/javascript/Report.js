@@ -2,8 +2,8 @@
  * @author: Ashwin Rohit Alagiri Rajan
  */
 
-import { getAllUsersObject, setAllUsersObject, setCurrentUsername, getCurrentUsername, getCurrentUser, updateCurrentUser, getCurrentUserWallets, setCurrentUserWallets, resetGlobalInfo } from './globals.js'
-import { getThisMonthTransactions, getThisYearTransactions, getThisWeekTransactions, getAllTransactions } from './TransactionFilter.js'
+import { getCurrentUserWallets} from './globals.js';
+import { getThisMonthTransactions, getThisYearTransactions, getThisWeekTransactions, getAllTransactions } from './TransactionFilter.js';
 
 const root = document.createElement('div');
 root.classList.add('report-root');

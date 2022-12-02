@@ -52,6 +52,9 @@ body {
     background-position: -3px -3px;
     height: 100%;
 	overflow: hidden;
+	-moz-transform: scale(0.8, 0.8); /* Moz-browsers */
+    zoom: 0.8; /* Other non-webkit browsers */
+    zoom: 80%; /* Webkit browsers */
 }
 
 .page-header {
