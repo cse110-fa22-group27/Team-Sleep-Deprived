@@ -1,3 +1,10 @@
+/**
+ * Handles all of the changes to user settings such as
+ * changing default page and changing password
+ * 
+ * @author: Andrew Nguyen/Shuo Wang
+ */
+
 // Imports useful functions from other files
 import { getCurrentUser, updateCurrentUser } from './globals.js';
 
@@ -44,45 +51,36 @@ dropDown.addEventListener('change', (event) => {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
+	// only does not change if user default is wallets and current option is wallets
 	else if ((event.target.value != 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
+	// only does not change if user default is reports and current option is reports
 	else if ((event.target.value != 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
 
-
+	// Disables save and reset button if current option is dashboard 
+	// and dashboard is user preferred page
 	if ((event.target.value == 'dashboard') && (currentUser['preferred-default-page'] == 0)) {
 		resetSettings.style.opacity = 0.5;
 		resetSettings.disabled = true;
+		saveSettings.style.opacity = 0.5;
+		saveSettings.disabled = true;
 	} 
+	// Disables save button if current option is wallets and wallets is user preferred page
 	else if ((event.target.value == 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
+	// Disables save button if current option is reports and reports is user preferred page
 	else if ((event.target.value == 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
 });
-
-/**
- * Changes save button to enabled if there is text inside the inputs
- * For password 
- */
-//  document.querySelector('[name="old-password"]').addEventListener('input', (event) => {
-// 	let currOld = document.querySelector('[name="old-password"]').value;
-// 	if (currOld == '') {
-// 		saveSettings.style.opacity = 0.5;
-// 		saveSettings.disabled = true;
-// 	}
-// 	else {
-// 		saveSettings.style.opacity = 1;
-// 		saveSettings.disabled = false;
-// 	}
-//  });
 
 /**
  * Changes save button to enabled if there is text inside the inputs
@@ -132,14 +130,16 @@ saveSettings.addEventListener('click', function() {
 			// sets password if there is no problems with the new password
 			else {
 				currentUser['password'] = newPassword;
+				document.querySelector('[name="old-password"]').value = "";
+				document.querySelector('[name="new-password"]').value = "";
 				alert('Password Changed');
 			}
 		}
 
-		else if (oldPassword == '') {
+		else if (oldPassword == '' && newPassword != '') {
 			throw new Error('Please input current password!');
 		}
-		else if (newPassword == '') {
+		else if (oldPassword != '' && newPassword == '') {
 			throw new Error('Please input new password!');
 		}
 
@@ -158,12 +158,16 @@ saveSettings.addEventListener('click', function() {
 		}
 
 		updateCurrentUser(currentUser);
-
-		saveSettings.textContent = 'Saved';
+		
+		saveSettings.textContent = 'Saved!';
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 
-		window.location.reload();
+		window.setTimeout(() => {
+			saveSettings.textContent = 'Save';
+		}, 500)
+
+		// window.location.reload();
 
 	}
 	// catches any errors
