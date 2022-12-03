@@ -151,7 +151,7 @@ body {
 }
 
 .statistic-item {
-	font-size: 1.2rem; 
+	font-size: 1.4rem; 
     margin-bottom: 5%;
     /* padding-bottom: 10px; */
 }
@@ -190,10 +190,10 @@ body {
 
 .statistic-item .setting-item .setting-input {
     border: none;
-    color: #777;
-    font-size: 1.1rem;
+    color: inherit;
+    font-size: 1.4rem;
     font-weight: var(--font-scaling-semibold);
-    text-align: right;
+    text-align: center;
 }
 
 .statistic-item .setting-item .setting-input:focus,

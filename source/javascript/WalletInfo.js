@@ -81,7 +81,9 @@ class WalletInfo extends HTMLElement {
     */
 	set data(walletData) {
 		this.walletName.innerHTML = walletData.name;
-		this.walletAmount.innerHTML = `$${walletData['total-amount']}`;
+		let totalAmount = parseFloat(walletData['total-amount']);
+		totalAmount = totalAmount.toFixed(2);
+		this.walletAmount.innerHTML = '$' + totalAmount;
 		if(walletData.lastTransaction) {
 			this.walletLastTransaction.innerHTML = `<strong>${walletData.lastTransaction.name}</strong> $${Math.abs(walletData.lastTransaction.amount)}`;
 			const lastTransactionType = walletData.lastTransaction.amount > 0 ? 'positive' : 'negative';
