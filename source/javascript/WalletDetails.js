@@ -185,8 +185,15 @@ class WalletDetails extends HTMLElement {
 	this.targetSectionInput.addEventListener("blur", () => {
 		this.thisMonthsSpendingTarget.innerHTML = "/" + this.targetSectionInput.value;
 		this.targetSectionInput.value = this.targetSectionInput.value;
-		console.log(this.targetSectionInput);
 	});
+
+	this.targetSectionInput.addEventListener("keypress", (event) => {
+		if (event.key === "Enter") {
+		  	this.thisMonthsSpendingTarget.innerHTML = "/" + this.targetSectionInput.value;
+			this.targetSectionInput.value = this.targetSectionInput.value;
+		}
+	  })
+
     // END
 
     /**
