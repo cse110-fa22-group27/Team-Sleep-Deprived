@@ -130,6 +130,8 @@ saveSettings.addEventListener('click', function() {
 			// sets password if there is no problems with the new password
 			else {
 				currentUser['password'] = newPassword;
+				document.querySelector('[name="old-password"]').value = "";
+				document.querySelector('[name="new-password"]').value = "";
 				alert('Password Changed');
 			}
 		}
@@ -156,12 +158,16 @@ saveSettings.addEventListener('click', function() {
 		}
 
 		updateCurrentUser(currentUser);
-
-		saveSettings.textContent = 'Saved';
+		
+		saveSettings.textContent = 'Saved!';
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 
-		window.location.reload();
+		window.setTimeout(() => {
+			saveSettings.textContent = 'Save';
+		}, 500)
+
+		// window.location.reload();
 
 	}
 	// catches any errors
