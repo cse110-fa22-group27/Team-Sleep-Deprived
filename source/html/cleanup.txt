@@ -1,0 +1,15 @@
+The following things are required for code cleanup and overall consistent look.
+
+- All buttons should use the same styling.
+- All the input fields should be rectangular, this specifically applies to the signup page.
+- (Reasoning: We currently dont have a purpose for transaction description) Possibly implement the transaction dialog that appears when hovered over a transaction or clicked on it.
+- All the inputs should be outlined black on focus similar to how they are in the reports page.
+- (Reasoning: We currently don't know how much we're spending in a year) The reports page should show how much we're spending in a year.
+
+### Major Changes
+
+- Rename the Dashboard page to Transactions
+- Rename the Reports page to Dashboard page
+- Move the recent transactions component from the "Transactions" (prev. Dashboard) to the "Dashboard" (prev. Report) page
+- Move the generate report form from the "Dashboard" (prev. Report) to "Transactions" (prev. Dashboard) and rename to "Download Transactions"
+- Show the total spending for the year/target spending on top of the "Transactions" page.

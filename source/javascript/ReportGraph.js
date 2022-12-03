@@ -114,6 +114,7 @@ class GraphComponent extends HTMLElement {
 
 		// add some padding to the max amount
 		maxAmount += 500;
+		maxAmount = Math.ceil(maxAmount / 1000) * 1000;
 
 		// create a bar graph item for each monthly amount
 		monthlyAmounts.forEach((monthlyAmount, index) => {
@@ -157,7 +158,7 @@ class GraphComponent extends HTMLElement {
 
 		// create an amount axis item for each 1000 up to the max amount with the amount being suffixed with a k for thousands and with a precision of 1 decimal place excluding the first amount axis item
 		for (let i = maxAmount; i >= 1000; i -= 1000) {
-		const amountAxisItem = document.createElement('div');
+			const amountAxisItem = document.createElement('div');
 			amountAxisItem.setAttribute('id', 'amount-axis');
 
 			// set the text content of the amount axis item to the amount
