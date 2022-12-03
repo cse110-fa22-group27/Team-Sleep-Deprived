@@ -116,3 +116,5 @@ package.json
 
 # exclude documentation files
 /docs/*
+
+/source/javascript/testing/__image_snapshots__/__diff_output__

@@ -44,45 +44,36 @@ dropDown.addEventListener('change', (event) => {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
+	// only does not change if user default is wallets and current option is wallets
 	else if ((event.target.value != 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
+	// only does not change if user default is reports and current option is reports
 	else if ((event.target.value != 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 1;
 		saveSettings.disabled = false;
 	}
 
-
+	// Disables save and reset button if current option is dashboard 
+	// and dashboard is user preferred page
 	if ((event.target.value == 'dashboard') && (currentUser['preferred-default-page'] == 0)) {
 		resetSettings.style.opacity = 0.5;
 		resetSettings.disabled = true;
+		saveSettings.style.opacity = 0.5;
+		saveSettings.disabled = true;
 	} 
+	// Disables save button if current option is wallets and wallets is user preferred page
 	else if ((event.target.value == 'wallets') && (currentUser['preferred-default-page'] == 1)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
+	// Disables save button if current option is reports and reports is user preferred page
 	else if ((event.target.value == 'reports') && (currentUser['preferred-default-page'] == 2)) {
 		saveSettings.style.opacity = 0.5;
 		saveSettings.disabled = true;
 	} 
 });
-
-/**
- * Changes save button to enabled if there is text inside the inputs
- * For password 
- */
-//  document.querySelector('[name="old-password"]').addEventListener('input', (event) => {
-// 	let currOld = document.querySelector('[name="old-password"]').value;
-// 	if (currOld == '') {
-// 		saveSettings.style.opacity = 0.5;
-// 		saveSettings.disabled = true;
-// 	}
-// 	else {
-// 		saveSettings.style.opacity = 1;
-// 		saveSettings.disabled = false;
-// 	}
-//  });
 
 /**
  * Changes save button to enabled if there is text inside the inputs
