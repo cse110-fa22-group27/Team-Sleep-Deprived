@@ -1,3 +1,10 @@
+/**
+ * Handles all of the changes to user settings such as
+ * changing default page and changing password
+ * 
+ * @author: Andrew Nguyen/Shuo Wang
+ */
+
 // Imports useful functions from other files
 import { getCurrentUser, updateCurrentUser } from './globals.js';
 
