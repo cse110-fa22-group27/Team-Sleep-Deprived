@@ -3,7 +3,7 @@
 
 - Status: 
 
-- Deciders: 
+- Deciders: Javier, Andrew, Abby
 
 - Date: 2021-11-05
 
@@ -30,24 +30,6 @@ How should we lint, or check the syntax of our code?
 - StyleLint
 
 - ESLint
-
-## Decision Outcome
-
-​
-Chosen option:
-
-​
-### Positive Consequences <!-- optional -->
-
-
-- 
-
-
-### Negative Consequences <!-- optional -->
-
-​
-- 
-
 
 ## Pros and Cons of the Options <!-- optional -->
 
@@ -94,4 +76,24 @@ A pluggable and configurable linter tool for identifying and reporting on patter
 - cons:
   - doesnt work with CSS
 
+
+## Decision Outcome
+
+​
+Chosen option:
+
+- ESLint and StyleLint
+- Having both allows us to clean code of different languages like Javascript and CSS
+​
+### Positive Consequences <!-- optional -->
+  - customizable
+  - gets the job done 
+
+
+### Negative Consequences <!-- optional -->
+  - May be a bit slow
+  - May Take a bit of configuration before using
+
 ## Links
+- [ESLint](https://eslint.org/docs/latest/)
+- [StyleLint](https://stylelint.io/)
