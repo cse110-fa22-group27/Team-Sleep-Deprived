@@ -59,7 +59,6 @@ class RecentActivity extends HTMLElement {
 		// for every JSON object passed in create a transaction and add to table.
 		for(var t of transactions){
 			var new_trans = document.createElement('tr');
-			console.log(t);
 			if(t.amount < 0){
 				new_trans.innerHTML = `
 				<td class="transaction-name">${t.name}</td>

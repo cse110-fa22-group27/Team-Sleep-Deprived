@@ -23,7 +23,8 @@ body {
 .wallet-details-root {
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-direction: row;
     justify-content: center;
     margin: 0 auto;
     width: var(--header-width);
@@ -32,10 +33,10 @@ body {
 }
 
 .component {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     /* margin: 0 2.5%; */
-	font-size: 1.2rem;
+	font-size: 1.2rem; 
 	height: 100%;
 }
 
@@ -44,15 +45,31 @@ body {
     font-weight: var(--font-scaling-medium);
 }
 
-.recent-transactions .component-title {
+/* .recent-transactions .component-title {
 	height: 10%;
+    font-size: 4rem; 
+} */
+
+#recent-transactions.component {
+    width: 50%;
+}
+
+
+/* access recent component title and change font*/
+#recent-component-title{
+    font-size: 2.0rem;
 }
 
 .recent-transactions-table {
 	display: flex;
 	/* padding: 5px 10px; */
 	height: 90%;
-    width: 40%;
+    /* width: 80%; */
+    width: 60%;
+    font-size: 1.5rem; /*added font size*/
+    text-align: left; /*amount col needs to be left alligned*/
+    flex-direction: column;
+    /* table-layout: fixed; */
 }
 
 .recent-transactions-table > tbody {
@@ -71,6 +88,9 @@ body {
     gap: 0 150px;
 	align-items: center;
 	min-height: 2rem;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 40px;
 }
 
 .recent-transactions-table > tbody::-webkit-scrollbar {
@@ -111,11 +131,11 @@ body {
 #spending-statistics {
 	display: flex;
 	align-items: flex-start;
+    flex-direction: column;
 	/* justify-content: space-between; */
     /* justify-content: space-evenly; */
-    margin-left: 60%;
+    /* margin-left: 60%; */
     margin-bottom: 30%;
-
 
     /* position: fixed;
     margin-top: 275px;
@@ -133,6 +153,7 @@ body {
 .statistic-item {
 	font-size: 1.2rem; 
     margin-bottom: 5%;
+    /* padding-bottom: 10px; */
 }
 
 .statistic-item > h2:not(.component-title) {

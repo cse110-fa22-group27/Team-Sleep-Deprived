@@ -23,6 +23,8 @@ import {
   getPositiveTransactions
 } from "./TransactionFilter.js";
 
+import { getCurrentUserWallets, setCurrentUserWallets } from "./globals.js";
+
 class WalletDetails extends HTMLElement {
   /**
    * @constructs WalletDetails
@@ -38,17 +40,19 @@ class WalletDetails extends HTMLElement {
      */
 
     this.elementRoot = document.createElement("div");
-    this.elementRoot.className = "details-root";
+    this.elementRoot.className = "wallet-details-root"; // AK changed from 'details-root' to 'wallet-details-root' to match css
 
     // Recent Transactions container
     this.recentTransactions = document.createElement("div");
-    this.recentTransactions.className = "component-t";
+    this.recentTransactions.className = "component";
+    // this.recentTransactions.className = "recent-transaction-component-title";
     this.recentTransactions.id = "recent-transactions";
 
     // Recent Transaction Title
     this.componentTitle = document.createElement("h2");
     this.componentTitle.className = "component-title";
-    this.componentTitle.id = "recent-component-title";
+    // this.componentTitle.id = "recent-component-title";
+	this.componentTitle.id = "component-title";
     this.componentTitle.innerHTML = "Recent Transactions";
 
     // Transaction Table
@@ -66,11 +70,11 @@ class WalletDetails extends HTMLElement {
     this.recentTransactionsNameTitle = document.createElement("th");
     this.recentTransactionsNameTitle.className = "transaction-name";
     this.recentTransactionsNameTitle.id = "recent-transactions-name-title";
-    this.recentTransactionsNameTitle.innerHTML = "Transaction";
+    this.recentTransactionsNameTitle.innerHTML = "Name";
 
     this.recentTransactionsAmountTitle = document.createElement("th");
     this.recentTransactionsAmountTitle.id = "recent-transactions-amount-title";
-    this.recentTransactionsAmountTitle = "Amount";
+    this.recentTransactionsAmountTitle.innerHTML = "Amount $";
 
     // Spending Statistics
     this.spendingStatistics = document.createElement("div");
@@ -97,14 +101,14 @@ class WalletDetails extends HTMLElement {
     this.thisMonthsSpending = document.createElement("h2");
     this.thisMonthsSpending.className = "component-title";
     this.thisMonthsSpending.id = "this-months-spending";
-    this.thisMonthsSpending.innerHTML = "Monthly Spending";
+    this.thisMonthsSpending.innerHTML = "This month's spending";
 
     this.thisMonthsSpendingAmount = document.createElement("h2");
     this.thisMonthsSpendingAmount.className = "statistic-value";
     this.thisMonthsSpendingAmount.id = "this-months-spending-amount";
 
     this.thisMonthsSpendingTarget = document.createElement("h2");
-    this.thisMonthsSpendingTarget.className = "statistic-value";
+    // this.thisMonthsSpendingTarget.className = "statistic-value";
     this.thisMonthsSpendingTarget.id = "monthly-target-statistic";
 
     this.monthlyInflowItem = document.createElement("div");
@@ -131,9 +135,9 @@ class WalletDetails extends HTMLElement {
     this.monthlyOutflow.innerHTML = "Monthly Outflow";
 
     this.monthlyOutflowAmount = document.createElement("h2");
-    this.monthlyOutflowAmount.className = "component-title";
+    this.monthlyOutflowAmount.className = "statistic-value";
     this.monthlyOutflowAmount.id = "monthly-outflow-amount";
-    this.monthlyOutflowAmount.innerHTML = "$0"; // set data()
+    // this.monthlyOutflowAmount.innerHTML = "$0"; // set data()
 
     // SETTINGS - currently unused / unimplemented
     this.settingsBox = document.createElement("div");
@@ -162,6 +166,7 @@ class WalletDetails extends HTMLElement {
     this.includeTotalInput.className = "setting-input";
     this.includeTotalInput.setAttribute("type", "checkbox");
     this.includeTotalInput.id = "include-total-input";
+	this.includeTotalInput.addEventListener("change", includeInTotal);
 
     this.targetSection = document.createElement("section");
     this.targetSection.className = "setting-item";
@@ -178,35 +183,11 @@ class WalletDetails extends HTMLElement {
 
     this.targetSectionInput = document.createElement("input");
     this.targetSectionInput.className = "setting-input";
-    this.targetSectionInput.id = "target-input";
-    // this.targetSectionInput.onblur = 'updateTarget()';
-
-    this.timespanSection = document.createElement("section");
-    this.timespanSection.className = "setting-item";
-    this.timespanSection.id = "timespan-section";
-
-    this.timespanSectionTitle = document.createElement("h3");
-    this.timespanSectionTitle.className = "setting-title";
-    this.timespanSectionTitle.id = "timespan-section-title";
-    this.timespanSectionTitle.innerHTML = "Filter by";
-
-    this.timespanSectionWrapper = document.createElement("span");
-    this.timespanSectionWrapper.className = "setting-input";
-    this.timespanSectionWrapper.id = "timespan-input-wrapper";
-
-    this.timespanSectionSelect = document.createElement("select");
-    this.timespanSectionSelect.className = "setting-input";
-    this.timespanSectionSelect.id = "timespan-input";
-    this.timespanSectionSelect.appendChild(new Option("Week", "week"));
-    this.timespanSectionSelect.appendChild(new Option("Month", "month"));
-    this.timespanSectionSelect.appendChild(new Option("Year", "year"));
-
-    // this.sortByTimespan = document.createElement("select");
-    // this.sortByTimespan.className = "timespan-select";
-    // this.sortByTimespan.id = "select-timespan";
-    // this.sortByTimespan.appendChild(new Option("Week", "week"));
-    // this.sortByTimespan.appendChild(new Option("Month", "month"));
-    // this.sortByTimespan.appendChild(new Option("Year", "year"));
+    this.targetSectionInput.id = "target-input";	
+	this.targetSectionInput.addEventListener("blur", () => {
+		this.thisMonthsSpendingTarget.innerHTML = "/$" + this.targetSectionInput.value;
+		this.targetSectionInput.value = "$" + this.targetSectionInput.value;
+	});
     // END
 
     /**
@@ -255,7 +236,6 @@ class WalletDetails extends HTMLElement {
     this.settingsGlassBox.append(
       this.includeTotalSection,
       this.targetSection
-      //this.timespanSection
     );
 
     this.includeTotalSection.append(
@@ -268,13 +248,6 @@ class WalletDetails extends HTMLElement {
     );
 
     this.targetSectionWrapper.append(this.targetSectionInput);
-
-    // this.timespanSection.append(
-    //   this.timespanSectionTitle,
-    //   this.timespanSectionWrapper
-    // );
-
-    // this.timespanSectionWrapper.append(this.timespanSectionSelect);
 
     this.spendingStatistics.append(
       this.currentBalanceItem,
@@ -289,7 +262,6 @@ class WalletDetails extends HTMLElement {
       this.spendingStatistics,
       this.styleElem,
       this.defaultStyleLink
-	  //this.walletName
     );
     this.shadowElem.append(this.elementRoot);
   }
@@ -298,12 +270,10 @@ class WalletDetails extends HTMLElement {
    */
 
   set data(wallet_data) {
-    // console.log(wallet_data);
     if (wallet_data == null) {
       return;
     }
 
-	// this.walletName.innerHTML = wallet_data.name;
 
     // Monthly Spending
     let monthlySpending = 0; 
@@ -319,43 +289,29 @@ class WalletDetails extends HTMLElement {
 	monthlySpending *= -1;
 
 	if (netGain >= 0) {
+    	this.thisMonthsSpendingAmount.setAttribute("data-kind", "amount");
 		this.thisMonthsSpendingAmount.innerHTML = "$0";
 	}
 	else {
+    	this.thisMonthsSpendingAmount.setAttribute("data-kind", "amount");
 		this.thisMonthsSpendingAmount.innerHTML = `$${monthlySpending}`;
 	}
 
-    // this.thisMonthsSpendingAmount.innerHTML = `$${monthlySpending}`;
-
 
     this.thisMonthsSpendingTarget.innerHTML = `/$${wallet_data.target}`;
+	this.targetSectionInput.value = `$${wallet_data.target}`;
 
-	let currentBalance = parseInt(wallet_data["total-amount"]) + netGain;
+	let currentBalance = parseFloat(wallet_data["total-amount"]);
+  	this.currentBalanceAmount.setAttribute("data-kind", "amount");  // AK SET ATTRIBUTE TO MATCH CSS --> TURN TO BLUE
     this.currentBalanceAmount.innerHTML = '$' + currentBalance;
 
-
-    // use getthismonth transactions and then get negative transactions
-    // let allMonthlyTransactions = getWalletMonthlyTransactions(wallet_data);
-    // console.log(allMonthlyTransactions);
-
-    // let monthlyOutflowList = getNegativeTransactions(allMonthlyTransactions);
     let monthlyOutflowList = getNegativeTransactions(walletMonthlyTransactions);
-    // console.log(monthlyOutflowList);
     let monthlyOutflowAmount = 0
     for (const transaction of monthlyOutflowList) {
-      // console.log(transaction);
-      	// let row = document.createElement("tr");
-      	// let name = document.createElement("td");
-      	// let amount = document.createElement("td");
-
-      	// name.innerHTML = transaction["name"];
-      	// amount.innerHTML = transaction["amount"];
-
-      	// row.append(name, amount);
-      	// this.tbody.append(row);
 	  	monthlyOutflowAmount += transaction["amount"];
     }
 	monthlyOutflowAmount *= -1;
+  	this.monthlyOutflowAmount.setAttribute("data-transaction-kind", "negative");  // AK SET ATTRIBUTE MATCH CSS FONT COLOR
     this.monthlyOutflowAmount.innerHTML = `$${monthlyOutflowAmount}`;
 
     // use getthismonth transactions and then get positive transactions
@@ -366,6 +322,7 @@ class WalletDetails extends HTMLElement {
     for (const transaction of monthlyInflowList) {
       	monthlyInflow += transaction["amount"];
     }
+    this.monthlyInflowAmount.setAttribute("data-transaction-kind", "positive"); // AK SET ATTRIBUTE MATCH CSS FONT COLOR
     this.monthlyInflowAmount.innerHTML = `$${monthlyInflow}`;
 
     // TODO
@@ -378,51 +335,46 @@ class WalletDetails extends HTMLElement {
 		let name = document.createElement("td");
 		let amount = document.createElement("td");
 
+    	if(transaction["amount"] > 0) {
+      		amount.setAttribute('data-transaction-kind', 'positive');  // AK: ADD THIS TO SET CSS ATTRIBUTE
+    	} 
+		else {
+      		amount.setAttribute('data-transaction-kind', 'negative'); // AK: ADD THIS TO SET CSS ATTRIBUTE
+    	}
 
-    
-    if(transaction["amount"] > 0) {
-      amount['data-transaction-kind'] = 'positive';
-    } else {
-      amount['data-transaction-kind'] = 'negative';
-    }
 
 		name.textContent = transaction["name"];
-		amount.textContent = transaction["amount"];
+    // AK: ADD IF STATMENT to remove negative sign and add parentheses around negative transactions
+    if(transaction["amount"] < 0) {
+      amount.textContent = `(${-transaction['amount']})`;
+    } else {
+      amount.textContent = transaction['amount'];
+    }
 
 		row.append(name, amount);
 		this.tbody.append(row);
 	}
 
-    // TODO: sort transactions by date to show most recent -> put recents into table
-    // table stuff:
-    // TableRow = document.createElement("tr");
-    // TransactionsNameTitle = document.createElement("th");
-    // TransactionsAmountTitle = document.createElement("th");
-
+	wallet_data['total-amount'] = currentBalance;
 
   }
 }
-
-// function updateTarget() {
-//   console.log('worked')
-//   let inputBox = document.getElementById('target-input');
-//   let newTarget = inputBox.value;
-//   this.thisMonthsSpendingTarget.innerHTML = `/$${newTarget}`;
-//   // update wallet.target?
-// }
+async function includeInTotal() {
+    console.log("clicked");
+    const currentWallet = JSON.parse(localStorage.getItem('currentWalletName'));
+    let wallets = await getCurrentUserWallets();
+    let newWallets = [];
+    for(const wallet of wallets) {
+        if(wallet.name == currentWallet) {
+            wallet['includeInTotal'] = !wallet['includeInTotal'];
+        }
+        newWallets.push(wallet);
+    }
+    setCurrentUserWallets(newWallets);
+}
 
 customElements.define("wallet-details", WalletDetails);
 
 
 // TODO: 
-// - fix display of transactions
-//     - space out transaction and amount columns 
-//     - something is too big  
-//     - make negative amounts be red color and get rid of negative sign
-// - fix display of spending statistics
-
-// - take in input for monthly target
-// - what is include in total checkbox for?
-// - delete wallet button
-
-// - filter transactions for week/month/year (take in input)
+// - try to make display match figma TODO

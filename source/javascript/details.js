@@ -22,48 +22,25 @@ window.addEventListener('load', async () => {
     heading.innerHTML = currentWallet['name'];
 });
 
-function timeSelection() {
-    const list = document.getElementById('timespan-input');
-    const option = list.options[list.selectedIndex].value;
-    if(option == 'week') {
-        console.log('week');
-
-    } else if(option == 'month') {
-        console.log('month');
-
-    } else if (option == 'year') {
-        console.log('year');
-    }
-
-}
-
  
 function goBackToWalletsPage() {
-    // console.log('goBackToWalletsPage()');
     localStorage.removeItem('currentWalletName');
     window.open('../html/wallets.html', '_self');
 }
 
-
-// todo
 async function deleteWallet(){
-    // console.log('deleteWallet()');
-    // const currentWallet = JSON.parse(localStorage.getItem('currentWalletName'));
-    // let wallets = await getCurrentUserWallets();
-    // let newWallets = [];
-    // for(const wallet in wallets) {
-    //     if(wallet.name != currentWallet) {
-    //         newWallets.push(wallet);
-    //     }
-    // }
-    // setCurrentUserWallets(newWallets);
-    // localStorage.removeItem('currentWalletName');
-    // note for above - initWalletPage()
-
-
+    const currentWallet = JSON.parse(localStorage.getItem('currentWalletName'));
+    let wallets = await getCurrentUserWallets();
+    let newWallets = [];
+    for(const wallet of wallets) {
+        if(wallet.name != currentWallet) {
+            newWallets.push(wallet);
+        }
+    }
+    setCurrentUserWallets(newWallets);
     goBackToWalletsPage();
+    initWalletPage();
 }
 
 document.getElementById("back-button").addEventListener ("click", goBackToWalletsPage);
 document.getElementById("delete-button").addEventListener ("click", deleteWallet);
-// document.getElementById("timespan-input").addEventListener("onchange", timeSelection);
