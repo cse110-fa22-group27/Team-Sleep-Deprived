@@ -55,7 +55,8 @@ class WalletInfo extends HTMLElement {
 
 		this.elementRoot.addEventListener('click', event => {
 			event.preventDefault();
-			window.open('../../source/html/wallet_info.html', '_self');
+			// console.log("CLICKED");
+			// window.open('../../source/html/wallet_details.html', '_self');
 		});
 
 		this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem, this.defaultStyleLink);
@@ -80,7 +81,9 @@ class WalletInfo extends HTMLElement {
     */
 	set data(walletData) {
 		this.walletName.innerHTML = walletData.name;
-		this.walletAmount.innerHTML = `$${walletData['total-amount']}`;
+		let totalAmount = parseFloat(walletData['total-amount']);
+		totalAmount = totalAmount.toFixed(2);
+		this.walletAmount.innerHTML = '$' + totalAmount;
 		if(walletData.lastTransaction) {
 			this.walletLastTransaction.innerHTML = `<strong>${walletData.lastTransaction.name}</strong> $${Math.abs(walletData.lastTransaction.amount)}`;
 			const lastTransactionType = walletData.lastTransaction.amount > 0 ? 'positive' : 'negative';
