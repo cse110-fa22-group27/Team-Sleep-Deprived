@@ -62,7 +62,9 @@ class WalletInfo extends HTMLElement {
 		this.elementRoot.append(this.walletName, this.walletAmount, this.walletLastTransaction, this.styleElem, this.defaultStyleLink);
 		this.shadowElem.append(this.elementRoot);
 	}
-
+	// which function do u need to workl on?
+	// it's in walletdetails
+	// take me there
 	/**
      * @typedef {Object} transaction
      * @property {string} name Name of the last transaction

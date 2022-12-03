@@ -182,20 +182,36 @@ class WalletDetails extends HTMLElement {
     this.targetSectionInput.className = "setting-input";
     this.targetSectionInput.id = "target-input";
 
-	this.targetSectionInput.addEventListener("blur", () => {
+	this.targetSectionInput.addEventListener("onchange", (event) => {
+		console.log(event);
 		this.thisMonthsSpendingTarget.innerHTML = "/" + this.targetSectionInput.value;
 		this.targetSectionInput.value = this.targetSectionInput.value;
 	});
 
-	this.targetSectionInput.addEventListener("keypress", (event) => {
-		if (event.key === "Enter") {
-		  	this.thisMonthsSpendingTarget.innerHTML = "/" + this.targetSectionInput.value;
-			this.targetSectionInput.value = this.targetSectionInput.value;
-		}
-	  })
-
-    // END
-
+	this.targetSectionInput.addEventListener('change', async event => {
+    const inputField = event.target;
+    const inputValue = inputField.value;
+    const newTarget = Number(inputValue);
+    if (!newTarget) {
+      alert('Invalid value detected.');
+      return;
+    }
+    const currentWalletName = JSON.parse(localStorage.getItem('currentWalletName'));
+    let currentWallet = []
+    const wallets = await getCurrentUserWallets();
+    let currentWalletIndex = 0;
+    for (let i = 0; i < wallets.length; ++i) {
+      if(wallets[i].name === currentWalletName) {
+        currentWalletIndex = i;
+        currentWallet = wallets[i];
+        break;
+      } 
+    } 
+    currentWallet['target'] = newTarget;
+    wallets[currentWalletIndex] = currentWallet;
+    await setCurrentUserWallets(wallets);
+    window.location.reload();
+  });
     /**
      * Styles the wallet details component. The stylesheet is defaulted to <code>../css/wallet-styles.css</code>
      * @member {HTMLElement} styleElem
