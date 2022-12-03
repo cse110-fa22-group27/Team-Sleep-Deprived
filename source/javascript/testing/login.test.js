@@ -1,12 +1,13 @@
 
 const { toMatchImageSnapshot } = require('jest-image-snapshot');
+const { getCurrentUser, setCurrentUsername, getCurrentUsername, resetGlobalInfo } = require ('../globals.js');
+
+beforeAll(async () => {
+	const page = await browser.newPage();
+	await page.goto('http://localhost:5500/source/html/login.html');
+});
 
 describe('Sign-in snapshot testing', () => {
-	beforeAll(async () => {
-		const page = await browser.newPage();
-		await page.goto('http://localhost:5500/source/html/signin.html');
-	});
-
 	it('Testing for any changes to the sign-in page', async () => {
 		const page = await browser.newPage();
 		expect.extend({ toMatchImageSnapshot });
