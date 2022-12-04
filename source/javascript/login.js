@@ -37,8 +37,19 @@ async function loginAutomatically() {
 	return;
 }*/
  
-// loginAutomatically();
- 
+
+async function loginAutomatically() {
+	let rememberme = localStorage.getItem('rememberme');
+	if (rememberme) {
+		const currentUser = await getCurrentUser();
+		if(!currentUser) return;
+		loadDefaultPage(currentUser['preferred-default-page']);
+	}
+	return;
+}
+
+loginAutomatically();
+
 //Logic for signup window
 if (signup.test(window.location.href)) {
 	let form = document.getElementsByClassName('user-details-form')[0];

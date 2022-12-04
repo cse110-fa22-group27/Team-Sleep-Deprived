@@ -1,47 +1,25 @@
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
 import { getTransactionsSortedByDate } from './TransactionFilter.js';
 const MAX_TRANSACTIONS = 10;
-var recentActivity;
-
-//console.log(await getCurrentUserWallets());
-/**
- * Initializes the recent activity window
- */
-function initRecent(){
-	recentActivity = document.createElement('rec-act');
-	//recentActivity.data =  JSON.stringify([{'name':'No recent ', 'amount':'-10', 'wallet':'walletname'}]);
-	
-	let container = document.getElementsByClassName('flex-container')[0];
-	container.appendChild(recentActivity);
-	refreshTransactions();
-}
+let recentActivity;
 
 /**
  * Refreshes the transactions displayed on the dashboard
  */
-async function refreshTransactions(){
-	let transactions = displayRecentTransactions(await getTransactionsSortedByDate(), MAX_TRANSACTIONS);
-	// console.log(transactions);
-	recentActivity.data = JSON.stringify(transactions);
-}
-
-
-/**
- * 
- * @param {Array<Object>} transactions 
- * @param {Int} amount 
- * @returns recent 'amount' of transactions
- */
-function displayRecentTransactions(transactions, amount){
-	let recentTransactions = [];
-	for(let i = 0; i < amount; i++){
-		//If therte are no more transactions to display
-		if(i >= transactions.length){
-			return recentTransactions;
-		}
-		recentTransactions.push(transactions[i]);
+async function refreshTransactions() {
+	recentActivity = document.createElement('rec-act');
+	let container = document.getElementsByClassName('flex-container')[0];
+	if (container.lastChild.tagName === 'REC-ACT') {
+		container.removeChild(container.lastChild);
 	}
-	return recentTransactions;
+	container.appendChild(recentActivity);
+	let transactions = await getTransactionsSortedByDate();
+	// if there are no transactions, display that there are no transactions instead of the table
+	if(transactions.length <= 0){
+		recentActivity.shadowRoot.querySelector('.recent-activity-box').innerHTML = '<div class="no-transactions-filler"><h3> No Transactions To Display </h3></div>';
+		return;
+	}
+	recentActivity.data = JSON.stringify(transactions);
 }
 
 async function initDashboard() {
@@ -51,7 +29,7 @@ async function initDashboard() {
 	addTransaction.data = wallets;
 	addTransaction.shadowRoot.querySelector('form').addEventListener('submit', addTransactionEventHandler);
 	flexContainer.appendChild(addTransaction);
-	initRecent();
+	refreshTransactions();
 }
 
 async function addTransactionEventHandler(event) {
@@ -86,6 +64,6 @@ async function addTransactionEventHandler(event) {
 	}, 2000);
 
 	form.reset();
+	refreshTransactions();
 }
 initDashboard();
-

@@ -26,6 +26,16 @@ async function getTransactionsSortedByDate() {
   return transactions;
 }
 
+function getTransactionsSortedByDateForWallet(wallet) {
+	const transactions = wallet['transactions'];
+	transactions.sort((a, b) => {
+		const aDate = new Date(a["date"]);
+		const bDate = new Date(b["date"]);
+		return bDate - aDate;
+	});
+	return transactions;
+}
+
 function getTransactionsSorted(transactions) {
 	// return transactions sorted by date from newest to oldest
 	transactions.sort((a, b) => {
@@ -205,6 +215,7 @@ async function sortSingleWallet(wallet) {
 
 export {
   getTransactionsSortedByDate,
+  getTransactionsSortedByDateForWallet,
   getThisMonthTransactions,
   getThisYearTransactions,
   getThisWeekTransactions,
@@ -216,5 +227,5 @@ export {
   sortSingleWallet,
   getNegativeTransactions,
   getPositiveTransactions,
-  getTransactionsSorted
+  getTransactionsSorted,
 };

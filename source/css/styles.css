@@ -75,10 +75,22 @@ body {
     scale: var(--logout-button-scaling);
     display: flex;
     border: var(--temp-border-style);
+	border-radius: 100px;
+	padding: 12px;
 }
 
 .logout-button:hover {
     cursor: pointer;
+	border: 5px solid rgb(234, 94, 96);
+	padding: 7px;
+	border-radius: 100px;
+	scale: 0.55;
+	transition: all .2s ease;
+}
+
+.user-logout {
+	display: flex;
+	align-items: center;
 }
 
 .navbar {

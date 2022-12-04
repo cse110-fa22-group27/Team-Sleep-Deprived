@@ -112,7 +112,7 @@ let walletData = {
 };
 
 let newWalletInfo = document.createElement('wallet-info');
-var element = document.getElementsByClassName('wallet-info');
+let element = document.getElementsByClassName('wallet-info');
 
 newWalletInfo.data = {
 	name: walletData.name,

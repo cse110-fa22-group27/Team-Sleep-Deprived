@@ -15,6 +15,15 @@ input {
 	padding: 8px 10px;
 }
 
+input:focus {
+	outline: none;
+	border-color: #333;
+}
+
+input[type="date"]:hover {
+	cursor: pointer;
+}
+
 select {
 	width: 15vw;
 	font-family: 'IBM Plex Sans';
@@ -22,6 +31,15 @@ select {
 	border: 2px solid var(--default-border-color);
 	border-radius: 10px;
 	padding: 8px;
+}
+
+select:focus {
+	outline: none;
+	border-color: #333;
+}
+
+select:hover {
+	cursor: pointer;
 }
 
 #desc-input {
@@ -34,6 +52,12 @@ select {
 	resize: none;
 	padding: 10px;
 	border: 2px solid var(--default-border-color);
+	font-size: 1.2rem;
+}
+
+#desc-input:focus {
+	outline: none;
+	border-color: #333;
 }
 
 .description {
@@ -53,18 +77,18 @@ select {
 	height: 100%;
 }
 
-.add-transaction-box > div {
+.add-transaction-box>div {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 }
 
-.add-transaction-box > div > input {
+.add-transaction-box>div>input {
 	font-size: 1.2rem;
 	height: 100%;
 }
 
-.add-transaction-box > div > select {
+.add-transaction-box>div>select {
 	font-size: 1.2rem;
 	height: 100%;
 }
@@ -131,15 +155,45 @@ select {
 	height: 70%;
 }
 
+rec-act {
+	width: 100%;
+}
+
 .recent-activity {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.recent-activity-box {
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-.recent-activity-box {
+.recent-activity-box > thead {
+	margin: 0;
+	padding: 5px;
+	border-bottom: 3px solid var(--default-border-color);
+	display: flex;
+}
+
+.recent-activity-box > thead > tr {
+	width: 100%;
+	display: flex;
+}
+
+.recent-activity-box > tbody > tr {
 	padding: 5px 10px;
-	height: 100%;
+	display: flex;
+	width: 100%;
+}
+
+.recent-activity-box > tbody > tr:hover {
+	background-color: var(--default-border-color);
+	cursor: pointer;
 }
 
 .section-title {
@@ -159,7 +213,6 @@ table {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	padding: 5px 0;
 }
 
 .transaction-amount {

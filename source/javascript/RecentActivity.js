@@ -1,10 +1,12 @@
+import { showTransactionDetails } from './DisplayTransactionDetails.js';
+
 class RecentActivity extends HTMLElement {
 	constructor() {
 		super();
 
 		this.attachShadow({ mode: 'open' });
-		const styles = document.createElement('style');
-		styles.innerHTML = '@import \'../css/dashboard.css\';@import \'../css/styles.css\';';
+		this.styles = document.createElement('style');
+		this.styles.innerHTML = '@import \'../css/dashboard.css\';@import \'../css/styles.css\';';
 
 		const divider = document.createElement('div');
 		divider.setAttribute('class', 'recent-activity');
@@ -12,15 +14,31 @@ class RecentActivity extends HTMLElement {
 		<h2 class='section-title'>Recent Activity</h2>
 		<div class='recent-activity-box glass-box'>
 		<table>
+			<thead>
 			<tr>
 				<th class="transaction-name" id="recent-transactions-name-title">Name</th>
-				<th id="recent-transactions-amount-title">Amount $</th>
-				<th>Wallet</th>
+				<th class="transaction-amount" id="recent-transactions-amount-title">Amount $</th>
+				<th class="wallet-name">Wallet</th>
 			</tr>
+			</thead>
 		</table>
 		</div>
 		`;
-		this.shadowRoot.append(styles, divider);
+		const recentActivity = document.createElement('div');
+		recentActivity.setAttribute('class', 'recent-activity');
+		recentActivity.innerHTML = `
+		<h2 class='section-title'>Recent Activity</h2>
+		<table class='recent-activity-box glass-box'>
+			<thead>
+			<tr>
+				<th class="transaction-name" id="recent-transactions-name-title">Name</th>
+				<th class="transaction-amount" id="recent-transactions-amount-title">Amount $</th>
+				<th class="wallet-name">Wallet</th>
+				</tr>
+				</thead>
+				</table>
+				`;
+		this.shadowRoot.append(this.styles, recentActivity);
 	}
 
 	/**
@@ -44,22 +62,26 @@ class RecentActivity extends HTMLElement {
 	 */
 	set data(data) {
 		// if data null return
-		if(!data) {
+		if (!data) {
 			return;
 		}
 		// parse data
 		const transactions = JSON.parse(data);
 		const table = this.shadowRoot.querySelector('table');
-		table.innerHTML = `<tr>
+		table.innerHTML = `
+						<thead>
+							<tr>
 								<th class="transaction-name" id="recent-transactions-name-title">Name</th>
-								<th id="recent-transactions-amount-title">Amount $</th>
-								<th>Wallet</th>
-							</tr>`; //clear table
+								<th class="transaction-amount" id="recent-transactions-amount-title">Amount $</th>
+								<th class="wallet-name">Wallet</th>
+							</tr>
+						</thead>`; //clear table
 
+		const tbody = document.createElement('tbody');
 		// for every JSON object passed in create a transaction and add to table.
-		for(var t of transactions){
-			var new_trans = document.createElement('tr');
-			if(t.amount < 0){
+		for (let t of transactions) {
+			let new_trans = document.createElement('tr');
+			if (t.amount < 0) {
 				new_trans.innerHTML = `
 				<td class="transaction-name">${t.name}</td>
 				<td class="transaction-amount" data-kind="amount" data-transaction-kind="negative">(${-t.amount})</td>
@@ -73,8 +95,12 @@ class RecentActivity extends HTMLElement {
 				<td class="wallet-name">${t.wallet}</td>			
 				`;
 			}
-			table.appendChild(new_trans);
+			new_trans.addEventListener('click', () => {
+				showTransactionDetails(t);
+			});
+			tbody.appendChild(new_trans);
 		}
+		table.appendChild(tbody);
 	}
 }
 
