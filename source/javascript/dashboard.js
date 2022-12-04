@@ -16,7 +16,7 @@ async function refreshTransactions() {
 	let transactions = await getTransactionsSortedByDate();
 	// if there are no transactions, display that there are no transactions instead of the table
 	if(transactions.length <= 0){
-		recentActivity.shadowRoot.querySelector('.recent-activity-box').innerHTML = '<div class="no-transactions-filler"><h3> No Transactions To Display </h3></div>';
+		recentActivity.shadowRoot.querySelector('.recent-activity-box').innerHTML = '<div class="no-transactions-filler"><h3> No Transactions To Display </h3></div><style>.no-transactions-filler { display: flex; width: 100%; justify-content: center; align-items: center; height: 100%; } </style>';
 		return;
 	}
 	recentActivity.data = JSON.stringify(transactions);
