@@ -177,6 +177,7 @@ class WalletDetails extends HTMLElement {
     this.targetSectionWrapper = document.createElement("span");
     this.targetSectionWrapper.className = "setting-input";
     this.targetSectionWrapper.id = "monthly-target-input-wrapper";
+    this.targetSectionWrapper.innerHTML = "$";  // ak: put $ in parent span instead
 
     this.targetSectionInput = document.createElement("input");
     this.targetSectionInput.className = "setting-input";
@@ -323,7 +324,8 @@ class WalletDetails extends HTMLElement {
 
 	// Monthly Inflow
     this.thisMonthsSpendingTarget.innerHTML = `/${wallet_data.target}`;
-	this.targetSectionInput.value = `$${wallet_data.target}`;
+	//this.targetSectionInput.value = `$${wallet_data.target}`;
+  this.targetSectionInput.value = wallet_data.target;  // removed $ from the input value
 
 	let currentBalance = parseFloat(wallet_data["total-amount"]);
 	currentBalance = currentBalance.toFixed(2);
