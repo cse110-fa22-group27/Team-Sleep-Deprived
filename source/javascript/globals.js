@@ -51,7 +51,7 @@ function getCurrentUsername() {
  */
 async function checkIfUserIsLoggedIn() {
 	// check that the current page is not the signup page
-	if (window.location.href.includes('signup.html')) {
+	if (window.location.href.includes('signup.html') || window.location.href.includes('login.html')) {
 		return;
 	}
 	// check if the user is logged in
