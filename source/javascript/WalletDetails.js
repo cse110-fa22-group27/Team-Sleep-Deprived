@@ -70,6 +70,7 @@ class WalletDetails extends HTMLElement {
 
 		this.recentTransactionsAmountTitle = document.createElement("th");
 		this.recentTransactionsAmountTitle.id = "recent-transactions-amount-title";
+		this.recentTransactionsAmountTitle.setAttribute('data-kind', 'amount');
 		this.recentTransactionsAmountTitle.innerHTML = "Amount $";
 
 		// Spending Statistics
@@ -362,6 +363,7 @@ class WalletDetails extends HTMLElement {
 			}
 
 
+			amount.setAttribute("data-kind", "amount");
 			name.textContent = transaction["name"];
 			// AK: ADD IF STATMENT to remove negative sign and add parentheses around negative transactions
 			if (transaction["amount"] < 0) {

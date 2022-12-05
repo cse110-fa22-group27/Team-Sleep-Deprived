@@ -167,7 +167,8 @@ rec-act {
 }
 
 .recent-activity-box {
-	height: 100%;
+	/* temporary fix */
+	height: 87.3%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -183,6 +184,19 @@ rec-act {
 .recent-activity-box > thead > tr {
 	width: 100%;
 	display: flex;
+}
+
+.recent-activity-box > tbody {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+/* hide scrollbar for tbody */
+.recent-activity-box > tbody::-webkit-scrollbar {
+	display: none;
 }
 
 .recent-activity-box > tbody > tr {
