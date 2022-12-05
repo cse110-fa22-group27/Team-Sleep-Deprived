@@ -8,6 +8,11 @@ body {
 	overflow: hidden;
 }
 
+wallet-details {
+	display: block;
+	height: 100%;
+}
+
 .back-button {
     scale: var(--logout-button-scaling);
     border: none;
@@ -52,6 +57,10 @@ body {
 	transition: all .2s ease;
 }
 
+#wallet-details-root {
+	height: 100%;
+}
+
 .wallet-details-root {
     display: flex;
     flex-wrap: nowrap;
@@ -72,7 +81,6 @@ body {
 }
 
 .component-title {
-    padding: 10px 0 5px 0;
     font-weight: var(--font-scaling-medium);
 	font-size: 1.7rem;
 }
@@ -83,24 +91,29 @@ body {
     font-size: 1.5rem; /*added font size*/
     text-align: left; /*amount col needs to be left alligned*/
     flex-direction: column;
+	overflow: hidden;
 }
 
 .recent-transactions-table > tbody {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	text-align: left;
 	overflow-y: scroll;
 	height: 100%;
+	scrollbar-width: none;
+}
+
+.recent-transactions-table > tbody::-webkit-scrollbar {
+	display: none;
 }
 
 .recent-transactions-table tr {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	min-height: 2rem;
-	padding: 5px;
+	padding: 5px 10px;
+	text-align: left;
 } 
 
 .recent-transactions-table > thead {
@@ -126,11 +139,13 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+	width: 70%;
 }
 
 #recent-transactions-name-title,
 #recent-transactions-amount-title {
     color: black;
+	font-family: var(--default-body-font);
 	font-weight: var(--font-scaling-semibold);
 }
 
@@ -177,7 +192,6 @@ body {
 #settings-box {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	height: 100%;
 	gap: 5px;
 }
