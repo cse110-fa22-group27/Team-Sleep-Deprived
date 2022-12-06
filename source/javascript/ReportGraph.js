@@ -1,5 +1,5 @@
 /**
- * @author: Ashwin Rohit Alagiri Rajan
+ * @author Ashwin Rohit Alagiri Rajan
  */
 class GraphComponent extends HTMLElement {
 	constructor() {

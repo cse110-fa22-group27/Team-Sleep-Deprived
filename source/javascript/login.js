@@ -23,21 +23,8 @@ function loadDefaultPage(defaultPageNumber) {
 }
  
 /**
-  * Automatically login if user has signed in (but not logged out)
-  * @returns 
-  */
-/*
-async function loginAutomatically() {
-	let rememberme = localStorage.getItem('rememberme');
-	if (rememberme) {
-		const currentUser = await getCurrentUser();
-		if(!currentUser) return;
-		loadDefaultPage(currentUser['preferred-default-page']);
-	}
-	return;
-}*/
- 
-
+ * If a user logged in with the remember me option, this function will automatically log them in, else it just returns without doing anything
+ */
 async function loginAutomatically() {
 	let rememberme = localStorage.getItem('rememberme');
 	if (rememberme) {
@@ -50,22 +37,20 @@ async function loginAutomatically() {
 
 loginAutomatically();
 
-//Logic for signup window
+/**
+ * Check if we are in the signup page, if so, add the event listener for the signup button, otherwise assume that we are in the login page and add an event listener for the login button
+ */
 if (signup.test(window.location.href)) {
 	let form = document.getElementsByClassName('user-details-form')[0];
 	form.addEventListener('submit', signUpSubmission);
-}
- 
-//Logic for sign-in window
-else {
+} else {
 	let form = document.getElementsByClassName('user-details-form')[0];
 	form.addEventListener('submit', signinSubmission, false);
 }
  
 /**
-  * Converts the data in the form into a new userObject,
-  * then loads the preferred default page
-  */
+ * Gets the login info and verifies that the user exists and the password is correct, if so, it logs the user in by redirecting to their preferred page chosen in the settings page
+ */
 async function signinSubmission(event) {
 	event.preventDefault();
 	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);
@@ -93,8 +78,8 @@ async function signinSubmission(event) {
 }
  
 /**
-  * Function performed after signup button is clicked
-  */
+ * Gets the signup info and verifies that the username is not taken and the password is valid, if so, it creates a new user and logs them in and shows them the dashboard page
+ */
 async function signUpSubmission(event) {
 	event.preventDefault();
 	let fdata = new FormData(document.getElementsByClassName('user-details-form')[0]);

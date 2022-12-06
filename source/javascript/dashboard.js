@@ -1,10 +1,15 @@
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ * @contributor Anthony Chen
+ * @fileoverview This file contains functions that will initialize the dashboard page with the add transactions form and the recent transactions table
+ */
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js';
 import { getTransactionsSortedByDate } from './TransactionFilter.js';
 const MAX_TRANSACTIONS = 10;
 let recentActivity;
 
 /**
- * Refreshes the transactions displayed on the dashboard
+ * This refreshes the recent transactions table when an event such as adding a new transactions occurs 
  */
 async function refreshTransactions() {
 	recentActivity = document.createElement('rec-act');
@@ -22,6 +27,9 @@ async function refreshTransactions() {
 	recentActivity.data = JSON.stringify(transactions);
 }
 
+/**
+ * This function initializes the dashboard page by adding the add transactions form and the recent transactions table
+ */
 async function initDashboard() {
 	const wallets = await getCurrentUserWallets();
 	const flexContainer = document.querySelector('.flex-container');
@@ -32,6 +40,10 @@ async function initDashboard() {
 	refreshTransactions();
 }
 
+/**
+ * This handles the add transaction event by adding the transaction to the database and refreshing the recent transactions table
+ * @param {Event} event 
+ */
 async function addTransactionEventHandler(event) {
 	event.preventDefault();
 	const form = event.target;

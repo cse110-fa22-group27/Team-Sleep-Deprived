@@ -1,5 +1,6 @@
-/* @author Ashwin Rohit Alagiri Rajan */
-
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ */
 .root-div {
 	display: flex;
 	flex-direction: column;

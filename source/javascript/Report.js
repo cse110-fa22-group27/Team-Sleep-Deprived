@@ -1,5 +1,6 @@
 /**
- * @author: Ashwin Rohit Alagiri Rajan
+ * @author Ashwin Rohit Alagiri Rajan
+ * @fileoverview This file contains functions that initialize the reports page and show the reports graph and the report generator form
  */
 
 import { getCurrentUserWallets} from './globals.js';
@@ -13,6 +14,10 @@ styleLink.href = '../css/report.css';
 root.appendChild(styleLink);
 document.body.appendChild(root);
 
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ * This class is a custom component that is used to display a placeholder when there are no transactions in the database
+ */
 class EmptyTransactionPlaceholder extends HTMLElement {
 	constructor() {
 		super();
@@ -24,6 +29,10 @@ class EmptyTransactionPlaceholder extends HTMLElement {
 	}
 }
 
+/**
+ * Initializes the graph with the data from the database, shows upto 12 months of transactions
+ * @returns {Promise} A promise that resolves to an array of all the transactions in the database
+ */
 async function initGraph() {
 	const root = document.querySelector('.report-root');
 	const transactions = await getAllTransactions();
@@ -48,6 +57,10 @@ async function initGraph() {
 	root.appendChild(reportGraph);
 }
 
+
+/**
+ * Generates a report based on the parameters passed in from the form, redirects to another page for automatic download
+ */
 async function initGenerator() {
 	const root = document.querySelector('.report-root');
 	const reportGenerator = document.createElement('report-generator');
@@ -71,6 +84,11 @@ async function initGenerator() {
 	});
 }
 
+/**
+ * Converts the JSON data stored in the DB to CSV format which can be downloaded
+ * @param {String} jsonString The JSON string to be converted to CSV
+ * @returns The converted CSV string
+ */
 async function JSONtoCSV(jsonString) {
 	const json = JSON.parse(jsonString);
 	const csv = [];
@@ -91,6 +109,12 @@ async function JSONtoCSV(jsonString) {
 	return csv.join('\n');
 }
 
+/**
+ * Generates the report based on the parameters passed in from the form
+ * @param {String} timespan Takes in values 'yearly', 'monthly', 'weekly'
+ * @param {String} includeAll Takes in values 'only-total', 'all'
+ * @param {String} reportFormat Takes in values 'CSV', 'PDF'
+ */
 async function generateReport(timespan, includeAll, reportFormat) {
 	const wallets = await getCurrentUserWallets();
 	const transactions = [];
@@ -127,6 +151,9 @@ async function generateReport(timespan, includeAll, reportFormat) {
 	}
 }
 
+/**
+ * Checks if the user has any wallets, if not, displays a message
+ */
 async function checkWallets() {
 	const wallets = await getCurrentUserWallets();
 	console.log(wallets);
@@ -141,6 +168,9 @@ async function checkWallets() {
 	return true;
 }
 
+/**
+ * Initializes the page
+ */
 async function init() {
 	if (await checkWallets()) {
 		await initGraph();

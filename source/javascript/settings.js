@@ -2,7 +2,9 @@
  * Handles all of the changes to user settings such as
  * changing default page and changing password
  * 
- * @author: Andrew Nguyen/Shuo Wang
+ * @author Andrew Nguyen
+ * @author Shuo Wang
+ * @contributor Ashwin Rohit Alagiri Rajan
  */
 
 // Imports useful functions from other files

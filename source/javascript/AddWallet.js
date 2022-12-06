@@ -1,7 +1,11 @@
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ * @fileoverview AddWallet.js This file contains the AddWallet class which is a custom component that is similar to the WalletInfo component but instead of displaying the wallet information this just provides a button with which you can add new wallets into the database
+ */
 class AddWallet extends HTMLElement {
 	constructor() {
 		super();
-		this.shadowElement = this.attachShadow({mode: 'open'});
+		this.shadowElement = this.attachShadow({ mode: 'open' });
 		this.root = document.createElement('div');
 		this.root.id = 'new-wallet';
 		this.root.className = 'wallet-info glass-box';

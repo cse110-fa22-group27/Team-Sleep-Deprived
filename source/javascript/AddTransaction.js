@@ -1,7 +1,7 @@
 /**
  * @author Ashwin Rohit Alagiri Rajan
+ * @fileoverview This file contains the AddTransaction class which is a custom element that is used to add a transaction to the database
  */
-
 class AddTransaction extends HTMLElement {
 	constructor() {
 		super();
@@ -108,6 +108,14 @@ class AddTransaction extends HTMLElement {
 		shadow.appendChild(div);
 	}
 
+	/**
+	 * Loads the add transaction form with the wallet names and the event listeners
+	 * @param {Array<Wallet>} wallets
+	 * @example
+	 * const addTransaction = document.querySelector('add-transaction');
+	 * const wallets = await globals.getCurrentUserWallets();
+	 * addTransaction.data = wallets;
+	 */
 	set data(wallets) {
 		this.wallets = wallets;
 		this.wallets.forEach(wallet => {

@@ -1,3 +1,8 @@
+/**
+ * @author Abigail Koornwinder
+ * @author Michael Phung
+ * @fileoverview This file contains the code for the wallet details page.
+ */
 import { getCurrentUserWallets, setCurrentUserWallets } from './globals.js'
 
 // loads component

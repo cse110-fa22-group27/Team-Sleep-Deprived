@@ -1,3 +1,7 @@
+/**
+ * @author Ashwin Rohit Alagiri Rajan
+ * @fileoverview This file contains the TransactionDetails class which is a custom element that is used to display the details of a transaction when clicked on a table
+ */
 class TransactionDetails extends HTMLElement {
 	constructor() {
 		super(); 

@@ -1,3 +1,8 @@
+/**
+ * @author Andrew Lu
+ * @author Kevin Chang
+ * @fileoverview This is database file which contains the api for the IndexedDB database operations. Follows CRUD principles.
+ */
 const indexedDB = window.indexedDB;
 
 
@@ -7,16 +12,26 @@ if (!indexedDB) {
 
 const dbRequest = indexedDB.open('UserDatabase', 1);
 
+/**
+ * Error handler for the database
+ * @param {Event} event 
+ */
 dbRequest.onerror = function (event) {
 	console.error('Database could not be opened');
 	console.error(event);
 };
 
+/**
+ * Upgrades the database to the latest version
+ */
 dbRequest.onupgradeneeded = function () {
 	const db = dbRequest.result;
 	db.createObjectStore('user', { keyPath: 'id', autoIncrement:true });
 };
 
+/**
+ * Reads the current user info from the database and loads it
+ */
 dbRequest.onsuccess = function () {
 	const db = dbRequest.result;
 	const user = db.transaction('user', 'readwrite');
@@ -24,6 +39,10 @@ dbRequest.onsuccess = function () {
 	user.objectStore('user');
 };
 
+/**
+ * Gets all the users from the database
+ * @returns A promise that resolves to the all users object
+ */
 function getAllUsersObject(){
 	return new Promise(
 		function(resolve, reject) {
@@ -57,6 +76,11 @@ function getAllUsersObject(){
 	);
 }
 
+/**
+ * Updates the all users object by overwriting it
+ * @param {Array<User>} object
+ * @returns Promise that resolves to a string indicating whether the store was completed successfully
+ */
 function setAllUsersObject(object){
 	return new Promise(
 		function(resolve, reject) {

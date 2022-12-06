@@ -1,3 +1,9 @@
+/**
+ * @author Anthony Chen
+ * @author Ashwin Rohit Alagiri Rajan
+ * @author Javier De La Cruz
+ * @fileoverview This file contains the RecentActivity class which is a custom element that is used to display the recent transactions table in the dashboard page
+ */
 import { showTransactionDetails } from './DisplayTransactionDetails.js';
 
 class RecentActivity extends HTMLElement {

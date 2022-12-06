@@ -63,6 +63,10 @@ async function checkIfUserIsLoggedIn() {
 
 checkIfUserIsLoggedIn();
 
+/**
+ * Shows the username of the current user near the logout button with a greeting.
+ * @returns The current user object
+ */
 async function setUserNameForLogoutButton() {
 	const logoutDiv = document.querySelector('.user-logout');
 	const username = getCurrentUsername();
@@ -124,6 +128,9 @@ async function setCurrentUserWallets(wallets) {
 	updateCurrentUser();
 }
 
+/**
+ * Resets the global variables to their default values. Used when the user logs out.
+ */
 async function resetGlobalInfo() {
 	currentUserSet = false;
 	currentUser = {};

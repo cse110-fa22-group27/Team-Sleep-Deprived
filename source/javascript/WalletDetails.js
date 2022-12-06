@@ -1,6 +1,8 @@
 /**
- * @author Michael Phung, Abigail Koornwinder
- * @contributor Jacob Graven, Ashwin Rohit
+ * @author Abigail Koornwinder
+ * @author Michael Phung 
+ * @contributor Ashwin Rohit Alagiri Rajan
+ * @contributor Jacob Graven
  * @class
  * @implements {HTMLElement}
  * WalletDetails custom component. This contains the custom component definition for wallet-details.
