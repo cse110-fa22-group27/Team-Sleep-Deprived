@@ -8,6 +8,6 @@ Team [Group Page](./admin/team.md)
 
 [Public Video](https://youtu.be/dsduedIEjEU)
 
-[Private Video]()
+[Private Video - small change]()
 
 [Deployed Website](https://cse110-expensetracker.netlify.app/)
